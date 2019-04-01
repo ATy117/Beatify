@@ -2,7 +2,7 @@ package object;
 
 import java.io.File;
 
-public class User {
+public class User implements Searchable{
 
     private int user_id;
     private String username;

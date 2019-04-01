@@ -3,7 +3,7 @@ package object;
 import java.io.File;
 import java.time.LocalDate;
 
-public class Song {
+public class Song implements Searchable {
     private int song_id;
     private String song_name;
 
