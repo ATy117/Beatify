@@ -1,11 +1,11 @@
-CREATE DATABASE  IF NOT EXISTS `beatifydb` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE  IF NOT EXISTS `beatifydb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
 USE `beatifydb`;
-
 -- MySQL dump 10.13  Distrib 8.0.15, for macos10.14 (x86_64)
 --
 -- Host: localhost    Database: beatifydb
 -- ------------------------------------------------------
 -- Server version	8.0.13
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -122,6 +122,32 @@ CREATE TABLE `followed_playlist` (
 LOCK TABLES `followed_playlist` WRITE;
 /*!40000 ALTER TABLE `followed_playlist` DISABLE KEYS */;
 /*!40000 ALTER TABLE `followed_playlist` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `follower_mapping`
+--
+
+DROP TABLE IF EXISTS `follower_mapping`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `follower_mapping` (
+  `user_id` int(11) NOT NULL,
+  `follower_id` int(11) NOT NULL,
+  PRIMARY KEY (`user_id`,`follower_id`),
+  KEY `followerID_idx` (`follower_id`),
+  CONSTRAINT `followerID` FOREIGN KEY (`follower_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE,
+  CONSTRAINT `userIDFollowed` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `follower_mapping`
+--
+
+LOCK TABLES `follower_mapping` WRITE;
+/*!40000 ALTER TABLE `follower_mapping` DISABLE KEYS */;
+/*!40000 ALTER TABLE `follower_mapping` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -273,4 +299,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-01 19:28:47
+-- Dump completed on 2019-04-02  0:22:56
