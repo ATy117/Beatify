@@ -12,11 +12,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         System.out.println("Hello world");
-        dbConnection connect = new dbConnection();
-        Connection test = connect.getConnection();
-        primaryStage.setOnCloseRequest( e -> {
-            System.exit(0);
-        });
     }
 
 
