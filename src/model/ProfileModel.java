@@ -3,6 +3,7 @@ package model;
 import object.User;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class ProfileModel extends Model {
@@ -13,8 +14,8 @@ public class ProfileModel extends Model {
         return user;
     }
 
-    public List<User> getFollowedUsers() {
-        return followedUsers;
+    public Iterator<User> getFollowedUsers() {
+        return followedUsers.iterator();
     }
 
     public void setUser(User user) {

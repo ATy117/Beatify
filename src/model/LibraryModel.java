@@ -5,6 +5,7 @@ import object.Playlist;
 import object.Song;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class LibraryModel extends Model {
@@ -14,24 +15,24 @@ public class LibraryModel extends Model {
     private List<Playlist> followedPlaylists = new ArrayList<>();
     private List<Song> allSongs = new ArrayList<>();
 
-    public List<Album> getMyAlbums() {
-        return myAlbums;
+    public Iterator<Album> getMyAlbums() {
+        return myAlbums.iterator();
     }
 
-    public List<Album> getFollowedAlbums() {
-        return followedAlbums;
+    public Iterator<Album> getFollowedAlbums() {
+        return followedAlbums.iterator();
     }
 
-    public List<Playlist> getMyPlaylists() {
-        return myPlaylists;
+    public Iterator<Playlist> getMyPlaylists() {
+        return myPlaylists.iterator();
     }
 
-    public List<Playlist> getFollowedPlaylists() {
-        return followedPlaylists;
+    public Iterator<Playlist> getFollowedPlaylists() {
+        return followedPlaylists.iterator();
     }
 
-    public List<Song> getAllSongs() {
-        return allSongs;
+    public Iterator<Song> getAllSongs() {
+        return allSongs.iterator();
     }
 
     public void setMyAlbums(List<Album> myAlbums) {
