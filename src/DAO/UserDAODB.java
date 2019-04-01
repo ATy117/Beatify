@@ -99,12 +99,59 @@ public class UserDAODB implements UserDAO{
 
     @Override
     public User getUser(String username, String password) {
-        return null;
+        User user = new User();
+        String query = "SELECT * FROM user";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet rs = statement.executeQuery();
+
+            while(rs.next()) {
+                String dbUsername = rs.getString("user.username");
+                String dbPassword = rs.getString("user.password");
+                if(dbUsername.equals(username) && dbPassword.equals(password)){
+                    try {
+                        user = toUser(rs);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    rs.close();
+                    statement.close();
+                    return user;
+                }
+            }
+
+            rs.close();
+            statement.close();
+            return null;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public boolean checkUsername(String username) {
-        return false;
+        String query = 	"SELECT user.username FROM user";
+        try {
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet rs = statement.executeQuery();
+
+            while(rs.next()) {
+                String usernameTemp = rs.getString("user.username");
+                if(usernameTemp.equals(username)){
+                    return true;
+                }
+
+            }
+
+            rs.close();
+            statement.close();
+            return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
