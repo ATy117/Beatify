@@ -1,9 +1,11 @@
+CREATE DATABASE  IF NOT EXISTS `beatifydb` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `beatifydb`;
+
 -- MySQL dump 10.13  Distrib 8.0.15, for macos10.14 (x86_64)
 --
 -- Host: localhost    Database: beatifydb
 -- ------------------------------------------------------
 -- Server version	8.0.13
-CREATE SCHEMA `beatifydb` ;
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
