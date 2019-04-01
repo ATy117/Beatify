@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #f4dfcc" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Circle fill="#fab4a76c" layoutX="415.0" layoutY="413.0" radius="64.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76c" layoutX="308.0" layoutY="370.0" radius="38.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76c" layoutX="250.0" layoutY="424.0" radius="30.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76c" layoutX="400.0" layoutY="307.0" radius="30.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76c" layoutX="61.0" layoutY="220.0" radius="27.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76c" layoutX="104.0" layoutY="292.0" radius="38.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76c" layoutX="66.0" layoutY="388.0" radius="47.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76c" layoutX="163.0" layoutY="435.0" radius="34.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76c" layoutX="97.0" layoutY="152.0" radius="34.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76c" layoutX="27.0" layoutY="85.0" radius="47.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <JFXTextField focusColor="#fa9583" layoutX="91.0" layoutY="271.0" promptText="Username" unFocusColor="#1c6575">
+         <font>
+            <Font name="Poppins Regular" size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXPasswordField focusColor="#fa9583" layoutX="91.0" layoutY="331.0" prefHeight="39.0" prefWidth="188.0" promptText="Password" unFocusColor="#1c6575">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXToggleButton layoutX="151.0" layoutY="384.0" text="Artist" textFill="#2f4159" toggleColor="#f4dfcc" toggleLineColor="#fa9583" unToggleColor="#e8ded6" unToggleLineColor="#1c6575">
+         <font>
+            <Font name="Poppins Regular" size="14.0" />
+         </font>
+      </JFXToggleButton>
+      <Text fill="#2f4159" layoutX="97.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Listener">
+         <font>
+            <Font name="Poppins Regular" size="14.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="339.0" layoutY="291.0" onAction="#changePane" style="-fx-background-color: #1c6575" text="Login" textFill="#fab2ab">
+         <font>
+            <Font name="Comfortaa Regular" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="331.0" layoutY="359.0" style="-fx-background-color: #1c6575" text="Register" textFill="#fab2ab">
+         <font>
+            <Font name="Comfortaa Regular" size="14.0" />
+         </font>
+      </JFXButton>
+      <ImageView fx:id="logo" fitHeight="174.0" fitWidth="174.0" layoutX="163.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/Logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
