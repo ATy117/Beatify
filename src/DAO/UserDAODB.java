@@ -4,6 +4,7 @@ import object.User;
 
 import java.io.*;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAODB implements UserDAO{
@@ -156,7 +157,28 @@ public class UserDAODB implements UserDAO{
 
     @Override
     public List<User> getFollowers(User user) {
-        return null;
+        String query = "SELECT  follower_mapping.follower_id, user.first_name, user.last_name, user.password, user.is_artist, user.avatar FROM user INNER JOIN follower_mapping\n" +
+                "on user.user_id = follower_mapping.follower_id\n" +
+                "where follower_mapping.user_id = " + user.getUser_id();
+
+        List<User> userList = new ArrayList<>();
+
+        try{
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet rs= statement.executeQuery();
+            while(rs.next()){
+                userList.add(toUser(rs));
+            }
+
+            return userList;
+        }catch (SQLException e){
+            e.printStackTrace();
+            return userList;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return userList;
+        }
+
     }
 
     private User toUser(ResultSet rs) throws SQLException, IOException {
