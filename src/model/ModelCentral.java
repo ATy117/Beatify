@@ -1,12 +1,16 @@
 package model;
 
 public class ModelCentral {
-    private static ModelCentral ourInstance = new ModelCentral();
+    private static ModelCentral ourInstance;
     private LibraryModel libraryModel;
     private ProfileModel profileModel;
     private SongPlayerModel playerModel;
 
     public static ModelCentral getInstance() {
+
+        if (ourInstance == null) {
+            ourInstance = new ModelCentral();
+        }
         return ourInstance;
     }
 
