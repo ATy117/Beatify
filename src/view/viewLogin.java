@@ -55,7 +55,7 @@ public class viewLogin extends View {
             }
         }
         else if (actionEvent.getSource() == registerBtn) {
-            controllerRegister register = new controllerRegister(primaryStage);
+            Controller register = new controllerRegister(primaryStage);
         }
 
     }

@@ -15,38 +15,38 @@
             <Font name="Comfortaa Bold" size="22.0" />
          </font>
       </Label>
-      <Circle fill="#1c6575" layoutX="131.0" layoutY="184.0" radius="78.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <JFXButton buttonType="RAISED" layoutX="82.0" layoutY="281.0" style="-fx-background-color: #4097aa" text="+ Upload Photo" textFill="#fab2a5">
+      <Circle fx:id="imageCircle" fill="#1c6575" layoutX="131.0" layoutY="184.0" radius="78.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <JFXButton fx:id="uploadBtn" buttonType="RAISED" layoutX="82.0" layoutY="281.0" onAction="#uploadPhoto" style="-fx-background-color: #4097aa" text="+ Upload Photo" textFill="#fab2a5">
          <font>
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </JFXButton>
-      <JFXTextField focusColor="#fa9583" layoutX="257.0" layoutY="126.0" promptText="First name" unFocusColor="#1c6575">
+      <JFXTextField fx:id="firstNameField" focusColor="#fa9583" layoutX="257.0" layoutY="126.0" promptText="First name" unFocusColor="#1c6575">
          <font>
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#fa9583" layoutX="444.0" layoutY="126.0" prefHeight="30.0" prefWidth="107.0" promptText="Last name" unFocusColor="#1c6575">
+      <JFXTextField fx:id="lastnameField" focusColor="#fa9583" layoutX="444.0" layoutY="126.0" prefHeight="30.0" prefWidth="107.0" promptText="Last name" unFocusColor="#1c6575">
          <font>
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#fa9583" layoutX="257.0" layoutY="166.0" promptText="Username" unFocusColor="#1c6575">
+      <JFXTextField fx:id="usernameField" focusColor="#fa9583" layoutX="257.0" layoutY="166.0" promptText="Username" unFocusColor="#1c6575">
          <font>
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXPasswordField focusColor="#fa9583" layoutX="257.0" layoutY="210.0" promptText="Password" unFocusColor="#1c6575">
+      <JFXPasswordField fx:id="passwordField" focusColor="#fa9583" layoutX="257.0" layoutY="210.0" promptText="Password" unFocusColor="#1c6575">
          <font>
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </JFXPasswordField>
-      <JFXButton buttonType="RAISED" layoutX="274.0" layoutY="323.0" style="-fx-background-color: #4097aa" text="Done" textFill="#fab2ab">
+      <JFXButton fx:id="doneBtn" buttonType="RAISED" layoutX="274.0" layoutY="323.0" onAction="#registerUser" style="-fx-background-color: #4097aa" text="Done" textFill="#fab2ab">
          <font>
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </JFXButton>
-      <JFXPasswordField focusColor="#fa9583" layoutX="257.0" layoutY="254.0" promptText="Confirm Password" unFocusColor="#1c6575">
+      <JFXPasswordField fx:id="confirmPassField" focusColor="#fa9583" layoutX="257.0" layoutY="254.0" promptText="Confirm Password" unFocusColor="#1c6575">
          <font>
             <Font name="Poppins Regular" size="14.0" />
          </font>
