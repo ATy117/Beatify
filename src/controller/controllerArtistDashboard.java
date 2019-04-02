@@ -8,7 +8,6 @@ import view.viewListenerDashboard;
 public class controllerArtistDashboard extends controllerDashboard{
 
 	public controllerArtistDashboard(Stage primaryStage) {
-		viewDashboard view = new viewArtistDashboard(primaryStage, this);
-
+		view = new viewArtistDashboard(primaryStage, this);
 	}
 }

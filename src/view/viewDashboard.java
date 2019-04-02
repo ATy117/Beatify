@@ -1,10 +1,7 @@
 package view;
 
 import com.jfoenix.controls.JFXButton;
-import controller.Controller;
-import controller.PaneController;
-import controller.controllerAllPlaylists;
-import controller.controllerMyProfile;
+import controller.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -21,7 +18,7 @@ public abstract class viewDashboard extends View {
 	public JFXButton artistBtn;
 	public JFXButton songsBtn;
 	public JFXButton searchBtn;
-	protected viewMusicPlayer musicPlayerView;
+	protected controllerMusicPlayer musicPlayer;
 	protected PaneController currentPaneController;
 
 
@@ -35,24 +32,24 @@ public abstract class viewDashboard extends View {
 		sm = new StageManager(primaryStage);
 		sm.loadScene(loader);
 
-		musicPlayerView = new viewMusicPlayer(rightCurrentAnchor);
+		musicPlayer = new controllerMusicPlayer(rightCurrentAnchor);
 	}
 
 	public void changePane(ActionEvent actionEvent) {
 		if (actionEvent.getSource() == searchBtn) {
-
+			currentPaneController = new controllerSearchResults(centerCurrentAnchor);
 		}
 		else if (actionEvent.getSource() == songsBtn) {
-
+			currentPaneController = new controllerAllSongs(centerCurrentAnchor);
 		}
 		else if (actionEvent.getSource() == artistBtn) {
-
+			currentPaneController = new controllerAllArtists(centerCurrentAnchor);
 		}
 		else if (actionEvent.getSource() == listenersBtn) {
-
+			currentPaneController = new controllerAllProfiles(centerCurrentAnchor);
 		}
 		else if (actionEvent.getSource() == albumsBtn) {
-
+			currentPaneController = new controllerAllAlbums(centerCurrentAnchor);
 		}
 		else if (actionEvent.getSource() == playlistsBtn) {
 			currentPaneController = new controllerAllPlaylists(centerCurrentAnchor);

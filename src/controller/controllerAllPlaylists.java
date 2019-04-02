@@ -5,7 +5,7 @@ import view.viewAllPlaylists;
 
 public class controllerAllPlaylists extends Controller implements PaneController{
 
-	public controllerAllPlaylists(AnchorPane centerCurrentAnchor) {
-		viewAllPlaylists playlistsPane = new viewAllPlaylists(centerCurrentAnchor);
+	public controllerAllPlaylists(AnchorPane mainPane) {
+		currentPane = new viewAllPlaylists(mainPane);
 	}
 }

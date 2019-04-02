@@ -5,7 +5,7 @@ import view.viewMyProfile;
 
 public class controllerMyProfile extends Controller implements PaneController {
 
-	public controllerMyProfile(AnchorPane centerCurrentAnchor) {
-		viewMyProfile myProfile = new viewMyProfile(centerCurrentAnchor);
+	public controllerMyProfile(AnchorPane mainPane) {
+		currentPane = new viewMyProfile(mainPane);
 	}
 }
