@@ -1,3 +1,6 @@
+package App;
+
+import controller.controllerLogin;
 import controller.dbConnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +14,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        System.out.println("Hello world");
+        controllerLogin login = new controllerLogin(primaryStage);
+
     }
 
 
