@@ -5,11 +5,14 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 import controller.*;
+import javafx.animation.Animation;
+import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class viewLogin extends View {
 
@@ -36,6 +39,16 @@ public class viewLogin extends View {
         sm = new StageManager(primaryStage);
         sm.loadScene(loader);
         sm.setWindowName("Beatify");
+
+        init();
+    }
+
+    private void init(){
+        RotateTransition rt = new RotateTransition(Duration.seconds(8), logo);
+        rt.setByAngle(360);
+        rt.setCycleCount(Animation.INDEFINITE);
+        rt.setAutoReverse(true);
+        rt.play();
     }
 
 
