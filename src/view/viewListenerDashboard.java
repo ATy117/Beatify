@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class viewListenerDashboard extends viewDashboard {
 
 	public AnchorPane rightCurrentAnchor;
@@ -28,6 +30,9 @@ public class viewListenerDashboard extends viewDashboard {
 		sm = new StageManager(primaryStage);
 		sm.loadScene(loader);
 		sm.setWindowName("Beatify");
+
+		musicPlayerView = new viewMusicPlayer(rightCurrentAnchor);
+
 	}
 	@Override
 	public void Update() {

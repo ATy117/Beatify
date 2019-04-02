@@ -26,7 +26,9 @@ public class viewArtistDashboard extends viewDashboard {
 
 		sm = new StageManager(primaryStage);
 		sm.loadScene(loader);
-		sm.setWindowName("Beatify Artist");
+		sm.setWindowName("Beatify for Artists");
+
+		musicPlayerView = new viewMusicPlayer(rightCurrentAnchor);
 	}
 
 	@Override
