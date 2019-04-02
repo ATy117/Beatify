@@ -23,17 +23,17 @@
       <Circle fill="#fab4a76c" layoutX="163.0" layoutY="435.0" radius="34.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="#fab4a76c" layoutX="97.0" layoutY="152.0" radius="34.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="#fab4a76c" layoutX="27.0" layoutY="85.0" radius="47.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <JFXTextField focusColor="#fa9583" layoutX="91.0" layoutY="271.0" promptText="Username" unFocusColor="#1c6575">
+      <JFXTextField fx:id="usernameField" focusColor="#fa9583" layoutX="91.0" layoutY="271.0" promptText="Username" unFocusColor="#1c6575">
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXPasswordField focusColor="#fa9583" layoutX="91.0" layoutY="331.0" prefHeight="39.0" prefWidth="188.0" promptText="Password" unFocusColor="#1c6575">
+      <JFXPasswordField fx:id="passwordField" focusColor="#fa9583" layoutX="91.0" layoutY="331.0" prefHeight="39.0" prefWidth="188.0" promptText="Password" unFocusColor="#1c6575">
          <font>
             <Font size="16.0" />
          </font>
       </JFXPasswordField>
-      <JFXToggleButton layoutX="151.0" layoutY="384.0" text="Artist" textFill="#2f4159" toggleColor="#f4dfcc" toggleLineColor="#fa9583" unToggleColor="#e8ded6" unToggleLineColor="#1c6575">
+      <JFXToggleButton fx:id="userTypeToggle" layoutX="151.0" layoutY="384.0" text="Artist" textFill="#2f4159" toggleColor="#f4dfcc" toggleLineColor="#fa9583" unToggleColor="#e8ded6" unToggleLineColor="#1c6575">
          <font>
             <Font name="Poppins Regular" size="14.0" />
          </font>
@@ -48,14 +48,14 @@
             <Font name="Comfortaa Regular" size="14.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="331.0" layoutY="359.0" style="-fx-background-color: #1c6575" text="Register" textFill="#fab2ab">
+      <JFXButton fx:id="registerBtn" buttonType="RAISED" layoutX="331.0" layoutY="359.0" onAction="#changePane" style="-fx-background-color: #1c6575" text="Register" textFill="#fab2ab">
          <font>
             <Font name="Comfortaa Regular" size="14.0" />
          </font>
       </JFXButton>
       <ImageView fx:id="logo" fitHeight="174.0" fitWidth="174.0" layoutX="163.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@resources/Logo.png" />
+            <Image url="@/resources/Logo.png" />
          </image>
       </ImageView>
    </children>

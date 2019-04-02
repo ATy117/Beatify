@@ -13,9 +13,8 @@ import java.sql.Connection;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage){
         controllerLogin login = new controllerLogin(primaryStage);
-
     }
 
 

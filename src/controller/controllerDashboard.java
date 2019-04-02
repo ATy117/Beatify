@@ -1,4 +1,4 @@
 package controller;
 
-public class controllerDashboard {
+public abstract class controllerDashboard extends Controller{
 }
