@@ -8,12 +8,12 @@ import java.io.IOException;
 
 public class viewMusicPlayer extends View {
 
-	public viewMusicPlayer(AnchorPane playerPane) {
+	public viewMusicPlayer(AnchorPane mainPane) {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("templateMusicPlayer.fxml"));
 		loader.setController(this);
 
 		try {
-			playerPane.getChildren().addAll((AnchorPane) loader.load());
+			mainPane.getChildren().setAll((AnchorPane) loader.load());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

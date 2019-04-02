@@ -4,7 +4,7 @@ import controller.Controller;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 
-public class viewRegister  extends  View{
+public class viewRegister extends View{
 
 	public viewRegister(Stage primaryStage, Controller controller) {
 		this.primaryStage = primaryStage;

@@ -24,37 +24,37 @@
                            </image>
                         </ImageView>
                         <Label />
-                        <JFXButton fx:id="searchBtn" buttonType="RAISED" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #4097aa" text="Search" textFill="#f4dfcc">
+                        <JFXButton fx:id="searchBtn" buttonType="RAISED" onAction="#changePane" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #4097aa" text="Search" textFill="#f4dfcc">
                            <font>
                               <Font name="Comfortaa Bold" size="18.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="songsBtn" buttonType="RAISED" prefHeight="48.0" prefWidth="178.0" text="Songs" textFill="#fab2a5">
+                        <JFXButton fx:id="songsBtn" buttonType="RAISED" onAction="#changePane" prefHeight="48.0" prefWidth="178.0" text="Songs" textFill="#fab2a5">
                            <font>
                               <Font name="Comfortaa Bold" size="18.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="artistBtn" buttonType="RAISED" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #4097aa" text="Artists" textFill="#f4dfcc">
+                        <JFXButton fx:id="artistBtn" buttonType="RAISED" onAction="#changePane" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #4097aa" text="Artists" textFill="#f4dfcc">
                            <font>
                               <Font name="Comfortaa Bold" size="18.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="listenersBtn" buttonType="RAISED" prefHeight="48.0" prefWidth="178.0" text="Listeners" textFill="#fab2a5">
+                        <JFXButton fx:id="listenersBtn" buttonType="RAISED" onAction="#changePane" prefHeight="48.0" prefWidth="178.0" text="Listeners" textFill="#fab2a5">
                            <font>
                               <Font name="Comfortaa Bold" size="18.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="albumsBtn" buttonType="RAISED" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #4097aa" text="Albums" textFill="#f4dfcc">
+                        <JFXButton fx:id="albumsBtn" buttonType="RAISED" onAction="#changePane" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #4097aa" text="Albums" textFill="#f4dfcc">
                            <font>
                               <Font name="Comfortaa Bold" size="18.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="playlistsBtn" buttonType="RAISED" prefHeight="48.0" prefWidth="178.0" text="Playlists" textFill="#fab2a5">
+                        <JFXButton fx:id="playlistsBtn" buttonType="RAISED" onAction="#changePane" prefHeight="48.0" prefWidth="178.0" text="Playlists" textFill="#fab2a5">
                            <font>
                               <Font name="Comfortaa Bold" size="18.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="profileBtn" buttonType="RAISED" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #4097aa" text="Profile" textFill="#f4dfcc">
+                        <JFXButton fx:id="profileBtn" buttonType="RAISED" onAction="#changePane" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #4097aa" text="Profile" textFill="#f4dfcc">
                            <font>
                               <Font name="Comfortaa Bold" size="18.0" />
                            </font>
