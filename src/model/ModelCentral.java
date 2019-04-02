@@ -5,6 +5,7 @@ public class ModelCentral {
     private LibraryModel libraryModel;
     private ProfileModel profileModel;
     private SongPlayerModel playerModel;
+    private OtherPeopleModel peopleModel;
 
     public static ModelCentral getInstance() {
 
@@ -29,6 +30,10 @@ public class ModelCentral {
         return playerModel;
     }
 
+    public OtherPeopleModel getPeopleModel() {
+        return peopleModel;
+    }
+
     public void setLibraryModel(LibraryModel libraryModel) {
         this.libraryModel = libraryModel;
     }
@@ -39,6 +44,10 @@ public class ModelCentral {
 
     public void setPlayerModel(SongPlayerModel playerModel) {
         this.playerModel = playerModel;
+    }
+
+    public void setPeopleModel(OtherPeopleModel peopleModel) {
+        this.peopleModel = peopleModel;
     }
 
     public void resetModels(){
