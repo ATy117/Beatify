@@ -14,7 +14,7 @@ public class controllerListenerDashboard extends controllerDashboard{
 		super(primaryStage, user);
 		view = new viewListenerDashboard(primaryStage, this, model);
 
-		/*
+
 		model.setLibraryModel(new LibraryModel());
 		model.setPlayerModel(new SongPlayerModel());
 		model.setProfileModel(new ProfileModel());
@@ -22,6 +22,6 @@ public class controllerListenerDashboard extends controllerDashboard{
 		model.getLibraryModel().Attach(view);
 		model.getPlayerModel().Attach(view);
 		model.getProfileModel().Attach(view);
-		*/
+
 	}
 }
