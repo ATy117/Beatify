@@ -174,7 +174,7 @@ public class SongDAODB implements SongDAO {
 
     @Override
     public List<Song> getAllSongs(int user_id) {
-        String query = "SELECT song.song_id, song.title, song.genre, song.date_uploaded, song.artist_id, song.file, user.user_id, user.first_name, user.last_name, album.album_id, album.name\n" +
+        String query = "SELECT song.song_id, song.title, song.genre, song.date_uploaded, song.artist_id, user.user_id, user.first_name, user.last_name, album.album_id, album.name\n" +
                 "FROM song INNER JOIN user ON song.artist_id = user.user_id \n" +
                 "INNER JOIN album_contents ON album_contents.song_id = song.song_id \n" +
                 "INNER JOIN album ON album_contents.album_id = album.album_id\n" +
@@ -199,6 +199,13 @@ public class SongDAODB implements SongDAO {
 
     @Override
     public List<Song> getPlaylistSongs(int user_id, int playlist_id) {
+        String query =  "SELECT song.song_id, song.title, song.genre, song.date_uploaded, song.artist_id, user.first_name, user.last_name, album.album_id, album.name\n" +
+                "FROM song \n" +
+                "INNER JOIN user ON song.artist_id = user.user_id \n" +
+                "INNER JOIN album_contents ON album_contents.song_id = song.song_id \n" +
+                "INNER JOIN album ON album_contents.album_id = album.album_id\n" +
+                "INNER JOIN playlist_contents ON playlist_contents.song_id = song.song_id\n" +
+                "WHERE playlist_contents.playlist_id = " + playlist_id;
         return null;
     }
 
@@ -238,7 +245,6 @@ public class SongDAODB implements SongDAO {
         song.setAlbum_name(rs.getString("album.name"));
         song.setArtist__id(rs.getInt("user.user_id"));
         song.setArtist_name(rs.getString("user.first_name") + " " + rs.getString("user.last_name"));
-        song.setSong_URL(toFile(rs));
 
         return song;
     }
