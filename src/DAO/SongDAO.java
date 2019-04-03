@@ -18,8 +18,8 @@ public interface SongDAO {
 
 	public Song getSong(int song_id);
 	public List<Song> getAllSongs(int user_id);
-	public List<Song> getPlaylistSongs(int user_id, int playlist_id);
-	public List<Song> getAlbumSongs(int user_id, int album_id);
+	public List<Song> getPlaylistSongs(int playlist_id);
+	public List<Song> getAlbumSongs(int album_id);
 	public List<Song> getLikedSongs(int user_id);
 
 	public int checkSong(int user_id, String song_name);

@@ -198,7 +198,7 @@ public class SongDAODB implements SongDAO {
     }
 
     @Override
-    public List<Song> getPlaylistSongs(int user_id, int playlist_id) {
+    public List<Song> getPlaylistSongs(int playlist_id) {
         String query =  "SELECT song.song_id, song.title, song.genre, song.date_uploaded, song.artist_id, user.first_name, user.last_name, album.album_id, album.name\n" +
                 "FROM song \n" +
                 "INNER JOIN user ON song.artist_id = user.user_id \n" +
@@ -210,7 +210,7 @@ public class SongDAODB implements SongDAO {
     }
 
     @Override
-    public List<Song> getAlbumSongs(int user_id, int album_id) {
+    public List<Song> getAlbumSongs(int album_id) {
         return null;
     }
 

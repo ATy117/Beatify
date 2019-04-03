@@ -74,7 +74,7 @@ public class UserDAODB implements UserDAO{
             e.printStackTrace();
         }
 
-        String query = "UPDATE user + SET " +
+        String query = "UPDATE user SET " +
                 "user.first_name = ?, " +
                 "user.last_name = ?, " +
                 "user.username = ?, " +
