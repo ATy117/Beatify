@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import object.User;
 
 public class viewLogin extends View {
 
@@ -64,7 +65,7 @@ public class viewLogin extends View {
             String password = passwordField.getText();
 
             if (controller.userLogin(username, password)) {
-                controllerDashboard dashboard = new controllerListenerDashboard(primaryStage);
+                controllerDashboard dashboard = new controllerListenerDashboard(primaryStage, new User());
             }
         }
         else if (actionEvent.getSource() == registerBtn) {
