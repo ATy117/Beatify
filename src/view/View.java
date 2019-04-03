@@ -1,13 +1,19 @@
 package view;
 
+import controller.Controller;
 import javafx.stage.Stage;
+import model.ModelCentral;
 
 public abstract class View {
-
-	public abstract void Update();
-	public Stage stage;
+	
+	protected Stage primaryStage;
+	protected Controller controller;
+	protected StageManager sm;
+	protected ModelCentral model;
 
 	public View() {
 
 	}
+
+	public abstract void Update();
 }

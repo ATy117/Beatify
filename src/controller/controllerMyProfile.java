@@ -1,4 +1,13 @@
 package controller;
 
-public class controllerMyProfile {
+import javafx.scene.layout.AnchorPane;
+import model.ModelCentral;
+import view.viewMyProfile;
+
+public class controllerMyProfile extends Controller implements PaneController {
+
+	public controllerMyProfile(AnchorPane mainPane, ModelCentral model) {
+		this.model = model;
+		currentPane = new viewMyProfile(mainPane, model);
+	}
 }
