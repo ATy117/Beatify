@@ -2,6 +2,7 @@ package view;
 
 import com.jfoenix.controls.JFXButton;
 import controller.Controller;
+import controller.controllerDashboard;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -11,7 +12,7 @@ import java.io.IOException;
 
 public class viewListenerDashboard extends viewDashboard {
 
-	public viewListenerDashboard (Stage primaryStage, Controller controller, ModelCentral model) {
+	public viewListenerDashboard (Stage primaryStage, controllerDashboard controller, ModelCentral model) {
 		super(primaryStage, controller, model);
 		sm.setWindowName("Beatify");
 	}
