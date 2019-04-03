@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class SongDAODB implements SongDAO {
         String titleTemp = song.getSong_name();
         String genreTemp = song.getGenre();
         LocalDate dateUploadedTemp = song.getDate_uploaded();
-        String dateTemp = dateUploadedTemp.getYear()+"-"+dateUploadedTemp.getMonthValue()+"-"+dateUploadedTemp.getDayOfMonth();
+        String dateTemp = dateUploadedTemp.toString();
         int artistIDTemp = song.getArtist__id();
         FileInputStream songFileStream = null;
         try {
@@ -118,7 +119,7 @@ public class SongDAODB implements SongDAO {
         String titleTemp = song.getSong_name();
         String genreTemp = song.getGenre();
         LocalDate dateUploadedTemp = song.getDate_uploaded();
-        String dateTemp = dateUploadedTemp.getYear()+"-"+dateUploadedTemp.getMonthValue()+"-"+dateUploadedTemp.getDayOfMonth();
+        String dateTemp = dateUploadedTemp.toString();
         int artistIDTemp = song.getArtist__id();
         FileInputStream songFileStream = null;
         try {
@@ -201,7 +202,7 @@ public class SongDAODB implements SongDAO {
     public List<Song> getPlaylistSongs(int playlist_id) {
         List<Song> songList = new ArrayList<>();
 
-        String query =  "SELECT song.song_id, song.title, song.genre, song.date_uploaded, song.artist_id, user.first_name, user.last_name, album.album_id, album.name\n" +
+        String query =  "SELECT song.song_id, song.title, song.genre, song.date_uploaded, song.artist_id, user.user_id, user.first_name, user.last_name, album.album_id, album.name\n" +
                 "FROM song \n" +
                 "INNER JOIN user ON song.artist_id = user.user_id \n" +
                 "INNER JOIN album_contents ON album_contents.song_id = song.song_id \n" +
@@ -228,7 +229,7 @@ public class SongDAODB implements SongDAO {
     public List<Song> getAlbumSongs(int album_id) {
         List<Song> songList = new ArrayList<>();
 
-        String query =  "SELECT song.song_id, song.title, song.genre, song.date_uploaded, song.artist_id, user.first_name, user.last_name, album.album_id, album.name\n" +
+        String query =  "SELECT song.song_id, song.title, song.genre, song.date_uploaded, song.artist_id, user.user_id, user.first_name, user.last_name, album.album_id, album.name\n" +
                 "FROM song \n" +
                 "INNER JOIN user ON song.artist_id = user.user_id \n" +
                 "INNER JOIN album_contents ON album_contents.song_id = song.song_id \n" +
@@ -254,7 +255,7 @@ public class SongDAODB implements SongDAO {
     public List<Song> getLikedSongs(int user_id) {
         List<Song> songList = new ArrayList<>();
 
-        String query =  "SELECT song.song_id, song.title, song.genre, song.date_uploaded, song.artist_id, user.first_name, user.last_name, album.album_id, album.name\n" +
+        String query =  "SELECT song.song_id, song.title, song.genre, song.date_uploaded, song.artist_id, user.user_id, user.first_name, user.last_name, album.album_id, album.name\n" +
                 "FROM song \n" +
                 "INNER JOIN user ON song.artist_id = user.user_id \n" +
                 "INNER JOIN album_contents ON album_contents.song_id = song.song_id \n" +
@@ -320,7 +321,7 @@ public class SongDAODB implements SongDAO {
 
     @Override
     public File getSongFile(int song_id) {
-        String query = "SELECT song.title, song.file, user.first_name, user.last_name" +
+        String query = "SELECT song.title, song.file, user.first_name, user.last_name " +
                 "FROM song INNER JOIN user ON song.artist_id = user.user_id " +
                 "WHERE song.song_id = " + song_id;
         File songFile = null;
@@ -345,9 +346,10 @@ public class SongDAODB implements SongDAO {
         song.setSong_id(rs.getInt("song.song_id"));
         song.setSong_name(rs.getString("song.title"));
         song.setGenre(rs.getString("song.genre"));
-        LocalDate date = LocalDate.parse(rs.getString("song.date_uploaded"));
-        song.setDate_uploaded(date);
-        song.setAlbum_id(rs.getInt("album_contents.album_id"));
+        String date = rs.getString("song.date_uploaded");
+        LocalDate localDate = LocalDate.parse(date);
+        song.setDate_uploaded(localDate);
+        song.setAlbum_id(rs.getInt("album.album_id"));
         song.setAlbum_name(rs.getString("album.name"));
         song.setArtist__id(rs.getInt("user.user_id"));
         song.setArtist_name(rs.getString("user.first_name") + " " + rs.getString("user.last_name"));

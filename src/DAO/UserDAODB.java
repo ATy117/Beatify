@@ -184,13 +184,13 @@ public class UserDAODB implements UserDAO{
     private User toUser(ResultSet rs) throws SQLException, IOException {
         User user = new User();
 
+        user.setUsername(rs.getString("user.username"));
         user.setUser_id(rs.getInt("user.user_id"));
+        user.setPassword(rs.getString("user.password"));
         user.setFirst_name(rs.getString("user.first_name"));
         user.setLast_name(rs.getString("user.last_name"));
-        user.setUsername(rs.getString("user.username"));
-        user.setUsername(rs.getString("user.password"));
         user.setIs_artist((rs.getInt("user.is_artist")!=0));
-       // user.setAvatarURL(toFile(rs));
+        user.setAvatarURL(toFile(rs));
 
         return user;
     }

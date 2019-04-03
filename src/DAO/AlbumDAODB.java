@@ -20,7 +20,7 @@ public class AlbumDAODB implements AlbumDAO{
     public boolean addAlbum(Album album) {
         String nameTemp = album.getName();
         LocalDate dateUploadedTemp = album.getDate_uploaded();
-        String date = dateUploadedTemp.getYear()+"-"+dateUploadedTemp.getMonthValue()+"-"+dateUploadedTemp.getDayOfMonth();
+        String date = dateUploadedTemp.toString();
         int artistIdTemp = album.getArtist_id();
         FileInputStream coverStream = null;
         try {
@@ -67,7 +67,7 @@ public class AlbumDAODB implements AlbumDAO{
         int albumID = album.getAlbum_id();
         String nameTemp = album.getName();
         LocalDate dateUploadedTemp = album.getDate_uploaded();
-        String date = dateUploadedTemp.getYear()+"-"+dateUploadedTemp.getMonthValue()+"-"+dateUploadedTemp.getDayOfMonth();
+        String date = dateUploadedTemp.toString();
         int artistIdTemp = album.getArtist_id();
         FileInputStream coverStream = null;
         try {
