@@ -18,6 +18,8 @@ import java.io.File;
 
 public class viewRegister extends View{
 
+	private controllerRegister controller;
+
 	public Circle imageCircle;
 	public JFXButton uploadBtn;
 	public JFXTextField firstNameField;
@@ -30,7 +32,7 @@ public class viewRegister extends View{
 	public JFXRadioButton artistToggle;
 	public JFXButton backBtn;
 
-	public viewRegister(Stage primaryStage, Controller controller) {
+	public viewRegister(Stage primaryStage, controllerRegister controller) {
 		this.primaryStage = primaryStage;
 		this.controller = controller;
 

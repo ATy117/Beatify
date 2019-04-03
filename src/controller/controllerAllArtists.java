@@ -8,6 +8,6 @@ public class controllerAllArtists extends Controller implements PaneController {
 
 	public controllerAllArtists(AnchorPane mainPane, ModelCentral model) {
 		this.model = model;
-		currentPane = new viewAllArtists(mainPane, model);
+		currentPane = new viewAllArtists(mainPane, model, this);
 	}
 }

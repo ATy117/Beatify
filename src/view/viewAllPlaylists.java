@@ -1,5 +1,6 @@
 package view;
 
+import controller.controllerAllPlaylists;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import model.ModelCentral;
@@ -7,7 +8,11 @@ import model.ModelCentral;
 import java.io.IOException;
 
 public class viewAllPlaylists extends View{
-	public viewAllPlaylists(AnchorPane mainPane, ModelCentral model) {
+
+	private controllerAllPlaylists controller;
+
+	public viewAllPlaylists(AnchorPane mainPane, ModelCentral model, controllerAllPlaylists controller) {
+		this.controller = controller;
 		this.model = model;
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("templateAllPlaylists.fxml"));
 		loader.setController(this);
