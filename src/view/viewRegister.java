@@ -7,6 +7,7 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import controller.Controller;
+import controller.controllerLogin;
 import controller.controllerRegister;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -27,6 +28,7 @@ public class viewRegister extends View{
 	public JFXPasswordField confirmPassField;
 	public JFXRadioButton listenerToggle;
 	public JFXRadioButton artistToggle;
+	public JFXButton backBtn;
 
 	public viewRegister(Stage primaryStage, Controller controller) {
 		this.primaryStage = primaryStage;
@@ -55,5 +57,8 @@ public class viewRegister extends View{
 	}
 
 	public void changePane(ActionEvent actionEvent) {
+		if (actionEvent.getSource() == backBtn) {
+			Controller login = new controllerLogin(primaryStage);
+		}
 	}
 }
