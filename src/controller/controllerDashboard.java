@@ -15,5 +15,6 @@ public abstract class controllerDashboard extends Controller{
 	public controllerDashboard (Stage primaryStage) {
 		this.primaryStage = primaryStage;
 		model = ModelCentral.getInstance();
+		model.resetModels();
 	}
 }
