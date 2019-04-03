@@ -2,12 +2,14 @@ package view;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
+import model.ModelCentral;
 
 import java.io.IOException;
 
 public class viewShowCollection extends View{
 
-	public viewShowCollection (AnchorPane mainPane) {
+	public viewShowCollection (AnchorPane mainPane, ModelCentral model) {
+		this.model = model;
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("templateShowCollection.fxml"));
 		loader.setController(this);
 

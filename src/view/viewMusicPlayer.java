@@ -3,12 +3,14 @@ package view;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import model.ModelCentral;
 
 import java.io.IOException;
 
 public class viewMusicPlayer extends View {
 
-	public viewMusicPlayer(AnchorPane mainPane) {
+	public viewMusicPlayer(AnchorPane mainPane, ModelCentral model) {
+		this.model = model;
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("templateMusicPlayer.fxml"));
 		loader.setController(this);
 

@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import model.ModelCentral;
 
 public abstract class viewDashboard extends View {
 
@@ -22,7 +23,8 @@ public abstract class viewDashboard extends View {
 	protected PaneController currentPaneController;
 
 
-	public viewDashboard (Stage primaryStage, Controller controller) {
+	public viewDashboard (Stage primaryStage, Controller controller, ModelCentral model) {
+		this.model = model;
 		this.primaryStage = primaryStage;
 		this.controller = controller;
 
@@ -32,30 +34,30 @@ public abstract class viewDashboard extends View {
 		sm = new StageManager(primaryStage);
 		sm.loadScene(loader);
 
-		musicPlayer = new controllerMusicPlayer(rightCurrentAnchor);
+		musicPlayer = new controllerMusicPlayer(rightCurrentAnchor, model);
 	}
 
 	public void changePane(ActionEvent actionEvent) {
 		if (actionEvent.getSource() == searchBtn) {
-			currentPaneController = new controllerSearchResults(centerCurrentAnchor);
+			currentPaneController = new controllerSearchResults(centerCurrentAnchor, model);
 		}
 		else if (actionEvent.getSource() == songsBtn) {
-			currentPaneController = new controllerAllSongs(centerCurrentAnchor);
+			currentPaneController = new controllerAllSongs(centerCurrentAnchor, model);
 		}
 		else if (actionEvent.getSource() == artistBtn) {
-			currentPaneController = new controllerAllArtists(centerCurrentAnchor);
+			currentPaneController = new controllerAllArtists(centerCurrentAnchor, model);
 		}
 		else if (actionEvent.getSource() == listenersBtn) {
-			currentPaneController = new controllerAllProfiles(centerCurrentAnchor);
+			currentPaneController = new controllerAllProfiles(centerCurrentAnchor, model);
 		}
 		else if (actionEvent.getSource() == albumsBtn) {
-			currentPaneController = new controllerAllAlbums(centerCurrentAnchor);
+			currentPaneController = new controllerAllAlbums(centerCurrentAnchor, model);
 		}
 		else if (actionEvent.getSource() == playlistsBtn) {
-			currentPaneController = new controllerAllPlaylists(centerCurrentAnchor);
+			currentPaneController = new controllerAllPlaylists(centerCurrentAnchor, model);
 		}
 		else if (actionEvent.getSource() == profileBtn) {
-			currentPaneController = new controllerMyProfile(centerCurrentAnchor);
+			currentPaneController = new controllerMyProfile(centerCurrentAnchor, model);
 		}
 	}
 }

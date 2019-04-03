@@ -2,12 +2,14 @@ package view;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
+import model.ModelCentral;
 
 import java.io.IOException;
 
 public class viewAddEditSong extends View {
 
-	public viewAddEditSong (AnchorPane mainPane) {
+	public viewAddEditSong (AnchorPane mainPane, ModelCentral model) {
+		this.model = model;
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("templateAddEditSong.fxml"));
 		loader.setController(this);
 

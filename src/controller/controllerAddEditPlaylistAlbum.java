@@ -1,11 +1,13 @@
 package controller;
 
 import javafx.scene.layout.AnchorPane;
+import model.ModelCentral;
 import view.viewAddEditPlaylistAlbum;
 
 public class controllerAddEditPlaylistAlbum extends Controller implements PaneController{
 
-	public controllerAddEditPlaylistAlbum(AnchorPane mainPane) {
-		currentPane = new viewAddEditPlaylistAlbum(mainPane);
+	public controllerAddEditPlaylistAlbum(AnchorPane mainPane, ModelCentral model) {
+		this.model = model;
+		currentPane = new viewAddEditPlaylistAlbum(mainPane, model);
 	}
 }

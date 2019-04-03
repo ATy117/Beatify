@@ -10,11 +10,11 @@ import view.viewMusicPlayer;
 public abstract class controllerDashboard extends Controller{
 
 	protected viewDashboard view;
-	protected ModelCentral model;
 	protected Stage primaryStage;
 
 	public controllerDashboard (Stage primaryStage) {
 		this.primaryStage = primaryStage;
 		model = ModelCentral.getInstance();
+		model.resetModels();
 	}
 }
