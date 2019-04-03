@@ -76,7 +76,7 @@ public class AlbumDAODB implements AlbumDAO{
             e.printStackTrace();
         }
 
-        String query = "UPDATE album + SET " +
+        String query = "UPDATE album SET " +
                 "album.name = ?, " +
                 "album.date_created = ?, " +
                 "album.artist_id = ?, " +
@@ -132,7 +132,7 @@ public class AlbumDAODB implements AlbumDAO{
         List<Album> albums = new ArrayList<>();
         Album album = new Album();
         String query = "SELECT album.album_id, album.name, album.date_created, album.artist_id, album.album_cover, user.first_name, user.last_name FROM album INNER JOIN user\n" +
-                "ON album.artist_id = user.user_id WHERE user.user_id = " +user_id;
+                "ON album.artist_id = user.user_id WHERE album.artist_id = " +user_id;
 
         try {
             PreparedStatement statement = connection.prepareStatement(query);
@@ -185,7 +185,7 @@ public class AlbumDAODB implements AlbumDAO{
         List<Album> albumList = new ArrayList<>();
         String query = "SELECT followed_album.album_id FROM album INNER JOIN followed_album\n" +
                 "ON album.album_id = followed_album.album_id\n" +
-                "WHERE follower_mapping.user_id = " + user_id;
+                "WHERE followed_album.follower_id = " + user_id;
 
         try{
             PreparedStatement statement = connection.prepareStatement(query);
