@@ -8,6 +8,9 @@ import model.ModelCentral;
 import java.io.IOException;
 
 public class viewAllArtists extends View {
+
+	private controllerAllArtists controller;
+
 	public viewAllArtists (AnchorPane mainPane, ModelCentral model, controllerAllArtists controller) {
 		this.controller = controller;
 		this.model = model;

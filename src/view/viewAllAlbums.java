@@ -9,6 +9,8 @@ import java.io.IOException;
 
 public class viewAllAlbums extends View {
 
+	private controllerAllAlbums controller;
+
 	public viewAllAlbums(AnchorPane mainPane, ModelCentral model, controllerAllAlbums controller) {
 		this.controller = controller;
 		this.model = model;

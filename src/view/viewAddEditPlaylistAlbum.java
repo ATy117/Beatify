@@ -8,6 +8,9 @@ import model.ModelCentral;
 import java.io.IOException;
 
 public class viewAddEditPlaylistAlbum extends View{
+
+	private controllerAddEditPlaylistAlbum controller;
+
 	public viewAddEditPlaylistAlbum (AnchorPane mainPane, ModelCentral model, controllerAddEditPlaylistAlbum controller) {
 		this.controller = controller;
 		this.model = model;

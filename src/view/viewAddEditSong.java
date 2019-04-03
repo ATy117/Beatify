@@ -9,6 +9,8 @@ import java.io.IOException;
 
 public class viewAddEditSong extends View {
 
+	private controllerAddEditSong controller;
+
 	public viewAddEditSong (AnchorPane mainPane, ModelCentral model, controllerAddEditSong controller) {
 		this.controller = controller;
 		this.model = model;
