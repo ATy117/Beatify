@@ -157,9 +157,9 @@ public class UserDAODB implements UserDAO{
 
     @Override
     public List<User> getFollowers(User user) {
-        String query = "SELECT  follower_mapping.follower_id, user.first_name, user.last_name, user.password, user.is_artist, user.avatar FROM user INNER JOIN follower_mapping\n" +
-                "on user.user_id = follower_mapping.follower_id\n" +
-                "where follower_mapping.user_id = " + user.getUser_id();
+        String query = "SELECT user.user_id, user.username, user.first_name, user.last_name, user.password, user.is_artist, user.avatar FROM user INNER JOIN follower_mapping\n" +
+                "ON user.user_id = follower_mapping.follower_id\n" +
+                "WHERE follower_mapping.user_id = " + user.getUser_id();
 
         List<User> userList = new ArrayList<>();
 
@@ -190,7 +190,7 @@ public class UserDAODB implements UserDAO{
         user.setUsername(rs.getString("user.username"));
         user.setUsername(rs.getString("user.password"));
         user.setIs_artist((rs.getInt("user.is_artist")!=0));
-        user.setAvatarURL(toFile(rs));
+       // user.setAvatarURL(toFile(rs));
 
         return user;
     }
