@@ -4,6 +4,7 @@ import FileUploaderService.FileUploader;
 import FileUploaderService.PhotoUploader;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import controller.Controller;
 import controller.controllerRegister;
@@ -24,6 +25,8 @@ public class viewRegister extends View{
 	public JFXPasswordField passwordField;
 	public JFXButton doneBtn;
 	public JFXPasswordField confirmPassField;
+	public JFXRadioButton listenerToggle;
+	public JFXRadioButton artistToggle;
 
 	public viewRegister(Stage primaryStage, Controller controller) {
 		this.primaryStage = primaryStage;
@@ -49,5 +52,8 @@ public class viewRegister extends View{
 
 	public void registerUser(ActionEvent actionEvent) {
 
+	}
+
+	public void changePane(ActionEvent actionEvent) {
 	}
 }

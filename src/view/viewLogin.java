@@ -20,18 +20,17 @@ public class viewLogin extends View {
     public JFXButton loginBtn;
     public JFXPasswordField passwordField;
     public JFXTextField usernameField;
-    public JFXToggleButton userTypeToggle;
     public JFXButton registerBtn;
-    public controllerDashboard dashboard;
+    private controllerLogin controller;
 
-    public viewLogin (Stage primaryStage, Controller login) {
+    public viewLogin (Stage primaryStage, controllerLogin login) {
 
         Font.loadFont(getClass().getResource("/fonts/Poppins-Regular.ttf").toExternalForm(), 10);
         Font.loadFont(getClass().getResource("/fonts/Comfortaa-Regular.ttf").toExternalForm(), 10);
         Font.loadFont(getClass().getResource("/fonts/Comfortaa-Bold.ttf").toExternalForm(), 10);
 
         this.primaryStage = primaryStage;
-        this.controller = controller;
+        this.controller = login;
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("templateLogin.fxml"));
         loader.setController(this);
@@ -60,11 +59,12 @@ public class viewLogin extends View {
     public void changePane(ActionEvent actionEvent) {
 
         if (actionEvent.getSource() == loginBtn) {
-            if (userTypeToggle.selectedProperty().getValue()) {
-                dashboard = new controllerArtistDashboard(primaryStage);
-            }
-            else {
-                dashboard = new controllerListenerDashboard(primaryStage);
+            //check db first if artist or user
+            String username = usernameField.getText();
+            String password = passwordField.getText();
+
+            if (controller.userLogin(username, password)) {
+                controllerDashboard dashboard = new controllerListenerDashboard(primaryStage);
             }
         }
         else if (actionEvent.getSource() == registerBtn) {

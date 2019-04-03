@@ -3,13 +3,11 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #f4dfcc" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -33,16 +31,6 @@
             <Font size="16.0" />
          </font>
       </JFXPasswordField>
-      <JFXToggleButton fx:id="userTypeToggle" layoutX="151.0" layoutY="384.0" text="Artist" textFill="#2f4159" toggleColor="#f4dfcc" toggleLineColor="#fa9583" unToggleColor="#e8ded6" unToggleLineColor="#1c6575">
-         <font>
-            <Font name="Poppins Regular" size="14.0" />
-         </font>
-      </JFXToggleButton>
-      <Text fill="#2f4159" layoutX="97.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Listener">
-         <font>
-            <Font name="Poppins Regular" size="14.0" />
-         </font>
-      </Text>
       <JFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="339.0" layoutY="291.0" onAction="#changePane" style="-fx-background-color: #1c6575" text="Login" textFill="#fab2ab">
          <font>
             <Font name="Comfortaa Regular" size="14.0" />

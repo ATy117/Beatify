@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -11,5 +12,6 @@
             <Font name="Comfortaa Bold" size="18.0" />
          </font>
       </Label>
+      <JFXButton fx:id="logoutBtn" buttonType="RAISED" layoutX="510.0" layoutY="507.0" onAction="#logout" text="Logout" textFill="#fab2a5" />
    </children>
 </AnchorPane>

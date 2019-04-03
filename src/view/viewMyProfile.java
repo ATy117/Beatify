@@ -1,5 +1,6 @@
 package view;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -23,5 +24,8 @@ public class viewMyProfile extends View {
 	@Override
 	public void Update() {
 
+	}
+
+	public void logout(ActionEvent actionEvent) {
 	}
 }
