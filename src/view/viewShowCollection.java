@@ -1,5 +1,6 @@
 package view;
 
+import controller.controllerMyProfile;
 import controller.controllerShowCollection;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -8,6 +9,8 @@ import model.ModelCentral;
 import java.io.IOException;
 
 public class viewShowCollection extends View{
+
+	private controllerShowCollection controller;
 
 	public viewShowCollection (AnchorPane mainPane, ModelCentral model, controllerShowCollection controller) {
 		this.controller = controller;

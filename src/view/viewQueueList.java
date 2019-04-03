@@ -9,6 +9,8 @@ import java.io.IOException;
 
 public class viewQueueList extends View {
 
+	private controllerQueueList controller;
+
 	public viewQueueList (AnchorPane mainPane, ModelCentral model, controllerQueueList controller) {
 		this.controller = controller;
 		this.model = model;

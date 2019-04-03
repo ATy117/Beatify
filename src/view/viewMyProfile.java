@@ -14,6 +14,8 @@ import java.io.IOException;
 
 public class viewMyProfile extends View {
 
+	private controllerMyProfile controller;
+
 	public JFXButton logoutBtn;
 
 	public viewMyProfile (AnchorPane mainPane, ModelCentral model, controllerMyProfile controller) {

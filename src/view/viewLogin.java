@@ -17,12 +17,13 @@ import object.User;
 
 public class viewLogin extends View {
 
+    private controllerLogin controller;
+
     public ImageView logo;
     public JFXButton loginBtn;
     public JFXPasswordField passwordField;
     public JFXTextField usernameField;
     public JFXButton registerBtn;
-    private controllerLogin controller;
 
     public viewLogin (Stage primaryStage, controllerLogin login) {
 

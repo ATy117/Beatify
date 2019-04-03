@@ -1,6 +1,7 @@
 package view;
 
 import controller.controllerSearchResults;
+import controller.controllerShowCollection;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import model.ModelCentral;
@@ -8,6 +9,8 @@ import model.ModelCentral;
 import java.io.IOException;
 
 public class viewSearchResults extends View{
+
+	private controllerSearchResults controller;
 
 	public viewSearchResults (AnchorPane mainPane, ModelCentral model, controllerSearchResults controller) {
 		this.controller = controller;
