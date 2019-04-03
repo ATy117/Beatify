@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAODB implements UserDAO{
-    Connection connection = null;
+    Connection connection = dbConnection.getInstance();
 
     @Override
     public boolean addUser(User user) {

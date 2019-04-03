@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SongDAODB implements SongDAO {
-    Connection connection = null;
+    Connection connection = dbConnection.getInstance();
 
     @Override
     public boolean addSong(Song song) {

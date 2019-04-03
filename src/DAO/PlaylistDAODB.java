@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PlaylistDAODB implements PlaylistDAO {
-    Connection connection = null;
+    Connection connection = dbConnection.getInstance();
 
     @Override
     public boolean addPlaylist(Playlist playlist) {

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AlbumDAODB implements AlbumDAO{
-    Connection connection = null;
+    Connection connection = dbConnection.getInstance();
 
     @Override
     public boolean addAlbum(Album album) {
