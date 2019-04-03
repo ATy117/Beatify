@@ -1,5 +1,6 @@
 package view;
 
+import controller.controllerAllProfiles;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import model.ModelCentral;
@@ -8,7 +9,8 @@ import java.io.IOException;
 
 public class viewAllProfiles extends View {
 
-	public viewAllProfiles (AnchorPane mainPane, ModelCentral model) {
+	public viewAllProfiles (AnchorPane mainPane, ModelCentral model, controllerAllProfiles controller) {
+		this.controller = controller;
 		this.model = model;
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("templateAllProfiles.fxml"));
 		loader.setController(this);

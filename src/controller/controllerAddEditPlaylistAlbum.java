@@ -8,6 +8,6 @@ public class controllerAddEditPlaylistAlbum extends Controller implements PaneCo
 
 	public controllerAddEditPlaylistAlbum(AnchorPane mainPane, ModelCentral model) {
 		this.model = model;
-		currentPane = new viewAddEditPlaylistAlbum(mainPane, model);
+		currentPane = new viewAddEditPlaylistAlbum(mainPane, model, this);
 	}
 }

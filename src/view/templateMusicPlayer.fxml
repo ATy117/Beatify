@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXSlider?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane fx:id="musicPlayerPane" style="-fx-background-color: #1c6575" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -15,34 +15,34 @@
       <Circle fill="#4097a84f" layoutX="81.0" layoutY="447.0" radius="19.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="#4097a84f" layoutX="252.0" layoutY="545.0" radius="13.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="#4097a84f" layoutX="211.0" layoutY="531.0" radius="23.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fill="#2f4159" layoutX="143.0" layoutY="219.0" radius="127.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Label layoutX="107.0" layoutY="362.0" text="Sucker" textFill="#fab2a5">
+      <Circle fill="#2f4159" layoutX="131.0" layoutY="193.0" radius="127.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Label fx:id="musicTitle" layoutX="102.0" layoutY="334.0" text="Sucker" textFill="#fab2a5">
          <font>
             <Font name="Comfortaa Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="80.0" layoutY="388.0" text="Jonas Brothers" textFill="#f4dfcc">
+      <Label fx:id="musicArtist" layoutX="75.0" layoutY="360.0" text="Jonas Brothers" textFill="#f4dfcc">
          <font>
             <Font name="Comfortaa Regular" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="59.0" layoutY="409.0" text="from Sucker - Single" textFill="#f4dfcc">
+      <Label fx:id="musicAlbum" layoutX="54.0" layoutY="381.0" text="from Sucker - Single" textFill="#f4dfcc">
          <font>
             <Font name="Comfortaa Regular" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="133.0" layoutY="431.0" text="Pop" textFill="#fa9583">
+      <Label fx:id="musicGenre" layoutX="128.0" layoutY="403.0" text="Pop" textFill="#fa9583">
          <font>
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </Label>
-      <JFXButton layoutX="120.0" layoutY="472.0" />
-      <JFXButton layoutX="33.0" layoutY="472.0" />
-      <JFXButton layoutX="208.0" layoutY="472.0" />
-      <JFXButton layoutX="80.0" layoutY="507.0" />
-      <JFXButton layoutX="172.0" layoutY="507.0" />
-      <JFXButton layoutX="252.0" layoutY="14.0" prefHeight="25.0" prefWidth="24.0" />
-      <JFXButton layoutX="12.0" layoutY="12.0" prefHeight="25.0" prefWidth="18.0" />
-      <JFXButton layoutX="44.0" layoutY="12.0" prefHeight="25.0" prefWidth="18.0" />
+      <JFXButton fx:id="musicPlayBtn" layoutX="109.0" layoutY="472.0" text="Play" />
+      <JFXButton fx:id="musicBackBtn" layoutX="22.0" layoutY="472.0" text="Back" />
+      <JFXButton fx:id="musicNextBtn" layoutX="197.0" layoutY="472.0" text="Next" />
+      <JFXButton fx:id="musicShuffleBtn" layoutX="69.0" layoutY="507.0" text="Shuffle" />
+      <JFXButton fx:id="musicReplayBtn" layoutX="161.0" layoutY="507.0" text="Replay" />
+      <JFXButton fx:id="musicVolUpBtn" layoutX="12.0" layoutY="12.0" prefHeight="25.0" prefWidth="18.0" text="^" />
+      <JFXButton fx:id="musicVolDownBtn" layoutX="44.0" layoutY="12.0" prefHeight="25.0" prefWidth="18.0" text="v" />
+      <JFXSlider fx:id="musicSlider" layoutX="35.0" layoutY="439.0" prefHeight="16.0" prefWidth="197.0" />
    </children>
 </AnchorPane>

@@ -23,6 +23,7 @@ public abstract class viewDashboard extends View {
 	protected PaneController currentPaneController;
 
 
+
 	public viewDashboard (Stage primaryStage, Controller controller, ModelCentral model) {
 		this.model = model;
 		this.primaryStage = primaryStage;
@@ -34,6 +35,7 @@ public abstract class viewDashboard extends View {
 		sm = new StageManager(primaryStage);
 		sm.loadScene(loader);
 
+		currentPaneController = new controllerAllSongs(centerCurrentAnchor, model);
 		musicPlayer = new controllerMusicPlayer(rightCurrentAnchor, model);
 	}
 

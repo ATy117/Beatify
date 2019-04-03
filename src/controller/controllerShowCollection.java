@@ -9,6 +9,6 @@ public class controllerShowCollection extends Controller implements PaneControll
 
 	public controllerShowCollection(AnchorPane mainPane, ModelCentral model) {
 		this.model = model;
-		currentPane = new viewShowCollection(mainPane, model);
+		currentPane = new viewShowCollection(mainPane, model, this);
 	}
 }

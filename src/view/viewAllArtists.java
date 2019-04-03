@@ -1,5 +1,6 @@
 package view;
 
+import controller.controllerAllArtists;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import model.ModelCentral;
@@ -7,7 +8,8 @@ import model.ModelCentral;
 import java.io.IOException;
 
 public class viewAllArtists extends View {
-	public viewAllArtists (AnchorPane mainPane, ModelCentral model) {
+	public viewAllArtists (AnchorPane mainPane, ModelCentral model, controllerAllArtists controller) {
+		this.controller = controller;
 		this.model = model;
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("templateAllArtists.fxml"));
 		loader.setController(this);

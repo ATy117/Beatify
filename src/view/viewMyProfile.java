@@ -3,6 +3,7 @@ package view;
 import com.jfoenix.controls.JFXButton;
 import controller.Controller;
 import controller.controllerLogin;
+import controller.controllerMyProfile;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -15,7 +16,8 @@ public class viewMyProfile extends View {
 
 	public JFXButton logoutBtn;
 
-	public viewMyProfile (AnchorPane mainPane, ModelCentral model) {
+	public viewMyProfile (AnchorPane mainPane, ModelCentral model, controllerMyProfile controller) {
+		this.controller = controller;
 		this.model = model;
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("templateMyProfile.fxml"));
 		loader.setController(this);
