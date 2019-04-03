@@ -199,6 +199,8 @@ public class SongDAODB implements SongDAO {
 
     @Override
     public List<Song> getPlaylistSongs(int playlist_id) {
+        List<Song> songList = new ArrayList<>();
+
         String query =  "SELECT song.song_id, song.title, song.genre, song.date_uploaded, song.artist_id, user.first_name, user.last_name, album.album_id, album.name\n" +
                 "FROM song \n" +
                 "INNER JOIN user ON song.artist_id = user.user_id \n" +
@@ -206,17 +208,73 @@ public class SongDAODB implements SongDAO {
                 "INNER JOIN album ON album_contents.album_id = album.album_id\n" +
                 "INNER JOIN playlist_contents ON playlist_contents.song_id = song.song_id\n" +
                 "WHERE playlist_contents.playlist_id = " + playlist_id;
-        return null;
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()){
+                songList.add(toSong(rs));
+            }
+            return songList;
+        }catch(SQLException e){
+            e.printStackTrace();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return songList;
     }
 
     @Override
     public List<Song> getAlbumSongs(int album_id) {
-        return null;
+        List<Song> songList = new ArrayList<>();
+
+        String query =  "SELECT song.song_id, song.title, song.genre, song.date_uploaded, song.artist_id, user.first_name, user.last_name, album.album_id, album.name\n" +
+                "FROM song \n" +
+                "INNER JOIN user ON song.artist_id = user.user_id \n" +
+                "INNER JOIN album_contents ON album_contents.song_id = song.song_id \n" +
+                "INNER JOIN album ON album_contents.album_id = album.album_id\n" +
+                "WHERE album.album_id = " + album_id;
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()){
+                songList.add(toSong(rs));
+            }
+            return songList;
+        }catch(SQLException e){
+            e.printStackTrace();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return songList;
     }
 
     @Override
     public List<Song> getLikedSongs(int user_id) {
-        return null;
+        List<Song> songList = new ArrayList<>();
+
+        String query =  "SELECT song.song_id, song.title, song.genre, song.date_uploaded, song.artist_id, user.first_name, user.last_name, album.album_id, album.name\n" +
+                "FROM song \n" +
+                "INNER JOIN user ON song.artist_id = user.user_id \n" +
+                "INNER JOIN album_contents ON album_contents.song_id = song.song_id \n" +
+                "INNER JOIN album ON album_contents.album_id = album.album_id\n" +
+                "INNER JOIN liked_mapping ON liked_mapping.song_id = song.song_id\n" +
+                "WHERE liked_mapping.user_id = " + user_id;
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()){
+                songList.add(toSong(rs));
+            }
+            return songList;
+        }catch(SQLException e){
+            e.printStackTrace();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return songList;
     }
 
     @Override
