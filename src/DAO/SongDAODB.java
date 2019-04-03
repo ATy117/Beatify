@@ -221,17 +221,65 @@ public class SongDAODB implements SongDAO {
 
     @Override
     public int checkSong(int user_id, String song_name) {
-        return 0;
+        String query = 	"SELECT song.song_id FROM song WHERE song.artist_id = '"+user_id+"' AND song.title = '"+song_name+"'";
+        try {
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet rs = statement.executeQuery();
+
+            while(rs.next()) {
+                int songID = rs.getInt("song.song_id");
+                return songID;
+            }
+
+            rs.close();
+            statement.close();
+            return -1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return -1;
+        }
     }
 
     @Override
     public boolean checkSongPlaylist(int song_id, int playlist_id) {
-        return false;
+        String query = 	"SELECT playlist_contents.song_id FROM playlist_contents WHERE playlist_contents.song_id = '"+song_id+"' AND playlist_contents.playlist_id = '"+playlist_id+"'";
+        try {
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet rs = statement.executeQuery();
+
+            while(rs.next()) {
+                return true;
+            }
+
+            rs.close();
+            statement.close();
+            return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
     public File getSongFile(int song_id) {
-        return null;
+        String query = "SELECT song.title, song.file, user.first_name, user.last_name" +
+                "FROM song INNER JOIN user ON song.artist_id = user.user_id " +
+                "WHERE song.song_id = " + song_id;
+        File songFile = null;
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            ResultSet rs = statement.executeQuery();
+            while(rs.next()){
+                songFile = toFile(rs);
+                return songFile;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return songFile;
     }
 
     private Song toSong(ResultSet rs) throws SQLException, IOException {
