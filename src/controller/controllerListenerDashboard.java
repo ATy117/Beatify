@@ -15,13 +15,6 @@ public class controllerListenerDashboard extends controllerDashboard{
 		view = new viewListenerDashboard(primaryStage, this, model);
 
 
-		model.setLibraryModel(new LibraryModel());
-		model.setPlayerModel(new SongPlayerModel());
-		model.setProfileModel(new ProfileModel());
-
-		model.getLibraryModel().Attach(view);
-		model.getPlayerModel().Attach(view);
-		model.getProfileModel().Attach(view);
 
 	}
 }

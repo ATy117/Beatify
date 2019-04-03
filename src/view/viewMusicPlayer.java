@@ -17,9 +17,14 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import model.LibraryModel;
 import model.ModelCentral;
+import model.ProfileModel;
+import model.SongPlayerModel;
 import object.Album;
+import object.Song;
 
+import java.io.File;
 import java.io.IOException;
 
 public class viewMusicPlayer extends View {
@@ -72,10 +77,12 @@ public class viewMusicPlayer extends View {
 		genreText.setText("");
 		timestamp.setText("");
 		volume = 0.5;
+
 	}
 
 	@Override
 	public void Update() {
+
 		if (mp3player != null) {
 			mp3player.dispose();
 			mp3player = null;
@@ -86,8 +93,11 @@ public class viewMusicPlayer extends View {
 			artistText.setText("by " + model.getPlayerModel().getCurrentSong().getArtist_name());
 			genreText.setText(model.getPlayerModel().getCurrentSong().getGenre());
 
+			/*
 			Image albpic = controller.getImageFromAlbum(model.getPlayerModel().getCurrentSong().getAlbum_id());
 			songPic.setFill(new ImagePattern(albpic));
+
+			 */
 
 			Album album = controller.getAlbumOfSong(model.getPlayerModel().getCurrentSong().getAlbum_id());
 
@@ -107,6 +117,8 @@ public class viewMusicPlayer extends View {
 
 	public void playPause(ActionEvent actionEvent) {
 		if (model.getPlayerModel().getCurrentSong() != null ){
+
+
 			MediaPlayer.Status status = mp3player.getStatus();
 
 			if (status == MediaPlayer.Status.UNKNOWN  || status == MediaPlayer.Status.HALTED)
@@ -128,6 +140,8 @@ public class viewMusicPlayer extends View {
 			} else {
 				toggleToPause();
 			}
+
+
 		}
 	}
 
