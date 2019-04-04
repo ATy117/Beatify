@@ -23,7 +23,7 @@ public class SongPlayerModel extends Model {
     }
 
     public void playSong(Song song) {
-        
+
         Notify();
     }
 

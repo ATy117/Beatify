@@ -10,6 +10,7 @@ import view.viewMusicPlayer;
 public abstract class controllerDashboard extends Controller{
 
 	protected View currentPane;
+	protected PaneController currentController;
 
 	public controllerDashboard (Stage primaryStage, User user) {
 		this.primaryStage = primaryStage;
@@ -22,7 +23,12 @@ public abstract class controllerDashboard extends Controller{
 		model.setPeopleModel(new OtherPeopleModel());
 	}
 
-	public void setCurrentPane() {
+
+	public void setCurrentPane(PaneController currentController) {
+		this.currentController = currentController;
 		model.DetachToAll(currentPane);
+		currentPane = currentController.getPaneView();
+		model.AttachToAll(currentPane);
 	}
+
 }

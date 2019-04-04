@@ -8,4 +8,6 @@ public abstract class Controller{
 	protected View view;
 	protected ModelCentral model;
 	protected Stage primaryStage;
+
+
 }

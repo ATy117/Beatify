@@ -21,6 +21,7 @@ public abstract class viewDashboard extends View {
 	public JFXButton artistBtn;
 	public JFXButton songsBtn;
 	public JFXButton searchBtn;
+
 	protected controllerMusicPlayer musicPlayer;
 	protected PaneController currentPaneController;
 
@@ -36,10 +37,12 @@ public abstract class viewDashboard extends View {
 		sm.loadScene(loader);
 
 		currentPaneController = new controllerAllSongs(centerCurrentAnchor, model);
+		controller.setCurrentPane(currentPaneController);
 		musicPlayer = new controllerMusicPlayer(rightCurrentAnchor, model);
 	}
 
 	public void changePane(ActionEvent actionEvent) {
+
 		if (actionEvent.getSource() == searchBtn) {
 			currentPaneController = new controllerSearchResults(centerCurrentAnchor, model);
 		}
@@ -61,5 +64,7 @@ public abstract class viewDashboard extends View {
 		else if (actionEvent.getSource() == profileBtn) {
 			currentPaneController = new controllerMyProfile(centerCurrentAnchor, model);
 		}
+
+		controller.setCurrentPane(currentPaneController);
 	}
 }

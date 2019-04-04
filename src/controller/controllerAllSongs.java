@@ -12,4 +12,10 @@ public class controllerAllSongs extends Controller implements PaneController {
 		this.model = model;
 		view = new viewAllSongs(mainPane, model, this);
 	}
+
+	@Override
+	public View getPaneView() {
+		return view;
+	}
+
 }
