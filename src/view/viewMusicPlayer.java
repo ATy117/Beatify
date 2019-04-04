@@ -94,7 +94,7 @@ public class viewMusicPlayer extends View {
 			genreText.setText(model.getPlayerModel().getCurrentSong().getGenre());
 
 			/*
-			Image albpic = controller.getImageFromAlbum(model.getPlayerModel().getCurrentSong().getAlbum_id());
+			Image albpic = dashboardController.getImageFromAlbum(model.getPlayerModel().getCurrentSong().getAlbum_id());
 			songPic.setFill(new ImagePattern(albpic));
 
 			 */

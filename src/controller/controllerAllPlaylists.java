@@ -8,7 +8,7 @@ import view.viewAllPlaylists;
 public class controllerAllPlaylists extends PaneController{
 
 	public controllerAllPlaylists(AnchorPane mainPane, ModelCentral model, controllerDashboard controller) {
-		this.controller = controller;
+		this.dashboardController = controller;
 		this.model = model;
 		view = new viewAllPlaylists(mainPane, model, this);
 	}
