@@ -22,7 +22,7 @@ public abstract class controllerDashboard extends Controller{
 		model.setPeopleModel(new OtherPeopleModel());
 	}
 
-	public View getCurrentPane() {
-		return this.currentPane;
+	public void setCurrentPane() {
+		model.DetachToAll(currentPane);
 	}
 }
