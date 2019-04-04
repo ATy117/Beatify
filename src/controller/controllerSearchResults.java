@@ -6,16 +6,13 @@ import view.View;
 import view.viewQueueList;
 import view.viewSearchResults;
 
-public class controllerSearchResults extends Controller implements PaneController {
+public class controllerSearchResults extends PaneController {
 
-	public controllerSearchResults(AnchorPane mainPane, ModelCentral model) {
+	public controllerSearchResults(AnchorPane mainPane, ModelCentral model, controllerDashboard  controller) {
+		this.controller = controller;
 		this.model = model;
 		view = new viewSearchResults(mainPane, model, this);
 	}
 
-	@Override
-	public View getPaneView() {
-		return view;
-	}
 
 }

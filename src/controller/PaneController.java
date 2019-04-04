@@ -2,7 +2,11 @@ package controller;
 
 import view.View;
 
-public interface PaneController {
+public abstract class PaneController extends Controller {
 
-	public View getPaneView();
+	protected controllerDashboard controller;
+
+	public View getPaneView() {
+		return view;
+	}
 }

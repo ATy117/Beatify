@@ -36,7 +36,7 @@ public abstract class viewDashboard extends View {
 		sm = new StageManager(primaryStage);
 		sm.loadScene(loader);
 
-		currentPaneController = new controllerAllSongs(centerCurrentAnchor, model);
+		currentPaneController = new controllerAllSongs(centerCurrentAnchor, model, controller);
 		controller.setCurrentPane(currentPaneController);
 		musicPlayer = new controllerMusicPlayer(rightCurrentAnchor, model);
 	}
@@ -44,25 +44,25 @@ public abstract class viewDashboard extends View {
 	public void changePane(ActionEvent actionEvent) {
 
 		if (actionEvent.getSource() == searchBtn) {
-			currentPaneController = new controllerSearchResults(centerCurrentAnchor, model);
+			currentPaneController = new controllerSearchResults(centerCurrentAnchor, model, controller);
 		}
 		else if (actionEvent.getSource() == songsBtn) {
-			currentPaneController = new controllerAllSongs(centerCurrentAnchor, model);
+			currentPaneController = new controllerAllSongs(centerCurrentAnchor, model, controller);
 		}
 		else if (actionEvent.getSource() == artistBtn) {
-			currentPaneController = new controllerAllArtists(centerCurrentAnchor, model);
+			currentPaneController = new controllerAllArtists(centerCurrentAnchor, model, controller);
 		}
 		else if (actionEvent.getSource() == listenersBtn) {
-			currentPaneController = new controllerAllProfiles(centerCurrentAnchor, model);
+			currentPaneController = new controllerAllProfiles(centerCurrentAnchor, model, controller);
 		}
 		else if (actionEvent.getSource() == albumsBtn) {
-			currentPaneController = new controllerAllAlbums(centerCurrentAnchor, model);
+			currentPaneController = new controllerAllAlbums(centerCurrentAnchor, model, controller);
 		}
 		else if (actionEvent.getSource() == playlistsBtn) {
-			currentPaneController = new controllerAllPlaylists(centerCurrentAnchor, model);
+			currentPaneController = new controllerAllPlaylists(centerCurrentAnchor, model, controller);
 		}
 		else if (actionEvent.getSource() == profileBtn) {
-			currentPaneController = new controllerMyProfile(centerCurrentAnchor, model);
+			currentPaneController = new controllerMyProfile(centerCurrentAnchor, model, controller);
 		}
 
 		controller.setCurrentPane(currentPaneController);

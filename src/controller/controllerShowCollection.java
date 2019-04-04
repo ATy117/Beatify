@@ -6,15 +6,12 @@ import view.View;
 import view.viewQueueList;
 import view.viewShowCollection;
 
-public class controllerShowCollection extends Controller implements PaneController{
+public class controllerShowCollection extends PaneController{
 
-	public controllerShowCollection(AnchorPane mainPane, ModelCentral model) {
+	public controllerShowCollection(AnchorPane mainPane, ModelCentral model, controllerDashboard controller) {
+		this.controller = controller;
 		this.model = model;
 		view = new viewShowCollection(mainPane, model, this);
 	}
 
-	@Override
-	public View getPaneView() {
-		return view;
-	}
 }

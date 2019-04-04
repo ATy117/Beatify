@@ -5,15 +5,11 @@ import model.ModelCentral;
 import view.View;
 import view.viewAddEditPlaylistAlbum;
 
-public class controllerAddEditPlaylistAlbum extends Controller implements PaneController{
+public class controllerAddEditPlaylistAlbum extends PaneController{
 
-	public controllerAddEditPlaylistAlbum(AnchorPane mainPane, ModelCentral model) {
+	public controllerAddEditPlaylistAlbum(AnchorPane mainPane, ModelCentral model, controllerDashboard controller) {
+		this.controller = controller;
 		this.model = model;
 		view = new viewAddEditPlaylistAlbum(mainPane, model, this);
-	}
-
-	@Override
-	public View getPaneView() {
-		return view;
 	}
 }
