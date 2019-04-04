@@ -13,8 +13,6 @@ public class controllerListenerDashboard extends controllerDashboard{
 	public controllerListenerDashboard (Stage primaryStage, User user) {
 		super(primaryStage, user);
 		view = new viewListenerDashboard(primaryStage, this, model);
-
-
-
+		model.AttachToAll(view);
 	}
 }

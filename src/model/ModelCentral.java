@@ -1,5 +1,7 @@
 package model;
 
+import view.View;
+
 public class ModelCentral {
     private static ModelCentral ourInstance;
     private LibraryModel libraryModel;
@@ -54,5 +56,19 @@ public class ModelCentral {
         libraryModel = null;
         profileModel = null;
         playerModel = null;
+    }
+
+    public void AttachToAll(View view) {
+        libraryModel.Attach(view);
+        profileModel.Attach(view);
+        playerModel.Attach(view);
+        peopleModel.Attach(view);
+    }
+
+    public void DetachToAll(View view) {
+        libraryModel.Detach(view);
+        profileModel.Detach(view);
+        playerModel.Detach(view);
+        peopleModel.Detach(view);
     }
 }
