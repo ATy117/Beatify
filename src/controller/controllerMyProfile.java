@@ -8,6 +8,6 @@ public class controllerMyProfile extends Controller implements PaneController {
 
 	public controllerMyProfile(AnchorPane mainPane, ModelCentral model) {
 		this.model = model;
-		currentPane = new viewMyProfile(mainPane, model, this);
+		view = new viewMyProfile(mainPane, model, this);
 	}
 }

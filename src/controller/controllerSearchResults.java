@@ -9,7 +9,7 @@ public class controllerSearchResults extends Controller implements PaneControlle
 
 	public controllerSearchResults(AnchorPane mainPane, ModelCentral model) {
 		this.model = model;
-		currentPane = new viewSearchResults(mainPane, model, this);
+		view = new viewSearchResults(mainPane, model, this);
 	}
 
 }

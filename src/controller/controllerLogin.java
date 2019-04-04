@@ -11,7 +11,6 @@ public class controllerLogin extends Controller {
 
     public boolean userLogin(String username, String password) {
 
-
         return true;
     }
 }
