@@ -9,8 +9,8 @@ import java.util.List;
 public class SongPlayerModel extends Model {
 
     private Song currentSong = null;
-    private List<Song> currentList = new ArrayList<>();
-    private List<Song> finishedList = new ArrayList<>();
+    private List<Song> currentList;
+    private List<Song> finishedList;
     private boolean repeating = false;
     private boolean shuffled = false;
 
@@ -18,13 +18,12 @@ public class SongPlayerModel extends Model {
         currentSong = null;
         repeating = false;
         shuffled = false;
+        this.finishedList = new ArrayList<>();
+        this.currentList = new ArrayList<>();
     }
 
-    public void playSong(List<Song> currentList) {
-        this.currentList = new ArrayList<>(currentList);
-        finishedList = new ArrayList<>();
-        currentSong = this.currentList.get(0);
-        this.currentList.remove(0);
+    public void playSong(Song song) {
+        
         Notify();
     }
 
@@ -73,6 +72,10 @@ public class SongPlayerModel extends Model {
 
          */
         return true;
+    }
+
+    private void addSongToQueue() {
+
     }
 
     private int getRandonIndexInCurList() {
