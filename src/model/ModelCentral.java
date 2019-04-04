@@ -56,6 +56,7 @@ public class ModelCentral {
         libraryModel = null;
         profileModel = null;
         playerModel = null;
+        peopleModel = null;
     }
 
     public void AttachToAll(View view) {
