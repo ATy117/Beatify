@@ -236,6 +236,11 @@ public class AlbumDAODB implements AlbumDAO{
         return false;
     }
 
+    @Override
+    public List<Album> getAllAlbums(String keyword) {
+        return null;
+    }
+
     private Album toAlbum(ResultSet rs) throws SQLException, IOException {
         Album album = new Album();
 

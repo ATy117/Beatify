@@ -219,6 +219,11 @@ public class PlaylistDAODB implements PlaylistDAO {
         return false;
     }
 
+    @Override
+    public List<Playlist> getAllPlaylists(String keyword) {
+        return null;
+    }
+
     private Playlist toPlaylist(ResultSet rs) throws SQLException, IOException {
         Playlist playlist = new Playlist();
 

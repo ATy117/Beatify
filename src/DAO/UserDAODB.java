@@ -215,6 +215,28 @@ public class UserDAODB implements UserDAO{
         return false;
     }
 
+    @Override
+    public List<User> getAllUsers(String keyword) {
+        String query = "SELECT * FROM user WHERE user.first_name LIKE ? OR user.last_name LIKE ?";
+        List<User> userList = new ArrayList<>();
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setString(1, "%"+keyword+"%");
+            statement.setString(2, "%"+keyword+"%");
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()){
+                userList.add(toUser(rs));
+            }
+            return userList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return userList;
+    }
+
     private User toUser(ResultSet rs) throws SQLException, IOException {
         User user = new User();
 
