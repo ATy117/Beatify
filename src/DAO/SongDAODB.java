@@ -279,6 +279,40 @@ public class SongDAODB implements SongDAO {
     }
 
     @Override
+    public boolean likeSong(int user_id, int song_id) {
+        String query = "INSERT INTO liked_mapping VALUES(?,?)";
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, user_id);
+            statement.setInt(2, song_id);
+            statement.executeUpdate();
+            statement.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean unlikeSong(int user_id, int song_id) {
+        String query = "DELETE FROM liked_mapping WHERE liked_mapping.user_id = ? AND liked_mapping.song_id = ?";
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, user_id);
+            statement.setInt(2, song_id);
+            statement.executeUpdate();
+            statement.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
     public int checkSong(int user_id, String song_name) {
         String query = 	"SELECT song.song_id FROM song WHERE song.artist_id = '"+user_id+"' AND song.title = '"+song_name+"'";
         try {
