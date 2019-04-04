@@ -8,6 +8,6 @@ public class controllerQueueList extends Controller implements PaneController{
 
 	public controllerQueueList(AnchorPane mainPane, ModelCentral model) {
 		this.model = model;
-		currentPane = new viewQueueList(mainPane, model, this);
+		view = new viewQueueList(mainPane, model, this);
 	}
 }

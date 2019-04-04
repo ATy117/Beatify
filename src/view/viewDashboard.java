@@ -24,8 +24,6 @@ public abstract class viewDashboard extends View {
 	protected controllerMusicPlayer musicPlayer;
 	protected PaneController currentPaneController;
 
-
-
 	public viewDashboard (Stage primaryStage, controllerDashboard controller, ModelCentral model) {
 		this.model = model;
 		this.primaryStage = primaryStage;

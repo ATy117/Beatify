@@ -8,6 +8,6 @@ public class controllerAllPlaylists extends Controller implements PaneController
 
 	public controllerAllPlaylists(AnchorPane mainPane, ModelCentral model) {
 		this.model = model;
-		currentPane = new viewAllPlaylists(mainPane, model, this);
+		view = new viewAllPlaylists(mainPane, model, this);
 	}
 }

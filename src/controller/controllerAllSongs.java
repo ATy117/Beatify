@@ -10,6 +10,7 @@ public class controllerAllSongs extends Controller implements PaneController {
 
 	public controllerAllSongs(AnchorPane mainPane, ModelCentral model) {
 		this.model = model;
-		currentPane = new viewAllSongs(mainPane, model, this);
+		view = new viewAllSongs(mainPane, model, this);
+		model.AttachToAll(view);
 	}
 }
