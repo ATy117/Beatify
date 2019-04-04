@@ -202,6 +202,40 @@ public class AlbumDAODB implements AlbumDAO{
         }
     }
 
+    @Override
+    public boolean followAlbum(int album_id, int follower_id) {
+        String query = "INSERT INTO followed_album VALUES(?,?)";
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, album_id);
+            statement.setInt(2, follower_id);
+            statement.executeUpdate();
+            statement.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean unfollowAlbum(int album_id, int follower_id) {
+        String query = "DELETE FROM album_id WHERE followed_album.album_id = ? AND followed_album.follower_id = ?";
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, album_id);
+            statement.setInt(2, follower_id);
+            statement.executeUpdate();
+            statement.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     private Album toAlbum(ResultSet rs) throws SQLException, IOException {
         Album album = new Album();
 

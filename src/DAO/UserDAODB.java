@@ -181,6 +181,40 @@ public class UserDAODB implements UserDAO{
 
     }
 
+    @Override
+    public boolean followerUser(int user_id, int follower_id) {
+        String query = "INSERT INTO follower_mapping VALUES(?,?)";
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, user_id);
+            statement.setInt(2, follower_id);
+            statement.executeUpdate();
+            statement.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean unfollowerUser(int user_id, int follower_id) {
+        String query = "DELETE FROM follower_mapping WHERE follower_mapping.user_id = ? AND follower_mapping.follower_id = ?";
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, user_id);
+            statement.setInt(2, follower_id);
+            statement.executeUpdate();
+            statement.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     private User toUser(ResultSet rs) throws SQLException, IOException {
         User user = new User();
 
