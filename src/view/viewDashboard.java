@@ -36,8 +36,11 @@ public abstract class viewDashboard extends View {
 		sm = new StageManager(primaryStage);
 		sm.loadScene(loader);
 
+		controller.setFoundationPane(centerCurrentAnchor);
+
 		currentPaneController = new controllerAllSongs(centerCurrentAnchor, model, controller);
 		controller.setCurrentPane(currentPaneController);
+
 		musicPlayer = new controllerMusicPlayer(rightCurrentAnchor, model);
 	}
 

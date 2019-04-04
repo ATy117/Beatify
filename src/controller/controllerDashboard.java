@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.*;
 import object.User;
@@ -11,6 +12,7 @@ public abstract class controllerDashboard extends Controller{
 
 	protected View currentPane;
 	protected PaneController currentController;
+	protected AnchorPane paneFoundation;
 
 	public controllerDashboard (Stage primaryStage, User user) {
 		this.primaryStage = primaryStage;
@@ -31,4 +33,7 @@ public abstract class controllerDashboard extends Controller{
 		model.AttachToAll(currentPane);
 	}
 
+	public void setFoundationPane(AnchorPane centerCurrentAnchor) {
+		paneFoundation = centerCurrentAnchor;
+	}
 }
