@@ -238,7 +238,23 @@ public class AlbumDAODB implements AlbumDAO{
 
     @Override
     public List<Album> getAllAlbums(String keyword) {
-        return null;
+        String query = "SELECT album.album_id, album.name, album.date_created, album.artist_id, album.album_cover, user.first_name, user.last_name FROM album INNER JOIN user\n" +
+                "ON album.artist_id = user.user_id WHERE album.name LIKE ?";
+        List<Album> albumList = new ArrayList<>();
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()){
+                albumList.add(toAlbum(rs));
+            }
+            return albumList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return albumList;
     }
 
     private Album toAlbum(ResultSet rs) throws SQLException, IOException {

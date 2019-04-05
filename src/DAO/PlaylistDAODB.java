@@ -221,7 +221,22 @@ public class PlaylistDAODB implements PlaylistDAO {
 
     @Override
     public List<Playlist> getAllPlaylists(String keyword) {
-        return null;
+        String query = "SELECT * FROM playlist WHERE playlist.name LIKE ? ";
+        List<Playlist> playlistList = new ArrayList<>();
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setString(1, "%"+keyword+"%");
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()){
+                playlistList.add(toPlaylist(rs));
+            }
+            return playlistList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return playlistList;
     }
 
     private Playlist toPlaylist(ResultSet rs) throws SQLException, IOException {
