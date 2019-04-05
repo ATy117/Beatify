@@ -15,7 +15,7 @@
       <Circle fill="#4097a84f" layoutX="81.0" layoutY="447.0" radius="19.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="#4097a84f" layoutX="252.0" layoutY="545.0" radius="13.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="#4097a84f" layoutX="211.0" layoutY="531.0" radius="23.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fx:id="songPic" fill="#2f4159" layoutX="131.0" layoutY="193.0" radius="127.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fx:id="songPic" fill="#2f4159" layoutX="137.0" layoutY="193.0" radius="127.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Label fx:id="titleText" layoutX="102.0" layoutY="334.0" text="Sucker" textFill="#fab2a5">
          <font>
             <Font name="Comfortaa Bold" size="20.0" />

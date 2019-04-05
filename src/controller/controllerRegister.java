@@ -1,8 +1,6 @@
 package controller;
 
 import javafx.stage.Stage;
-import view.viewLogin;
-import view.viewRegister;
 
 public class controllerRegister extends Controller{
 
