@@ -42,30 +42,5 @@ public abstract class viewDashboard extends View {
 		musicPlayer = new controllerMusicPlayer(rightCurrentAnchor, model);
 	}
 
-	public void changePane(ActionEvent actionEvent) {
-		if (actionEvent.getSource() == searchBtn) {
-			currentPaneController = new controllerSearchResults(centerCurrentAnchor, model);
-		}
-		else if (actionEvent.getSource() == songsBtn) {
-			currentPaneController = new controllerAllSongs(centerCurrentAnchor, model);
-		}
-		else if (actionEvent.getSource() == artistBtn) {
-			currentPaneController = new controllerAllArtists(centerCurrentAnchor, model);
-		}
-		else if (actionEvent.getSource() == listenersBtn) {
-			currentPaneController = new controllerAllProfiles(centerCurrentAnchor, model);
-		}
-		else if (actionEvent.getSource() == albumsBtn) {
-			currentPaneController = new controllerAllAlbums(centerCurrentAnchor, model);
-		}
-		else if (actionEvent.getSource() == playlistsBtn) {
-			currentPaneController = new controllerAllPlaylists(centerCurrentAnchor, model);
-		}
-		else if (actionEvent.getSource() == profileBtn) {
-			currentPaneController = new controllerMyProfile(centerCurrentAnchor, model);
-		}
-		else if (actionEvent.getSource() == queueBtn){
-			currentPaneController = new controllerQueueList(centerCurrentAnchor, model);
-		}
-	}
+
 }
