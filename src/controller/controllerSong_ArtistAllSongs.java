@@ -8,6 +8,6 @@ public class controllerSong_ArtistAllSongs extends Controller implements PaneCon
 
     public controllerSong_ArtistAllSongs(AnchorPane mainPane, ModelCentral model){
         this.model = model;
-        currentPane = new viewSong_ArtistAllSongs();
+        currentPane = new viewSong_ArtistAllSongs(mainPane, model, this);
     }
 }

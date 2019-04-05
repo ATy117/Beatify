@@ -4,6 +4,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import model.ModelCentral;
 import object.Album;
+import view.viewMusicPlayer;
 
 public class controllerMusicPlayer extends Controller {
 

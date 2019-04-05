@@ -9,13 +9,12 @@ import java.io.IOException;
 
 public class viewSong_ArtistAllSongs extends View {
 
-    public viewSong_ArtistAllSongs(AnchorPane mainPane, ModelCentral model, controllerSong_ArtistAllSongs controller){
-    }
+    public controllerSong_ArtistAllSongs controller;
 
-    public viewAllArtists (AnchorPane mainPane, ModelCentral model, controllerAllArtists controller) {
+    public viewSong_ArtistAllSongs(AnchorPane mainPane, ModelCentral model, controllerSong_ArtistAllSongs controller){
         this.controller = controller;
         this.model = model;
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("templateAllArtists.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("templateSong.fxml"));
         loader.setController(this);
 
         try {
