@@ -16,6 +16,10 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import view.View;
+import view_builders.Director;
+import view_builders.builderAlbum;
+import view_builders.builderAlbum_ArtistAlbumFollowed;
+import view_builders.builderAlbum_ArtistAlbumOwned;
 
 import java.io.IOException;
 
@@ -61,7 +65,35 @@ public class viewAlbum_ArtistAllAlbums extends View {
 
     @Override
     public void Update(){
+        albumListView.getItems().clear();
 
+        myAlbumTilePane = new TilePane();
+        myAlbumsLbl = new Label("My Albums");
+        followedAlbumsLbl = new Label("Followed Albums");
+        myAlbumsLbl.setFont(Font.font("Poppins", 14));
+        followedAlbumsLbl.setFont(Font.font("Poppins", 14));
+
+        albumListView.getItems().add(myAlbumsLbl);
+        builderAlbum builder = new builderAlbum_ArtistAlbumOwned(controller);
+        Director director = Director.getInstance();
+        director.setBuilder(builder);
+        director.construct();
+        for (Object object: builder.getProduct()){
+            AnchorPane anchorPane = (AnchorPane)object;
+            myAlbumTilePane.getChildren().add(anchorPane);
+        }
+        albumListView.getItems().add(myAlbumTilePane);
+
+        followedAlbumTilePane = new TilePane();
+        albumListView.getItems().add(followedAlbumsLbl);
+        builder = new builderAlbum_ArtistAlbumFollowed(controller);
+        director.setBuilder(builder);
+        director.construct();
+        for (Object object: builder.getProduct()){
+            AnchorPane anchorPane = (AnchorPane)object;
+            followedAlbumTilePane.getChildren().add(anchorPane);
+        }
+        albumListView.getItems().add(followedAlbumTilePane);
     }
 
     private void initHeader(){
@@ -85,37 +117,6 @@ public class viewAlbum_ArtistAllAlbums extends View {
                 uploadAlbum();
             }
         });
-
-        /*FOR BUILDER*/
-        myAlbumTilePane = new TilePane();
-        myAlbumsLbl = new Label("My Albums");
-        followedAlbumsLbl = new Label("Followed Albums");
-
-        myAlbumsLbl.setFont(Font.font("Poppins", 14));
-        followedAlbumsLbl.setFont(Font.font("Poppins", 14));
-
-
-        for(int i = 0; i<9; i++) {
-            AnchorPane albumIndiv = new AnchorPane();
-            Circle albumCover = new Circle(45);
-            Text text = new Text("AlbumName");
-
-            albumIndiv.setLeftAnchor(albumCover, 20.0);
-            albumIndiv.setTopAnchor(albumCover, 13.0);
-            albumIndiv.setTopAnchor(text, 102.0);
-            albumIndiv.setLeftAnchor(text, 24.0);
-
-            albumIndiv.getChildren().add(albumCover);
-            albumIndiv.getChildren().add(text);
-            myAlbumTilePane.getChildren().add(albumIndiv);
-
-        }
-
-
-        albumListView.getItems().add(myAlbumsLbl);
-        albumListView.getItems().add(myAlbumTilePane);
-        albumListView.getItems().add(followedAlbumsLbl);
-
 
     }
 
