@@ -15,7 +15,7 @@ public class viewUser_ArtistMyProfile extends View {
     public viewUser_ArtistMyProfile(AnchorPane mainPane, controllerUser_ArtistMyProfile controller, controllerDashboard dashboardController){
         this.controller = controller;
         this.model = dashboardController.getModel();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/templateUser.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/templateArtist.fxml"));
         loader.setController(this);
 
         try {

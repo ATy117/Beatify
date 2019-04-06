@@ -15,7 +15,7 @@ public class viewListener_ArtistFollowedListeners extends View {
     public viewListener_ArtistFollowedListeners(AnchorPane mainPane, controllerListener_ArtistFollowedListeners controller, controllerDashboard dashboardController){
         this.controller = controller;
         this.model = dashboardController.getModel();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/templateListener.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/templateListeners.fxml"));
         loader.setController(this);
 
         try {
