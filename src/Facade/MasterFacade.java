@@ -29,4 +29,22 @@ public class MasterFacade {
 
 		return true;
 	}
+
+	public User loginUser (String username, String password) {
+
+		User testuser = new User();
+
+		// returns null if no user found
+		if (username.equalsIgnoreCase("A")) {
+			testuser.setIs_artist(true);
+			testuser.setFirst_name("I'm Artist");
+
+		}
+		else {
+			testuser.setIs_artist(false);
+			testuser.setFirst_name("I'm Listener");
+		}
+
+		return testuser;
+	}
 }
