@@ -114,7 +114,7 @@ public class SongDAODB implements SongDAO {
     }
 
     @Override
-    public void updateSong(Song song) {
+    public boolean updateSong(Song song) {
         int songID = song.getSong_id();
         String titleTemp = song.getSong_name();
         String genreTemp = song.getGenre();
@@ -143,9 +143,11 @@ public class SongDAODB implements SongDAO {
             statement.setBinaryStream(5, songFileStream);
             statement.executeUpdate();
             statement.close();
+            return true;
 
         }catch(SQLException e){
             e.printStackTrace();
+            return false;
         }
     }
 

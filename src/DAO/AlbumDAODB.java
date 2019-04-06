@@ -63,7 +63,7 @@ public class AlbumDAODB implements AlbumDAO{
     }
 
     @Override
-    public void updateAlbum(Album album) {
+    public boolean updateAlbum(Album album) {
         int albumID = album.getAlbum_id();
         String nameTemp = album.getName();
         LocalDate dateUploadedTemp = album.getDate_uploaded();
@@ -91,8 +91,10 @@ public class AlbumDAODB implements AlbumDAO{
 
             statement.executeUpdate();
             statement.close();
+            return true;
         }catch (SQLException e){
             e.printStackTrace();
+            return false;
         }
     }
 
