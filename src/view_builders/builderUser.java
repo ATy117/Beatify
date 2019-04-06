@@ -1,12 +1,12 @@
 package view_builders;
 
 import controller.Controller;
-import object.Playlist;
+import object.User;
 
 import java.util.List;
 
-public abstract class PlaylistListBuilder<T> implements ListBuilder<T, Playlist> {
+public abstract class builderUser<T> implements ListBuilder<T, User> {
     protected Controller controller;
-    protected List<Playlist> listElements;
+    protected List<User> listElements;
     protected List<T> listProducts;
 }

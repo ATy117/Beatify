@@ -1,21 +1,18 @@
 package view_builders;
 
+import controller.Artist.controllerAlbum_ArtistAllAlbums;
 import javafx.scene.layout.AnchorPane;
-import object.Playlist;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlaylistOwnListBuilder extends PlaylistListBuilder<AnchorPane> {
+public class builderAlbum_ArtistAlbumOwned extends builderAlbum<AnchorPane> {
 
-    /*
-    public PlaylistOwnListBuilder(controllerAllSongs controller, List<Playlist> listElements){
+    public builderAlbum_ArtistAlbumOwned (controllerAlbum_ArtistAllAlbums controller){
         this.controller = controller;
-        this.listElements = listElements;
+        this.listElements = controller.getModel().getLibraryModel().getMyAlbums();
         this.listProducts = new ArrayList<>();
     }
-
-     */
 
     @Override
     public void build() {
