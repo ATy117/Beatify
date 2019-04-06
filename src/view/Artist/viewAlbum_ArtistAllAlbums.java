@@ -26,10 +26,17 @@ public class viewAlbum_ArtistAllAlbums extends View {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        initHeader();
+        Update();
     }
 
     @Override
     public void Update(){
+
+    }
+
+    private void initHeader(){
 
     }
 }
