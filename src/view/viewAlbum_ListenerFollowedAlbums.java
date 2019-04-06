@@ -1,6 +1,7 @@
 package view;
 
 import controller.controllerAlbum_ListenerFollowedAlbums;
+import controller.controllerDashboard;
 import controller.controllerSong_ArtistAllSongs;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -15,9 +16,9 @@ public class viewAlbum_ListenerFollowedAlbums extends  View{
 
     public controllerAlbum_ListenerFollowedAlbums controller;
 
-    public viewAlbum_ListenerFollowedAlbums(AnchorPane mainPane, ModelCentral model, controllerAlbum_ListenerFollowedAlbums controller){
+    public viewAlbum_ListenerFollowedAlbums(AnchorPane mainPane, controllerAlbum_ListenerFollowedAlbums controller, controllerDashboard dashboardController){
         this.controller = controller;
-        this.model = model;
+        this.model = dashboardController.getModel();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("templateAlbum.fxml"));
         loader.setController(this);
 

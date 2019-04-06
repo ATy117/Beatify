@@ -6,9 +6,9 @@ import view.viewUser_ListenerMyProfile;
 
 public class controllerUser_ListenerMyProfile extends PaneController {
 
-    public controllerUser_ListenerMyProfile(AnchorPane mainPane, ModelCentral model, controllerDashboard dashboardController){
+    public controllerUser_ListenerMyProfile(AnchorPane mainPane, controllerDashboard dashboardController){
         super(dashboardController);
-        this.model = model;
-        view = new viewUser_ListenerMyProfile(mainPane, model, this);
+        this.model = dashboardController.getModel();
+        view = new viewUser_ListenerMyProfile(mainPane, this, dashboardController);
     }
 }

@@ -8,9 +8,9 @@ import view.viewMusicPlayer;
 
 public class controllerMusicPlayer extends Controller {
 
-	public controllerMusicPlayer(AnchorPane playerPane, ModelCentral model) {
-		this.model = model;
-		viewMusicPlayer musicPlayerView = new viewMusicPlayer(playerPane, model, this);
+	public controllerMusicPlayer(AnchorPane playerPane, controllerDashboard controller) {
+		this.model = controller.getModel();
+		viewMusicPlayer musicPlayerView = new viewMusicPlayer(playerPane,this, controller);
 	}
 
 	public Image getImageFromAlbum(int album_id) {

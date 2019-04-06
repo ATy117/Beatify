@@ -6,9 +6,9 @@ import view.viewListener_ArtistFollowedListeners;
 
 public class controllerListener_ArtistFollowedListeners extends PaneController {
 
-    public controllerListener_ArtistFollowedListeners(AnchorPane mainPane, ModelCentral model, controllerDashboard dashboardController){
+    public controllerListener_ArtistFollowedListeners(AnchorPane mainPane, controllerDashboard dashboardController){
         super(dashboardController);
-        this.model = model;
-        view = new viewListener_ArtistFollowedListeners(mainPane, model, this);
+        this.model = dashboardController.getModel();
+        view = new viewListener_ArtistFollowedListeners(mainPane, this, dashboardController);
     }
 }

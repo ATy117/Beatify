@@ -10,8 +10,8 @@ import model.ModelCentral;
 
 public class viewArtistDashboard extends viewDashboard {
 
-	public viewArtistDashboard (Stage primaryStage, controllerDashboard controller, ModelCentral model) {
-		super(primaryStage, controller, model);
+	public viewArtistDashboard (Stage primaryStage, controllerDashboard controller) {
+		super(primaryStage, controller);
 		sm.setWindowName("Beatify for Artists");
 	}
 

@@ -8,11 +8,14 @@ import java.util.List;
 
 public class UserFollowedListBuilder extends UserListBuilder<AnchorPane> {
 
+    /*
     public UserFollowedListBuilder(controllerAllSongs controller, List<User> listElements){
         this.controller = controller;
         this.listElements = listElements;
         this.listProducts = new ArrayList<>();
     }
+    */
+
 
     @Override
     public void build() {

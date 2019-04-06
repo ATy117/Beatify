@@ -6,9 +6,9 @@ import view.viewPlaylist_ListenerAllPlaylists;
 
 public class controllerPlaylist_ListenerAllPlaylists extends  PaneController {
 
-    public controllerPlaylist_ListenerAllPlaylists(AnchorPane mainPane, ModelCentral model , controllerDashboard dashboardController){
+    public controllerPlaylist_ListenerAllPlaylists(AnchorPane mainPane, controllerDashboard dashboardController){
         super(dashboardController);
-        this.model = model;
-        view = new viewPlaylist_ListenerAllPlaylists(mainPane, model, this);
+        this.model = dashboardController.getModel();
+        view = new viewPlaylist_ListenerAllPlaylists(mainPane, this, dashboardController);
     }
 }

@@ -1,5 +1,6 @@
 package view;
 
+import controller.controllerDashboard;
 import controller.controllerSearchables_ListenerAllSearchResults;
 import controller.controllerSong_ArtistAllSongs;
 import javafx.fxml.FXMLLoader;
@@ -12,9 +13,9 @@ public class viewSearchables_ListenerAllSearchResults extends View {
 
     public controllerSearchables_ListenerAllSearchResults controller;
 
-    public viewSearchables_ListenerAllSearchResults(AnchorPane mainPane, ModelCentral model, controllerSearchables_ListenerAllSearchResults controller){
+    public viewSearchables_ListenerAllSearchResults(AnchorPane mainPane, controllerSearchables_ListenerAllSearchResults controller, controllerDashboard dashboardController){
         this.controller = controller;
-        this.model = model;
+        this.model = dashboardController.getModel();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("templateSearchable.fxml"));
         loader.setController(this);
 

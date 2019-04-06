@@ -1,5 +1,6 @@
 package view;
 
+import controller.controllerDashboard;
 import controller.controllerPlaylist_ListenerAllPlaylists;
 import controller.controllerSong_ArtistAllSongs;
 import javafx.fxml.FXMLLoader;
@@ -11,9 +12,9 @@ import java.io.IOException;
 public class viewPlaylist_ListenerAllPlaylists extends View {
     public controllerPlaylist_ListenerAllPlaylists controller;
 
-    public viewPlaylist_ListenerAllPlaylists(AnchorPane mainPane, ModelCentral model, controllerPlaylist_ListenerAllPlaylists controller){
+    public viewPlaylist_ListenerAllPlaylists(AnchorPane mainPane, controllerPlaylist_ListenerAllPlaylists controller, controllerDashboard dashboardController){
         this.controller = controller;
-        this.model = model;
+        this.model = dashboardController.getModel();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("templatePlaylist.fxml"));
         loader.setController(this);
 

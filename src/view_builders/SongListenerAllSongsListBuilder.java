@@ -8,11 +8,14 @@ import java.util.List;
 
 public class SongListenerAllSongsListBuilder extends SongListBuilder<AnchorPane> {
 
+    /*
     public SongListenerAllSongsListBuilder(controllerAllSongs controller, List<Song> listElements){
         this.controller = controller;
         this.listElements = listElements;
         this.listProducts = new ArrayList<>();
     }
+
+     */
 
     @Override
     public void build() {

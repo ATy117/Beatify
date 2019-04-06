@@ -4,10 +4,11 @@ import javafx.scene.layout.AnchorPane;
 import model.ModelCentral;
 import view.viewArtist_ArtistFollowedArtists;
 
-public class controllerArtist_ArtistFollowedArtists extends Controller implements PaneController {
+public class controllerArtist_ArtistFollowedArtists extends PaneController {
 
-    public controllerArtist_ArtistFollowedArtists(AnchorPane mainPane, ModelCentral model){
-        this.model = model;
-        view = new viewArtist_ArtistFollowedArtists(mainPane, model, this);
+    public controllerArtist_ArtistFollowedArtists(AnchorPane mainPane, controllerDashboard dashboardController){
+        super(dashboardController);
+        this.model = dashboardController.getModel();
+        view = new viewArtist_ArtistFollowedArtists(mainPane, this, dashboardController);
     }
 }

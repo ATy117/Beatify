@@ -2,6 +2,7 @@ package view;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXSlider;
+import controller.controllerDashboard;
 import controller.controllerMusicPlayer;
 import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
@@ -55,9 +56,9 @@ public class viewMusicPlayer extends View {
 	private boolean atEndOfMedia = false;
 	private double volume;
 
-	public viewMusicPlayer(AnchorPane mainPane, ModelCentral model, controllerMusicPlayer controller) {
+	public viewMusicPlayer(AnchorPane mainPane, controllerMusicPlayer controller, controllerDashboard controllerDashboard) {
 		this.controller = controller;
-		this.model = model;
+		this.model = controllerDashboard.getModel();
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("templateMusicPlayer.fxml"));
 		loader.setController(this);
 

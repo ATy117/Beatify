@@ -12,8 +12,8 @@ import java.io.IOException;
 
 public class viewListenerDashboard extends viewDashboard {
 
-	public viewListenerDashboard (Stage primaryStage, controllerDashboard controller, ModelCentral model) {
-		super(primaryStage, controller, model);
+	public viewListenerDashboard (Stage primaryStage, controllerDashboard controller) {
+		super(primaryStage, controller);
 		sm.setWindowName("Beatify");
 	}
 

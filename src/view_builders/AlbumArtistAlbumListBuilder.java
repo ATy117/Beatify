@@ -1,6 +1,6 @@
 package view_builders;
 
-import controller.controllerAllSongs;
+
 import javafx.scene.layout.AnchorPane;
 import object.Album;
 
@@ -9,11 +9,14 @@ import java.util.List;
 
 public class AlbumArtistAlbumListBuilder extends AlbumListBuilder<AnchorPane> {
 
+    /*
     public AlbumArtistAlbumListBuilder(controllerAllSongs controller, List<Album> listElements){
         this.controller = controller;
         this.listElements = listElements;
         this.listProducts = new ArrayList<>();
     }
+
+     */
 
     @Override
     public void build() {
