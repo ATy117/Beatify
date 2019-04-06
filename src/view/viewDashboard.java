@@ -36,6 +36,8 @@ public abstract class viewDashboard extends View {
 		sm.loadScene(loader);
 
 		musicPlayer = new controllerMusicPlayer(rightCurrentAnchor, controller);
+
+		controller.setPaneFoundation(centerCurrentAnchor);
 	}
 
 

@@ -12,16 +12,13 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 
 public class view_AddEditAlbum extends View {
+
     public controller_AddEditAlbum controller;
-    public AnchorPane mainPane;
-    public  controllerDashboard dashboardController;
 
     @FXML JFXButton doneBtn;
 
     public view_AddEditAlbum(AnchorPane mainPane, controller_AddEditAlbum controller, controllerDashboard dashboardController){
         this.controller = controller;
-        this.mainPane = mainPane;
-        this.dashboardController = dashboardController;
         this.model = dashboardController.getModel();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/templateAddEditAlbum.fxml"));
         loader.setController(this);
@@ -39,6 +36,6 @@ public class view_AddEditAlbum extends View {
     }
 
     public void doneButton(){
-        controllerAlbum_ArtistAllAlbums controllerAllAlbums = new controllerAlbum_ArtistAllAlbums(mainPane, dashboardController);
+        controller.uploadSong();
     }
 }

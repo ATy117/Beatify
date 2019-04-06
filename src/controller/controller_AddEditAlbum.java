@@ -1,5 +1,6 @@
 package controller;
 
+import controller.Artist.controllerAlbum_ArtistAllAlbums;
 import javafx.scene.layout.AnchorPane;
 import view.view_AddEditAlbum;
 
@@ -10,4 +11,9 @@ public class controller_AddEditAlbum extends PaneController {
         view = new view_AddEditAlbum(mainPane, this, dashboardController);
 
     }
+
+	public void uploadSong() {
+		controllerAlbum_ArtistAllAlbums controllerAllAlbums = new controllerAlbum_ArtistAllAlbums(dashboardController.getPaneFoundation(), dashboardController);
+		dashboardController.setCurrentPane(this);
+	}
 }
