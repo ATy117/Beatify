@@ -3,12 +3,12 @@ package controller;
 import javafx.scene.layout.AnchorPane;
 import model.ModelCentral;
 import view.viewPlaylist_ArtistAllPlaylists;
-import view.viewSong_ArtistAllSongs;
 
-public class controllerPlaylist_ArtistsAllPlaylists extends Controller implements PaneController {
+public class controllerPlaylist_ArtistsAllPlaylists extends PaneController {
 
-    public controllerPlaylist_ArtistsAllPlaylists(AnchorPane mainPane, ModelCentral model){
+    public controllerPlaylist_ArtistsAllPlaylists(AnchorPane mainPane, ModelCentral model, controllerDashboard dashboardController){
+        super(dashboardController);
         this.model = model;
-        currentPane = new viewPlaylist_ArtistAllPlaylists(mainPane, model, this);
+        view = new viewPlaylist_ArtistAllPlaylists(mainPane, model, this);
     }
 }

@@ -2,13 +2,13 @@ package controller;
 
 import javafx.scene.layout.AnchorPane;
 import model.ModelCentral;
-import view.viewSong_ArtistAllSongs;
 import view.viewUser_ListenerMyProfile;
 
-public class controllerUser_ListenerMyProfile extends Controller implements PaneController {
+public class controllerUser_ListenerMyProfile extends PaneController {
 
-    public controllerUser_ListenerMyProfile(AnchorPane mainPane, ModelCentral model){
+    public controllerUser_ListenerMyProfile(AnchorPane mainPane, ModelCentral model, controllerDashboard dashboardController){
+        super(dashboardController);
         this.model = model;
-        currentPane = new viewUser_ListenerMyProfile(mainPane, model, this);
+        view = new viewUser_ListenerMyProfile(mainPane, model, this);
     }
 }
