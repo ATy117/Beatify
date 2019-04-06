@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f4dfcc" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="261.0" layoutY="45.0" text="Register" textFill="#2f4159">
+         <font>
+            <Font name="Comfortaa Bold" size="22.0" />
+         </font>
+      </Label>
+      <Circle fx:id="imageCircle" fill="#1c6575" layoutX="131.0" layoutY="184.0" radius="78.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <JFXButton fx:id="uploadBtn" buttonType="RAISED" layoutX="82.0" layoutY="281.0" onAction="#uploadPhoto" style="-fx-background-color: #4097aa" text="+ Upload Photo" textFill="#fab2a5">
+         <font>
+            <Font name="Poppins Regular" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="firstNameField" focusColor="#fa9583" layoutX="257.0" layoutY="126.0" promptText="First name" unFocusColor="#1c6575">
+         <font>
+            <Font name="Poppins Regular" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="lastnameField" focusColor="#fa9583" layoutX="444.0" layoutY="126.0" prefHeight="30.0" prefWidth="107.0" promptText="Last name" unFocusColor="#1c6575">
+         <font>
+            <Font name="Poppins Regular" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="usernameField" focusColor="#fa9583" layoutX="257.0" layoutY="166.0" promptText="Username" unFocusColor="#1c6575">
+         <font>
+            <Font name="Poppins Regular" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXPasswordField fx:id="passwordField" focusColor="#fa9583" layoutX="257.0" layoutY="210.0" promptText="Password" unFocusColor="#1c6575">
+         <font>
+            <Font name="Poppins Regular" size="14.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXButton fx:id="doneBtn" buttonType="RAISED" layoutX="274.0" layoutY="323.0" onAction="#registerUser" style="-fx-background-color: #4097aa" text="Done" textFill="#fab2ab">
+         <font>
+            <Font name="Poppins Regular" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXPasswordField fx:id="confirmPassField" focusColor="#fa9583" layoutX="257.0" layoutY="254.0" promptText="Confirm Password" unFocusColor="#1c6575">
+         <font>
+            <Font name="Poppins Regular" size="14.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXRadioButton fx:id="artistToggle" layoutX="457.0" layoutY="235.0" text="Artist" textFill="#1c6575">
+         <toggleGroup>
+            <ToggleGroup fx:id="UserType" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="listenerToggle" layoutX="457.0" layoutY="265.0" text="Listener" textFill="#1c6575" toggleGroup="$UserType" />
+      <JFXButton fx:id="backBtn" buttonType="RAISED" layoutX="29.0" layoutY="14.0" onAction="#changePane" prefHeight="28.0" prefWidth="55.0" style="-fx-background-color: #4097aa" text="&lt; back" textFill="#fab2a5">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
