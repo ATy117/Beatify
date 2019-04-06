@@ -60,7 +60,7 @@ public class UserDAODB implements UserDAO{
     }
 
     @Override
-    public void updateUser(User user) {
+    public boolean updateUser(User user) {
         int userID = user.getUser_id();
         String firstNameTemp = user.getFirst_name();
         String lastNameTemp = user.getLast_name();
@@ -93,8 +93,10 @@ public class UserDAODB implements UserDAO{
 
             statement.executeUpdate();
             statement.close();
+            return true;
         }catch (SQLException e){
             e.printStackTrace();
+            return false;
         }
     }
 

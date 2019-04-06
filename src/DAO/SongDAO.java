@@ -14,7 +14,7 @@ public interface SongDAO {
 	public boolean deleteSong (int song_id);
 	public boolean deleteSongFromPlaylist (int song_id, int playlist_id);
 
-	public void updateSong (Song song);
+	public boolean updateSong (Song song);
 
 	public Song getSong(int song_id);
 	public List<Song> getOwnerSongs(int user_id);
