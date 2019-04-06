@@ -34,8 +34,4 @@ public abstract class controllerDashboard extends Controller{
 		currentPane = currentController.getPaneView();
 		model.AttachToAll(currentPane);
 	}
-
-	public void setFoundationPane(AnchorPane centerCurrentAnchor) {
-		paneFoundation = centerCurrentAnchor;
-	}
 }
