@@ -246,6 +246,7 @@ public class AlbumDAODB implements AlbumDAO{
 
         try{
             PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setString(1, "%"+keyword+"%");
             ResultSet rs = statement.executeQuery();
             while (rs.next()){
                 albumList.add(toAlbum(rs));
