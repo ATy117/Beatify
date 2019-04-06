@@ -1,5 +1,6 @@
 package controller;
 
+import Facade.MasterFacade;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.*;
@@ -17,6 +18,7 @@ public abstract class controllerDashboard extends Controller{
 	public controllerDashboard (Stage primaryStage, User user) {
 		this.primaryStage = primaryStage;
 		model = ModelCentral.getInstance();
+		facade = MasterFacade.getInstance();
 		model.resetModels();
 
 		model.setProfileModel(new ProfileModel());

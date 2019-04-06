@@ -1,5 +1,6 @@
 package controller;
 
+import Facade.MasterFacade;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import model.ModelCentral;
@@ -10,6 +11,7 @@ public class controllerMusicPlayer extends Controller {
 
 	public controllerMusicPlayer(AnchorPane playerPane, controllerDashboard controller) {
 		this.model = controller.getModel();
+		facade = MasterFacade.getInstance();
 		viewMusicPlayer musicPlayerView = new viewMusicPlayer(playerPane,this, controller);
 		model.AttachToAll(musicPlayerView);
 	}
