@@ -1,20 +1,21 @@
-package view;
+package view.Artist;
 
 import controller.controllerDashboard;
-import controller.controllerSong_MyQueue;
+import controller.Artist.controllerUser_ArtistMyProfile;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
+import view.View;
 
 import java.io.IOException;
 
-public class viewSong_MyQueue extends View{
+public class viewUser_ArtistMyProfile extends View {
 
-    public controllerSong_MyQueue controller;
+    public controllerUser_ArtistMyProfile controller;
 
-    public viewSong_MyQueue(AnchorPane mainPane, controllerSong_MyQueue controller, controllerDashboard dashboardController){
+    public viewUser_ArtistMyProfile(AnchorPane mainPane, controllerUser_ArtistMyProfile controller, controllerDashboard dashboardController){
         this.controller = controller;
         this.model = dashboardController.getModel();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/fxml/templateSong.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/templateUser.fxml"));
         loader.setController(this);
 
         try {

@@ -2,11 +2,9 @@ package view;
 
 import com.jfoenix.controls.JFXButton;
 import controller.*;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.ModelCentral;
 
 public abstract class viewDashboard extends View {
 
@@ -31,7 +29,7 @@ public abstract class viewDashboard extends View {
 		this.primaryStage = primaryStage;
 		this.controller = controller;
 
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("templateDashboard.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/templateDashboard.fxml"));
 		loader.setController(this);
 
 		sm = new StageManager(primaryStage);

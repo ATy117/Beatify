@@ -10,22 +10,13 @@ import javafx.beans.Observable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import javafx.stage.Stage;
 import javafx.util.Duration;
-import model.LibraryModel;
-import model.ModelCentral;
-import model.ProfileModel;
-import model.SongPlayerModel;
 import object.Album;
-import object.Song;
 
-import java.io.File;
 import java.io.IOException;
 
 public class viewMusicPlayer extends View {
@@ -59,7 +50,7 @@ public class viewMusicPlayer extends View {
 	public viewMusicPlayer(AnchorPane mainPane, controllerMusicPlayer controller, controllerDashboard controllerDashboard) {
 		this.controller = controller;
 		this.model = controllerDashboard.getModel();
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("templateMusicPlayer.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/fxml/templateMusicPlayer.fxml"));
 		loader.setController(this);
 
 		try {

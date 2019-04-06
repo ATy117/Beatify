@@ -3,8 +3,8 @@ package view;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
-import com.jfoenix.controls.JFXToggleButton;
 import controller.*;
+import controller.Listener.controllerListenerDashboard;
 import javafx.animation.Animation;
 import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
@@ -34,7 +34,7 @@ public class viewLogin extends View {
         this.primaryStage = primaryStage;
         this.controller = login;
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("templateLogin.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/fxml/templateLogin.fxml"));
         loader.setController(this);
 
         sm = new StageManager(primaryStage);

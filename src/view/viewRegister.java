@@ -36,7 +36,7 @@ public class viewRegister extends View{
         this.primaryStage = primaryStage;
         this.controller = controller;
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("templateRegister.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/fxml/templateRegister.fxml"));
         loader.setController(this);
 
         sm = new StageManager(primaryStage);
