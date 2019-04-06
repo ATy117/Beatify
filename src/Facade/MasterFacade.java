@@ -6,6 +6,16 @@ import object.*;
 
 public class MasterFacade {
 
-	public MasterFacade(){}
+	private static MasterFacade ourInstance;
+
+	private MasterFacade(){}
+
+	public static MasterFacade getInstance() {
+		if (ourInstance == null) {
+			ourInstance = new MasterFacade();
+		}
+
+		return ourInstance;
+	}
 
 }
