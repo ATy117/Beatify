@@ -12,4 +12,7 @@ public interface PlaylistDAO {
 	public Playlist getPlaylist(int playlist_id);
 	public List<Playlist> getMyPlaylists(int user_id);
 	public List<Playlist> getFollowedPlaylists(int user_id);
+	public boolean followPlaylist(int playlist_id, int follower_id);
+	public boolean unfollowPlaylist(int playlist_id, int follower_id);
+	public List<Playlist> getAllPlaylists(String keyword);
 }

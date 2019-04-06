@@ -174,7 +174,7 @@ public class SongDAODB implements SongDAO {
     }
 
     @Override
-    public List<Song> getAllSongs(int user_id) {
+    public List<Song> getOwnerSongs(int user_id) {
         String query = "SELECT song.song_id, song.title, song.genre, song.date_uploaded, song.artist_id, user.user_id, user.first_name, user.last_name, album.album_id, album.name\n" +
                 "FROM song INNER JOIN user ON song.artist_id = user.user_id \n" +
                 "INNER JOIN album_contents ON album_contents.song_id = song.song_id \n" +
@@ -339,6 +339,30 @@ public class SongDAODB implements SongDAO {
             e.printStackTrace();
         }
         return songFile;
+    }
+
+    @Override
+    public List<Song> getAllSongs(String keyword) {
+        String query = "SELECT song.song_id, song.title, song.genre, song.date_uploaded, song.artist_id, user.user_id, user.first_name, user.last_name, album.album_id, album.name\n" +
+                "FROM song INNER JOIN user ON song.artist_id = user.user_id \n" +
+                "INNER JOIN album_contents ON album_contents.song_id = song.song_id \n" +
+                "INNER JOIN album ON album_contents.album_id = album.album_id\n" +
+                "WHERE song.title LIKE ?";
+        List<Song> songList = new ArrayList<>();
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setString(1, "%"+keyword+"%");
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()){
+                songList.add(toSong(rs));
+            }
+            return songList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return songList;
     }
 
     private Song toSong(ResultSet rs) throws SQLException, IOException {

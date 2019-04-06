@@ -185,6 +185,60 @@ public class PlaylistDAODB implements PlaylistDAO {
         }
     }
 
+    @Override
+    public boolean followPlaylist(int playlist_id, int follower_id) {
+        String query = "INSERT INTO followed_playlist VALUES(?,?)";
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, playlist_id);
+            statement.setInt(2, follower_id);
+            statement.executeUpdate();
+            statement.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean unfollowPlaylist(int playlist_id, int follower_id) {
+        String query = "DELETE FROM followed_playlist WHERE followed_playlist.playlist_id = ? AND followed_playlist.follower_id = ?";
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, playlist_id);
+            statement.setInt(2, follower_id);
+            statement.executeUpdate();
+            statement.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public List<Playlist> getAllPlaylists(String keyword) {
+        String query = "SELECT * FROM playlist WHERE playlist.name LIKE ? ";
+        List<Playlist> playlistList = new ArrayList<>();
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setString(1, "%"+keyword+"%");
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()){
+                playlistList.add(toPlaylist(rs));
+            }
+            return playlistList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return playlistList;
+    }
+
     private Playlist toPlaylist(ResultSet rs) throws SQLException, IOException {
         Playlist playlist = new Playlist();
 
