@@ -1,6 +1,7 @@
 package App;
 
 import DAO.dbConnection;
+import controller.Controller;
 import controller.controllerLogin;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -11,7 +12,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage){
-        controllerLogin login = new controllerLogin(primaryStage);
+        Controller login = new controllerLogin(primaryStage);
     }
 
 

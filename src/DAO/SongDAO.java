@@ -17,7 +17,7 @@ public interface SongDAO {
 	public void updateSong (Song song);
 
 	public Song getSong(int song_id);
-	public List<Song> getAllSongs(int user_id);
+	public List<Song> getOwnerSongs(int user_id);
 	public List<Song> getPlaylistSongs(int playlist_id);
 	public List<Song> getAlbumSongs(int album_id);
 	public List<Song> getLikedSongs(int user_id);
@@ -26,5 +26,7 @@ public interface SongDAO {
 	public boolean checkSongPlaylist(int song_id, int playlist_id);
 
 	public File getSongFile (int song_id);
+
+	public List<Song> getAllSongs(String keyword);
 }
 

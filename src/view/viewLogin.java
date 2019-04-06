@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import controller.*;
+import controller.Artist.controllerArtistDashboard;
 import controller.Listener.controllerListenerDashboard;
 import javafx.animation.Animation;
 import javafx.animation.RotateTransition;
@@ -65,7 +66,10 @@ public class viewLogin extends View {
             String username = usernameField.getText();
             String password = passwordField.getText();
 
-            if (controller.userLogin(username, password)) {
+            if (username.equals("A") || username.equals("a")) {
+                controllerDashboard dashboard =  new controllerArtistDashboard(primaryStage, new User());
+            }
+            else {
                 controllerDashboard dashboard = new controllerListenerDashboard(primaryStage, new User());
             }
         }

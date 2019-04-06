@@ -14,6 +14,7 @@ public class LibraryModel extends Model {
     private List<Playlist> myPlaylists = new ArrayList<>();
     private List<Playlist> followedPlaylists = new ArrayList<>();
     private List<Song> allSongs = new ArrayList<>();
+    private List<Song> songContents = new ArrayList<>();
 
     public Iterator<Album> getMyAlbums() {
         return myAlbums.iterator();
@@ -33,6 +34,10 @@ public class LibraryModel extends Model {
 
     public Iterator<Song> getAllSongs() {
         return allSongs.iterator();
+    }
+
+    public Iterator<Song> getSongContents() {
+        return songContents.iterator();
     }
 
     public void setMyAlbums(List<Album> myAlbums) {
@@ -57,6 +62,11 @@ public class LibraryModel extends Model {
 
     public void setAllSongs(List<Song> allSongs) {
         this.allSongs = allSongs;
+        Notify();
+    }
+
+    public void setSongContents(List<Song> songContents) {
+        this.songContents = songContents;
         Notify();
     }
 }
