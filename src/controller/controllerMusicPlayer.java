@@ -11,6 +11,7 @@ public class controllerMusicPlayer extends Controller {
 	public controllerMusicPlayer(AnchorPane playerPane, controllerDashboard controller) {
 		this.model = controller.getModel();
 		viewMusicPlayer musicPlayerView = new viewMusicPlayer(playerPane,this, controller);
+		model.AttachToAll(musicPlayerView);
 	}
 
 	public Image getImageFromAlbum(int album_id) {

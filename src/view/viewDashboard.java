@@ -10,7 +10,7 @@ import model.ModelCentral;
 
 public abstract class viewDashboard extends View {
 
-	private controllerDashboard controller;
+	protected controllerDashboard controller;
 
 	public AnchorPane rightCurrentAnchor;
 	public AnchorPane centerCurrentAnchor;
@@ -37,10 +37,8 @@ public abstract class viewDashboard extends View {
 		sm = new StageManager(primaryStage);
 		sm.loadScene(loader);
 
-		//currentPaneController = new controllerAllSongs(centerCurrentAnchor, model);
 		musicPlayer = new controllerMusicPlayer(rightCurrentAnchor, controller);
 	}
-	
 
 
 }
