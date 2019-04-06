@@ -15,7 +15,7 @@ public class viewUser_ListenerMyProfile extends View {
     public viewUser_ListenerMyProfile(AnchorPane mainPane, controllerUser_ListenerMyProfile controller, controllerDashboard dashboardController){
         this.controller = controller;
         this.model = dashboardController.getModel();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/templateListeners.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/templateUser.fxml"));
         loader.setController(this);
 
         try {
