@@ -13,9 +13,6 @@ public abstract class controllerDashboard extends Controller{
 
 	protected View currentPane;
 	protected PaneController currentController;
-
-
-
 	protected AnchorPane paneFoundation;
 
 	public controllerDashboard (Stage primaryStage, User user) {
