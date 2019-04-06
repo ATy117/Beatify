@@ -11,7 +11,6 @@ public abstract class Model {
     public void Attach(View view)
     {
         views.add(view);
-        System.out.println(views);
         Notify();
     }
 

@@ -32,6 +32,8 @@ public class viewRegister extends View{
     public JFXRadioButton artistToggle;
     public JFXButton backBtn;
 
+    private File profilePic;
+
     public viewRegister(Stage primaryStage, controllerRegister controller) {
         this.primaryStage = primaryStage;
         this.controller = controller;
@@ -42,6 +44,12 @@ public class viewRegister extends View{
         sm = new StageManager(primaryStage);
         sm.loadScene(loader);
         sm.setWindowName("Register");
+
+        init();
+    }
+
+    private void init() {
+        listenerToggle.setSelected(true);
     }
 
     @Override
@@ -51,11 +59,24 @@ public class viewRegister extends View{
 
     public void uploadPhoto(ActionEvent actionEvent) {
         FileUploader uploader = new PhotoUploader(primaryStage);
-        File pic = uploader.getUploadedFile();
+        profilePic = uploader.getUploadedFile();
     }
 
     public void registerUser(ActionEvent actionEvent) {
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+        String passwordConfirm = confirmPassField.getText();
+        String firstName = firstNameField.getText();
+        String lastName = lastnameField.getText();
 
+        if (!username.isEmpty() && !password.isEmpty() && !passwordConfirm.isEmpty() && !firstName.isEmpty()
+                && !lastName.isEmpty() && password.equals(passwordConfirm)) {
+            if (listenerToggle.isSelected()) {
+                controller.registerListener(username, password, firstName, lastName, profilePic);
+            } else if (artistToggle.isSelected()) {
+                controller.registerArtist(username, password, firstName, lastName, profilePic);
+            }
+        }
     }
 
     public void changePane(ActionEvent actionEvent) {
