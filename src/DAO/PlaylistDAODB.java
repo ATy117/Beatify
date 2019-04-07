@@ -220,12 +220,13 @@ public class PlaylistDAODB implements PlaylistDAO {
     }
 
     @Override
-    public List<Playlist> getAllPlaylists(String keyword) {
-        String query = "SELECT * FROM playlist WHERE playlist.name LIKE ? ";
+    public List<Playlist> getAllPlaylists(String keyword, int user_id) {
+        String query = "SELECT * FROM playlist WHERE playlist.name LIKE ? AND playlist.user_id != ?";
         List<Playlist> playlistList = new ArrayList<>();
         try{
             PreparedStatement statement = this.connection.prepareStatement(query);
             statement.setString(1, "%"+keyword+"%");
+            statement.setInt(2, user_id);
             ResultSet rs = statement.executeQuery();
             while (rs.next()){
                 playlistList.add(toPlaylist(rs));

@@ -14,5 +14,5 @@ public interface UserDAO {
 	public List<User> getFollowers(User user);
 	public boolean followerUser(int user_id, int follower_id);
 	public boolean unfollowerUser(int user_id, int follower_id);
-	public List<User> getAllUsers(String keyword);
+	public List<User> getAllUsers(String keyword, int user_id);
 }
