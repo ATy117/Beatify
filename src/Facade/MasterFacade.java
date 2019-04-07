@@ -23,16 +23,22 @@ public class MasterFacade {
 
 
 	// access the DAO to check if existing user, if wala pa, add a new user to DAO then return true, else return false
-	public boolean registerListener(String username, String password, String firstName, String lastName, File profilePic) {
-
-		return true;
+	public boolean register(String username, String password, String firstName, String lastName, boolean isArtist, File profilePic) {
+		UserDAO UD = new UserDAODB();
+		if (UD.checkUsername(username)){
+			return false;
+		} else {
+			User user = new User();
+			user.setAvatarURL(profilePic);
+			user.setFirst_name(firstName);
+			user.setLast_name(lastName);
+			user.setUsername(username);
+			user.setPassword(password);
+			user.setIs_artist(isArtist);
+			return UD.addUser(user);
+		}
 	}
 
-	// access the DAO to check if existing user, if wala pa, add a new user to DAO then return true, else return false
-	public boolean registerArtist(String username, String password, String firstName, String lastName, File profilePic) {
-
-		return true;
-	}
 
 	//  attempt to login using username and pass, if user is verified, return the user, else a null user will be returned
 	public User loginUser (String username, String password) {
