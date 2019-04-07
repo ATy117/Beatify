@@ -105,7 +105,8 @@ public class MasterFacade {
 
 	// user likes song
 	public void likeSong(int userid, int songid) {
-
+		SongDAO songDAO = new SongDAODB();
+		songDAO.likeSong(songid, userid);
 	}
 
 	// user follows album
