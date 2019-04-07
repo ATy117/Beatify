@@ -114,6 +114,8 @@ public class UserDAODB implements UserDAO{
                 String dbPassword = rs.getString("user.password");
                 if(dbUsername.equals(username) && dbPassword.equals(password)) {
                     user = toUser(rs);
+                    statement.close();
+                    rs.close();
                     return user;
                 }
             }
@@ -138,6 +140,8 @@ public class UserDAODB implements UserDAO{
             while(rs.next()) {
                 String usernameTemp = rs.getString("user.username");
                 if(usernameTemp.equals(username)){
+                    statement.close();
+                    rs.close();
                     return true;
                 }
             }
@@ -216,6 +220,8 @@ public class UserDAODB implements UserDAO{
             while (rs.next()){
                 userList.add(toUser(rs));
             }
+            statement.close();
+            rs.close();
             return userList;
         } catch (SQLException e) {
             e.printStackTrace();
