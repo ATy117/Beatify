@@ -5,6 +5,9 @@ import model.*;
 import object.*;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +23,18 @@ public class MasterFacade {
 		}
 
 		return ourInstance;
+	}
+
+	public void generateCacheFolder () {
+
+		try {
+			Files.createDirectories(Paths.get(System.getProperty("user.home") + "/documents/Beatify/"));
+			Files.createDirectories(Paths.get(System.getProperty("user.home") + "/documents/Beatify/SongCache"));
+			Files.createDirectories(Paths.get(System.getProperty("user.home") + "/documents/Beatify/PictureCache"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 
