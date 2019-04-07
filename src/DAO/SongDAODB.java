@@ -128,7 +128,7 @@ public class SongDAODB implements SongDAO {
             e.printStackTrace();
         }
 
-        String query = "UPDATE song + SET " +
+        String query = "UPDATE song SET " +
                         "song.title = ?, " +
                         "song.genre = ?, " +
                         "song.date_uploaded = ?, " +
