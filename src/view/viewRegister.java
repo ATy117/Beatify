@@ -68,15 +68,30 @@ public class viewRegister extends View{
         String passwordConfirm = confirmPassField.getText();
         String firstName = firstNameField.getText();
         String lastName = lastnameField.getText();
+        boolean isArtist = artistToggle.isSelected();
 
-        if (!username.isEmpty() && !password.isEmpty() && !passwordConfirm.isEmpty() && !firstName.isEmpty()
-                && !lastName.isEmpty() && password.equals(passwordConfirm)) {
-            if (listenerToggle.isSelected()) {
-                controller.registerListener(username, password, firstName, lastName, profilePic);
-            } else if (artistToggle.isSelected()) {
-                controller.registerArtist(username, password, firstName, lastName, profilePic);
+        String firstCheck = firstName.replaceAll("\\s+", "");
+        String lastCheck = lastName.replaceAll("\\s+", "");
+        String userCheck = username.replaceAll("\\s+", "");
+        String passCheck = password.replaceAll("\\s+", "");
+        String passCheckCheck = passwordConfirm.replaceAll("\\s+", "");
+
+        if (profilePic == null){
+            //default profile picture muna
+        }
+
+        if (firstCheck.equals("") || lastCheck.equals("") || userCheck.equals("") || passCheck.equals("") || passCheckCheck.equals("")){
+            System.out.println("Some Fields Are Missing");
+        } else if ( ! password.equals(passwordConfirm)) {
+            System.out.println("Passwords Do Not Match");
+        } else {
+            if (controller.register(username, password, firstName, lastName, isArtist, profilePic)){
+                System.out.println("Successfully Created Account");
+            } else {
+                System.out.println("This Account Exists Already");
             }
         }
+
     }
 
     public void changePane(ActionEvent actionEvent) {

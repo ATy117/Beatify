@@ -25,6 +25,7 @@ public abstract class controllerDashboard extends Controller{
 		model.setPlayerModel(new SongPlayerModel());
 		model.setLibraryModel(new LibraryModel());
 		model.setPeopleModel(new OtherPeopleModel());
+		model.setSearchModel(new SearchModel());
 	}
 
 	public void setCurrentPane(PaneController currentController) {

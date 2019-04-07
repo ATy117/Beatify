@@ -128,7 +128,7 @@ public class SongDAODB implements SongDAO {
             e.printStackTrace();
         }
 
-        String query = "UPDATE song + SET " +
+        String query = "UPDATE song SET " +
                         "song.title = ?, " +
                         "song.genre = ?, " +
                         "song.date_uploaded = ?, " +
@@ -322,6 +322,40 @@ public class SongDAODB implements SongDAO {
     }
 
     @Override
+    public boolean likeSong(int song_id, int user_id) {
+        String query = "INSERT INTO liked_mapping VALUES(?,?)";
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, user_id);
+            statement.setInt(2, song_id);
+            statement.executeUpdate();
+            statement.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean unlikeSong(int song_id, int user_id) {
+        String query = "DELETE FROM liked_mapping WHERE liked_mapping.user_id = ? AND liked_mapping.song_id = ?";
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, user_id);
+            statement.setInt(2, song_id);
+            statement.executeUpdate();
+            statement.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
     public File getSongFile(int song_id) {
         String query = "SELECT song.title, song.file, user.first_name, user.last_name " +
                 "FROM song INNER JOIN user ON song.artist_id = user.user_id " +
@@ -344,16 +378,17 @@ public class SongDAODB implements SongDAO {
     }
 
     @Override
-    public List<Song> getAllSongs(String keyword) {
+    public List<Song> getAllSongs(String keyword, int artist_id) {
         String query = "SELECT song.song_id, song.title, song.genre, song.date_uploaded, song.artist_id, user.user_id, user.first_name, user.last_name, album.album_id, album.name\n" +
                 "FROM song INNER JOIN user ON song.artist_id = user.user_id \n" +
                 "INNER JOIN album_contents ON album_contents.song_id = song.song_id \n" +
                 "INNER JOIN album ON album_contents.album_id = album.album_id\n" +
-                "WHERE song.title LIKE ?";
+                "WHERE song.title LIKE ? AND song.artist_id != ?";
         List<Song> songList = new ArrayList<>();
         try{
             PreparedStatement statement = this.connection.prepareStatement(query);
             statement.setString(1, "%"+keyword+"%");
+            statement.setInt(2, artist_id);
             ResultSet rs = statement.executeQuery();
             while (rs.next()){
                 songList.add(toSong(rs));

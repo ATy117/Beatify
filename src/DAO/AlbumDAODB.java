@@ -239,14 +239,15 @@ public class AlbumDAODB implements AlbumDAO{
     }
 
     @Override
-    public List<Album> getAllAlbums(String keyword) {
+    public List<Album> getAllAlbums(String keyword, int artist_id) {
         String query = "SELECT album.album_id, album.name, album.date_created, album.artist_id, album.album_cover, user.first_name, user.last_name FROM album INNER JOIN user\n" +
-                "ON album.artist_id = user.user_id WHERE album.name LIKE ?";
+                "ON album.artist_id = user.user_id WHERE album.name LIKE ? AND album.artist_id != ?";
         List<Album> albumList = new ArrayList<>();
 
         try{
             PreparedStatement statement = this.connection.prepareStatement(query);
             statement.setString(1, "%"+keyword+"%");
+            statement.setInt(2, artist_id);
             ResultSet rs = statement.executeQuery();
             while (rs.next()){
                 albumList.add(toAlbum(rs));

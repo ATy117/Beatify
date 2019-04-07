@@ -24,9 +24,11 @@ public interface SongDAO {
 
 	public int checkSong(int user_id, String song_name);
 	public boolean checkSongPlaylist(int song_id, int playlist_id);
+	public boolean likeSong(int song_id, int user_id);
+	public boolean unlikeSong(int song_id, int user_id);
 
 	public File getSongFile (int song_id);
 
-	public List<Song> getAllSongs(String keyword);
+	public List<Song> getAllSongs(String keyword, int artist_id);
 }
 

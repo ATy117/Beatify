@@ -13,17 +13,9 @@ public class controllerRegister extends Controller{
 		view = new viewRegister(primaryStage, this);
 	}
 
-	public boolean registerListener(String username, String password, String firstName, String lastName, File profilePic) {
-		if (facade.registerListener(username, password, firstName, lastName, profilePic)) {
-			return true;
-		}
-		return false;
+	public boolean register(String username, String password, String firstName, String lastName, boolean isArtist, File profilePic) {
+		return facade.register(username, password, firstName, lastName, isArtist, profilePic);
 	}
 
-	public boolean registerArtist(String username, String password, String firstName, String lastName, File profilePic) {
-		if (facade.registerArtist(username, password, firstName, lastName, profilePic)) {
-			return true;
-		}
-		return false;
-	}
+
 }
