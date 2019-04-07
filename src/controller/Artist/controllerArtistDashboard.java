@@ -9,8 +9,8 @@ public class controllerArtistDashboard extends controllerDashboard {
 
 	public controllerArtistDashboard(Stage primaryStage, User user) {
 		super(primaryStage, user);
-		view = new viewArtistDashboard(primaryStage, this);
 		model.getProfileModel().setUser(user);
+		view = new viewArtistDashboard(primaryStage, this);
 		model.AttachToAll(view);
 	}
 }
