@@ -42,21 +42,8 @@ public class MasterFacade {
 
 	//  attempt to login using username and pass, if user is verified, return the user, else a null user will be returned
 	public User loginUser (String username, String password) {
-
-		User testuser = new User();
-
-		// returns null if no user found
-		if (username.equalsIgnoreCase("A")) {
-			testuser.setIs_artist(true);
-			testuser.setFirst_name("I'm Artist");
-
-		}
-		else {
-			testuser.setIs_artist(false);
-			testuser.setFirst_name("I'm Listener");
-		}
-
-		return testuser;
+		UserDAO UD = new UserDAODB();
+		return UD.getUser(username, password);
 	}
 
 	// keyword is entered, search all DAOS for results, then return the list of Searchables

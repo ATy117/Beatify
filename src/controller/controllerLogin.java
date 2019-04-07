@@ -2,6 +2,7 @@ package controller;
 
 import Facade.MasterFacade;
 import javafx.stage.Stage;
+import object.User;
 import view.viewLogin;
 
 public class controllerLogin extends Controller {
@@ -11,7 +12,7 @@ public class controllerLogin extends Controller {
         view = new viewLogin(primaryStage, this);
     }
 
-    public boolean userLogin(String username, String password) {
-        return true;
+    public User userLogin(String username, String password) {
+        return facade.loginUser(username, password);
     }
 }

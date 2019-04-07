@@ -66,12 +66,33 @@ public class viewLogin extends View {
             String username = usernameField.getText();
             String password = passwordField.getText();
 
+
+            String userCheck = username.replaceAll("\\s+", "");
+            String passCheck = password.replaceAll("\\s+", "");
+
+            if (userCheck.equals("") || passCheck.equals("")){
+                System.out.println("Some Fields Are Missing");
+            } else {
+                User user = controller.userLogin(username, password);
+                if (user == null){
+                    System.out.println("User does not exist");
+                } else {
+                    if (user.isIs_artist()) {
+                        controllerDashboard dashboard = new controllerArtistDashboard(primaryStage, user);
+                    } else {
+                        controllerDashboard dashboard = new controllerListenerDashboard(primaryStage, user);
+                    }
+                }
+            }
+
+            /*
             if (username.equals("A") || username.equals("a")) {
                 controllerDashboard dashboard =  new controllerArtistDashboard(primaryStage, new User());
             }
             else {
                 controllerDashboard dashboard = new controllerListenerDashboard(primaryStage, new User());
             }
+            */
         }
         else if (actionEvent.getSource() == registerBtn) {
             Controller register = new controllerRegister(primaryStage);
