@@ -110,28 +110,42 @@ public class MasterFacade {
 
 	// user follows album
 	public void followAlbum(int followersid, int albumid) {
-
+		AlbumDAO albumDAO = new AlbumDAODB();
+		albumDAO.followAlbum(albumid, followersid);
 	}
 
 	// user follows playlist
 	public void followPlaylist(int followersid, int playlistid) {
-
+		PlaylistDAO playlistDAO = new PlaylistDAODB();
+		playlistDAO.followPlaylist(playlistid, followersid);
 	}
 
 	// user follows another user
 	public void followUser(int followersid, int userid) {
-
+		UserDAO userDAO = new UserDAODB();
+		userDAO.followerUser(userid, followersid);
 	}
 
 	// creates a new album, accesses DAO, returns false if duplicate (?) (album name unique for the same artist or no?)
 	public boolean createAlbum (User user, Album album, File albumPic) {
-
-		return false;
+		AlbumDAO albumDAO = new AlbumDAODB();
+		if(albumDAO.checkAlbum(user.getUser_id(), album.getName())==-1) { //if checkAlbum returns -1, means there is no existing album like that
+			albumDAO.addAlbum(album);
+			return true; //return true if added album successfully
+		}else{
+			return false;
+		}
 	}
 
 	// creates a playlist for user
 	public boolean createPlaylist (User user, Playlist playlist) {
-		return false;
+		PlaylistDAO playlistDAO = new PlaylistDAODB();
+		if(playlistDAO.checkPlaylist(user.getUser_id(), playlist.getName())==-1){//if checkPlaylist returns -1, means there is no existing playlist like that
+			playlistDAO.addPlaylist(playlist);
+			return true; //return true if added playlist successfully
+		}else {
+			return false;
+		}
 	}
 
 
