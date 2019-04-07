@@ -27,6 +27,6 @@ public interface SongDAO {
 
 	public File getSongFile (int song_id);
 
-	public List<Song> getAllSongs(String keyword);
+	public List<Song> getAllSongs(String keyword, int artist_id);
 }
 

@@ -14,5 +14,5 @@ public interface PlaylistDAO {
 	public List<Playlist> getFollowedPlaylists(int user_id);
 	public boolean followPlaylist(int playlist_id, int follower_id);
 	public boolean unfollowPlaylist(int playlist_id, int follower_id);
-	public List<Playlist> getAllPlaylists(String keyword);
+	public List<Playlist> getAllPlaylists(String keyword, int user_id);
 }

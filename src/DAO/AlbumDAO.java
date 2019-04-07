@@ -14,6 +14,6 @@ public interface AlbumDAO {
 	public List<Album> getFollowedAlbums(int user_id);
 	public boolean followAlbum(int album_id, int follower_id);
 	public boolean unfollowAlbum(int album_id, int follower_id);
-	public List<Album> getAllAlbums(String keyword);
+	public List<Album> getAllAlbums(String keyword, int artist_id);
 }
 
