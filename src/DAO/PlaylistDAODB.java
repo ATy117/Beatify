@@ -112,24 +112,17 @@ public class PlaylistDAODB implements PlaylistDAO {
             ResultSet rs = statement.executeQuery();
 
             while(rs.next()) {
-
-                try {
-                    playlist = toPlaylist(rs);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                rs.close();
-                statement.close();
-                return playlist;
+                playlist = toPlaylist(rs);
             }
-
             rs.close();
             statement.close();
-            return null;
+            return playlist;
         } catch (SQLException e) {
             e.printStackTrace();
-            return null;
+        } catch (IOException e){
+            e.printStackTrace();
         }
+        return null;
     }
 
     @Override
@@ -143,24 +136,17 @@ public class PlaylistDAODB implements PlaylistDAO {
             ResultSet rs = statement.executeQuery();
 
             while(rs.next()) {
-
-                try {
-                    playlist = toPlaylist(rs);
-                    playlists.add(playlist);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                rs.close();
-                statement.close();
+                playlists.add(toPlaylist(rs));
             }
             rs.close();
             statement.close();
             return playlists;
         } catch (SQLException e) {
             e.printStackTrace();
-            playlists.clear();
-            return playlists;
+        } catch (IOException e){
+            e.printStackTrace();
         }
+        return playlists;
     }
 
     @Override
@@ -177,7 +163,8 @@ public class PlaylistDAODB implements PlaylistDAO {
                 Playlist playlist = getPlaylist(rs.getInt("followed_playlist.playlist_id"));
                 playlists.add(playlist);
             }
-
+            statement.close();
+            rs.close();
             return playlists;
         }catch (SQLException e){
             e.printStackTrace();
@@ -231,6 +218,8 @@ public class PlaylistDAODB implements PlaylistDAO {
             while (rs.next()){
                 playlistList.add(toPlaylist(rs));
             }
+            statement.close();
+            rs.close();
             return playlistList;
         } catch (SQLException e) {
             e.printStackTrace();

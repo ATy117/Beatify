@@ -167,6 +167,8 @@ public class SongDAODB implements SongDAO {
                 song = toSong(rs);
                 return song;
             }
+            statement.close();
+            rs.close();
         }catch(SQLException e){
             e.printStackTrace();
         } catch (IOException e) {
@@ -190,6 +192,8 @@ public class SongDAODB implements SongDAO {
             while (rs.next()){
                 songList.add(toSong(rs));
             }
+            statement.close();
+            rs.close();
             return songList;
         }catch(SQLException e){
             e.printStackTrace();
@@ -218,6 +222,8 @@ public class SongDAODB implements SongDAO {
             while (rs.next()){
                 songList.add(toSong(rs));
             }
+            statement.close();
+            rs.close();
             return songList;
         }catch(SQLException e){
             e.printStackTrace();
@@ -244,6 +250,8 @@ public class SongDAODB implements SongDAO {
             while (rs.next()){
                 songList.add(toSong(rs));
             }
+            statement.close();
+            rs.close();
             return songList;
         }catch(SQLException e){
             e.printStackTrace();
@@ -271,6 +279,8 @@ public class SongDAODB implements SongDAO {
             while (rs.next()){
                 songList.add(toSong(rs));
             }
+            statement.close();
+            rs.close();
             return songList;
         }catch(SQLException e){
             e.printStackTrace();
@@ -309,6 +319,8 @@ public class SongDAODB implements SongDAO {
             ResultSet rs = statement.executeQuery();
 
             while(rs.next()) {
+                rs.close();
+                statement.close();
                 return true;
             }
 
@@ -367,6 +379,8 @@ public class SongDAODB implements SongDAO {
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
                 songFile = toFile(rs);
+                statement.close();
+                rs.close();
                 return songFile;
             }
         }catch(SQLException e){
@@ -393,6 +407,8 @@ public class SongDAODB implements SongDAO {
             while (rs.next()){
                 songList.add(toSong(rs));
             }
+            statement.close();
+            rs.close();
             return songList;
         } catch (SQLException e) {
             e.printStackTrace();
