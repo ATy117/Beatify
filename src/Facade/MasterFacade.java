@@ -5,6 +5,7 @@ import model.*;
 import object.*;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MasterFacade {
@@ -52,8 +53,58 @@ public class MasterFacade {
 		return null;
 	}
 
+
+	public List<User> searchUsers(String keyword, int user_id){
+		UserDAO userDAO = new UserDAODB();
+		List<User> userList = new ArrayList<>();
+
+		//check if list retrived from dao is empty
+		if(!userDAO.getAllUsers(keyword, user_id).isEmpty()){
+			userList.addAll(userDAO.getAllUsers(keyword, user_id)); //if not empty, add all to userList
+			return userList;
+		}else{
+			return userList; //returns an empty list
+		}
+	}
+
+	public List<Song> searchSongs(String keyword, int artist_id){
+		SongDAO songDAO = new SongDAODB();
+		List<Song> songList = new ArrayList<>();
+		//check if list retrived from dao is empty
+		if(!songDAO.getAllSongs(keyword, artist_id).isEmpty()){
+			songList.addAll(songDAO.getAllSongs(keyword, artist_id)); //if not empty, add all to songList
+			return songList;
+		}else {
+			return songList; //returns an empty list
+		}
+	}
+
+	public List<Album> searchAlbums(String keyword, int artist_id){
+		AlbumDAO albumDAO = new AlbumDAODB();
+		List<Album> albumList = new ArrayList<>();
+		//check if list retrived from dao is empty
+		if(!albumDAO.getAllAlbums(keyword, artist_id).isEmpty()){
+			albumList.addAll(albumDAO.getAllAlbums(keyword, artist_id)); //if not empty, add all to albumList
+			return albumList;
+		}else{
+			return  albumList; //returns an empty list
+		}
+	}
+
+	public List<Playlist> searchPlaylists(String keyword, int user_id){
+		PlaylistDAO playlistDAO = new PlaylistDAODB();
+		List<Playlist> playlistList = new ArrayList<>();
+		//check if list retrived from dao is empty
+		if(!playlistDAO.getAllPlaylists(keyword, user_id).isEmpty()){
+			playlistList.addAll(playlistDAO.getAllPlaylists(keyword, user_id)); //if not empty, add all to playlistList
+			return playlistList;
+		}else{
+			return playlistList; //returns an empty list
+		}
+	}
+
 	// user likes song
-	public void likeSong(int userid, int sondid) {
+	public void likeSong(int userid, int songid) {
 
 	}
 
