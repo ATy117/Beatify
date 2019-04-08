@@ -261,9 +261,12 @@ public class MasterFacade {
 
 	public void createNotification(String notification, int userID){
 		if(ND.addNotification(notification,userID)){
+		    int notificationID = ND.getNotifID(notification, userID);
 			ArrayList<Integer> followerIDs = new ArrayList<>();
 			for (User user: UD.getFollowers(userID))
 				followerIDs.add(user.getUser_id());
+			for (Integer followerID: followerIDs)
+			    ND.addToNotifMapping(notificationID,followerID);
 		}
 	}
 
