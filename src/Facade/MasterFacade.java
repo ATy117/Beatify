@@ -1,5 +1,6 @@
 package Facade;
 
+import CacheManager.CacheManager;
 import DAO.*;
 import model.*;
 import object.*;
@@ -18,6 +19,7 @@ public class MasterFacade {
 	private PlaylistDAO PD;
 	private SongDAO SD;
 	private UserDAO UD;
+	private CacheManager cacheManager;
 
 	private MasterFacade(){
 		AD = new AlbumDAODB();
@@ -35,15 +37,9 @@ public class MasterFacade {
 	}
 
 	public void generateCacheFolder () {
-
-		try {
-			Files.createDirectories(Paths.get(System.getProperty("user.home") + "/documents/Beatify/"));
-			Files.createDirectories(Paths.get(System.getProperty("user.home") + "/documents/Beatify/SongCache"));
-			Files.createDirectories(Paths.get(System.getProperty("user.home") + "/documents/Beatify/PictureCache"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
+		cacheManager = new CacheManager();
+		cacheManager.generateCacheFolder();
+		System.out.println("Cache folder is existing / created");
 	}
 
 

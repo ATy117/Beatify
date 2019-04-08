@@ -1,7 +1,6 @@
 package view.Artist;
 
-import controller.Artist.controllerSong_ArtistPlaylistsFollowedSongs;
-import controller.Artist.controllerSong_ArtistPlaylistsOwnedSongs;
+import controller.Artist.controllerSong_ArtistPlaylistOwnedSongs;
 import controller.controllerDashboard;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -11,11 +10,11 @@ import java.io.IOException;
 
 public class viewSong_ArtistPlaylistsOwnedSongs extends View {
 
-    private controllerSong_ArtistPlaylistsOwnedSongs controller;
+    private controllerSong_ArtistPlaylistOwnedSongs controller;
 
     //Songs inside the Playlist I own
 
-    public viewSong_ArtistPlaylistsOwnedSongs (AnchorPane mainPane, controllerSong_ArtistPlaylistsOwnedSongs controller, controllerDashboard dashboardController){
+    public viewSong_ArtistPlaylistsOwnedSongs (AnchorPane mainPane, controllerSong_ArtistPlaylistOwnedSongs controller, controllerDashboard dashboardController){
         this.controller = controller;
         this.model = dashboardController.getModel();
 

@@ -1,7 +1,6 @@
 package view.Artist;
 
-import controller.Artist.controllerSong_ArtistAlbumsFollowedSongs;
-import controller.Artist.controllerSong_ArtistPlaylistsFollowedSongs;
+import controller.Artist.controllerSong_ArtistPlaylistFollowedSongs;
 import controller.controllerDashboard;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -13,10 +12,10 @@ public class viewSong_ArtistPlaylistsFollowedSongs extends View {
 
     //Songs inside the Playlist I am following
 
-    private controllerSong_ArtistPlaylistsFollowedSongs controller;
+    private controllerSong_ArtistPlaylistFollowedSongs controller;
     //Songs inside the album I am Following
 
-    public viewSong_ArtistPlaylistsFollowedSongs (AnchorPane mainPane, controllerSong_ArtistPlaylistsFollowedSongs controller, controllerDashboard dashboardController){
+    public viewSong_ArtistPlaylistsFollowedSongs (AnchorPane mainPane, controllerSong_ArtistPlaylistFollowedSongs controller, controllerDashboard dashboardController){
         this.controller = controller;
         this.model = dashboardController.getModel();
 
