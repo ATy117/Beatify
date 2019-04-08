@@ -42,7 +42,6 @@ public class viewSearchables_ArtistAllSearchResults extends View {
             e.printStackTrace();
         }
 
-        Update();
     }
 
     @Override
