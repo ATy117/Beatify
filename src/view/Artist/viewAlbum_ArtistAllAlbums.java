@@ -119,6 +119,6 @@ public class viewAlbum_ArtistAllAlbums extends View {
     }
 
     public void uploadAlbum(){
-         controller_AddAlbum controller = new controller_AddAlbum(mainPane, dashboardController);
+        controller.uploadAlbum();
     }
 }

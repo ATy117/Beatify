@@ -98,7 +98,7 @@ public class viewPlaylist_ArtistAllPlaylists extends View {
         playlistHeader.setLeftAnchor(headerLabel, 252.0);
         playlistHeader.setTopAnchor(headerLabel, 23.0);
         playlistHeader.setLeftAnchor(addPlaylistBtn, 260.0);
-        playlistHeader.setTopAnchor(addPlaylistBtn, 40.0);
+        playlistHeader.setTopAnchor(addPlaylistBtn, 50.0);
 
         playlistHeader.getChildren().add(headerLabel);
         playlistHeader.getChildren().add(addPlaylistBtn);
@@ -112,6 +112,6 @@ public class viewPlaylist_ArtistAllPlaylists extends View {
     }
 
     public void changePane(){
-        
+        controller.addPlaylists();
     }
 }
