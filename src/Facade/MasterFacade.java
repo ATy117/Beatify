@@ -160,7 +160,7 @@ public class MasterFacade {
 	public boolean createAlbum (User user, Album album, File albumPic) {
 		if(AD.checkAlbum(user.getUser_id(), album.getName())==-1) { //if checkAlbum returns -1, means there is no existing album like that
 			AD.addAlbum(album);
-			createNotification(user.getFirst_name() + " " + user.getLast_name() + " has created an album: " + album.getName(), user.getUser_id());
+			createNotification(album.getArtist_name() + " has created an album: " + album.getName(), user.getUser_id());
 			return true; //return true if added album successfully
 		}else{
 			return false;
