@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXPopup;
 import controller.Artist.controllerAlbum_ArtistAllAlbums;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -42,8 +43,23 @@ public class builderAlbum_ArtistAlbumOwned extends builderAlbum<AnchorPane> {
                 @Override
                 public void handle(MouseEvent event) {
                     if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
-                        popup.show(albumIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                        if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY))
+                            popup.show(albumIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
                     }
+                }
+            });
+
+            deleteButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+
+                }
+            });
+
+            editButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+
                 }
             });
 

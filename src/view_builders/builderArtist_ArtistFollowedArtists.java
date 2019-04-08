@@ -2,8 +2,11 @@ package view_builders;
 
 import com.jfoenix.controls.JFXPopup;
 import controller.Artist.controllerArtist_ArtistFollowedArtists;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
@@ -35,6 +38,23 @@ public class builderArtist_ArtistFollowedArtists extends builderUser<AnchorPane>
             unfollowButton.setMinWidth(content.getPrefWidth());
             content.getChildren().addAll(unfollowButton);
             popup.setPopupContent(content);
+
+            userPic.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
+                        if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY))
+                            popup.show(albumIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                    }
+                }
+            });
+
+            unfollowButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+
+                }
+            });
 
             albumIndiv.setLeftAnchor(userPic, 20.0);
             albumIndiv.setTopAnchor(userPic, 13.0);

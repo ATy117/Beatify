@@ -1,8 +1,14 @@
 package view_builders;
 
+import com.jfoenix.controls.JFXPopup;
 import controller.Artist.controllerPlaylist_ArtistsAllPlaylists;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 
@@ -28,6 +34,31 @@ public class builderPlaylist_ArtistPlaylistFollowed  extends builderPlaylist<Anc
                 status = new Label("Public");
             else
                 status = new Label("Private");
+
+            JFXPopup popup = new JFXPopup();
+            VBox content = new VBox();
+            content.setPrefWidth(65);
+            Button unfollowButton = new Button("Unfollow");
+            unfollowButton.setMinWidth(content.getPrefWidth());
+            content.getChildren().addAll(unfollowButton);
+            popup.setPopupContent(content);
+
+            albumCover.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
+                        if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY))
+                            popup.show(albumIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                    }
+                }
+            });
+
+            unfollowButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+
+                }
+            });
 
             albumIndiv.setLeftAnchor(albumCover, 20.0);
             albumIndiv.setTopAnchor(albumCover, 13.0);

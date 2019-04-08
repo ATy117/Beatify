@@ -2,7 +2,9 @@ package view_builders;
 
 import com.jfoenix.controls.JFXPopup;
 import controller.Listener.controllerSong_ListenerAllSongs;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
@@ -31,6 +33,27 @@ public class builderSong_ListenerAllSongs extends builderSong<AnchorPane> {
             unlikeButton.setMinWidth(content.getPrefWidth());
             content.getChildren().addAll(add_to_queueButton, add_to_playlistButton, unlikeButton);
             popup.setPopupContent(content);
+
+            add_to_queueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+
+                }
+            });
+
+            add_to_playlistButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+
+                }
+            });
+
+            unlikeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+
+                }
+            });
         }
     }
 

@@ -2,7 +2,9 @@ package view_builders;
 
 import com.jfoenix.controls.JFXPopup;
 import controller.Listener.controllerAlbum_ListenerFollowedAlbums;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
@@ -27,6 +29,13 @@ public class builderAlbum_ListenerAlbumFollowed extends builderAlbum<AnchorPane>
             unfollowButton.setMinWidth(content.getPrefWidth());
             content.getChildren().addAll(unfollowButton);
             popup.setPopupContent(content);
+
+            unfollowButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+
+                }
+            });
         }
     }
 
