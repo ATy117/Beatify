@@ -48,5 +48,9 @@ public class viewUser_ArtistMyProfile extends View {
         userHeader.setTopAnchor(logoutBtn, 20.0);
 
         userHeader.getChildren().add(logoutBtn);
+
+        logoutBtn.setOnMouseClicked(e -> {
+            controller.logout();
+        });
     }
 }

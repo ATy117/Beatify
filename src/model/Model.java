@@ -26,4 +26,8 @@ public abstract class Model {
             v.Update();
         }
     }
+
+    public List<View> getViews () {
+        return views;
+    }
 }
