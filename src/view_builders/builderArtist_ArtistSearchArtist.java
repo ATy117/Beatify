@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
+import object.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +25,10 @@ public class builderArtist_ArtistSearchArtist extends builderUser<AnchorPane> {
     @Override
     public void build() {
         while(listElements.hasNext()) {
-
+            User user = listElements.next();
             AnchorPane albumIndiv = new AnchorPane();
             Circle userPic = new Circle(45);
-            Label text = new Label(listElements.next().getUsername());
+            Label text = new Label(user.getUsername());
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();

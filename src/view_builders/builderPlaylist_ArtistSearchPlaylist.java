@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
+import object.Playlist;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +25,10 @@ public class builderPlaylist_ArtistSearchPlaylist extends builderPlaylist<Anchor
     @Override
     public void build() {
         while(listElements.hasNext()) {
-
+            Playlist playlist = listElements.next();
             AnchorPane albumIndiv = new AnchorPane();
             Circle albumCover = new Circle(45);
-            Label text = new Label(listElements.next().getName());
+            Label text = new Label(playlist.getName());
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();

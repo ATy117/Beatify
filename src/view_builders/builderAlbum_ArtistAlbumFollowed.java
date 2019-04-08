@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
+import object.Album;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,9 +26,10 @@ public builderAlbum_ArtistAlbumFollowed (controllerAlbum_ArtistAllAlbums control
         @Override
         public void build() {
             while(listElements.hasNext()) {
+                Album album = listElements.next();
                 AnchorPane albumIndiv = new AnchorPane();
                 Circle albumCover = new Circle(45);
-                Text text = new Text(listElements.next().getName());
+                Text text = new Text(album.getName());
 
                 JFXPopup popup = new JFXPopup();
                 VBox content = new VBox();
