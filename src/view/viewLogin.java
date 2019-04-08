@@ -27,11 +27,6 @@ public class viewLogin extends View {
     public JFXButton registerBtn;
 
     public viewLogin (Stage primaryStage, controllerLogin login) {
-
-        Font.loadFont(getClass().getResource("/fonts/Poppins-Regular.ttf").toExternalForm(), 10);
-        Font.loadFont(getClass().getResource("/fonts/Comfortaa-Regular.ttf").toExternalForm(), 10);
-        Font.loadFont(getClass().getResource("/fonts/Comfortaa-Bold.ttf").toExternalForm(), 10);
-
         this.primaryStage = primaryStage;
         this.controller = login;
 
@@ -43,6 +38,7 @@ public class viewLogin extends View {
         sm.setWindowName("Beatify");
 
         init();
+        loadFonts();
     }
 
     private void init(){
@@ -57,6 +53,12 @@ public class viewLogin extends View {
     @Override
     public void Update() {
 
+    }
+
+    public void loadFonts() {
+        Font.loadFont(getClass().getResource("/fonts/Poppins-Regular.ttf").toExternalForm(), 10);
+        Font.loadFont(getClass().getResource("/fonts/Comfortaa-Regular.ttf").toExternalForm(), 10);
+        Font.loadFont(getClass().getResource("/fonts/Comfortaa-Bold.ttf").toExternalForm(), 10);
     }
 
     public void changePane(ActionEvent actionEvent) {

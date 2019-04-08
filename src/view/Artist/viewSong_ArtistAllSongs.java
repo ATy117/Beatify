@@ -57,7 +57,6 @@ public class viewSong_ArtistAllSongs extends View {
 
         //BUILDER//
 
-
         //SETS SONGS//
         for (int i = 0; i<5;i++){
             //place holder values//
