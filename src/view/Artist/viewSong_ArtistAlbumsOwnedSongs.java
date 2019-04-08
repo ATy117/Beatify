@@ -1,7 +1,6 @@
 package view.Artist;
 
-import controller.Artist.controllerSong_ArtistAlbumsOwnedSong;
-import controller.Artist.controllerSong_ArtistAllSongs;
+import controller.Artist.controllerSong_ArtistAlbumsOwnedSongs;
 import controller.controllerDashboard;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -12,9 +11,9 @@ import java.io.IOException;
 public class viewSong_ArtistAlbumsOwnedSongs extends View {
 
     //Songs inside MY Album
-    private controllerSong_ArtistAlbumsOwnedSong controller;
+    private controllerSong_ArtistAlbumsOwnedSongs controller;
 
-    public viewSong_ArtistAlbumsOwnedSongs(AnchorPane mainPane, controllerSong_ArtistAlbumsOwnedSong controller, controllerDashboard dashboardController)
+    public viewSong_ArtistAlbumsOwnedSongs(AnchorPane mainPane, controllerSong_ArtistAlbumsOwnedSongs controller, controllerDashboard dashboardController)
     {
         this.controller = controller;
         this.model = dashboardController.getModel();
