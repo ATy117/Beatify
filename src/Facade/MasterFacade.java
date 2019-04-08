@@ -180,7 +180,6 @@ public class MasterFacade {
 		PlaylistDAO playlistDAO = new PlaylistDAODB();
 		if(playlistDAO.checkPlaylist(user.getUser_id(), playlist.getName())==-1){//if checkPlaylist returns -1, means there is no existing playlist like that
 			playlistDAO.addPlaylist(playlist);
-			System.out.println("Yes");
 			createNotification(user.getFirst_name() + " " + user.getLast_name() + " has created a playlist: " + playlist.getName(), user.getUser_id());
 			return true; //return true if added playlist successfully
 		}else {
