@@ -10,6 +10,8 @@ import javafx.beans.Observable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -69,6 +71,26 @@ public class viewMusicPlayer extends View {
 		genreText.setText("");
 		timestamp.setText("");
 		volume = 0.5;
+
+		Image play = new Image("resources/PlayBtn.png");
+		Image next = new Image("resources/nextBtn.png");
+		Image prev = new Image("resources/prevBtn.png");
+
+		ImageView playView = new ImageView(play);
+		ImageView nextView = new ImageView(next);
+		ImageView prevView = new ImageView(prev);
+
+		playView.setFitWidth(40);
+		playView.setFitHeight(40);
+		nextView.setFitWidth(30);
+		nextView.setFitHeight(30);
+		prevView.setFitHeight(30);
+		prevView.setFitWidth(30);
+
+
+		playBtn.setGraphic(playView);
+		rewindBtn.setGraphic(prevView);
+		ffBtn.setGraphic(nextView);
 
 	}
 

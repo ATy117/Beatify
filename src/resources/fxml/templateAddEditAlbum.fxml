@@ -19,6 +19,9 @@
       <Circle fill="#fab4a76b" layoutX="315.0" layoutY="353.0" radius="17.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="#fab4a76b" layoutX="97.0" layoutY="356.0" radius="27.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="#fab4a76b" layoutX="354.0" layoutY="395.0" radius="31.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="421.0" layoutY="383.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="483.0" layoutY="427.0" radius="31.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="50.0" layoutY="285.0" radius="47.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Label layoutX="251.0" layoutY="70.0" text="Add Album" textFill="#2f4159">
          <font>
             <Font name="Comfortaa Bold" size="26.0" />
@@ -50,7 +53,5 @@
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </Label>
-      <Circle fill="#fab4a76b" layoutX="421.0" layoutY="383.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fill="#fab4a76b" layoutX="23.0" layoutY="324.0" radius="47.0" stroke="TRANSPARENT" strokeType="INSIDE" />
    </children>
 </AnchorPane>
