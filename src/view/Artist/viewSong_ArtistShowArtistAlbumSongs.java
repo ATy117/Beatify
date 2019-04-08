@@ -1,7 +1,7 @@
 package view.Artist;
 
 import com.jfoenix.controls.JFXListView;
-import controller.Artist.controllerSong_ArtistPlaylistsOwnedSongs;
+import controller.Artist.controllerSong_ArtistPlaylistOwnedSongs;
 import controller.Artist.controllerSong_ArtistShowArtistAlbumSongs;
 import controller.controllerDashboard;
 import javafx.fxml.FXML;

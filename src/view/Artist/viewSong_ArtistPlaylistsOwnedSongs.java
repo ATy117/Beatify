@@ -1,8 +1,8 @@
 package view.Artist;
 
 import com.jfoenix.controls.JFXListView;
-import controller.Artist.controllerSong_ArtistPlaylistsFollowedSongs;
-import controller.Artist.controllerSong_ArtistPlaylistsOwnedSongs;
+import controller.Artist.controllerSong_ArtistPlaylistFollowedSongs;
+import controller.Artist.controllerSong_ArtistPlaylistOwnedSongs;
 import controller.Artist.controllerSong_ArtistPlaylistOwnedSongs;
 import controller.controllerDashboard;
 import javafx.fxml.FXML;
@@ -22,7 +22,6 @@ public class viewSong_ArtistPlaylistsOwnedSongs extends View {
     @FXML JFXListView songListView;
     private Label headerLabel;
     private Label subheaderLabel;
-    private controllerSong_ArtistPlaylistsOwnedSongs controller;
 
     //Songs inside the Playlist I own
 

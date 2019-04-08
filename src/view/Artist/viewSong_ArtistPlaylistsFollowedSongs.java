@@ -2,7 +2,7 @@ package view.Artist;
 
 import com.jfoenix.controls.JFXListView;
 import controller.Artist.controllerSong_ArtistAlbumsFollowedSongs;
-import controller.Artist.controllerSong_ArtistPlaylistsFollowedSongs;
+import controller.Artist.controllerSong_ArtistPlaylistFollowedSongs;
 import controller.Artist.controllerSong_ArtistPlaylistFollowedSongs;
 import controller.controllerDashboard;
 import javafx.fxml.FXML;
@@ -24,7 +24,6 @@ public class viewSong_ArtistPlaylistsFollowedSongs extends View {
     @FXML JFXListView songListView;
     private Label headerLabel;
     private Label subheaderLabel;
-    private controllerSong_ArtistPlaylistsFollowedSongs controller;
     //Songs inside the album I am Following
 
     public viewSong_ArtistPlaylistsFollowedSongs (AnchorPane mainPane, controllerSong_ArtistPlaylistFollowedSongs controller, controllerDashboard dashboardController){

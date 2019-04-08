@@ -3,7 +3,7 @@ package view.Artist;
 import controller.Artist.controllerSong_ArtistAlbumsOwnedSongs;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
-import controller.Artist.controllerSong_ArtistAlbumsOwnedSong;
+import controller.Artist.controllerSong_ArtistAlbumsOwnedSongs;
 import controller.Artist.controllerSong_ArtistAllSongs;
 import controller.controllerDashboard;
 import javafx.event.EventHandler;
@@ -24,11 +24,9 @@ public class viewSong_ArtistAlbumsOwnedSongs extends View {
     @FXML JFXListView songListView;
     private Label headerLabel;
     private Label subheaderLabel;
-    private controllerSong_ArtistAlbumsOwnedSong controller;
-public class viewSong_ArtistAlbumsOwnedSongs extends View {
+    private controllerSong_ArtistAlbumsOwnedSongs controller;
 
     //Songs inside MY Album
-    private controllerSong_ArtistAlbumsOwnedSongs controller;
 
     public viewSong_ArtistAlbumsOwnedSongs(AnchorPane mainPane, controllerSong_ArtistAlbumsOwnedSongs controller, controllerDashboard dashboardController)
     {
