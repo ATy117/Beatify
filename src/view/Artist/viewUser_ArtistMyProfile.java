@@ -1,11 +1,18 @@
 package view.Artist;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXTextField;
 import controller.controllerDashboard;
 import controller.Artist.controllerUser_ArtistMyProfile;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.TilePane;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import view.View;
 
@@ -15,15 +22,12 @@ public class viewUser_ArtistMyProfile extends View {
 
     public controllerUser_ArtistMyProfile controller;
 
-    @FXML AnchorPane userContent;
-    @FXML AnchorPane userHeader;
-
-    private JFXButton logoutBtn;
+    @FXML JFXButton logoutBtn;
 
     public viewUser_ArtistMyProfile(AnchorPane mainPane, controllerUser_ArtistMyProfile controller, controllerDashboard dashboardController){
         this.controller = controller;
         this.model = dashboardController.getModel();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/templateUser.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/templateUser_MyProfile.fxml"));
         loader.setController(this);
 
         try {
@@ -37,17 +41,10 @@ public class viewUser_ArtistMyProfile extends View {
 
     @Override
     public void Update(){
+
     }
 
     public void initheader(){
-        logoutBtn = new JFXButton("Logout");
-
-        logoutBtn.setFont(Font.font("Comfortaa", 12));
-
-        userHeader.setLeftAnchor(logoutBtn, 300.0);
-        userHeader.setTopAnchor(logoutBtn, 20.0);
-
-        userHeader.getChildren().add(logoutBtn);
 
         logoutBtn.setOnMouseClicked(e -> {
             controller.logout();
