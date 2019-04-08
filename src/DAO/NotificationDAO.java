@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface NotificationDAO {
     boolean addNotification(String notification, int user_id);
+    int getNotifID(String notification, int user_id);
     boolean addToNotifMapping(int notif_id, int follower_id);
     List<Notification> getUnviewedNotifications(int follower_id);
     boolean viewNotification(int notif_id, int follower_id);
