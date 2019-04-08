@@ -1,16 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="570.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="570.0" prefWidth="634.0" style="-fx-background-color: #f4dfcc" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="121.0" layoutY="48.0" text="Add Edit Playlist Album">
+      <Circle fill="#fab4a76b" layoutX="575.0" layoutY="50.0" radius="55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="414.0" layoutY="84.0" radius="31.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="328.0" layoutY="114.0" radius="41.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="488.0" layoutY="105.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="256.0" layoutY="88.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="255.0" layoutY="381.0" radius="47.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="166.0" layoutY="405.0" radius="31.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="325.0" layoutY="363.0" radius="17.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="107.0" layoutY="366.0" radius="27.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="364.0" layoutY="405.0" radius="31.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="431.0" layoutY="393.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="493.0" layoutY="437.0" radius="31.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="60.0" layoutY="295.0" radius="47.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Label fx:id="addEditLbl" layoutX="261.0" layoutY="80.0" text="Add Playlist" textFill="#2f4159">
+         <font>
+            <Font name="Comfortaa Bold" size="26.0" />
+         </font>
+      </Label>
+      <Circle fx:id="albumCoverCircle" fill="#4097aa" layoutX="167.0" layoutY="253.0" radius="82.0" stroke="#1c151500" strokeType="INSIDE" />
+      <JFXButton fx:id="doneBtn" buttonType="RAISED" layoutX="265.0" layoutY="451.0" onAction="#doneButton" style="-fx-background-color: #1c6575" text="Done" textFill="#fab2ab">
+         <font>
+            <Font name="Comfortaa Regular" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="playlistNameTextField" focusColor="#fa9583" layoutX="307.0" layoutY="252.0" prefHeight="34.0" prefWidth="293.0" promptText="Playlist Name" unFocusColor="#1c6575">
          <font>
             <Font name="Comfortaa Bold" size="18.0" />
          </font>
+      </JFXTextField>
+      <Label fx:id="artistLbl" layoutX="308.0" layoutY="299.0" text="by Artist" textFill="#4097aa">
+         <font>
+            <Font name="Comfortaa Regular" size="16.0" />
+         </font>
       </Label>
+      <Label layoutX="307.0" layoutY="208.0" text="Enter Playlist Name:" textFill="#4097aa">
+         <font>
+            <Font name="Poppins Regular" size="16.0" />
+         </font>
+      </Label>
+      <JFXRadioButton fx:id="privateRadio" layoutX="317.0" layoutY="355.0" text="Private">
+         <font>
+            <Font name="Poppins Regular" size="14.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="status" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="publicRadio" layoutX="441.0" layoutY="355.0" text="Public" toggleGroup="$status">
+         <font>
+            <Font name="Poppins Regular" size="14.0" />
+         </font>
+      </JFXRadioButton>
    </children>
 </AnchorPane>

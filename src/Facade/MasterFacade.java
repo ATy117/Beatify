@@ -1,6 +1,8 @@
 package Facade;
 
+import CacheManager.CacheManager;
 import DAO.*;
+import javafx.scene.image.Image;
 import model.*;
 import object.*;
 
@@ -18,12 +20,15 @@ public class MasterFacade {
 	private PlaylistDAO PD;
 	private SongDAO SD;
 	private UserDAO UD;
+	private NotificationDAO ND;
+	private CacheManager cacheManager;
 
 	private MasterFacade(){
 		AD = new AlbumDAODB();
 		PD = new PlaylistDAODB();
 		SD = new SongDAODB();
 		UD = new UserDAODB();
+		ND = new NotificationDAODB();
 	}
 
 	public static MasterFacade getInstance() {
@@ -35,15 +40,9 @@ public class MasterFacade {
 	}
 
 	public void generateCacheFolder () {
-
-		try {
-			Files.createDirectories(Paths.get(System.getProperty("user.home") + "/documents/Beatify/"));
-			Files.createDirectories(Paths.get(System.getProperty("user.home") + "/documents/Beatify/SongCache"));
-			Files.createDirectories(Paths.get(System.getProperty("user.home") + "/documents/Beatify/PictureCache"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
+		cacheManager = new CacheManager();
+		cacheManager.generateCacheFolder();
+		System.out.println("Cache folder is existing / created");
 	}
 
 
@@ -161,6 +160,7 @@ public class MasterFacade {
 	public boolean createAlbum (User user, Album album, File albumPic) {
 		if(AD.checkAlbum(user.getUser_id(), album.getName())==-1) { //if checkAlbum returns -1, means there is no existing album like that
 			AD.addAlbum(album);
+			createNotification(album.getArtist_name() + " has created an album: " + album.getName(), user.getUser_id());
 			return true; //return true if added album successfully
 		}else{
 			return false;
@@ -179,6 +179,7 @@ public class MasterFacade {
 	public boolean createPlaylist (User user, Playlist playlist) {
 		PlaylistDAO playlistDAO = new PlaylistDAODB();
 		if(playlistDAO.checkPlaylist(user.getUser_id(), playlist.getName())==-1){//if checkPlaylist returns -1, means there is no existing playlist like that
+			createNotification(user.getFirst_name() + " " + user.getLast_name() + " has created a playlist: " + playlist.getName(), user.getUser_id());
 			playlistDAO.addPlaylist(playlist);
 			return true; //return true if added playlist successfully
 		}else {
@@ -228,8 +229,10 @@ public class MasterFacade {
 
 
 	public boolean addSong(Song song){
-		if(SD.checkSong(song.getArtist__id(),song.getSong_name()) == -1)
+		if(SD.checkSong(song.getArtist__id(),song.getSong_name()) == -1) {
+			createNotification(song.getArtist_name() + " has added a new song: " + song.getSong_name(), song.getArtist__id());
 			return SD.addSong(song);
+		}
 		else return false;
 	}
 
@@ -256,4 +259,35 @@ public class MasterFacade {
 		return SD.getAlbumSongs(album_id);
 	}
 
+	public void createNotification(String notification, int userID){
+		if(ND.addNotification(notification,userID)){
+		    int notificationID = ND.getNotifID(notification, userID);
+			ArrayList<Integer> followerIDs = new ArrayList<>();
+			for (User user: UD.getFollowers(userID))
+				followerIDs.add(user.getUser_id());
+			for (Integer followerID: followerIDs)
+			    ND.addToNotifMapping(notificationID,followerID);
+		}
+	}
+
+	public List<Notification> getNotifications(int userID){
+		return ND.getUnviewedNotifications(userID);
+	}
+
+	public boolean setNotificationAsViewed(int notif_id, int follower_id){
+		return ND.viewNotification(notif_id,follower_id);
+	}
+	public Image getImageOfAlbum(int album_id) {
+		Image pic;
+
+		if (album_id == -1) {
+			pic = new Image("/resources/Logo.png");
+		}
+		else {
+			Album selected = AD.getAlbum(album_id);
+			pic = new Image(selected.getCover_URL().toURI().toString());
+		}
+
+		return pic;
+	}
 }

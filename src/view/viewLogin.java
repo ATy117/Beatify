@@ -56,9 +56,9 @@ public class viewLogin extends View {
     }
 
     public void loadFonts() {
-        Font.loadFont(getClass().getResource("/fonts/Poppins-Regular.ttf").toExternalForm(), 10);
-        Font.loadFont(getClass().getResource("/fonts/Comfortaa-Regular.ttf").toExternalForm(), 10);
-        Font.loadFont(getClass().getResource("/fonts/Comfortaa-Bold.ttf").toExternalForm(), 10);
+        Font.loadFont(getClass().getResource("/resources/fonts/Poppins-Regular.ttf").toExternalForm(), 10);
+        Font.loadFont(getClass().getResource("/resources/fonts/Comfortaa-Regular.ttf").toExternalForm(), 10);
+        Font.loadFont(getClass().getResource("/resources/fonts/Comfortaa-Bold.ttf").toExternalForm(), 10);
     }
 
     public void changePane(ActionEvent actionEvent) {

@@ -1,6 +1,5 @@
 package view.Artist;
 
-import controller.Artist.controllerSong_ArtistShowArtistAlbumSongs;
 import controller.Artist.controllerSong_ArtistShowArtistPlaylistSongs;
 import controller.controllerDashboard;
 import javafx.fxml.FXMLLoader;
