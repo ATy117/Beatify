@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class NotificationDAODB implements NotificationDAO {
@@ -50,7 +51,41 @@ public class NotificationDAODB implements NotificationDAO {
         String query = "SELECT notification.notif_id, notification.notification, user.first_name, user.last_name FROM \n" +
                 "notification INNER JOIN user ON notification.user_id = user.user_id\n" +
                 "INNER JOIN notif_mapping ON notif_mapping.notif_id = notification.notif_id\n" +
-                "WHERE notif_mapping.follower_id = ?";
+                "WHERE notif_mapping.follower_id = ? AND notif_mapping.is_viewed = 0";
+
+        List<Notification> notificationList = new ArrayList<>();
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, follower_id);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()){
+                notificationList.add(toNotif(rs));
+            }
+            statement.close();
+            rs.close();
+            return notificationList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return notificationList;
+    }
+
+    @Override
+    public boolean viewNotification(int notif_id, int follower_id) {
+        String query = "UPDATE notif_mapping SET notif_mapping.is_viewed = 1\n" +
+                "WHERE notif_mapping.notif_id = ? AND notif_mapping.follower_id = ?";
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, notif_id);
+            statement.setInt(2, follower_id);
+            statement.executeUpdate();
+            statement.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
 
