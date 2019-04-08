@@ -14,6 +14,7 @@ public abstract class controllerDashboard extends Controller{
 	protected View currentPane;
 	protected PaneController currentController;
 	protected AnchorPane paneFoundation;
+	protected Thread notifications;
 
 	public controllerDashboard (Stage primaryStage, User user) {
 		this.primaryStage = primaryStage;
@@ -27,6 +28,8 @@ public abstract class controllerDashboard extends Controller{
 		model.setPeopleModel(new OtherPeopleModel());
 		model.setSearchModel(new SearchModel());
 		model.setNotificationModel(new NotificationModel());
+
+		initThread();
 	}
 
 	public void setCurrentPane(PaneController currentController) {
@@ -35,6 +38,26 @@ public abstract class controllerDashboard extends Controller{
 		currentPane = currentController.getPaneView();
 		model.AttachToAll(currentPane);
 		System.out.println("Current Pane: " + currentPane.toString());
+	}
+
+	public void initThread () {
+		notifications = new Thread() {
+			public void run () {
+				while (true) {
+
+					System.out.println("Checking notifs");
+
+					try {
+						Thread.sleep(5000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		};
+
+		notifications.setDaemon(true);
+		notifications.start();
 	}
 
 	public AnchorPane getPaneFoundation() {
