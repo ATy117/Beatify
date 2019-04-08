@@ -11,7 +11,11 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import object.Playlist;
 import view.View;
+import view_builders.Director;
+import view_builders.builderSong;
+import view_builders.builderSong_ArtistPlaylistFollowedSongs;
 
 import java.io.IOException;
 
@@ -24,6 +28,7 @@ public class viewSong_ArtistPlaylistsFollowedSongs extends View {
     @FXML JFXListView songListView;
     private Label headerLabel;
     private Label subheaderLabel;
+    private Playlist selectedPlaylist;
     //Songs inside the album I am Following
 
     public viewSong_ArtistPlaylistsFollowedSongs (AnchorPane mainPane, controllerSong_ArtistPlaylistFollowedSongs controller, controllerDashboard dashboardController){
@@ -38,7 +43,7 @@ public class viewSong_ArtistPlaylistsFollowedSongs extends View {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        selectedPlaylist = model.getLibraryModel().getSelectedPlaylist();
         initHeader();
         Update();
     }
@@ -50,8 +55,8 @@ public class viewSong_ArtistPlaylistsFollowedSongs extends View {
 
     private void initHeader () {
         //INITIALIZES THE HEADER//
-        String PLAYLISTNAME = "50: INSERT PLAYLIST NAME FOLLOWED";
-        String USERNAME = "Playlist by "+"50 INSERT ARTIST NAME";
+        String PLAYLISTNAME = selectedPlaylist.getName();
+        String USERNAME = "Playlist by "+selectedPlaylist.getUser_id();
         headerLabel = new Label(PLAYLISTNAME);
         subheaderLabel = new Label(USERNAME);
         headerLabel.setFont(Font.font("Comfortaa", 18));
@@ -67,35 +72,14 @@ public class viewSong_ArtistPlaylistsFollowedSongs extends View {
     private void setSongs () {
         songListView.getItems().clear();
         //SETS SONGS//
-        for (int i = 0; i < 5; i++) {
-            //place holder values//
-            AnchorPane songsIndiv = new AnchorPane();
-            Text titleText = new Text("Covered in Roses");
-            Text artistText = new Text("Dr Jekyl");
-            Text albumText = new Text("In Response to Bad Events");
-            Text yearText = new Text("2019");
-            Text genreText = new Text("Hip Hop");
+        builderSong builder = new builderSong_ArtistPlaylistFollowedSongs(controller);
+        Director director = Director.getInstance();
+        director.setBuilder(builder);
+        director.construct();
 
-            songsIndiv.setTopAnchor(titleText, 0.0);
-            songsIndiv.setTopAnchor(artistText, 18.0);
-            songsIndiv.setTopAnchor(albumText, 0.0);
-            songsIndiv.setTopAnchor(yearText, 0.0);
-            songsIndiv.setTopAnchor(genreText, 18.0);
-
-            songsIndiv.setLeftAnchor(titleText, 50.0);
-            songsIndiv.setLeftAnchor(artistText, 50.0);
-            songsIndiv.setLeftAnchor(albumText, 300.0);
-            songsIndiv.setLeftAnchor(yearText, 500.0);
-            songsIndiv.setLeftAnchor(genreText, 500.0);
-
-            songsIndiv.getChildren().add(titleText);
-            songsIndiv.getChildren().add(artistText);
-            songsIndiv.getChildren().add(albumText);
-            songsIndiv.getChildren().add(yearText);
-            songsIndiv.getChildren().add(genreText);
-
-            songListView.getItems().add(songsIndiv);
-
+        for (Object object: builder.getProduct()){
+            AnchorPane anchorPane = (AnchorPane) object;
+            songListView.getItems().add(anchorPane);
         }
     }
 
