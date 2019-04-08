@@ -1,13 +1,13 @@
 package view_builders;
 
-import controller.Artist.controllerSong_ArtistAlbumsOwnedSongs;
+import controller.Artist.controllerSong_ArtistAlbumsOwnedSong;
 import javafx.scene.layout.AnchorPane;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class builderSong_ArtistAlbumsOwnedSongs extends builderSong<AnchorPane> {
-    public builderSong_ArtistAlbumsOwnedSongs(controllerSong_ArtistAlbumsOwnedSongs controller){
+    public builderSong_ArtistAlbumsOwnedSongs(controllerSong_ArtistAlbumsOwnedSong controller){
         this.controller = controller;
         this.listElements = controller.getModel().getLibraryModel().getSongContents();
         this.listProducts = new ArrayList<>();
