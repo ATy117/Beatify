@@ -164,6 +164,39 @@ public class MasterFacade {
 		}
 	}
 
+	public List<Album> getMyAlbums(int user_id){
+		AlbumDAO AD = new AlbumDAODB();
+		return AD.getMyAlbums(user_id);
+	}
+
+	public List<Album> getFollowedAlbums(int user_id){
+		AlbumDAO AD = new AlbumDAODB();
+		return AD.getFollowedAlbums(user_id);
+	}
+
+	public List<Playlist> getMyPlaylists(int user_id){
+		PlaylistDAO PD = new PlaylistDAODB();
+		return PD.getMyPlaylists(user_id);
+	}
+
+	public List<Playlist> getFollowedPlaylists(int user_id){
+		PlaylistDAO PD = new PlaylistDAODB();
+		return PD.getFollowedPlaylists(user_id);
+	}
+
+	public List<Song> getMySongs(int user_id){
+		SongDAO SD = new SongDAODB();
+		return SD.getOwnerSongs(user_id);
+	}
+
+	public List<Song> getLikedSongs(int user_id){
+		SongDAO SD = new SongDAODB();
+		return SD.getLikedSongs(user_id);
+	}
+
+
+
+
 
 
 

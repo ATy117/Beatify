@@ -112,25 +112,22 @@ public class UserDAODB implements UserDAO{
             while(rs.next()) {
                 String dbUsername = rs.getString("user.username");
                 String dbPassword = rs.getString("user.password");
-                if(dbUsername.equals(username) && dbPassword.equals(password)){
-                    try {
-                        user = toUser(rs);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    rs.close();
+                if(dbUsername.equals(username) && dbPassword.equals(password)) {
+                    user = toUser(rs);
                     statement.close();
+                    rs.close();
                     return user;
                 }
             }
-
-            rs.close();
             statement.close();
+            rs.close();
             return null;
         } catch (SQLException e) {
             e.printStackTrace();
-            return null;
+        } catch (IOException e){
+            e.printStackTrace();
         }
+        return null;
     }
 
     @Override
@@ -143,13 +140,13 @@ public class UserDAODB implements UserDAO{
             while(rs.next()) {
                 String usernameTemp = rs.getString("user.username");
                 if(usernameTemp.equals(username)){
+                    statement.close();
+                    rs.close();
                     return true;
                 }
-
             }
-
-            rs.close();
             statement.close();
+            rs.close();
             return false;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -171,7 +168,8 @@ public class UserDAODB implements UserDAO{
             while(rs.next()){
                 userList.add(toUser(rs));
             }
-
+            statement.close();
+            rs.close();
             return userList;
         }catch (SQLException e){
             e.printStackTrace();
@@ -197,6 +195,8 @@ public class UserDAODB implements UserDAO{
             while (rs.next()){
                 userList.add(toUser(rs));
             }
+            statement.close();
+            rs.close();
             return userList;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -220,6 +220,8 @@ public class UserDAODB implements UserDAO{
             while (rs.next()){
                 userList.add(toUser(rs));
             }
+            statement.close();
+            rs.close();
             return userList;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -277,6 +279,8 @@ public class UserDAODB implements UserDAO{
             while (rs.next()){
                 userList.add(toUser(rs));
             }
+            statement.close();
+            rs.close();
             return userList;
         } catch (SQLException e) {
             e.printStackTrace();
