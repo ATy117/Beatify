@@ -1,12 +1,15 @@
 package view.Artist;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import controller.Artist.controllerSong_ArtistAlbumsOwnedSong;
 import controller.Artist.controllerSong_ArtistAllSongs;
 import controller.controllerDashboard;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -50,14 +53,25 @@ public class viewSong_ArtistAlbumsOwnedSongs extends View {
         String ARTISTNAME = "Album by me";
         headerLabel = new Label(ALBUMNAME);
         subheaderLabel = new Label(ARTISTNAME);
+        JFXButton uploadSongBtn = new JFXButton("+ upload song");
         headerLabel.setFont(Font.font("Comfortaa", 18));
         subheaderLabel.setFont(Font.font("Comfortaa",12));
         songsHeader.setLeftAnchor(headerLabel, 285.0);
         songsHeader.setTopAnchor(headerLabel, 50.0);
         songsHeader.setLeftAnchor(subheaderLabel, 285.0);
         songsHeader.setTopAnchor(subheaderLabel, 70.0);
+        songsHeader.setLeftAnchor(uploadSongBtn, 400.0);
+        songsHeader.setTopAnchor(uploadSongBtn, 70.0);
         songsHeader.getChildren().add(headerLabel);
         songsHeader.getChildren().add(subheaderLabel);
+        songsHeader.getChildren().add(uploadSongBtn);
+
+        uploadSongBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+
+            }
+        });
     }
     private void setSongs () {
         songListView.getItems().clear();
