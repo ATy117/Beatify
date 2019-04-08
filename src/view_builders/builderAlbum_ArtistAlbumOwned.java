@@ -72,6 +72,14 @@ public class builderAlbum_ArtistAlbumOwned extends builderAlbum<AnchorPane> {
 
             albumIndiv.getChildren().add(albumCover);
             albumIndiv.getChildren().add(text);
+
+            albumIndiv.setOnMousePressed(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    controllerAlbum_ArtistAllAlbums c = (controllerAlbum_ArtistAllAlbums) controller;
+                    c.goToOwnList(album.getAlbum_id());
+                }
+            });
             listProducts.add(albumIndiv);
         }
     }

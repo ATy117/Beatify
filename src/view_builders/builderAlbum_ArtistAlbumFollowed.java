@@ -63,6 +63,13 @@ public builderAlbum_ArtistAlbumFollowed (controllerAlbum_ArtistAllAlbums control
 
                 albumIndiv.getChildren().add(albumCover);
                 albumIndiv.getChildren().add(text);
+                albumIndiv.setOnMousePressed(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        controllerAlbum_ArtistAllAlbums c = (controllerAlbum_ArtistAllAlbums) controller;
+                        c.goToFollowedList(album.getAlbum_id());
+                    }
+                });
                 listProducts.add(albumIndiv);
             }
 

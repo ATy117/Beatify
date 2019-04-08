@@ -45,6 +45,14 @@ public class MasterFacade {
 		System.out.println("Cache folder is existing / created");
 	}
 
+	public Album getAlbum(int album_id){
+		return AD.getAlbum(album_id);
+	}
+
+	public Playlist getPlaylist(int playlist_id){
+		return PD.getPlaylist(playlist_id);
+	}
+
 
 	// access the DAO to check if existing user, if wala pa, add a new user to DAO then return true, else return false
 	public boolean register(String username, String password, String firstName, String lastName, boolean isArtist, File profilePic) {
