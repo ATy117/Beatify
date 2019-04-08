@@ -14,7 +14,7 @@ public class NotificationDAODB implements NotificationDAO {
 
     @Override
     public boolean addNotification(String notification, int user_id) {
-        String query = "INSERT INTO notification VALUES(?,?)";
+        String query = "INSERT INTO notification VALUES(NULL,?,?)";
 
         try{
             PreparedStatement statement = this.connection.prepareStatement(query);
@@ -32,7 +32,7 @@ public class NotificationDAODB implements NotificationDAO {
     @Override
     public int getNotifID(String notification, int user_id) {
         String query = "SELECT notification.notif_id FROM notification " +
-                "WHERE notification.notification = ? AND notification.notif_id = ?";
+                "WHERE notification.notification = '"+notification+"' AND notification.notif_id =" +user_id;
         try{
             PreparedStatement statement = this.connection.prepareStatement(query);
             ResultSet rs = statement.executeQuery();
