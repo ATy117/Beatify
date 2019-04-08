@@ -24,6 +24,7 @@ public class controller_AddAlbum extends PaneController {
         album.setName(albumName);
         album.setCover_URL(cover);
         album.setArtist_id(user.getUser_id());
+        album.setArtist_name(user.getFirst_name()+" "+user.getLast_name());
         if (facade.createAlbum(user, album)) {
             controllerAlbum_ArtistAllAlbums controllerAllAlbums = new controllerAlbum_ArtistAllAlbums(dashboardController.getPaneFoundation(), dashboardController);
             dashboardController.setCurrentPane(this);

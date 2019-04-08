@@ -22,7 +22,10 @@ public class viewUser_ArtistMyProfile extends View {
 
     public controllerUser_ArtistMyProfile controller;
 
-    @FXML JFXButton logoutBtn;
+    @FXML JFXTextField firstNameField;
+    @FXML JFXTextField lastNameField;
+    @FXML JFXTextField usernameField;
+    @FXML JFXButton editBtn;
 
     public viewUser_ArtistMyProfile(AnchorPane mainPane, controllerUser_ArtistMyProfile controller, controllerDashboard dashboardController){
         this.controller = controller;
@@ -44,10 +47,33 @@ public class viewUser_ArtistMyProfile extends View {
 
     }
 
-    public void initheader(){
+    public void logout(){
+        controller.logout();
+    }
 
-        logoutBtn.setOnMouseClicked(e -> {
-            controller.logout();
-        });
+    public void initheader(){
+        firstNameField.setEditable(false);
+        lastNameField.setEditable(false);
+        usernameField.setEditable(false);
+
+        firstNameField.setText(controller.getModel().getProfileModel().getUser().getFirst_name());
+        lastNameField.setText(controller.getModel().getProfileModel().getUser().getLast_name());
+        usernameField.setText(controller.getModel().getProfileModel().getUser().getUsername());
+
+    }
+
+    public void editDetails(){
+        if(editBtn.getText().equals("Edit") ){
+            editBtn.setText("Done");
+            firstNameField.setEditable(true);
+            lastNameField.setEditable(true);
+            usernameField.setEditable(true);
+        }
+        else{
+            editBtn.setText("Edit");
+            firstNameField.setEditable(false);
+            lastNameField.setEditable(false);
+            usernameField.setEditable(false);
+        }
     }
 }
