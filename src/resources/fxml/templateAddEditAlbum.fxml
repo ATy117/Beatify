@@ -28,7 +28,7 @@
          </font>
       </Label>
       <Circle fx:id="albumCoverCircle" fill="#4097aa" layoutX="157.0" layoutY="243.0" radius="82.0" stroke="#1c151500" strokeType="INSIDE" />
-      <JFXButton fx:id="uploadAlbumCoverBtn" buttonType="RAISED" layoutX="76.0" layoutY="348.0" style="-fx-background-color: #1c6575" text="+ Upload Album Cover" textFill="#fab2ab">
+      <JFXButton fx:id="uploadAlbumCoverBtn" buttonType="RAISED" layoutX="76.0" layoutY="348.0" onAction="#uploadCover" style="-fx-background-color: #1c6575" text="+ Upload Album Cover" textFill="#fab2ab">
          <font>
             <Font name="Comfortaa Regular" size="13.0" />
          </font>
