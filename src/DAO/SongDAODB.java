@@ -167,6 +167,8 @@ public class SongDAODB implements SongDAO {
                 song = toSong(rs);
                 return song;
             }
+            statement.close();
+            rs.close();
         }catch(SQLException e){
             e.printStackTrace();
         } catch (IOException e) {
@@ -190,6 +192,8 @@ public class SongDAODB implements SongDAO {
             while (rs.next()){
                 songList.add(toSong(rs));
             }
+            statement.close();
+            rs.close();
             return songList;
         }catch(SQLException e){
             e.printStackTrace();
@@ -218,6 +222,8 @@ public class SongDAODB implements SongDAO {
             while (rs.next()){
                 songList.add(toSong(rs));
             }
+            statement.close();
+            rs.close();
             return songList;
         }catch(SQLException e){
             e.printStackTrace();
@@ -244,6 +250,8 @@ public class SongDAODB implements SongDAO {
             while (rs.next()){
                 songList.add(toSong(rs));
             }
+            statement.close();
+            rs.close();
             return songList;
         }catch(SQLException e){
             e.printStackTrace();
@@ -271,6 +279,8 @@ public class SongDAODB implements SongDAO {
             while (rs.next()){
                 songList.add(toSong(rs));
             }
+            statement.close();
+            rs.close();
             return songList;
         }catch(SQLException e){
             e.printStackTrace();
@@ -309,6 +319,8 @@ public class SongDAODB implements SongDAO {
             ResultSet rs = statement.executeQuery();
 
             while(rs.next()) {
+                rs.close();
+                statement.close();
                 return true;
             }
 
@@ -319,6 +331,40 @@ public class SongDAODB implements SongDAO {
             e.printStackTrace();
             return false;
         }
+    }
+
+    @Override
+    public boolean likeSong(int song_id, int user_id) {
+        String query = "INSERT INTO liked_mapping VALUES(?,?)";
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, user_id);
+            statement.setInt(2, song_id);
+            statement.executeUpdate();
+            statement.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean unlikeSong(int song_id, int user_id) {
+        String query = "DELETE FROM liked_mapping WHERE liked_mapping.user_id = ? AND liked_mapping.song_id = ?";
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, user_id);
+            statement.setInt(2, song_id);
+            statement.executeUpdate();
+            statement.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @Override
@@ -333,6 +379,8 @@ public class SongDAODB implements SongDAO {
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
                 songFile = toFile(rs);
+                statement.close();
+                rs.close();
                 return songFile;
             }
         }catch(SQLException e){
@@ -359,6 +407,8 @@ public class SongDAODB implements SongDAO {
             while (rs.next()){
                 songList.add(toSong(rs));
             }
+            statement.close();
+            rs.close();
             return songList;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -385,7 +435,7 @@ public class SongDAODB implements SongDAO {
     }
 
     private File toFile(ResultSet rs) throws SQLException, IOException {
-        File file = new File("src/resources/" + rs.getString("song.title")+"-"+rs.getString("user.first_name") + " " + rs.getString("user.last_name")+".mp3");
+        File file = new File(System.getProperty("user.home") + "/documents/Beatify/SongCache/" + rs.getString("song.title")+"-"+rs.getString("user.first_name") + " " + rs.getString("user.last_name")+".mp3");
         OutputStream outputStream = new FileOutputStream(file);
         InputStream inputStream = rs.getBinaryStream("song.file");
         byte[] buffer = new byte[4096];

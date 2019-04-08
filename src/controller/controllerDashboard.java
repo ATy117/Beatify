@@ -25,6 +25,8 @@ public abstract class controllerDashboard extends Controller{
 		model.setPlayerModel(new SongPlayerModel());
 		model.setLibraryModel(new LibraryModel());
 		model.setPeopleModel(new OtherPeopleModel());
+		model.setSearchModel(new SearchModel());
+		model.setNotificationModel(new NotificationModel());
 	}
 
 	public void setCurrentPane(PaneController currentController) {
@@ -32,6 +34,7 @@ public abstract class controllerDashboard extends Controller{
 		model.DetachToAll(currentPane);
 		currentPane = currentController.getPaneView();
 		model.AttachToAll(currentPane);
+		System.out.println("Current Pane: " + currentPane.toString());
 	}
 
 	public AnchorPane getPaneFoundation() {

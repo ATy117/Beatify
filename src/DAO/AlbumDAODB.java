@@ -109,24 +109,17 @@ public class AlbumDAODB implements AlbumDAO{
             ResultSet rs = statement.executeQuery();
 
             while(rs.next()) {
-
-                try {
-                    album = toAlbum(rs);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                rs.close();
-                statement.close();
-                return album;
+                album = toAlbum(rs);
             }
-
-            rs.close();
             statement.close();
-            return null;
+            rs.close();
+            return album;
         } catch (SQLException e) {
             e.printStackTrace();
-            return null;
+        } catch (IOException e){
+            e.printStackTrace();
         }
+        return null;
     }
 
     @Override
@@ -141,24 +134,17 @@ public class AlbumDAODB implements AlbumDAO{
             ResultSet rs = statement.executeQuery();
 
             while(rs.next()) {
-
-                try {
-                    album = toAlbum(rs);
-                    albums.add(album);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                rs.close();
-                statement.close();
+                albums.add(toAlbum(rs));
             }
-            rs.close();
             statement.close();
+            rs.close();
             return albums;
         } catch (SQLException e) {
             e.printStackTrace();
-            albums.clear();
-            return albums;
+        } catch (IOException e){
+            e.printStackTrace();
         }
+        return albums;
     }
 
     @Override
@@ -172,9 +158,8 @@ public class AlbumDAODB implements AlbumDAO{
                 int albumID = rs.getInt("album.album_id");
                 return albumID;
             }
-
-            rs.close();
             statement.close();
+            rs.close();
             return -1;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -196,7 +181,8 @@ public class AlbumDAODB implements AlbumDAO{
                 Album album = getAlbum(rs.getInt("followed_album.album_id"));
                 albumList.add(album);
             }
-
+            statement.close();
+            rs.close();
             return albumList;
         }catch (SQLException e){
             e.printStackTrace();
@@ -252,6 +238,8 @@ public class AlbumDAODB implements AlbumDAO{
             while (rs.next()){
                 albumList.add(toAlbum(rs));
             }
+            statement.close();
+            rs.close();
             return albumList;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -277,7 +265,7 @@ public class AlbumDAODB implements AlbumDAO{
     }
 
     private File toFile(ResultSet rs) throws SQLException, IOException {
-        File file = new File("src/resources/" + rs.getString("album.name")+"_cover.png");
+        File file = new File(System.getProperty("user.home") + "/documents/Beatify/PictureCache/" + rs.getString("album.name")+"_cover.png");
         OutputStream outputStream = new FileOutputStream(file);
         InputStream inputStream = rs.getBinaryStream("album.album_cover");
         byte[] buffer = new byte[4096];

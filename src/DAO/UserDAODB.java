@@ -112,25 +112,22 @@ public class UserDAODB implements UserDAO{
             while(rs.next()) {
                 String dbUsername = rs.getString("user.username");
                 String dbPassword = rs.getString("user.password");
-                if(dbUsername.equals(username) && dbPassword.equals(password)){
-                    try {
-                        user = toUser(rs);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    rs.close();
+                if(dbUsername.equals(username) && dbPassword.equals(password)) {
+                    user = toUser(rs);
                     statement.close();
+                    rs.close();
                     return user;
                 }
             }
-
-            rs.close();
             statement.close();
+            rs.close();
             return null;
         } catch (SQLException e) {
             e.printStackTrace();
-            return null;
+        } catch (IOException e){
+            e.printStackTrace();
         }
+        return null;
     }
 
     @Override
@@ -143,13 +140,13 @@ public class UserDAODB implements UserDAO{
             while(rs.next()) {
                 String usernameTemp = rs.getString("user.username");
                 if(usernameTemp.equals(username)){
+                    statement.close();
+                    rs.close();
                     return true;
                 }
-
             }
-
-            rs.close();
             statement.close();
+            rs.close();
             return false;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -158,10 +155,10 @@ public class UserDAODB implements UserDAO{
     }
 
     @Override
-    public List<User> getFollowers(User user) {
+    public List<User> getFollowers(int user_id) {
         String query = "SELECT user.user_id, user.username, user.first_name, user.last_name, user.password, user.is_artist, user.avatar FROM user INNER JOIN follower_mapping\n" +
                 "ON user.user_id = follower_mapping.follower_id\n" +
-                "WHERE follower_mapping.user_id = " + user.getUser_id();
+                "WHERE follower_mapping.user_id = " + user_id;
 
         List<User> userList = new ArrayList<>();
 
@@ -171,7 +168,8 @@ public class UserDAODB implements UserDAO{
             while(rs.next()){
                 userList.add(toUser(rs));
             }
-
+            statement.close();
+            rs.close();
             return userList;
         }catch (SQLException e){
             e.printStackTrace();
@@ -181,6 +179,56 @@ public class UserDAODB implements UserDAO{
             return userList;
         }
 
+    }
+
+    @Override
+    public List<User> getFollowedListeners(int user_id) {
+        String query = "SELECT * FROM user INNER JOIN follower_mapping \n" +
+                "ON user.user_id = follower_mapping.user_id\n" +
+                "WHERE follower_mapping.follower_id = ? AND user.is_artist = 0";
+        List<User> userList = new ArrayList<>();
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, user_id);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()){
+                userList.add(toUser(rs));
+            }
+            statement.close();
+            rs.close();
+            return userList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return userList;
+    }
+
+    @Override
+    public List<User> getFollowedArtists(int user_id) {
+        String query = "SELECT * FROM user INNER JOIN follower_mapping \n" +
+                "ON user.user_id = follower_mapping.user_id\n" +
+                "WHERE follower_mapping.follower_id = ? AND user.is_artist = 1";
+        List<User> userList = new ArrayList<>();
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, user_id);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()){
+                userList.add(toUser(rs));
+            }
+            statement.close();
+            rs.close();
+            return userList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return userList;
     }
 
     @Override
@@ -231,6 +279,8 @@ public class UserDAODB implements UserDAO{
             while (rs.next()){
                 userList.add(toUser(rs));
             }
+            statement.close();
+            rs.close();
             return userList;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -255,7 +305,7 @@ public class UserDAODB implements UserDAO{
     }
 
     private File toFile(ResultSet rs) throws SQLException, IOException {
-        File file = new File("src/resources/" + rs.getString("user.username")+"_avatar.png");
+        File file = new File(System.getProperty("user.home") + "/documents/Beatify/PictureCache/" + rs.getString("user.username")+"_avatar.png");
         OutputStream outputStream = new FileOutputStream(file);
         InputStream inputStream = rs.getBinaryStream("user.avatar");
         byte[] buffer = new byte[4096];

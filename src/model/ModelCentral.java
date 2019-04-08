@@ -9,6 +9,7 @@ public class ModelCentral {
     private SongPlayerModel playerModel;
     private OtherPeopleModel peopleModel;
     private SearchModel searchModel;
+    private NotificationModel notificationModel;
 
     public static ModelCentral getInstance() {
 
@@ -41,6 +42,10 @@ public class ModelCentral {
         return searchModel;
     }
 
+    public NotificationModel getNotificationModel() {
+        return notificationModel;
+    }
+
     public void setLibraryModel(LibraryModel libraryModel) {
         this.libraryModel = libraryModel;
     }
@@ -61,12 +66,17 @@ public class ModelCentral {
         this.searchModel = searchModel;
     }
 
+    public void setNotificationModel(NotificationModel notificationModel) {
+        this.notificationModel = notificationModel;
+    }
+
     public void resetModels(){
         libraryModel = null;
         profileModel = null;
         playerModel = null;
         peopleModel = null;
         searchModel = null;
+        notificationModel = null;
     }
 
     public void AttachToAll(View currentPane) {
@@ -75,6 +85,7 @@ public class ModelCentral {
         playerModel.Attach(currentPane);
         peopleModel.Attach(currentPane);
         searchModel.Attach(currentPane);
+        notificationModel.Attach(currentPane);
     }
 
     public void DetachToAll(View currentPane) {
@@ -83,5 +94,6 @@ public class ModelCentral {
         playerModel.Detach(currentPane);
         peopleModel.Detach(currentPane);
         searchModel.Detach(currentPane);
+        notificationModel.Detach(currentPane);
     }
 }
