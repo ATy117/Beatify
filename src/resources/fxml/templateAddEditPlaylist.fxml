@@ -29,7 +29,7 @@
             <Font name="Comfortaa Bold" size="26.0" />
          </font>
       </Label>
-      <Circle fx:id="albumCoverCircle" fill="#4097aa" layoutX="167.0" layoutY="253.0" radius="82.0" stroke="#1c151500" strokeType="INSIDE" />
+      <Circle fx:id="playlistCoverCircle" fill="#4097aa" layoutX="167.0" layoutY="253.0" radius="82.0" stroke="#1c151500" strokeType="INSIDE" />
       <JFXButton fx:id="doneBtn" buttonType="RAISED" layoutX="265.0" layoutY="451.0" onAction="#doneButton" style="-fx-background-color: #1c6575" text="Done" textFill="#fab2ab">
          <font>
             <Font name="Comfortaa Regular" size="18.0" />
