@@ -5,7 +5,10 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import model.ModelCentral;
 import object.Album;
+import object.Song;
 import view.viewMusicPlayer;
+
+import java.io.File;
 
 public class controllerMusicPlayer extends Controller {
 
@@ -72,5 +75,9 @@ public class controllerMusicPlayer extends Controller {
 
 	public Image getImageOfAlbum (int album_id) {
 		return facade.getImageOfAlbum(album_id);
+	}
+
+	public File getSongFile(Song s) {
+		return facade.getSongFile(s.getSong_id());
 	}
 }

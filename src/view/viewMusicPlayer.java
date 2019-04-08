@@ -20,6 +20,7 @@ import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 import object.Album;
 
+import java.io.File;
 import java.io.IOException;
 
 public class viewMusicPlayer extends View {
@@ -149,7 +150,8 @@ public class viewMusicPlayer extends View {
 				albumText.setText("Album: None");
 			}
 
-			currentSongMedia = new Media(model.getPlayerModel().getCurrentSong().getSong_URL().toURI().toString());
+			File music = controller.getSongFile(model.getPlayerModel().getCurrentSong());
+			currentSongMedia = new Media(music.toURI().toString());
 			mp3player = new MediaPlayer(currentSongMedia);
 			toggleToPlay();
 			setPlayerFunctionality();

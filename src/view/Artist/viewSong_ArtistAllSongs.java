@@ -24,6 +24,7 @@ public class viewSong_ArtistAllSongs extends View {
     @FXML AnchorPane songsHeader;
     @FXML JFXListView songListView;
     private Label headerLabel;
+    private Label subheaderLabel;
     public controllerSong_ArtistAllSongs controller;
 
     public viewSong_ArtistAllSongs(AnchorPane mainPane, controllerSong_ArtistAllSongs controller, controllerDashboard dashboardController){
@@ -38,16 +39,15 @@ public class viewSong_ArtistAllSongs extends View {
             e.printStackTrace();
         }
         initHeader();
-        createContextMenu();
         Update();
     }
 
     @Override
     public void Update(){
-
+        setSongs();
     }
 
-    private void initHeader (){
+    private void initHeader () {
         //INITIALIZES THE HEADER//
         headerLabel = new Label("All songs");
         headerLabel.setFont(Font.font("Comfortaa", 18));
@@ -55,10 +55,15 @@ public class viewSong_ArtistAllSongs extends View {
         songsHeader.setTopAnchor(headerLabel, 50.0);
         songsHeader.getChildren().add(headerLabel);
 
+
+
+    }
         //BUILDER//
 
+    private void setSongs () {
+       songListView.getItems().clear();
         //SETS SONGS//
-        for (int i = 0; i<5;i++){
+        for (int i = 0; i < 5; i++) {
             //place holder values//
             AnchorPane songsIndiv = new AnchorPane();
             Text titleText = new Text("Covered in Roses");
@@ -88,40 +93,8 @@ public class viewSong_ArtistAllSongs extends View {
             songListView.getItems().add(songsIndiv);
 
         }
-
     }
 
-    private void createContextMenu ()
-    {
-        ContextMenu contextMenu = new ContextMenu();
-
-        //CREATE MENUITEM ADD TO QUEUE
-        MenuItem addToQueue = new MenuItem("Add to Queue");
-        addToQueue.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Add to Queue. Woo!");
-            }
-        });
-        contextMenu.getItems().add(addToQueue);
-
-        //MENU ITEM ADD TO PLAYLIST INCOMPLETE
-        for (int i = 0; i<5; i++){
-             MenuItem addToPlaylist = new MenuItem("Playlist "+ i);
-
-             addToPlaylist.setOnAction(new EventHandler<ActionEvent>() {
-                 @Override
-                 public void handle(ActionEvent event) {
-                     System.out.println("Added to Playlist. Woo!");
-                 }
-             });
-
-             contextMenu.getItems().add(addToPlaylist);
-        }
 
 
-        songListView.setContextMenu(contextMenu);
-
-
-    }
 }

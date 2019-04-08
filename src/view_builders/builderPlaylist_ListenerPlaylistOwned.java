@@ -2,7 +2,9 @@ package view_builders;
 
 import com.jfoenix.controls.JFXPopup;
 import controller.Listener.controllerPlaylist_ListenerAllPlaylists;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
@@ -29,6 +31,20 @@ public class builderPlaylist_ListenerPlaylistOwned extends builderPlaylist<Ancho
             editButton.setMinWidth(content.getPrefWidth());
             content.getChildren().addAll(deleteButton, editButton);
             popup.setPopupContent(content);
+
+            deleteButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+
+                }
+            });
+
+            editButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+
+                }
+            });
         }
     }
 

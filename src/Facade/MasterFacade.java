@@ -290,4 +290,8 @@ public class MasterFacade {
 
 		return pic;
 	}
+
+	public File getSongFile(int song_id) {
+		return SD.getSongFile(song_id);
+	}
 }
