@@ -15,6 +15,7 @@ public abstract class controllerDashboard extends Controller{
 	protected PaneController currentController;
 	protected AnchorPane paneFoundation;
 	protected Thread notifications;
+	protected boolean loggedIn = true;
 
 	public controllerDashboard (Stage primaryStage, User user) {
 		this.primaryStage = primaryStage;
@@ -43,7 +44,7 @@ public abstract class controllerDashboard extends Controller{
 	public void initThread () {
 		notifications = new Thread() {
 			public void run () {
-				while (true) {
+				while (loggedIn) {
 
 					System.out.println("Checking notifs");
 
@@ -58,6 +59,10 @@ public abstract class controllerDashboard extends Controller{
 
 		notifications.setDaemon(true);
 		notifications.start();
+	}
+
+	public void setLoggedIn (boolean loggedIn) {
+		this.loggedIn = loggedIn;
 	}
 
 	public AnchorPane getPaneFoundation() {

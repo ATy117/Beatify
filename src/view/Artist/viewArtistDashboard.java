@@ -36,7 +36,7 @@ public class viewArtistDashboard extends viewDashboard {
 			currentPaneController = new controllerPlaylist_ArtistsAllPlaylists(centerCurrentAnchor, controller);
 		}
 		else if (actionEvent.getSource() == profileBtn) {
-			currentPaneController = new controllerUser_ArtistMyProfile(centerCurrentAnchor, controller);
+			currentPaneController = new controllerUser_ArtistMyProfile(centerCurrentAnchor, controller, primaryStage);
 		}
 		else if (actionEvent.getSource() == queueBtn) {
 			currentPaneController = new controllerSong_MyQueue(centerCurrentAnchor, controller);

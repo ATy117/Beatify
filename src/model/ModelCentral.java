@@ -96,4 +96,17 @@ public class ModelCentral {
         searchModel.Detach(currentPane);
         notificationModel.Detach(currentPane);
     }
+
+    public void clearViews () {
+        libraryModel.getViews().clear();
+        profileModel.getViews().clear();
+        playerModel.getViews().clear();
+        peopleModel.getViews().clear();
+        searchModel.getViews().clear();
+        notificationModel.getViews().clear();
+
+        System.out.println("Cleared all views");
+    }
+
+
 }
