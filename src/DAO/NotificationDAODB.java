@@ -30,6 +30,27 @@ public class NotificationDAODB implements NotificationDAO {
     }
 
     @Override
+    public int getNotifID(String notification, int user_id) {
+        String query = "SELECT notification.notif_id FROM notification " +
+                "WHERE notification.notification = ? AND notification.notif_id = ?";
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            ResultSet rs = statement.executeQuery();
+            if(rs.next()){
+                int notifID = rs.getInt("notification.notif_id");
+                statement.close();
+                rs.close();
+                return notifID;
+            }
+            statement.close();
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    @Override
     public boolean addToNotifMapping(int notif_id, int follower_id) {
         String query = "INSERT INTO notif_mapping VALUES(?,?)";
 
