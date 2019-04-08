@@ -241,5 +241,19 @@ public class MasterFacade {
 		return SD.updateSong(song);
 	}
 
+	public boolean addSongToPlaylist(int songid, int playlistid){
+		return SD.addSongToPlaylist(songid,playlistid);
+	}
+
+	public boolean addSongToAlbum(int songid, int albumid){
+		return SD.addSongToAlbum(songid,albumid);
+	}
+
+	public List<Song> getPlaylistSongs(int playlist_id){
+		return SD.getPlaylistSongs(playlist_id);
+	}
+	public List<Song> getAlbumSongs(int album_id){
+		return SD.getAlbumSongs(album_id);
+	}
 
 }
