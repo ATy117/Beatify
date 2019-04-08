@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,11 @@ public class builderAlbum_ArtistSearchAlbum extends builderAlbum<AnchorPane> {
     @Override
     public void build() {
         while(listElements.hasNext()) {
+
+            AnchorPane albumIndiv = new AnchorPane();
+            Circle albumCover = new Circle(45);
+            Text text = new Text(listElements.next().getName());
+
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(65);
@@ -36,6 +43,15 @@ public class builderAlbum_ArtistSearchAlbum extends builderAlbum<AnchorPane> {
 
                 }
             });
+
+            albumIndiv.setLeftAnchor(albumCover, 20.0);
+            albumIndiv.setTopAnchor(albumCover, 13.0);
+            albumIndiv.setTopAnchor(text, 102.0);
+            albumIndiv.setLeftAnchor(text, 24.0);
+
+            albumIndiv.getChildren().add(albumCover);
+            albumIndiv.getChildren().add(text);
+            listProducts.add(albumIndiv);
         }
     }
 

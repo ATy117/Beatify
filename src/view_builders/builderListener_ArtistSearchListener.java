@@ -4,9 +4,11 @@ import com.jfoenix.controls.JFXPopup;
 import controller.Artist.controllerSearchables_ArtistAllSearchResults;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Circle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,11 @@ public class builderListener_ArtistSearchListener extends builderUser<AnchorPane
     @Override
     public void build() {
         while(listElements.hasNext()) {
+
+            AnchorPane albumIndiv = new AnchorPane();
+            Circle userPic = new Circle(45);
+            Label text = new Label(listElements.next().getUsername());
+
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(65);
@@ -36,6 +43,15 @@ public class builderListener_ArtistSearchListener extends builderUser<AnchorPane
 
                 }
             });
+
+            albumIndiv.setLeftAnchor(userPic, 20.0);
+            albumIndiv.setTopAnchor(userPic, 13.0);
+            albumIndiv.setTopAnchor(text, 102.0);
+            albumIndiv.setLeftAnchor(text, 24.0);
+
+            albumIndiv.getChildren().add(userPic);
+            albumIndiv.getChildren().add(text);
+            listProducts.add(albumIndiv);
         }
     }
 
