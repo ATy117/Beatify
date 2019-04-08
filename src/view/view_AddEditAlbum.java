@@ -11,7 +11,9 @@ import controller.controller_AddEditAlbum;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
 import java.io.File;
@@ -48,6 +50,11 @@ public class view_AddEditAlbum extends View {
     public void uploadCover () {
         FileUploader uploader = new PhotoUploader(primaryStage);
         File cover = uploader.getUploadedFile();
+
+        if (cover!=null) {
+            Image uploaded = new Image(cover.toURI().toString());
+            albumCoverCircle.setFill(new ImagePattern(uploaded));
+        }
     }
 
 
