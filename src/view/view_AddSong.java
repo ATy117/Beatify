@@ -3,6 +3,7 @@ package view;
 import FileUploaderService.FileUploader;
 import FileUploaderService.PhotoUploader;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import controller.controllerDashboard;
 import controller.controller_AddAlbum;
@@ -22,6 +23,8 @@ public class view_AddSong extends View {
 
     public controller_AddSong controller;
 
+    @FXML JFXComboBox songGenreCombo;
+
     public view_AddSong(AnchorPane mainPane, controller_AddSong controller, controllerDashboard dashboardController){
         this.controller = controller;
         this.model = dashboardController.getModel();
@@ -33,6 +36,11 @@ public class view_AddSong extends View {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        init();
+    }
+
+    public void init(){
     }
 
     @Override
