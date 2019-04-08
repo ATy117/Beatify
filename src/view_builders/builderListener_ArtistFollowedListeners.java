@@ -28,7 +28,7 @@ public class builderListener_ArtistFollowedListeners extends builderUser<AnchorP
 
             AnchorPane albumIndiv = new AnchorPane();
             Circle userPic = new Circle(45);
-            Label text = new Label(listElements.next().getFirst_name() + " "+listElements.next().getLast_name());
+            Label text = new Label(listElements.next().getUsername());
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
