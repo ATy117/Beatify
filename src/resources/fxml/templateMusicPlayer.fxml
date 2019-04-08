@@ -39,8 +39,8 @@
       <JFXButton fx:id="playBtn" layoutX="114.0" layoutY="454.0" onAction="#playPause" />
       <JFXButton fx:id="rewindBtn" layoutX="27.0" layoutY="454.0" onAction="#prevSong" />
       <JFXButton fx:id="ffBtn" layoutX="202.0" layoutY="454.0" onAction="#nextSong" />
-      <JFXButton fx:id="shuffleBtn" layoutX="69.0" layoutY="489.0" onAction="#shuffle" text="Shuffle" />
-      <JFXButton fx:id="repeatBtn" layoutX="161.0" layoutY="489.0" onAction="#repeat" text="Repeat" />
+      <JFXButton fx:id="shuffleBtn" layoutX="69.0" layoutY="489.0" onAction="#shuffle" />
+      <JFXButton fx:id="repeatBtn" layoutX="161.0" layoutY="489.0" onAction="#repeat" />
       <JFXButton fx:id="volumeUp" layoutX="12.0" layoutY="12.0" onAction="#turnVolumeUp" prefHeight="25.0" prefWidth="18.0" text="^" />
       <JFXButton fx:id="volumeDown" layoutX="44.0" layoutY="12.0" onAction="#turnVolumeDown" prefHeight="25.0" prefWidth="18.0" text="v" />
       <JFXSlider fx:id="slider" layoutX="35.0" layoutY="410.0" prefHeight="16.0" prefWidth="197.0" />

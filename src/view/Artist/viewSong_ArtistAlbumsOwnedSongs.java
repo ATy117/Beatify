@@ -1,5 +1,6 @@
 package view.Artist;
 
+import controller.Artist.controllerSong_ArtistAlbumsOwnedSongs;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import controller.Artist.controllerSong_ArtistAlbumsOwnedSong;
@@ -24,8 +25,12 @@ public class viewSong_ArtistAlbumsOwnedSongs extends View {
     private Label headerLabel;
     private Label subheaderLabel;
     private controllerSong_ArtistAlbumsOwnedSong controller;
+public class viewSong_ArtistAlbumsOwnedSongs extends View {
 
-    public viewSong_ArtistAlbumsOwnedSongs(AnchorPane mainPane, controllerSong_ArtistAlbumsOwnedSong controller, controllerDashboard dashboardController)
+    //Songs inside MY Album
+    private controllerSong_ArtistAlbumsOwnedSongs controller;
+
+    public viewSong_ArtistAlbumsOwnedSongs(AnchorPane mainPane, controllerSong_ArtistAlbumsOwnedSongs controller, controllerDashboard dashboardController)
     {
         this.controller = controller;
         this.model = dashboardController.getModel();

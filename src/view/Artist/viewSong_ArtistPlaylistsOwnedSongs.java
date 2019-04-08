@@ -3,6 +3,7 @@ package view.Artist;
 import com.jfoenix.controls.JFXListView;
 import controller.Artist.controllerSong_ArtistPlaylistsFollowedSongs;
 import controller.Artist.controllerSong_ArtistPlaylistsOwnedSongs;
+import controller.Artist.controllerSong_ArtistPlaylistOwnedSongs;
 import controller.controllerDashboard;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,7 @@ import java.io.IOException;
 
 public class viewSong_ArtistPlaylistsOwnedSongs extends View {
 
+    private controllerSong_ArtistPlaylistOwnedSongs controller;
     @FXML AnchorPane songsHeader;
     @FXML JFXListView songListView;
     private Label headerLabel;
@@ -24,7 +26,7 @@ public class viewSong_ArtistPlaylistsOwnedSongs extends View {
 
     //Songs inside the Playlist I own
 
-    public viewSong_ArtistPlaylistsOwnedSongs (AnchorPane mainPane, controllerSong_ArtistPlaylistsOwnedSongs controller, controllerDashboard dashboardController){
+    public viewSong_ArtistPlaylistsOwnedSongs (AnchorPane mainPane, controllerSong_ArtistPlaylistOwnedSongs controller, controllerDashboard dashboardController){
         this.controller = controller;
         this.model = dashboardController.getModel();
 
