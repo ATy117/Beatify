@@ -50,6 +50,15 @@ public class viewMusicPlayer extends View {
 	private boolean atEndOfMedia = false;
 	private double volume;
 
+	private ImageView playView;
+	private ImageView nextView;
+	private ImageView prevView;
+	private ImageView pauseView;
+	private ImageView repeatView;
+	private ImageView repeatClickedView;
+	private ImageView shuffleView;
+	private ImageView shuffleClickedView;
+
 	public viewMusicPlayer(AnchorPane mainPane, controllerMusicPlayer controller, controllerDashboard controllerDashboard) {
 		this.controller = controller;
 		this.model = controllerDashboard.getModel();
@@ -76,10 +85,20 @@ public class viewMusicPlayer extends View {
 		Image play = new Image("resources/PlayBtn.png");
 		Image next = new Image("resources/nextBtn.png");
 		Image prev = new Image("resources/prevBtn.png");
+		Image pause = new Image("resources/pauserBtn.png");
+		Image repeat = new Image("resources/replay.png");
+		Image repeatClicked = new Image("resources/replay2.png");
+		Image shuffle = new Image("resources/shuffle.png");
+		Image shuffleClicked = new Image("resources/shuffle2.png");
 
-		ImageView playView = new ImageView(play);
-		ImageView nextView = new ImageView(next);
-		ImageView prevView = new ImageView(prev);
+		playView = new ImageView(play);
+		nextView = new ImageView(next);
+		prevView = new ImageView(prev);
+		pauseView = new ImageView(pause);
+		repeatView = new ImageView(repeat);
+		repeatClickedView = new ImageView(repeatClicked);
+		shuffleView = new ImageView(shuffle);
+		shuffleClickedView = new ImageView(shuffleClicked);
 
 		playView.setFitWidth(40);
 		playView.setFitHeight(40);
@@ -87,12 +106,22 @@ public class viewMusicPlayer extends View {
 		nextView.setFitHeight(30);
 		prevView.setFitHeight(30);
 		prevView.setFitWidth(30);
-
+		pauseView.setFitWidth(40);
+		pauseView.setFitHeight(40);
+		repeatView.setFitWidth(30);
+		repeatView.setFitHeight(30);
+		repeatClickedView.setFitWidth(30);
+		repeatClickedView.setFitHeight(30);
+		shuffleView.setFitWidth(30);
+		shuffleView.setFitHeight(30);
+		shuffleClickedView.setFitWidth(30);
+		shuffleClickedView.setFitHeight(30);
 
 		playBtn.setGraphic(playView);
 		rewindBtn.setGraphic(prevView);
 		ffBtn.setGraphic(nextView);
-
+		shuffleBtn.setGraphic(shuffleView);
+		repeatBtn.setGraphic(repeatView);
 	}
 
 	@Override
@@ -171,19 +200,19 @@ public class viewMusicPlayer extends View {
 
 	public void shuffle(ActionEvent actionEvent) {
 		if(controller.toggleShuffle()) {
-			//shuffleBtn.setGraphic(shuffleClickedView);
+			shuffleBtn.setGraphic(shuffleClickedView);
 		}
 		else {
-			//shuffleBtn.setGraphic(shuffleView);
+			shuffleBtn.setGraphic(shuffleView);
 		}
 	}
 
 	public void repeat(ActionEvent actionEvent) {
 		if(controller.toggleRepeat()) {
-			//repeatBtn.setGraphic(replayClickedView);
+			repeatBtn.setGraphic(repeatClickedView);
 		}
 		else {
-			//repeatBtn.setGraphic(replayView);
+			repeatBtn.setGraphic(repeatView);
 		}
 	}
 
@@ -215,12 +244,12 @@ public class viewMusicPlayer extends View {
 
 	private void toggleToPlay() {
 		mp3player.play();
-		//playBtn.setGraphic(pauseView);
+		playBtn.setGraphic(pauseView);
 	}
 
 	private void toggleToPause() {
 		mp3player.pause();
-		//playBtn.setGraphic(playView);
+		playBtn.setGraphic(playView);
 	}
 
 	protected void updateValues() {
@@ -316,7 +345,7 @@ public class viewMusicPlayer extends View {
 		mp3player.setCycleCount(repeat ? MediaPlayer.INDEFINITE : 1);
 		mp3player.setOnEndOfMedia(new Runnable() {
 			public void run() {
-				//playBtn.setGraphic(playView);
+				playBtn.setGraphic(playView);
 				controller.playNextSong();
 			}
 		});
