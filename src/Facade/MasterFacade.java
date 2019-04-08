@@ -185,6 +185,14 @@ public class MasterFacade {
 		return SD.getLikedSongs(user_id);
 	}
 
+	public List<User> getFollowedArtists(int user_id){
+		return UD.getFollowedArtists(user_id);
+	}
+
+	public List<User> getFollowedListeners(int user_id){
+		return UD.getFollowedListeners(user_id);
+	}
+
 
 
 
