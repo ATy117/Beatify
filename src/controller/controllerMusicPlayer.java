@@ -9,10 +9,12 @@ import view.viewMusicPlayer;
 
 public class controllerMusicPlayer extends Controller {
 
+	private viewMusicPlayer musicPlayerView;
+
 	public controllerMusicPlayer(AnchorPane playerPane, controllerDashboard controller) {
 		this.model = controller.getModel();
 		facade = MasterFacade.getInstance();
-		viewMusicPlayer musicPlayerView = new viewMusicPlayer(playerPane,this, controller);
+		musicPlayerView = new viewMusicPlayer(playerPane,this, controller);
 		model.AttachToAll(musicPlayerView);
 	}
 
@@ -24,17 +26,51 @@ public class controllerMusicPlayer extends Controller {
 		return new Album();
 	}
 
-	public void playPrevSong() {
+	public boolean playPrevSong(){
+		if (model.getPlayerModel().playPreviousSong()) {
+			return true;
+		}
+		return false;
 	}
 
-	public void playNextSong() {
+	public boolean playNextSong(){
+		if (model.getPlayerModel().playNextSong()) {
+			return true;
+		}
+		return false;
+	}
+
+	public void endPlayer() {
+		musicPlayerView.endPlayer();
 	}
 
 	public boolean toggleShuffle() {
-		return true;
+		if (model.getPlayerModel().isShuffled()) {
+			System.out.println("shuffle is false");
+			model.getPlayerModel().setShuffled(false);
+			return false;
+		}
+		else {
+			System.out.println("shuffle is true");
+			model.getPlayerModel().setShuffled(true);
+			return true;
+		}
 	}
 
 	public boolean toggleRepeat() {
-		return false;
+		if (model.getPlayerModel().isRepeating()) {
+			System.out.println("repeat is false" );
+			model.getPlayerModel().setRepeating(false);
+			return false;
+		}
+		else {
+			System.out.println("repeat is true");
+			model.getPlayerModel().setRepeating(true);
+			return true;
+		}
+	}
+
+	public Image getImageOfAlbum (int album_id) {
+		return facade.getImageOfAlbum(album_id);
 	}
 }
