@@ -19,6 +19,7 @@ public class MasterFacade {
 	private PlaylistDAO PD;
 	private SongDAO SD;
 	private UserDAO UD;
+	private NotificationDAO ND;
 	private CacheManager cacheManager;
 
 	private MasterFacade(){
@@ -26,6 +27,7 @@ public class MasterFacade {
 		PD = new PlaylistDAODB();
 		SD = new SongDAODB();
 		UD = new UserDAODB();
+		ND = new NotificationDAODB();
 	}
 
 	public static MasterFacade getInstance() {
@@ -157,6 +159,7 @@ public class MasterFacade {
 	public boolean createAlbum (User user, Album album, File albumPic) {
 		if(AD.checkAlbum(user.getUser_id(), album.getName())==-1) { //if checkAlbum returns -1, means there is no existing album like that
 			AD.addAlbum(album);
+			createNotification(user.getFirst_name() + " " + user.getLast_name() + " has created an album: " + album.getName(), user.getUser_id());
 			return true; //return true if added album successfully
 		}else{
 			return false;
@@ -175,6 +178,7 @@ public class MasterFacade {
 	public boolean createPlaylist (User user, Playlist playlist) {
 		PlaylistDAO playlistDAO = new PlaylistDAODB();
 		if(playlistDAO.checkPlaylist(user.getUser_id(), playlist.getName())==-1){//if checkPlaylist returns -1, means there is no existing playlist like that
+			createNotification(user.getFirst_name() + " " + user.getLast_name() + " has created a playlist: " + playlist.getName(), user.getUser_id());
 			playlistDAO.addPlaylist(playlist);
 			return true; //return true if added playlist successfully
 		}else {
@@ -224,8 +228,10 @@ public class MasterFacade {
 
 
 	public boolean addSong(Song song){
-		if(SD.checkSong(song.getArtist__id(),song.getSong_name()) == -1)
+		if(SD.checkSong(song.getArtist__id(),song.getSong_name()) == -1) {
+			createNotification(song.getArtist_name() + " has added a new song: " + song.getSong_name(), song.getArtist__id());
 			return SD.addSong(song);
+		}
 		else return false;
 	}
 
@@ -252,4 +258,19 @@ public class MasterFacade {
 		return SD.getAlbumSongs(album_id);
 	}
 
+	public void createNotification(String notification, int userID){
+		if(ND.addNotification(notification,userID)){
+			ArrayList<Integer> followerIDs = new ArrayList<>();
+			for (User user: UD.getFollowers(userID))
+				followerIDs.add(user.getUser_id());
+		}
+	}
+
+	public List<Notification> getNotifications(int userID){
+		return ND.getUnviewedNotifications(userID);
+	}
+
+	public boolean setNotificationAsViewed(int notif_id, int follower_id){
+		return ND.viewNotification(notif_id,follower_id);
+	}
 }
