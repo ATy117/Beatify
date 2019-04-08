@@ -63,6 +63,9 @@ public class MasterFacade {
 		}
 	}
 
+	public boolean updateUser(User user){
+		return UD.updateUser(user);
+	}
 
 	//  attempt to login using username and pass, if user is verified, return the user, else a null user will be returned
 	public User loginUser (String username, String password) {
@@ -150,6 +153,14 @@ public class MasterFacade {
 		}
 	}
 
+	public boolean deleteAlbum(int albumID){
+		return AD.deleteAlbum(albumID);
+	}
+
+	public boolean updateAlbum(Album album){
+		return AD.updateAlbum(album);
+	}
+
 	// creates a playlist for user
 	public boolean createPlaylist (User user, Playlist playlist) {
 		PlaylistDAO playlistDAO = new PlaylistDAODB();
@@ -159,6 +170,14 @@ public class MasterFacade {
 		}else {
 			return false;
 		}
+	}
+
+	public boolean deletePlaylist(int playlistID){
+		return PD.deletePlaylist(playlistID);
+	}
+
+	public boolean updatePlaylist(Playlist playlist){
+		return PD.updatePlaylist(playlist);
 	}
 
 	public List<Album> getMyAlbums(int user_id){
@@ -185,17 +204,19 @@ public class MasterFacade {
 		return SD.getLikedSongs(user_id);
 	}
 
+	public boolean addSong(Song song){
+		if(SD.checkSong(song.getArtist__id(),song.getSong_name()) == -1)
+			return SD.addSong(song);
+		else return false;
+	}
 
+	public boolean deleteSong(int songID){
+		return SD.deleteSong(songID);
+	}
 
-
-
-
-
-
-
-
-
-
+	public boolean updateSong(Song song){
+		return SD.updateSong(song);
+	}
 
 
 }
