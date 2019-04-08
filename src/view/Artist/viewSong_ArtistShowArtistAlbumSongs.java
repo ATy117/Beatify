@@ -1,6 +1,6 @@
 package view.Artist;
 
-import controller.Artist.controllerPlaylist_ArtistsAllPlaylists;
+import controller.Artist.controllerSong_ArtistPlaylistsOwnedSongs;
 import controller.Artist.controllerSong_ArtistShowArtistAlbumSongs;
 import controller.controllerDashboard;
 import javafx.fxml.FXMLLoader;
@@ -11,12 +11,13 @@ import java.io.IOException;
 
 public class viewSong_ArtistShowArtistAlbumSongs extends View {
 
-    public controllerSong_ArtistShowArtistAlbumSongs controller;
+    private controllerSong_ArtistShowArtistAlbumSongs controller;
 
-    public viewSong_ArtistShowArtistAlbumSongs(AnchorPane mainPane, controllerSong_ArtistShowArtistAlbumSongs controller, controllerDashboard dashboardController){
+    public viewSong_ArtistShowArtistAlbumSongs (AnchorPane mainPane, controllerSong_ArtistShowArtistAlbumSongs controller, controllerDashboard dashboardController){
         this.controller = controller;
         this.model = dashboardController.getModel();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/templateSong.fxml"));
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/templateSearchable.fxml"));
         loader.setController(this);
 
         try {

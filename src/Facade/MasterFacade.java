@@ -158,7 +158,7 @@ public class MasterFacade {
 		return UD.unfollowerUser(userid,followersid);
 	}
 	// creates a new album, accesses DAO, returns false if duplicate (?) (album name unique for the same artist or no?)
-	public boolean createAlbum (User user, Album album) {
+	public boolean createAlbum (User user, Album album, File albumPic) {
 		if(AD.checkAlbum(user.getUser_id(), album.getName())==-1) { //if checkAlbum returns -1, means there is no existing album like that
 			AD.addAlbum(album);
 			return true; //return true if added album successfully

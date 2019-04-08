@@ -22,7 +22,6 @@ import java.io.IOException;
 public class view_AddEditAlbum extends View {
 
     public controller_AddEditAlbum controller;
-    private File cover;
 
     @FXML JFXButton doneBtn;
     @FXML JFXButton uploadAlbumCoverBtn;
@@ -50,7 +49,7 @@ public class view_AddEditAlbum extends View {
 
     public void uploadCover () {
         FileUploader uploader = new PhotoUploader(primaryStage);
-        cover = uploader.getUploadedFile();
+        File cover = uploader.getUploadedFile();
 
         if (cover!=null) {
             Image uploaded = new Image(cover.toURI().toString());
@@ -60,15 +59,6 @@ public class view_AddEditAlbum extends View {
 
 
     public void doneButton(){
-        String albumName = albumNameTextField.getText();
-        String albumCheck = albumName.replaceAll("\\s+", "");
-        if (albumCheck.equals("")){
-            System.out.println("Empty Name Detected");
-        } else {
-            if (!controller.createAlbum(albumName, cover)){
-                System.out.println("Unsuccessful");
-            }
-        }
-
+        controller.uploadSong();
     }
 }
