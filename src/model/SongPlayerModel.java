@@ -14,14 +14,50 @@ public class SongPlayerModel extends Model {
     private boolean shuffled = false;
 
 
+    public void playSong(List<Song> currentList) {
+        this.currentList = new ArrayList<>(currentList);
+        finishedList = new ArrayList<>();
+        currentSong = this.currentList.get(0);
+        this.currentList.remove(0);
+        Notify();
+    }
+
+    public boolean playNextSong() {
+
+        if (currentList.isEmpty() && repeating) {
+            repeatFinishedSongs();
+        }
+
+        if (!currentList.isEmpty()) {
+            finishedList.add(currentSong);
+            if(!shuffled) {
+                currentSong = currentList.get(0);
+                currentList.remove(0);
+            }
+            else {
+                int randomindex = getRandonIndexInCurList();
+                currentSong = currentList.get(randomindex);
+                currentList.remove(randomindex);
+            }
+        }
+        else {
+            return false;
+        }
+        Notify();
+
+        return true;
+
+    }
 
 
     public void addPlaylistToQueue (List<Song> playlist) {
         currentList.addAll(playlist);
+        Notify();
     }
 
     public void addSongToQueue(Song s) {
         currentList.add(s);
+        Notify();
     }
 
 

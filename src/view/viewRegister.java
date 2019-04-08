@@ -11,6 +11,8 @@ import controller.controllerLogin;
 import controller.controllerRegister;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
@@ -60,6 +62,11 @@ public class viewRegister extends View{
     public void uploadPhoto(ActionEvent actionEvent) {
         FileUploader uploader = new PhotoUploader(primaryStage);
         profilePic = uploader.getUploadedFile();
+
+        if (profilePic!=null) {
+            Image uploaded = new Image(profilePic.toURI().toString());
+            imageCircle.setFill(new ImagePattern(uploaded));
+        }
     }
 
     public void registerUser(ActionEvent actionEvent) {
