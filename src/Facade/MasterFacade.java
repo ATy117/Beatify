@@ -157,7 +157,7 @@ public class MasterFacade {
 		return UD.unfollowerUser(userid,followersid);
 	}
 	// creates a new album, accesses DAO, returns false if duplicate (?) (album name unique for the same artist or no?)
-	public boolean createAlbum (User user, Album album, File albumPic) {
+	public boolean createAlbum (User user, Album album) {
 		if(AD.checkAlbum(user.getUser_id(), album.getName())==-1) { //if checkAlbum returns -1, means there is no existing album like that
 			AD.addAlbum(album);
 			createNotification(album.getArtist_name() + " has created an album: " + album.getName(), user.getUser_id());
@@ -179,8 +179,8 @@ public class MasterFacade {
 	public boolean createPlaylist (User user, Playlist playlist) {
 		PlaylistDAO playlistDAO = new PlaylistDAODB();
 		if(playlistDAO.checkPlaylist(user.getUser_id(), playlist.getName())==-1){//if checkPlaylist returns -1, means there is no existing playlist like that
-			createNotification(user.getFirst_name() + " " + user.getLast_name() + " has created a playlist: " + playlist.getName(), user.getUser_id());
 			playlistDAO.addPlaylist(playlist);
+			createNotification(user.getFirst_name() + " " + user.getLast_name() + " has created a playlist: " + playlist.getName(), user.getUser_id());
 			return true; //return true if added playlist successfully
 		}else {
 			return false;

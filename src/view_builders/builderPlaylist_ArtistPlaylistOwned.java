@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
+import object.Playlist;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,12 +27,13 @@ public class builderPlaylist_ArtistPlaylistOwned extends builderPlaylist<AnchorP
     @Override
     public void build() {
         while(listElements.hasNext()) {
+            Playlist p = listElements.next();
             AnchorPane albumIndiv = new AnchorPane();
             Circle albumCover = new Circle(45);
-            Label text = new Label(listElements.next().getName());
+            Label text = new Label(p.getName());
             Label status;
 
-            if(listElements.next().isIs_public())
+            if(p.isIs_public())
                 status = new Label("Public");
             else
                 status = new Label("Private");

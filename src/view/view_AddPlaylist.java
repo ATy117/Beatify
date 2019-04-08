@@ -48,6 +48,19 @@ public class view_AddPlaylist extends View {
     }
 
     public void doneButton(){
-        controller.uploadPlaylist();
+        String name = playlistNameTextField.getText();
+        String check = name.replaceAll("\\s+", "");
+        boolean isPublic = true;
+        if (privateRadio.isSelected())
+            isPublic = false;
+        else if (publicRadio.isSelected())
+            isPublic = true;
+
+        if (check.equals("")){
+            System.out.println("Enter Playlist Name");
+        } else {
+            if (!controller.uploadPlaylist(name, isPublic))
+                System.out.println("Playlist Not Created");
+        }
     }
 }
