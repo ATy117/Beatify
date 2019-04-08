@@ -128,14 +128,25 @@ public class MasterFacade {
 		return SD.likeSong(songid, userid);
 	}
 
+	public boolean unlikeSong(int userid, int songid){
+		return SD.unlikeSong(songid,userid);
+	}
+
 	// user follows album
 	public boolean followAlbum(int followersid, int albumid) {
 		return AD.followAlbum(albumid, followersid);
 	}
 
+	public boolean unfollowAlbum(int followersid, int albumid){
+		return AD.unfollowAlbum(albumid,followersid);
+	}
 	// user follows playlist
 	public boolean followPlaylist(int followersid, int playlistid) {
 		return PD.followPlaylist(playlistid, followersid);
+	}
+
+	public boolean unfollowPlaylist(int followersid, int playlistid){
+		return PD.unfollowPlaylist(playlistid,followersid);
 	}
 
 	// user follows another user
@@ -143,6 +154,9 @@ public class MasterFacade {
 		return UD.followerUser(userid, followersid);
 	}
 
+	public boolean unfollowUser(int followersid, int userid){
+		return UD.unfollowerUser(userid,followersid);
+	}
 	// creates a new album, accesses DAO, returns false if duplicate (?) (album name unique for the same artist or no?)
 	public boolean createAlbum (User user, Album album, File albumPic) {
 		if(AD.checkAlbum(user.getUser_id(), album.getName())==-1) { //if checkAlbum returns -1, means there is no existing album like that
@@ -227,5 +241,19 @@ public class MasterFacade {
 		return SD.updateSong(song);
 	}
 
+	public boolean addSongToPlaylist(int songid, int playlistid){
+		return SD.addSongToPlaylist(songid,playlistid);
+	}
+
+	public boolean addSongToAlbum(int songid, int albumid){
+		return SD.addSongToAlbum(songid,albumid);
+	}
+
+	public List<Song> getPlaylistSongs(int playlist_id){
+		return SD.getPlaylistSongs(playlist_id);
+	}
+	public List<Song> getAlbumSongs(int album_id){
+		return SD.getAlbumSongs(album_id);
+	}
 
 }
