@@ -12,6 +12,24 @@ public class OtherPeopleModel extends Model {
     private List<Album> albums = new ArrayList<>();
     private List<Playlist> playlists = new ArrayList<>();
     private List<Song> songs = new ArrayList<>();
+    private Album selectedAlbum;
+    private Playlist selectedPlaylist;
+
+    public Album getSelectedAlbum() {
+        return selectedAlbum;
+    }
+
+    public void setSelectedAlbum(Album selectedAlbum) {
+        this.selectedAlbum = selectedAlbum;
+    }
+
+    public Playlist getSelectedPlaylist() {
+        return selectedPlaylist;
+    }
+
+    public void setSelectedPlaylist(Playlist selectedPlaylist) {
+        this.selectedPlaylist = selectedPlaylist;
+    }
 
     public Iterator<Album> getAlbums() {
         return albums.iterator();

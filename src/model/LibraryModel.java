@@ -15,6 +15,24 @@ public class LibraryModel extends Model {
     private List<Playlist> followedPlaylists = new ArrayList<>();
     private List<Song> allSongs = new ArrayList<>();
     private List<Song> songContents = new ArrayList<>();
+    private Album selectedAlbum;
+    private Playlist selectedPlaylist;
+
+    public Album getSelectedAlbum() {
+        return selectedAlbum;
+    }
+
+    public void setSelectedAlbum(Album selectedAlbum) {
+        this.selectedAlbum = selectedAlbum;
+    }
+
+    public Playlist getSelectedPlaylist() {
+        return selectedPlaylist;
+    }
+
+    public void setSelectedPlaylist(Playlist selectedPlaylist) {
+        this.selectedPlaylist = selectedPlaylist;
+    }
 
     public Iterator<Album> getMyAlbums() {
         return myAlbums.iterator();
