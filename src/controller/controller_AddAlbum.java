@@ -2,13 +2,13 @@ package controller;
 
 import controller.Artist.controllerAlbum_ArtistAllAlbums;
 import javafx.scene.layout.AnchorPane;
-import view.view_AddEditAlbum;
+import view.view_AddAlbum;
 
-public class controller_AddEditAlbum extends PaneController {
-    public controller_AddEditAlbum(AnchorPane mainPane, controllerDashboard dashboardController){
+public class controller_AddAlbum extends PaneController {
+    public controller_AddAlbum(AnchorPane mainPane, controllerDashboard dashboardController){
         super(dashboardController);
         this.model = dashboardController.getModel();
-        view = new view_AddEditAlbum(mainPane, this, dashboardController);
+        view = new view_AddAlbum(mainPane, this, dashboardController);
 
     }
 
