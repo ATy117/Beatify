@@ -19,7 +19,7 @@ public class viewUser_ArtistShowArtistProfile extends View {
         this.controller = controller;
         this.model = dashboardController.getModel();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/templateSearchable.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/templateUser.fxml"));
         loader.setController(this);
 
         try {
