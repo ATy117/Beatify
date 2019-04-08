@@ -9,7 +9,20 @@
 
 <AnchorPane prefHeight="570.0" prefWidth="634.0" style="-fx-background-color: #f4dfcc" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Circle fx:id="userPic" fill="#4097aa" layoutX="106.0" layoutY="272.0" radius="85.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="585.0" layoutY="60.0" radius="55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="442.0" layoutY="90.0" radius="31.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="358.0" layoutY="129.0" radius="41.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="512.0" layoutY="125.0" radius="26.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="286.0" layoutY="103.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="308.0" layoutY="446.0" radius="47.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="236.0" layoutY="386.0" radius="31.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="172.0" layoutY="402.0" radius="17.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="127.0" layoutY="446.0" radius="27.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="393.0" layoutY="398.0" radius="19.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="491.0" layoutY="290.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="500.0" layoutY="63.0" radius="14.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="50.0" layoutY="405.0" radius="47.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fx:id="userPic" fill="#4097aa" layoutX="110.0" layoutY="272.0" radius="85.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <JFXTextField fx:id="firstNameField" layoutX="217.0" layoutY="204.0" unFocusColor="#1c6575">
          <font>
             <Font name="Comfortaa Regular" size="16.0" />
@@ -62,5 +75,7 @@
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </Label>
+      <Circle fill="#fab4a76b" layoutX="236.0" layoutY="82.0" radius="16.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="427.0" layoutY="145.0" radius="16.0" stroke="TRANSPARENT" strokeType="INSIDE" />
    </children>
 </AnchorPane>
