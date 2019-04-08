@@ -11,6 +11,6 @@ public class controllerSong_ArtistAlbumsFollowedSongs extends PaneController {
     public controllerSong_ArtistAlbumsFollowedSongs(AnchorPane mainPane, controllerDashboard dashboardController){
         super(dashboardController);
         this.model = dashboardController.getModel();
-        //view = new viewSong_ArtistAlbumsFollowedSongs(mainPane,this, dashboardController);
+        view = new viewSong_ArtistAlbumsFollowedSongs(mainPane,this, dashboardController);
     }
 }
