@@ -15,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 import object.Album;
@@ -107,11 +108,8 @@ public class viewMusicPlayer extends View {
 			artistText.setText("by " + model.getPlayerModel().getCurrentSong().getArtist_name());
 			genreText.setText(model.getPlayerModel().getCurrentSong().getGenre());
 
-			/*
-			Image albpic = dashboardController.getImageFromAlbum(model.getPlayerModel().getCurrentSong().getAlbum_id());
+			Image albpic = controller.getImageFromAlbum(model.getPlayerModel().getCurrentSong().getAlbum_id());
 			songPic.setFill(new ImagePattern(albpic));
-
-			 */
 
 			Album album = controller.getAlbumOfSong(model.getPlayerModel().getCurrentSong().getAlbum_id());
 
@@ -332,4 +330,6 @@ public class viewMusicPlayer extends View {
 			}
 		});
 	}
+
+
 }

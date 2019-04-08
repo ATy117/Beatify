@@ -2,6 +2,7 @@ package Facade;
 
 import CacheManager.CacheManager;
 import DAO.*;
+import javafx.scene.image.Image;
 import model.*;
 import object.*;
 
@@ -252,4 +253,17 @@ public class MasterFacade {
 		return SD.getAlbumSongs(album_id);
 	}
 
+	public Image getImageOfAlbum(int album_id) {
+		Image pic;
+
+		if (album_id == -1) {
+			pic = new Image("/resources/Logo.png");
+		}
+		else {
+			Album selected = AD.getAlbum(album_id);
+			pic = new Image(selected.getCover_URL().toURI().toString());
+		}
+
+		return pic;
+	}
 }
