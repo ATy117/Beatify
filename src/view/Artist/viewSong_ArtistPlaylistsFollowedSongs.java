@@ -1,7 +1,7 @@
 package view.Artist;
 
-import controller.Artist.controllerPlaylist_ArtistsAllPlaylists;
-import controller.Artist.controllerSong_ArtistPlaylistFollowedSongs;
+import controller.Artist.controllerSong_ArtistAlbumsFollowedSongs;
+import controller.Artist.controllerSong_ArtistPlaylistsFollowedSongs;
 import controller.controllerDashboard;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -13,12 +13,14 @@ public class viewSong_ArtistPlaylistsFollowedSongs extends View {
 
     //Songs inside the Playlist I am following
 
-    public controllerSong_ArtistPlaylistFollowedSongs controller;
+    private controllerSong_ArtistPlaylistsFollowedSongs controller;
+    //Songs inside the album I am Following
 
-    public viewSong_ArtistPlaylistsFollowedSongs(AnchorPane mainPane, controllerSong_ArtistPlaylistFollowedSongs controller, controllerDashboard dashboardController){
+    public viewSong_ArtistPlaylistsFollowedSongs (AnchorPane mainPane, controllerSong_ArtistPlaylistsFollowedSongs controller, controllerDashboard dashboardController){
         this.controller = controller;
         this.model = dashboardController.getModel();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/templateSong.fxml"));
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/templateSearchable.fxml"));
         loader.setController(this);
 
         try {
