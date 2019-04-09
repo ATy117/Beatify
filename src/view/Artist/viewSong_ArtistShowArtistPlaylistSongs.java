@@ -52,7 +52,7 @@ public class viewSong_ArtistShowArtistPlaylistSongs extends View {
     private void initHeader () {
         //INITIALIZES THE HEADER//
         String PLAYLISTNAME = selectedPlaylist.getName();
-        String USERNAME = "Playlist by Artist "+ selectedPlaylist.getUser_id();
+        String USERNAME = "Playlist by Artist "+ selectedPlaylist.getOwner_name();
         headerLabel = new Label(PLAYLISTNAME);
         subheaderLabel = new Label(USERNAME);
         headerLabel.setFont(Font.font("Comfortaa", 18));
