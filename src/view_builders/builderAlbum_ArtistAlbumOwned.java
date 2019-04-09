@@ -64,7 +64,8 @@ public class builderAlbum_ArtistAlbumOwned extends builderAlbum<AnchorPane> {
             deleteButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-
+                    controller.deleteAlbum(album.getAlbum_id());
+                    popup.hide();
                 }
             });
 
