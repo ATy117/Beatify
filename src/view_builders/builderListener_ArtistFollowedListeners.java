@@ -56,7 +56,8 @@ public class builderListener_ArtistFollowedListeners extends builderUser<AnchorP
             unfollowButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-
+                    controller.unfollow(user.getUser_id());
+                    popup.hide();
                 }
             });
 

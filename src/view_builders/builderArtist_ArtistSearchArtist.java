@@ -57,7 +57,11 @@ public class builderArtist_ArtistSearchArtist extends builderUser<AnchorPane> {
             followButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-
+                    if (controller.followUser(user.getUser_id())) {
+                        popup.hide();
+                    } else {
+                        System.out.println("Already Following That Artist");
+                    }
                 }
             });
 

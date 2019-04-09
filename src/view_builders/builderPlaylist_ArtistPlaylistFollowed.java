@@ -64,7 +64,8 @@ public class builderPlaylist_ArtistPlaylistFollowed  extends builderPlaylist<Anc
             unfollowButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-
+                    controller.unfollowPlaylist(playlist.getPlaylist_id());
+                    popup.hide();
                 }
             });
 
