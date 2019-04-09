@@ -239,7 +239,7 @@ public class PlaylistDAODB implements PlaylistDAO {
         playlist.setName(rs.getString("playlist.name"));
         playlist.setIs_public(rs.getInt("playlist.is_public")!=0);
         playlist.setUser_id(rs.getInt("playlist.user_id"));
-        playlist.setOwner_name(rs.getString("user.first_name" + " " + "user.last_name"));
+        playlist.setOwner_name(rs.getString("user.first_name") + " " + rs.getString("user.last_name"));
         return playlist;
     }
 }
