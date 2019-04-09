@@ -45,6 +45,7 @@ public class viewSearchables_ArtistAllSearchResults extends View {
         }
 
         init();
+        Update();
     }
 
     public void init(){
@@ -133,6 +134,15 @@ public class viewSearchables_ArtistAllSearchResults extends View {
     }
 
     public void searchWord(){
-        Update();
+        String query = searchField.getText();
+        String check = query.replaceAll("\\s+", "");
+
+        if (check.equals("")){
+            System.out.println("No Input");
+        } else {
+            controller.search(query);
+        }
+
+        System.out.println("Triggered");
     }
 }
