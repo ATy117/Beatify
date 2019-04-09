@@ -1,10 +1,13 @@
 package object;
 
+import java.time.LocalDate;
+
 public class Notification {
     private int notif_id;
     private String message;
     private String firstName;
     private String lastName;
+    private LocalDate date_created;
 
     public int getNotif_id() {
         return notif_id;
@@ -37,5 +40,12 @@ public class Notification {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    
+
+    public LocalDate getDate_created() {
+        return date_created;
+    }
+
+    public void setDate_created(LocalDate date_created) {
+        this.date_created = date_created;
+    }
 }

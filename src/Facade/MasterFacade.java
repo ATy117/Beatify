@@ -247,7 +247,7 @@ public class MasterFacade {
 	}
 
 
-	public boolean addSong(Song song){
+	public boolean uploadSong(Song song){
 		if(SD.checkSong(song.getArtist__id(),song.getSong_name()) == -1) {
 			createNotification(song.getArtist_name() + " has added a new song: " + song.getSong_name(), song.getArtist__id());
 			SD.addSong(song);
@@ -296,9 +296,10 @@ public class MasterFacade {
 		return ND.getUnviewedNotifications(userID);
 	}
 
-	public boolean setNotificationAsViewed(int notif_id, int follower_id){
-		return ND.viewNotification(notif_id,follower_id);
+	public boolean setNotificationAsViewed(int notif_id, int user_id){
+		return ND.viewNotification(notif_id,user_id);
 	}
+
 	public Image getImageOfAlbum(int album_id) {
 		Image pic;
 
