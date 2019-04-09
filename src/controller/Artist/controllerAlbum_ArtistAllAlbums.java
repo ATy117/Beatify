@@ -37,6 +37,11 @@ public class controllerAlbum_ArtistAllAlbums extends PaneController {
         model.getLibraryModel().setMyAlbums(facade.getMyAlbums(this.model.getProfileModel().getUser().getUser_id()));
     }
 
+    public void unfollowAlbum(int album_id){
+        facade.unfollowAlbum(model.getProfileModel().getUser().getUser_id(), album_id);
+        model.getLibraryModel().setFollowedAlbums(facade.getFollowedAlbums(this.model.getProfileModel().getUser().getUser_id()));
+    }
+
     public void uploadAlbum(){
         controller_AddAlbum controlleAddAlbums = new controller_AddAlbum(dashboardController.getPaneFoundation(), dashboardController);
         dashboardController.setCurrentPane(this);

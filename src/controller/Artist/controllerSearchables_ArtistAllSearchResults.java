@@ -21,4 +21,9 @@ public class controllerSearchables_ArtistAllSearchResults extends PaneController
         this.model.getSearchModel().setArtistResults(facade.searchArtists(query, user_id));
         this.model.getSearchModel().setListenerResults(facade.searchListeners(query, user_id));
     }
+
+    public boolean followAlbum(int album_id){
+        int user_id = model.getProfileModel().getUser().getUser_id();
+        return facade.followAlbum(user_id, album_id);
+    }
 }
