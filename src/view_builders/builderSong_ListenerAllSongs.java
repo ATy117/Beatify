@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import object.Song;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,8 @@ public class builderSong_ListenerAllSongs extends builderSong<AnchorPane> {
     @Override
     public void build() {
         while(listElements.hasNext()) {
+            Song song  = listElements.next();
+
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(150);
@@ -39,7 +42,7 @@ public class builderSong_ListenerAllSongs extends builderSong<AnchorPane> {
             add_to_queueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-
+                    controller.addSongToQueue(song);
                 }
             });
 

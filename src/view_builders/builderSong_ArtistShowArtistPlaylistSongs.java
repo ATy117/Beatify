@@ -80,7 +80,7 @@ public class builderSong_ArtistShowArtistPlaylistSongs extends builderSong<Ancho
             add_to_queueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-
+                    controller.addSongToQueue(song);
                 }
             });
 

@@ -3,6 +3,7 @@ package controller.Artist;
 import controller.PaneController;
 import controller.controllerDashboard;
 import javafx.scene.layout.AnchorPane;
+import object.Song;
 import view.Artist.viewSong_ArtistAlbumsFollowedSongs;
 
 public class controllerSong_ArtistAlbumsFollowedSongs extends PaneController {
@@ -11,5 +12,9 @@ public class controllerSong_ArtistAlbumsFollowedSongs extends PaneController {
 		super(mainPane, dashboardController);
 		this.model = dashboardController.getModel();
 		view = new viewSong_ArtistAlbumsFollowedSongs(mainPane, this, dashboardController);
+	}
+
+	public void addSongToQueue(Song song) {
+		this.model.getPlayerModel().addSongToQueue(song);
 	}
 }

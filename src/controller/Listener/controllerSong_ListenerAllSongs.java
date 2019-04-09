@@ -3,6 +3,7 @@ package controller.Listener;
 import controller.PaneController;
 import controller.controllerDashboard;
 import javafx.scene.layout.AnchorPane;
+import object.Song;
 import view.Listener.viewSong_ListenerAllSongs;
 
 public class controllerSong_ListenerAllSongs extends PaneController {
@@ -12,4 +13,8 @@ public class controllerSong_ListenerAllSongs extends PaneController {
         this.model.getLibraryModel().setAllSongs(facade.getLikedSongs(this.model.getProfileModel().getUser().getUser_id()));
         view = new viewSong_ListenerAllSongs(mainPane,this, dashboardController);
     }
+
+	public void addSongToQueue(Song song) {
+    	this.model.getPlayerModel().addSongToQueue(song);
+	}
 }
