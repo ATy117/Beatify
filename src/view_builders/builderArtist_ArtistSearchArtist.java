@@ -5,10 +5,12 @@ import controller.Artist.controllerSearchables_ArtistAllSearchResults;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import object.User;
 
@@ -66,6 +68,9 @@ public class builderArtist_ArtistSearchArtist extends builderUser<AnchorPane> {
 
             albumIndiv.getChildren().add(userPic);
             albumIndiv.getChildren().add(text);
+
+            userPic.setFill(new ImagePattern(new Image(user.getAvatarURL().toString())));
+
             listProducts.add(albumIndiv);
         }
     }

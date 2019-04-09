@@ -5,10 +5,12 @@ import controller.Artist.controllerSearchables_ArtistAllSearchResults;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import object.Playlist;
 
@@ -32,6 +34,9 @@ public class builderPlaylist_ArtistSearchPlaylist extends builderPlaylist<Anchor
             AnchorPane albumIndiv = new AnchorPane();
             Circle albumCover = new Circle(45);
             Label text = new Label(playlist.getName());
+
+            Image publicImg = new Image("resoruces/publicCover.png");
+            albumCover.setFill(new ImagePattern(publicImg));
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
