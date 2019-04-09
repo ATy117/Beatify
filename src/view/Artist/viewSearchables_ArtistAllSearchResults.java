@@ -142,7 +142,5 @@ public class viewSearchables_ArtistAllSearchResults extends View {
         } else {
             controller.search(query);
         }
-
-        System.out.println("Triggered");
     }
 }
