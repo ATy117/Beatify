@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXPopup;
 import controller.Artist.controllerSong_ArtistPlaylistOwnedSongs;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -14,6 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class builderSong_ArtistPlaylistOwnedSongs extends builderSong<AnchorPane> {
+
+    private controllerSong_ArtistPlaylistOwnedSongs controller;
+
     public builderSong_ArtistPlaylistOwnedSongs(controllerSong_ArtistPlaylistOwnedSongs controller){
         this.controller = controller;
         this.listElements = controller.getModel().getLibraryModel().getSongContents();
@@ -51,7 +55,7 @@ public class builderSong_ArtistPlaylistOwnedSongs extends builderSong<AnchorPane
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
-            content.setPrefWidth(65);
+            content.setPrefWidth(150);
 
             Button add_to_queueButton = new Button("Add to queue");
             Button deleteButton = new Button("Delete from Playlist");
@@ -70,6 +74,17 @@ public class builderSong_ArtistPlaylistOwnedSongs extends builderSong<AnchorPane
                 @Override
                 public void handle(MouseEvent event) {
 
+                }
+            });
+
+            songsIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
+                        if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY)) {
+                            popup.show(songsIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                        }
+                    }
                 }
             });
 

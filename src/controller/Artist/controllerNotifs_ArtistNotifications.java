@@ -4,13 +4,14 @@ import controller.PaneController;
 import controller.controllerDashboard;
 import javafx.scene.layout.AnchorPane;
 import view.Artist.viewListener_ArtistFollowedListeners;
+import view.Artist.viewNotifs_ArtistNotifications;
 
-public class controllerListener_ArtistFollowedListeners extends PaneController {
+public class controllerNotifs_ArtistNotifications extends PaneController {
 
-    public controllerListener_ArtistFollowedListeners(AnchorPane mainPane, controllerDashboard dashboardController){
+    public controllerNotifs_ArtistNotifications(AnchorPane mainPane, controllerDashboard dashboardController){
         super(mainPane, dashboardController);
         this.model = dashboardController.getModel();
         this.model.getProfileModel().setFollowedListeners(facade.getFollowedListeners(this.model.getProfileModel().getUser().getUser_id()));
-        view = new viewListener_ArtistFollowedListeners(mainPane, this, dashboardController);
+        view = new viewNotifs_ArtistNotifications(mainPane, this, dashboardController);
     }
 }

@@ -16,12 +16,15 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import object.Playlist;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class builderPlaylist_ArtistPlaylistOwned extends builderPlaylist<AnchorPane> {
+
+    private controllerPlaylist_ArtistsAllPlaylists controller;
 
     public builderPlaylist_ArtistPlaylistOwned(controllerPlaylist_ArtistsAllPlaylists controller) {
         this.controller = controller;
@@ -83,16 +86,18 @@ public class builderPlaylist_ArtistPlaylistOwned extends builderPlaylist<AnchorP
 
             albumIndiv.setLeftAnchor(albumCover, 20.0);
             albumIndiv.setTopAnchor(albumCover, 13.0);
-            albumIndiv.setTopAnchor(text, 104.0);
-            albumIndiv.setLeftAnchor(text, 46.0);
+            albumIndiv.setTopAnchor(text, 106.0);
+            albumIndiv.setLeftAnchor(text, 45.0);
 
             albumIndiv.getChildren().add(albumCover);
             albumIndiv.getChildren().add(text);
             listProducts.add(albumIndiv);
 
-            text.setMaxWidth(80.0);
+            text.setMaxWidth(100.0);
             text.setAlignment(Pos.CENTER);
             text.setWrapText(true);
+            text.setTextAlignment(TextAlignment.CENTER);
+
         }
 
     }

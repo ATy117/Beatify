@@ -21,7 +21,7 @@
                   <Font name="Poppins Regular" size="14.0" />
                </font>
             </JFXTextField>
-            <JFXButton fx:id="searchBtn" layoutX="486.0" layoutY="56.0" onAction="#searchWord" prefHeight="25.0" prefWidth="45.0" text="Search">
+            <JFXButton fx:id="searchBtn" layoutX="486.0" layoutY="50.0" onAction="#searchWord" prefHeight="25.0" prefWidth="45.0">
                <font>
                   <Font name="Poppins Regular" size="14.0" />
                </font>

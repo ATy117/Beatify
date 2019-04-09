@@ -14,7 +14,7 @@ import java.time.LocalDate;
 
 public class controller_AddSong extends PaneController {
     public controller_AddSong(AnchorPane mainPane, controllerDashboard dashboardController){
-        super(dashboardController);
+        super(mainPane, dashboardController);
         this.model = dashboardController.getModel();
         view = new view_AddSong(mainPane, this, dashboardController);
 

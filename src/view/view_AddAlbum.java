@@ -20,7 +20,7 @@ import java.io.IOException;
 public class view_AddAlbum extends View {
 
     public controller_AddAlbum controller;
-    private File cover;
+    private File cover = null;
 
     @FXML JFXButton doneBtn;
     @FXML JFXButton uploadAlbumCoverBtn;
@@ -39,6 +39,13 @@ public class view_AddAlbum extends View {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        init();
+    }
+
+    private void init() {
+        Image albumcover = new Image("/resources/albumCover.png");
+        albumCoverCircle.setFill(new ImagePattern(albumcover));
     }
 
     @Override
@@ -60,6 +67,10 @@ public class view_AddAlbum extends View {
     public void doneButton(){
         String albumName = albumNameTextField.getText();
         String check = albumName.replaceAll("\\s+", "");
+
+        if (cover == null) {
+            cover = new File("src/resources/albumCover.png");
+        }
 
         if (check.equals("")){
             System.out.println("Enter Album Name");

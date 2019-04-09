@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXPopup;
 import controller.Artist.controllerSong_ArtistAlbumsOwnedSongs;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -14,6 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class builderSong_ArtistAlbumsOwnedSongs extends builderSong<AnchorPane> {
+
+    private controllerSong_ArtistAlbumsOwnedSongs controller;
+
     public builderSong_ArtistAlbumsOwnedSongs(controllerSong_ArtistAlbumsOwnedSongs controller){
         this.controller = controller;
         this.listElements = controller.getModel().getLibraryModel().getSongContents();
@@ -51,7 +55,7 @@ public class builderSong_ArtistAlbumsOwnedSongs extends builderSong<AnchorPane> 
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
-            content.setPrefWidth(65);
+            content.setPrefWidth(150);
             Button deleteButton = new Button("Delete");
             Button editButton = new Button("Edit");
             Button add_to_playlistButton = new Button ("Add to playlist");
@@ -61,10 +65,21 @@ public class builderSong_ArtistAlbumsOwnedSongs extends builderSong<AnchorPane> 
             content.getChildren().addAll(deleteButton, editButton, add_to_playlistButton);
             popup.setPopupContent(content);
 
+            songsIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
+                        if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY)) {
+                            popup.show(songsIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                        }
+                    }
+                }
+            });
+
             deleteButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-
+                    controller.deleteSong(song);
                 }
             });
 
@@ -81,6 +96,8 @@ public class builderSong_ArtistAlbumsOwnedSongs extends builderSong<AnchorPane> 
 
                 }
             });
+
+
 
             listProducts.add(songsIndiv);
         }

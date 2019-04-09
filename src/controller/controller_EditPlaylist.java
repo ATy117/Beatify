@@ -11,7 +11,7 @@ import view.view_EditPlaylist;
 
 public class controller_EditPlaylist extends PaneController {
     public controller_EditPlaylist(AnchorPane mainPane, controllerDashboard dashboardController){
-        super(dashboardController);
+        super(mainPane, dashboardController);
         this.model = dashboardController.getModel();
         view = new view_EditPlaylist(mainPane, this, dashboardController);
 

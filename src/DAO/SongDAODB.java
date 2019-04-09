@@ -87,7 +87,7 @@ public class SongDAODB implements SongDAO {
 
         try{
             PreparedStatement statement = this.connection.prepareStatement(query);
-            statement.executeQuery();
+            statement.executeUpdate();
             statement.close();
             return true;
         }catch(SQLException e){

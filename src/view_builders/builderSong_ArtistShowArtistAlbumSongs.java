@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXPopup;
 import controller.Artist.controllerSong_ArtistShowArtistAlbumSongs;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -14,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class builderSong_ArtistShowArtistAlbumSongs extends builderSong<AnchorPane> {
+
+    private controllerSong_ArtistShowArtistAlbumSongs controller;
 
     public builderSong_ArtistShowArtistAlbumSongs(controllerSong_ArtistShowArtistAlbumSongs controller) {
         this.controller = controller;
@@ -52,7 +55,7 @@ public class builderSong_ArtistShowArtistAlbumSongs extends builderSong<AnchorPa
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
-            content.setPrefWidth(65);
+            content.setPrefWidth(150);
             Button add_to_queueButton = new Button("Add to queue");
             Button add_to_playlistButton = new Button ("Add to playlist");
             add_to_queueButton.setMinWidth(content.getPrefWidth());
@@ -74,6 +77,17 @@ public class builderSong_ArtistShowArtistAlbumSongs extends builderSong<AnchorPa
 
                 }
             });
+            songsIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
+                        if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY)) {
+                            popup.show(songsIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                        }
+                    }
+                }
+            });
+
             listProducts.add(songsIndiv);
         }
     }

@@ -3,13 +3,16 @@ package view_builders;
 import com.jfoenix.controls.JFXPopup;
 import controller.Artist.controllerAlbum_ArtistAllAlbums;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import object.Album;
 
 import java.util.ArrayList;
@@ -17,7 +20,9 @@ import java.util.List;
 
 public class builderAlbum_ArtistAlbumFollowed extends builderAlbum<AnchorPane> {
 
-public builderAlbum_ArtistAlbumFollowed (controllerAlbum_ArtistAllAlbums controller){
+    private controllerAlbum_ArtistAllAlbums controller;
+
+    public builderAlbum_ArtistAlbumFollowed (controllerAlbum_ArtistAllAlbums controller){
         this.controller = controller;
         this.listElements = controller.getModel().getLibraryModel().getFollowedAlbums();
         this.listProducts = new ArrayList<>();
@@ -29,7 +34,7 @@ public builderAlbum_ArtistAlbumFollowed (controllerAlbum_ArtistAllAlbums control
                 Album album = listElements.next();
                 AnchorPane albumIndiv = new AnchorPane();
                 Circle albumCover = new Circle(45);
-                Text text = new Text(album.getName());
+                Label text = new Label(album.getName());
 
                 JFXPopup popup = new JFXPopup();
                 VBox content = new VBox();
@@ -39,12 +44,15 @@ public builderAlbum_ArtistAlbumFollowed (controllerAlbum_ArtistAllAlbums control
                 content.getChildren().addAll(unfollowButton);
                 popup.setPopupContent(content);
 
-                albumCover.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                albumIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
                         if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
-                            if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY))
+                            if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY)) {
                                 popup.show(albumIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                            } else {
+                                controller.goToFollowedList(album.getAlbum_id());
+                            }
                         }
                     }
                 });
@@ -58,18 +66,17 @@ public builderAlbum_ArtistAlbumFollowed (controllerAlbum_ArtistAllAlbums control
 
                 albumIndiv.setLeftAnchor(albumCover, 20.0);
                 albumIndiv.setTopAnchor(albumCover, 13.0);
-                albumIndiv.setTopAnchor(text, 102.0);
-                albumIndiv.setLeftAnchor(text, 24.0);
+                albumIndiv.setTopAnchor(text, 106.0);
+                albumIndiv.setLeftAnchor(text, 47.0);
 
                 albumIndiv.getChildren().add(albumCover);
                 albumIndiv.getChildren().add(text);
-                albumIndiv.setOnMousePressed(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        controllerAlbum_ArtistAllAlbums c = (controllerAlbum_ArtistAllAlbums) controller;
-                        c.goToFollowedList(album.getAlbum_id());
-                    }
-                });
+
+                text.setMaxWidth(130.0);
+                text.setAlignment(Pos.CENTER);
+                text.setWrapText(true);
+                text.setTextAlignment(TextAlignment.CENTER);
+
                 listProducts.add(albumIndiv);
             }
 

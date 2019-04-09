@@ -7,11 +7,15 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import object.Song;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class builderSong_ArtistSearchSong extends builderSong<AnchorPane> {
+
+    private controllerSearchables_ArtistAllSearchResults controller;
 
     public builderSong_ArtistSearchSong(controllerSearchables_ArtistAllSearchResults controller) {
         this.controller = controller;
@@ -23,6 +27,31 @@ public class builderSong_ArtistSearchSong extends builderSong<AnchorPane> {
     public void build() {
         while(listElements.hasNext()) {
 
+            Song song = listElements.next();
+            AnchorPane songsIndiv = new AnchorPane();
+            Text titleText = new Text(song.getSong_name());
+            Text artistText = new Text("Dr Jekyl");
+            Text albumText = new Text(song.getAlbum_name());
+            Text yearText = new Text(song.getDate_uploaded().getYear() + "");
+            Text genreText = new Text(song.getGenre());
+
+            songsIndiv.setTopAnchor(titleText, 0.0);
+            songsIndiv.setTopAnchor(artistText, 18.0);
+            songsIndiv.setTopAnchor(albumText, 0.0);
+            songsIndiv.setTopAnchor(yearText, 0.0);
+            songsIndiv.setTopAnchor(genreText, 18.0);
+
+            songsIndiv.setLeftAnchor(titleText, 50.0);
+            songsIndiv.setLeftAnchor(artistText, 50.0);
+            songsIndiv.setLeftAnchor(albumText, 300.0);
+            songsIndiv.setLeftAnchor(yearText, 500.0);
+            songsIndiv.setLeftAnchor(genreText, 500.0);
+
+            songsIndiv.getChildren().add(titleText);
+            songsIndiv.getChildren().add(artistText);
+            songsIndiv.getChildren().add(albumText);
+            songsIndiv.getChildren().add(yearText);
+            songsIndiv.getChildren().add(genreText);
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
@@ -56,6 +85,8 @@ public class builderSong_ArtistSearchSong extends builderSong<AnchorPane> {
 
                 }
             });
+
+            listProducts.add(songsIndiv);
         }
     }
 

@@ -20,6 +20,7 @@ public abstract class viewDashboard extends View {
 	public JFXButton songsBtn;
 	public JFXButton searchBtn;
 	public JFXButton queueBtn;
+	public JFXButton notificationsBtn;
 	protected controllerMusicPlayer musicPlayer;
 	protected PaneController currentPaneController;
 

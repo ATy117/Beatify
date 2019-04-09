@@ -18,6 +18,8 @@ import java.util.List;
 
 public class builderPlaylist_ArtistPlaylistFollowed  extends builderPlaylist<AnchorPane> {
 
+    private controllerPlaylist_ArtistsAllPlaylists controller;
+
     public builderPlaylist_ArtistPlaylistFollowed(controllerPlaylist_ArtistsAllPlaylists controller) {
         this.controller = controller;
         this.listElements = controller.getModel().getLibraryModel().getFollowedPlaylists();

@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.List;
 
 public abstract class builderUser<T> implements ListBuilder<T, User> {
-    protected Controller controller;
     protected Iterator<User> listElements;
     protected List<T> listProducts;
 }

@@ -13,6 +13,8 @@ import java.util.List;
 
 public class builderPlaylist_ListenerPlaylistOwned extends builderPlaylist<AnchorPane> {
 
+    private controllerPlaylist_ListenerAllPlaylists controller;
+
     public builderPlaylist_ListenerPlaylistOwned(controllerPlaylist_ListenerAllPlaylists controller) {
         this.controller = controller;
         this.listElements = controller.getModel().getLibraryModel().getFollowedPlaylists();

@@ -29,6 +29,7 @@ public class MasterFacade {
 		SD = new SongDAODB();
 		UD = new UserDAODB();
 		ND = new NotificationDAODB();
+		cacheManager = new CacheManager();
 	}
 
 	public static MasterFacade getInstance() {
@@ -40,7 +41,6 @@ public class MasterFacade {
 	}
 
 	public void generateCacheFolder () {
-		cacheManager = new CacheManager();
 		cacheManager.generateCacheFolder();
 		System.out.println("Cache folder is existing / created");
 	}
@@ -86,11 +86,22 @@ public class MasterFacade {
 	}
 
 
-	public List<User> searchUsers(String keyword, int user_id){
+	public List<User> searchListeners(String keyword, int user_id){
 		List<User> userList = new ArrayList<>();
 		//check if list retrived from dao is empty
-		if(!UD.getAllUsers(keyword, user_id).isEmpty()){
-			userList.addAll(UD.getAllUsers(keyword, user_id)); //if not empty, add all to userList
+		if(!UD.searchListeners(keyword, user_id).isEmpty()){
+			userList.addAll(UD.searchListeners(keyword, user_id)); //if not empty, add all to userList
+			return userList;
+		}else{
+			return userList; //returns an empty list
+		}
+	}
+
+	public List<User> searchArtists(String keyword, int user_id){
+		List<User> userList = new ArrayList<>();
+		//check if list retrived from dao is empty
+		if(!UD.searchArtists(keyword, user_id).isEmpty()){
+			userList.addAll(UD.searchArtists(keyword, user_id)); //if not empty, add all to userList
 			return userList;
 		}else{
 			return userList; //returns an empty list

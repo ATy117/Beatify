@@ -17,6 +17,8 @@ import java.util.List;
 
 public class builderListener_ArtistFollowedListeners extends builderUser<AnchorPane> {
 
+    private controllerListener_ArtistFollowedListeners controller;
+
     public builderListener_ArtistFollowedListeners(controllerListener_ArtistFollowedListeners controller) {
         this.controller = controller;
         this.listElements = controller.getModel().getProfileModel().getFollowedListeners();

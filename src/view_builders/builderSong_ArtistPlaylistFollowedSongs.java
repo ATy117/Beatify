@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXPopup;
 import controller.Artist.controllerSong_ArtistPlaylistFollowedSongs;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -14,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class builderSong_ArtistPlaylistFollowedSongs extends builderSong<AnchorPane> {
+    private controllerSong_ArtistPlaylistFollowedSongs controller;
+
     public builderSong_ArtistPlaylistFollowedSongs(controllerSong_ArtistPlaylistFollowedSongs controller){
         this.controller = controller;
         this.listElements = controller.getModel().getLibraryModel().getSongContents();
@@ -70,6 +73,17 @@ public class builderSong_ArtistPlaylistFollowedSongs extends builderSong<AnchorP
                 @Override
                 public void handle(MouseEvent event) {
 
+                }
+            });
+
+            songsIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
+                        if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY)) {
+                            popup.show(songsIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                        }
+                    }
                 }
             });
 

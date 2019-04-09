@@ -11,7 +11,7 @@ import view.Artist.viewUser_ArtistMyProfile;
 public class controllerUser_ArtistMyProfile extends PaneController {
 
     public controllerUser_ArtistMyProfile(AnchorPane mainPane, controllerDashboard dashboardController, Stage primaryStage){
-        super(dashboardController);
+        super(mainPane, dashboardController);
         this.primaryStage = primaryStage;
         this.model = dashboardController.getModel();
         view = new viewUser_ArtistMyProfile(mainPane, this, dashboardController);
