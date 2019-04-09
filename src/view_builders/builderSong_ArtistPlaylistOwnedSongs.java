@@ -73,7 +73,7 @@ public class builderSong_ArtistPlaylistOwnedSongs extends builderSong<AnchorPane
             add_to_queueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-
+                    controller.addSongToQueue(song);
                 }
             });
 

@@ -57,6 +57,7 @@ public class SongPlayerModel extends Model {
 
     public void addSongToQueue(Song s) {
         currentList.add(s);
+        System.out.println("added " + s.getSong_name() + "to queue");
         Notify();
     }
 
