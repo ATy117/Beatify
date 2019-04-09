@@ -24,6 +24,7 @@ public class builderNotifications_Users extends builderNotification<AnchorPane> 
 
     public builderNotifications_Users(controllerNotifs_ArtistNotifications controller){
         this.controller = controller;
+        this.listElements = controller.getModel().getNotificationModel().getNotifications();
         this.listProducts = new ArrayList<>();
 
     }
