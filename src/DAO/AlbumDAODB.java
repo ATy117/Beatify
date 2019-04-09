@@ -209,7 +209,7 @@ public class AlbumDAODB implements AlbumDAO{
 
     @Override
     public boolean unfollowAlbum(int album_id, int follower_id) {
-        String query = "DELETE FROM album_id WHERE followed_album.album_id = ? AND followed_album.follower_id = ?";
+        String query = "DELETE FROM followed_album WHERE followed_album.album_id = ? AND followed_album.follower_id = ?";
 
         try{
             PreparedStatement statement = this.connection.prepareStatement(query);
