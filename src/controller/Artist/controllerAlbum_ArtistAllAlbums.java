@@ -32,6 +32,11 @@ public class controllerAlbum_ArtistAllAlbums extends PaneController {
         dashboardController.setCurrentPane(this);
     }
 
+    public void deleteAlbum(int album_id){
+        facade.deleteAlbum(album_id);
+        model.getLibraryModel().setMyAlbums(facade.getMyAlbums(this.model.getProfileModel().getUser().getUser_id()));
+    }
+
     public void uploadAlbum(){
         controller_AddAlbum controlleAddAlbums = new controller_AddAlbum(dashboardController.getPaneFoundation(), dashboardController);
         dashboardController.setCurrentPane(this);
