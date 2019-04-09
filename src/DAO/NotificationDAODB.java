@@ -57,12 +57,13 @@ public class NotificationDAODB implements NotificationDAO {
 
     @Override
     public boolean addToNotifMapping(int notif_id, int follower_id) {
-        String query = "INSERT INTO notif_mapping VALUES(?,?)";
+        String query = "INSERT INTO notif_mapping VALUES(?,?,?)";
 
         try{
             PreparedStatement statement = this.connection.prepareStatement(query);
             statement.setInt(1, notif_id);
             statement.setInt(2, follower_id);
+            statement.setInt(3, 0);
             statement.executeUpdate();
             statement.close();
             return true;
