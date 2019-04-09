@@ -64,8 +64,11 @@ public class builderPlaylist_ArtistPlaylistOwned extends builderPlaylist<AnchorP
                 @Override
                 public void handle(MouseEvent event) {
                     if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
-                        if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY))
+                        if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY)) {
                             popup.show(albumIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                        } else {
+                            controller.goToOwnList(p.getPlaylist_id());
+                        }
                     }
                 }
             });

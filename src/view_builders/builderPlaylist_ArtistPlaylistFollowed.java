@@ -46,8 +46,11 @@ public class builderPlaylist_ArtistPlaylistFollowed  extends builderPlaylist<Anc
                 @Override
                 public void handle(MouseEvent event) {
                     if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
-                        if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY))
+                        if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY)) {
                             popup.show(albumIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                        } else {
+                            controller.goToFollowedList(playlist.getPlaylist_id());
+                        }
                     }
                 }
             });
