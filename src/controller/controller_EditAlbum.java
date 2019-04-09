@@ -7,7 +7,7 @@ import view.view_EditAlbum;
 
 public class controller_EditAlbum extends PaneController {
     public controller_EditAlbum(AnchorPane mainPane, controllerDashboard dashboardController){
-        super(dashboardController);
+        super(mainPane, dashboardController);
         this.model = dashboardController.getModel();
         view = new view_EditAlbum(mainPane, this, dashboardController);
 

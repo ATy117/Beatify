@@ -12,7 +12,7 @@ import view.Artist.viewSong_ArtistPlaylistsOwnedSongs;
 public class controllerSong_ArtistAlbumsOwnedSongs extends PaneController  {
 
 	public controllerSong_ArtistAlbumsOwnedSongs(AnchorPane mainPane, controllerDashboard dashboardController){
-		super(dashboardController);
+		super(mainPane, dashboardController);
 		this.model = dashboardController.getModel();
 		view = new viewSong_ArtistAlbumsOwnedSongs(mainPane,this, dashboardController);
 	}

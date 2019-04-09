@@ -8,7 +8,7 @@ import view.Artist.viewSong_ArtistAlbumsFollowedSongs;
 public class controllerSong_ArtistAlbumsFollowedSongs extends PaneController {
 
 	public controllerSong_ArtistAlbumsFollowedSongs (AnchorPane mainPane, controllerDashboard dashboardController) {
-		super(dashboardController);
+		super(mainPane, dashboardController);
 		this.model = dashboardController.getModel();
 		view = new viewSong_ArtistAlbumsFollowedSongs(mainPane, this, dashboardController);
 	}

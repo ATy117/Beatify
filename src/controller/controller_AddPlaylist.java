@@ -10,7 +10,7 @@ import view.view_AddPlaylist;
 
 public class controller_AddPlaylist extends PaneController {
     public controller_AddPlaylist(AnchorPane mainPane, controllerDashboard dashboardController){
-        super(dashboardController);
+        super(mainPane, dashboardController);
         this.model = dashboardController.getModel();
         view = new view_AddPlaylist(mainPane, this, dashboardController);
 

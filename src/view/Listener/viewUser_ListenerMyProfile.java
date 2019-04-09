@@ -54,4 +54,12 @@ public class viewUser_ListenerMyProfile extends View {
             controller.logout();
         });
     }
+
+    public void editDetails(){
+
+    }
+
+    public void logout() {
+        
+    }
 }
