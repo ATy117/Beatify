@@ -50,7 +50,7 @@
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </Label>
-      <JFXRadioButton fx:id="privateRadio" layoutX="317.0" layoutY="355.0" text="Private">
+      <JFXRadioButton fx:id="privateRadio" layoutX="317.0" layoutY="355.0" onAction="#toggle" text="Private">
          <font>
             <Font name="Poppins Regular" size="14.0" />
          </font>
@@ -58,7 +58,7 @@
             <ToggleGroup fx:id="status" />
          </toggleGroup>
       </JFXRadioButton>
-      <JFXRadioButton fx:id="publicRadio" layoutX="441.0" layoutY="355.0" text="Public" toggleGroup="$status">
+      <JFXRadioButton fx:id="publicRadio" layoutX="441.0" layoutY="355.0" onAction="#toggle" text="Public" toggleGroup="$status">
          <font>
             <Font name="Poppins Regular" size="14.0" />
          </font>

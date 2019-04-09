@@ -3,13 +3,18 @@ package view_builders;
 import com.jfoenix.controls.JFXPopup;
 import controller.Artist.controllerPlaylist_ArtistsAllPlaylists;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import object.Playlist;
 
@@ -31,12 +36,16 @@ public class builderPlaylist_ArtistPlaylistOwned extends builderPlaylist<AnchorP
             AnchorPane albumIndiv = new AnchorPane();
             Circle albumCover = new Circle(45);
             Label text = new Label(p.getName());
-            Label status;
+            Image privateImg = new Image("resources/privateCover.png");
+            Image publicImg = new Image("resources/publicCover.png");
 
             if(p.isIs_public())
-                status = new Label("Public");
+                albumCover.setFill(new ImagePattern(publicImg));
             else
-                status = new Label("Private");
+                albumCover.setFill(new ImagePattern(privateImg));
+
+            text.setFont(Font.font("Poppins", 13));
+
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
@@ -74,14 +83,16 @@ public class builderPlaylist_ArtistPlaylistOwned extends builderPlaylist<AnchorP
 
             albumIndiv.setLeftAnchor(albumCover, 20.0);
             albumIndiv.setTopAnchor(albumCover, 13.0);
-            albumIndiv.setTopAnchor(text, 102.0);
-            albumIndiv.setLeftAnchor(text, 24.0);
-            albumIndiv.setTopAnchor(status, 110.0);
-            albumIndiv.setLeftAnchor(status, 24.0);
+            albumIndiv.setTopAnchor(text, 104.0);
+            albumIndiv.setLeftAnchor(text, 46.0);
 
             albumIndiv.getChildren().add(albumCover);
             albumIndiv.getChildren().add(text);
             listProducts.add(albumIndiv);
+
+            text.setMaxWidth(80.0);
+            text.setAlignment(Pos.CENTER);
+            text.setWrapText(true);
         }
 
     }

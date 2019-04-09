@@ -11,6 +11,7 @@ import controller.controller_AddPlaylist;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
@@ -28,6 +29,10 @@ public class view_AddPlaylist extends View {
     @FXML Label artistLbl;
     @FXML JFXRadioButton privateRadio;
     @FXML JFXRadioButton publicRadio;
+    @FXML Circle playlistCoverCircle;
+    @FXML ToggleGroup status;
+
+    private Image privateImg, publicImg;
 
     public view_AddPlaylist(AnchorPane mainPane, controller_AddPlaylist controller, controllerDashboard dashboardController){
         this.controller = controller;
@@ -40,11 +45,29 @@ public class view_AddPlaylist extends View {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        init();
+    }
+
+    public void init(){
+        publicImg = new Image("resources/publicCover.png");
+        privateImg = new Image("resources/privateCover.png");
+
+        privateRadio.setSelected(true);
+        playlistCoverCircle.setFill(new ImagePattern(privateImg));
     }
 
     @Override
     public void Update(){
 
+    }
+
+    public void toggle(){
+        if(status.getSelectedToggle() == privateRadio){
+            playlistCoverCircle.setFill(new ImagePattern(privateImg));
+        }
+        else
+            playlistCoverCircle.setFill(new ImagePattern(publicImg));
     }
 
     public void doneButton(){
