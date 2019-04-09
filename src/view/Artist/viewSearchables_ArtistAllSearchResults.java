@@ -86,7 +86,7 @@ public class viewSearchables_ArtistAllSearchResults extends View {
         Director directorAlbum = Director.getInstance();
         directorAlbum.setBuilder(builderAlbum);
         directorAlbum.construct();
-        for (Object object: builder.getProduct()){
+        for (Object object: builderAlbum.getProduct()){
             AnchorPane anchorPane = (AnchorPane)object;
             albumsList.getChildren().add(anchorPane);
         }
@@ -99,7 +99,7 @@ public class viewSearchables_ArtistAllSearchResults extends View {
         Director directorPlaylist = Director.getInstance();
         directorPlaylist.setBuilder(builderPlaylist);
         directorPlaylist.construct();
-        for (Object object: builder.getProduct()){
+        for (Object object: builderPlaylist.getProduct()){
             AnchorPane anchorPane = (AnchorPane)object;
             playlistList.getChildren().add(anchorPane);
         }
@@ -112,7 +112,7 @@ public class viewSearchables_ArtistAllSearchResults extends View {
         Director directorArtist = Director.getInstance();
         directorArtist.setBuilder(builderArtist);
         directorArtist.construct();
-        for (Object object: builder.getProduct()){
+        for (Object object: builderArtist.getProduct()){
             AnchorPane anchorPane = (AnchorPane)object;
             artistList.getChildren().add(anchorPane);
         }
@@ -125,7 +125,7 @@ public class viewSearchables_ArtistAllSearchResults extends View {
         directorArtist = Director.getInstance();
         directorArtist.setBuilder(builderArtist);
         directorArtist.construct();
-        for (Object object: builder.getProduct()){
+        for (Object object: builderArtist.getProduct()){
             AnchorPane anchorPane = (AnchorPane)object;
             listenerList.getChildren().add(anchorPane);
         }

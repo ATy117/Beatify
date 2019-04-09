@@ -31,6 +31,7 @@ public class builderAlbum_ArtistSearchAlbum extends builderAlbum<AnchorPane> {
             AnchorPane albumIndiv = new AnchorPane();
             Circle albumCover = new Circle(45);
             Text text = new Text(album.getName());
+            System.out.println("Bitch Please Hello");
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
@@ -54,12 +55,15 @@ public class builderAlbum_ArtistSearchAlbum extends builderAlbum<AnchorPane> {
 
             albumIndiv.getChildren().add(albumCover);
             albumIndiv.getChildren().add(text);
+            System.out.println("Where are you wth");
             listProducts.add(albumIndiv);
+            System.out.println("Na Add PUTANGINA INA");
         }
     }
 
     @Override
     public List<AnchorPane> getProduct() {
+        System.out.println(listProducts.size());
         return listProducts;
     }
 }
