@@ -2,6 +2,7 @@ package view_builders;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPopup;
+import controller.Artist.controllerNotifs_ArtistNotifications;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -14,9 +15,18 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import object.Playlist;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class builderNotifications_Users extends builderNotification<AnchorPane> {
+
+    private controllerNotifs_ArtistNotifications controller;
+
+    public builderNotifications_Users(controllerNotifs_ArtistNotifications controller){
+        this.controller = controller;
+        this.listProducts = new ArrayList<>();
+
+    }
     @Override
     public void build() {
         while(listElements.hasNext()) {
