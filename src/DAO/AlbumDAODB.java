@@ -255,8 +255,7 @@ public class AlbumDAODB implements AlbumDAO{
         album.setAlbum_id(rs.getInt("album.album_id"));
         album.setName(rs.getString("album.name"));
         String date = rs.getString("album.date_created");
-        LocalDate localDate = LocalDate.parse(date);
-        album.setDate_uploaded(localDate);
+        album.setDate_uploaded(LocalDate.parse(date));
         album.setArtist_id(rs.getInt("album.artist_id"));
         album.setArtist_name(rs.getString("user.first_name")+ " " + rs.getString("user.last_name"));
         album.setCover_URL(toFile(rs));
