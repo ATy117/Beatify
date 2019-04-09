@@ -9,7 +9,7 @@ import view.Artist.viewNotifs_ArtistNotifications;
 public class controllerNotifs_ArtistNotifications extends PaneController {
 
     public controllerNotifs_ArtistNotifications(AnchorPane mainPane, controllerDashboard dashboardController){
-        super(dashboardController);
+        super(mainPane, dashboardController);
         this.model = dashboardController.getModel();
         this.model.getProfileModel().setFollowedListeners(facade.getFollowedListeners(this.model.getProfileModel().getUser().getUser_id()));
         view = new viewNotifs_ArtistNotifications(mainPane, this, dashboardController);

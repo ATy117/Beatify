@@ -8,6 +8,8 @@ import controller.Artist.controllerSearchables_ArtistAllSearchResults;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.TilePane;
 import view.View;
@@ -42,6 +44,17 @@ public class viewSearchables_ArtistAllSearchResults extends View {
             e.printStackTrace();
         }
 
+        init();
+    }
+
+    public void init(){
+        Image search = new Image("resources/searchButton.png");
+        ImageView searchView = new ImageView(search);
+
+        searchView.setFitWidth(37);
+        searchView.setFitHeight(37);
+
+        searchBtn.setGraphic(searchView);
     }
 
     @Override

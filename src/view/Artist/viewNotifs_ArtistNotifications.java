@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.TilePane;
 import view.View;
+import view_builders.*;
 
 import java.io.IOException;
 
@@ -36,6 +37,17 @@ public class viewNotifs_ArtistNotifications extends View {
 
     @Override
     public void Update() {
+
+        notificationsListView.getItems().clear();
+
+        builderNotification builder = new builderNotifications_Users();
+        Director director = Director.getInstance();
+        director.setBuilder(builder);
+        director.construct();
+        for (Object object: builder.getProduct()){
+            AnchorPane anchorPane = (AnchorPane)object;
+            notificationsListView.getItems().add(anchorPane);
+        }
 
     }
 }
