@@ -78,7 +78,7 @@ public class viewSong_ArtistAlbumsOwnedSongs extends View {
         uploadSongBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-
+                controller.uploadSong();
             }
         });
     }

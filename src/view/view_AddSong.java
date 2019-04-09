@@ -48,6 +48,10 @@ public class view_AddSong extends View {
 
     }
 
+    public void doneButton() {
+
+    }
+
 
 
 
