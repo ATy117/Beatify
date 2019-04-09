@@ -44,7 +44,7 @@ public class builderArtist_ArtistFollowedArtists extends builderUser<AnchorPane>
             content.getChildren().addAll(unfollowButton);
             popup.setPopupContent(content);
 
-            userPic.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            albumIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
                     if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {

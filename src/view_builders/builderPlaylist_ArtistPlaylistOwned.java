@@ -60,7 +60,7 @@ public class builderPlaylist_ArtistPlaylistOwned extends builderPlaylist<AnchorP
             content.getChildren().addAll(deleteButton, editButton);
             popup.setPopupContent(content);
 
-            albumCover.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            albumIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
                     if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
