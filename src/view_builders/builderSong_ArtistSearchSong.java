@@ -12,8 +12,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import object.Playlist;
 import object.Song;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -89,7 +91,15 @@ public class builderSong_ArtistSearchSong extends builderSong<AnchorPane> {
             add_to_playlistButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-
+                    content.getChildren().clear();
+                    content.setPrefWidth(200);
+                    ArrayList <Button> buttons = new ArrayList<>();
+                    while (controller.getModel().getLibraryModel().getMyPlaylists().hasNext()){
+                        Playlist playlist = controller.getModel().getLibraryModel().getMyPlaylists().next();
+                        buttons.add(new Button (playlist.getName()));
+                        content.getChildren().add(new Button (playlist.getName()));
+                    }
+                    popup.setPopupContent(content);
                 }
             });
 
