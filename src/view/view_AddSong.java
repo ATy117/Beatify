@@ -23,7 +23,10 @@ public class view_AddSong extends View {
 
     public controller_AddSong controller;
 
+    private File songFile;
     @FXML JFXComboBox songGenreCombo;
+    @FXML JFXTextField songTitleTextField;
+    @FXML Label artistLbl;
 
     public view_AddSong(AnchorPane mainPane, controller_AddSong controller, controllerDashboard dashboardController){
         this.controller = controller;
@@ -41,6 +44,8 @@ public class view_AddSong extends View {
     }
 
     public void init(){
+        artistLbl.setText("By "+ model.getProfileModel().getUser().getFirst_name() + " " + model.getProfileModel().getUser().getLast_name());
+        songGenreCombo.getItems().addAll("Acoustic", "Ballad", "Classical", "Country", "Folk", "Jazz", "Pop", "Rap", "Reggae", "Religious", "Rock");
     }
 
     @Override
@@ -49,6 +54,18 @@ public class view_AddSong extends View {
     }
 
     public void doneButton() {
+        String genre = (String) songGenreCombo.getValue();
+        String songName = songTitleTextField.getText();
+
+        String gCheck = genre.replaceAll("\\s+", "");
+        String check = songName.replaceAll("\\s+", "");
+
+        if (check.equals("") || gCheck.equals("")){
+            System.out.println("Some Fields Are Missing");
+        } else {
+            if (!controller.addSong(songName, genre, songFile))
+                System.out.println("Song not added");
+        }
 
     }
 

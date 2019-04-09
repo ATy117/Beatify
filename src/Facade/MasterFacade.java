@@ -239,7 +239,10 @@ public class MasterFacade {
 	public boolean addSong(Song song){
 		if(SD.checkSong(song.getArtist__id(),song.getSong_name()) == -1) {
 			createNotification(song.getArtist_name() + " has added a new song: " + song.getSong_name(), song.getArtist__id());
-			return SD.addSong(song);
+			SD.addSong(song);
+			int song_id = SD.checkSong(song.getArtist__id(), song.getSong_name());
+			addSongToAlbum(song_id,song.getAlbum_id());
+			return true;
 		}
 		else return false;
 	}
