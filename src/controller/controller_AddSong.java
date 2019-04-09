@@ -23,13 +23,14 @@ public class controller_AddSong extends PaneController {
     public boolean addSong(String title, String genre, File songFile){
         Song song = new Song();
         int album_id = model.getLibraryModel().getSelectedAlbum().getAlbum_id();
+        User user = model.getProfileModel().getUser();
         song.setSong_name(title);
         song.setAlbum_id(album_id);
         song.setArtist__id(model.getProfileModel().getUser().getUser_id());
         song.setGenre(genre);
         song.setDate_uploaded(LocalDate.now());
         song.setSong_URL(songFile);
-
+        song.setArtist_name(user.getFirst_name()+" "+user.getLast_name());
         if (facade.addSong(song)){
             model.getLibraryModel().setSelectedAlbum(facade.getAlbum(album_id));
             model.getLibraryModel().setSongContents(facade.getAlbumSongs(album_id));
