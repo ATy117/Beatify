@@ -48,7 +48,7 @@ public class builderAlbum_ArtistAlbumFollowed extends builderAlbum<AnchorPane> {
                             if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY)) {
                                 popup.show(albumIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
                             } else {
-                                controllerAlbum_ArtistAllAlbums c = (controllerAlbum_ArtistAllAlbums) controller;
+                                controllerAlbum_ArtistAllAlbums c =  controller;
                                 c.goToFollowedList(album.getAlbum_id());
                             }
                         }
