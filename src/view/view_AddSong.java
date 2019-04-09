@@ -1,6 +1,7 @@
 package view;
 
 import FileUploaderService.FileUploader;
+import FileUploaderService.MP3Uploader;
 import FileUploaderService.PhotoUploader;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -23,7 +24,7 @@ public class view_AddSong extends View {
 
     public controller_AddSong controller;
 
-    private File songFile;
+    private File songFile = null;
     @FXML JFXComboBox songGenreCombo;
     @FXML JFXTextField songTitleTextField;
     @FXML Label artistLbl;
@@ -57,7 +58,8 @@ public class view_AddSong extends View {
     }
 
     public void addSongURL(){
-        System.out.println("Add Song Link!");
+        FileUploader uploader = new MP3Uploader(primaryStage);
+        songFile = uploader.getUploadedFile();
     }
 
     public void doneButton() {
@@ -69,6 +71,8 @@ public class view_AddSong extends View {
 
         if (check.equals("") || gCheck.equals("")){
             System.out.println("Some Fields Are Missing");
+        } else if (songFile == null) {
+            System.out.println("No File Uploaded");
         } else {
             if (!controller.addSong(songName, genre, songFile))
                 System.out.println("Song not added");

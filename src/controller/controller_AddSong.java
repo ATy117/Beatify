@@ -23,6 +23,7 @@ public class controller_AddSong extends PaneController {
     public boolean addSong(String title, String genre, File songFile){
         Song song = new Song();
         int album_id = model.getLibraryModel().getSelectedAlbum().getAlbum_id();
+        song.setSong_name(title);
         song.setAlbum_id(album_id);
         song.setArtist__id(model.getProfileModel().getUser().getUser_id());
         song.setGenre(genre);
