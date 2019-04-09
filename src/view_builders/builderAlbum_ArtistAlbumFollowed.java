@@ -80,7 +80,7 @@ public class builderAlbum_ArtistAlbumFollowed extends builderAlbum<AnchorPane> {
                 text.setWrapText(true);
                 text.setTextAlignment(TextAlignment.CENTER);
 
-                albumCover.setFill(new ImagePattern(new Image(album.getCover_URL().toString())));
+                albumCover.setFill(new ImagePattern(new Image(album.getCover_URL().toURI().toString())));
 
                 listProducts.add(albumIndiv);
             }
