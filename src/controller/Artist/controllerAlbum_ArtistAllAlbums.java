@@ -9,7 +9,6 @@ import view.Artist.viewAlbum_ArtistAllAlbums;
 
 public class controllerAlbum_ArtistAllAlbums extends PaneController {
 
-
     public controllerAlbum_ArtistAllAlbums(AnchorPane mainPane, controllerDashboard dashboardController){
         super(mainPane, dashboardController);
         this.model = dashboardController.getModel();
@@ -22,14 +21,14 @@ public class controllerAlbum_ArtistAllAlbums extends PaneController {
         model.getLibraryModel().setSelectedAlbum(facade.getAlbum(album_id));
         model.getLibraryModel().setSongContents(facade.getAlbumSongs(album_id));
         controllerSong_ArtistAlbumsFollowedSongs c = new controllerSong_ArtistAlbumsFollowedSongs(dashboardController.getPaneFoundation(), dashboardController);
-        dashboardController.setCurrentPane(this);
+        dashboardController.setCurrentPane(c);
     }
 
     public void goToOwnList(int album_id){
         model.getLibraryModel().setSelectedAlbum(facade.getAlbum(album_id));
         model.getLibraryModel().setSongContents(facade.getAlbumSongs(album_id));
         controllerSong_ArtistAlbumsOwnedSongs c = new controllerSong_ArtistAlbumsOwnedSongs(dashboardController.getPaneFoundation(), dashboardController);
-        dashboardController.setCurrentPane(this);
+        dashboardController.setCurrentPane(c);
     }
 
     public void deleteAlbum(int album_id){

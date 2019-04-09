@@ -27,8 +27,6 @@ public class builderSong_ListenerAllSongs extends builderSong<AnchorPane> {
         while(listElements.hasNext()) {
             Song song  = listElements.next();
 
-
-
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(150);
