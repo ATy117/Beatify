@@ -17,6 +17,20 @@ public class controllerPlaylist_ArtistsAllPlaylists extends PaneController {
         view = new viewPlaylist_ArtistAllPlaylists(mainPane, this, dashboardController);
     }
 
+    public void goToFollowedList(int playlist_id){
+        model.getLibraryModel().setSelectedPlaylist(facade.getPlaylist(playlist_id));
+        model.getLibraryModel().setSongContents(facade.getPlaylistSongs(playlist_id));
+        controllerSong_ArtistPlaylistFollowedSongs c = new controllerSong_ArtistPlaylistFollowedSongs(dashboardController.getPaneFoundation(), dashboardController);
+        dashboardController.setCurrentPane(this);
+    }
+
+    public void goToOwnList(int playlist_id){
+        model.getLibraryModel().setSelectedPlaylist(facade.getPlaylist(playlist_id));
+        model.getLibraryModel().setSongContents(facade.getPlaylistSongs(playlist_id));
+        controllerSong_ArtistPlaylistOwnedSongs c = new controllerSong_ArtistPlaylistOwnedSongs(dashboardController.getPaneFoundation(), dashboardController);
+        dashboardController.setCurrentPane(this);
+    }
+
     public void addPlaylists(){
         controller_AddPlaylist controllerAddPlaylist = new controller_AddPlaylist(dashboardController.getPaneFoundation(), dashboardController);
         dashboardController.setCurrentPane(this);
