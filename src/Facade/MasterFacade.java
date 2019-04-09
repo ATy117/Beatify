@@ -296,9 +296,10 @@ public class MasterFacade {
 		return ND.getUnviewedNotifications(userID);
 	}
 
-	public boolean setNotificationAsViewed(int notif_id, int follower_id){
-		return ND.viewNotification(notif_id,follower_id);
+	public boolean setNotificationAsViewed(int notif_id, int user_id){
+		return ND.viewNotification(notif_id,user_id);
 	}
+
 	public Image getImageOfAlbum(int album_id) {
 		Image pic;
 
