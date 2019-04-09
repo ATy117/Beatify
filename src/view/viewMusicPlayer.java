@@ -9,6 +9,7 @@ import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -59,6 +60,8 @@ public class viewMusicPlayer extends View {
 	private ImageView repeatClickedView;
 	private ImageView shuffleView;
 	private ImageView shuffleClickedView;
+	private ImageView volUpView;
+	private ImageView volDownView;
 
 	public viewMusicPlayer(AnchorPane mainPane, controllerMusicPlayer controller, controllerDashboard controllerDashboard) {
 		this.controller = controller;
@@ -91,6 +94,8 @@ public class viewMusicPlayer extends View {
 		Image repeatClicked = new Image("resources/replay2.png");
 		Image shuffle = new Image("resources/shuffle.png");
 		Image shuffleClicked = new Image("resources/shuffle2.png");
+		Image volUp = new Image("resources/volUp.png");
+		Image volDown = new Image("resources/volDown.png");
 
 		playView = new ImageView(play);
 		nextView = new ImageView(next);
@@ -100,29 +105,46 @@ public class viewMusicPlayer extends View {
 		repeatClickedView = new ImageView(repeatClicked);
 		shuffleView = new ImageView(shuffle);
 		shuffleClickedView = new ImageView(shuffleClicked);
+		volUpView = new ImageView(volUp);
+		volDownView = new ImageView(volDown);
 
-		playView.setFitWidth(40);
-		playView.setFitHeight(40);
+		playView.setFitWidth(44);
+		playView.setFitHeight(44);
 		nextView.setFitWidth(30);
 		nextView.setFitHeight(30);
 		prevView.setFitHeight(30);
 		prevView.setFitWidth(30);
-		pauseView.setFitWidth(40);
-		pauseView.setFitHeight(40);
-		repeatView.setFitWidth(30);
-		repeatView.setFitHeight(30);
-		repeatClickedView.setFitWidth(30);
-		repeatClickedView.setFitHeight(30);
-		shuffleView.setFitWidth(30);
-		shuffleView.setFitHeight(30);
-		shuffleClickedView.setFitWidth(30);
-		shuffleClickedView.setFitHeight(30);
+		pauseView.setFitWidth(44);
+		pauseView.setFitHeight(44);
+		repeatView.setFitWidth(24);
+		repeatView.setFitHeight(24);
+		repeatClickedView.setFitWidth(24);
+		repeatClickedView.setFitHeight(24);
+		shuffleView.setFitWidth(24);
+		shuffleView.setFitHeight(24);
+		shuffleClickedView.setFitWidth(24);
+		shuffleClickedView.setFitHeight(24);
+		volDownView.setFitWidth(18);
+		volDownView.setFitHeight(18);
+		volUpView.setFitHeight(18);
+		volUpView.setFitWidth(18);
 
 		playBtn.setGraphic(playView);
 		rewindBtn.setGraphic(prevView);
 		ffBtn.setGraphic(nextView);
 		shuffleBtn.setGraphic(shuffleView);
 		repeatBtn.setGraphic(repeatView);
+		volumeUp.setGraphic(volUpView);
+		volumeDown.setGraphic(volDownView);
+
+		titleText.setMaxWidth(Double.MAX_VALUE);
+		titleText.setAlignment(Pos.CENTER);
+		artistText.setMaxWidth(Double.MAX_VALUE);
+		artistText.setAlignment(Pos.CENTER);
+		albumText.setMaxWidth(Double.MAX_VALUE);
+		albumText.setAlignment(Pos.CENTER);
+		genreText.setMaxWidth(Double.MAX_VALUE);
+		genreText.setAlignment(Pos.CENTER);
 	}
 
 	@Override

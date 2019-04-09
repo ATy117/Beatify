@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
+import object.Album;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,9 +26,10 @@ public builderAlbum_ArtistAlbumFollowed (controllerAlbum_ArtistAllAlbums control
         @Override
         public void build() {
             while(listElements.hasNext()) {
+                Album album = listElements.next();
                 AnchorPane albumIndiv = new AnchorPane();
                 Circle albumCover = new Circle(45);
-                Text text = new Text(listElements.next().getName());
+                Text text = new Text(album.getName());
 
                 JFXPopup popup = new JFXPopup();
                 VBox content = new VBox();
@@ -37,12 +39,16 @@ public builderAlbum_ArtistAlbumFollowed (controllerAlbum_ArtistAllAlbums control
                 content.getChildren().addAll(unfollowButton);
                 popup.setPopupContent(content);
 
-                albumCover.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                albumIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
                         if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
-                            if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY))
+                            if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY)) {
                                 popup.show(albumIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                            } else {
+                                controllerAlbum_ArtistAllAlbums c = (controllerAlbum_ArtistAllAlbums) controller;
+                                c.goToFollowedList(album.getAlbum_id());
+                            }
                         }
                     }
                 });
@@ -61,6 +67,7 @@ public builderAlbum_ArtistAlbumFollowed (controllerAlbum_ArtistAllAlbums control
 
                 albumIndiv.getChildren().add(albumCover);
                 albumIndiv.getChildren().add(text);
+
                 listProducts.add(albumIndiv);
             }
 

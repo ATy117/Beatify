@@ -16,34 +16,34 @@
       <Circle fill="#4097a84f" layoutX="252.0" layoutY="545.0" radius="13.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="#4097a84f" layoutX="211.0" layoutY="531.0" radius="23.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fx:id="songPic" fill="#2f4159" layoutX="136.0" layoutY="164.0" radius="127.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Label fx:id="titleText" layoutX="102.0" layoutY="305.0" text="Sucker" textFill="#fab2a5">
+      <Label fx:id="titleText" layoutX="36.0" layoutY="307.0" maxWidth="200.0" minWidth="200.0" prefHeight="26.0" prefWidth="168.0" text="Sucker" textFill="#fab2a5">
          <font>
             <Font name="Comfortaa Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="artistText" layoutX="75.0" layoutY="331.0" text="Jonas Brothers" textFill="#f4dfcc">
+      <Label fx:id="artistText" layoutX="36.0" layoutY="334.0" maxWidth="200.0" minWidth="200.0" text="Jonas Brothers" textAlignment="CENTER" textFill="#f4dfcc">
          <font>
             <Font name="Comfortaa Regular" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="albumText" layoutX="54.0" layoutY="352.0" text="from Sucker - Single" textFill="#f4dfcc">
+      <Label fx:id="albumText" layoutX="37.0" layoutY="356.0" maxWidth="200.0" minWidth="200.0" text="from Sucker - Single" textAlignment="CENTER" textFill="#f4dfcc">
          <font>
             <Font name="Comfortaa Regular" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="genreText" layoutX="128.0" layoutY="374.0" text="Pop" textFill="#fa9583">
+      <Label fx:id="genreText" layoutX="37.0" layoutY="377.0" maxWidth="200.0" minWidth="200.0" text="Pop" textAlignment="CENTER" textFill="#fa9583">
          <font>
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </Label>
-      <JFXButton fx:id="playBtn" layoutX="114.0" layoutY="454.0" onAction="#playPause" />
-      <JFXButton fx:id="rewindBtn" layoutX="27.0" layoutY="454.0" onAction="#prevSong" />
-      <JFXButton fx:id="ffBtn" layoutX="202.0" layoutY="454.0" onAction="#nextSong" />
-      <JFXButton fx:id="shuffleBtn" layoutX="69.0" layoutY="489.0" onAction="#shuffle" />
-      <JFXButton fx:id="repeatBtn" layoutX="161.0" layoutY="489.0" onAction="#repeat" />
-      <JFXButton fx:id="volumeUp" layoutX="12.0" layoutY="12.0" onAction="#turnVolumeUp" prefHeight="25.0" prefWidth="18.0" text="^" />
-      <JFXButton fx:id="volumeDown" layoutX="44.0" layoutY="12.0" onAction="#turnVolumeDown" prefHeight="25.0" prefWidth="18.0" text="v" />
-      <JFXSlider fx:id="slider" layoutX="35.0" layoutY="410.0" prefHeight="16.0" prefWidth="197.0" />
+      <JFXButton fx:id="playBtn" layoutX="114.0" layoutY="456.0" onAction="#playPause" />
+      <JFXButton fx:id="rewindBtn" layoutX="27.0" layoutY="463.0" onAction="#prevSong" />
+      <JFXButton fx:id="ffBtn" layoutX="202.0" layoutY="463.0" onAction="#nextSong" />
+      <JFXButton fx:id="shuffleBtn" layoutX="69.0" layoutY="500.0" onAction="#shuffle" />
+      <JFXButton fx:id="repeatBtn" layoutX="161.0" layoutY="500.0" onAction="#repeat" />
+      <JFXButton fx:id="volumeUp" layoutX="12.0" layoutY="12.0" onAction="#turnVolumeUp" prefHeight="25.0" prefWidth="18.0" />
+      <JFXButton fx:id="volumeDown" layoutX="44.0" layoutY="12.0" onAction="#turnVolumeDown" prefHeight="25.0" prefWidth="18.0" />
+      <JFXSlider fx:id="slider" layoutX="14.0" layoutY="410.0" prefHeight="16.0" prefWidth="243.0" />
       <Label fx:id="timestamp" layoutX="117.0" layoutY="431.0" text="02:00" />
    </children>
 </AnchorPane>

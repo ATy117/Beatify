@@ -63,6 +63,7 @@ public class viewPlaylist_ArtistAllPlaylists extends View {
 
         /*List of My Playlists*/
         myPlaylistList = new TilePane();
+        myPlaylistList.setMaxWidth(634.0);
         playlistContent.getItems().add(myPlaylistLbl);
         builderPlaylist builder = new builderPlaylist_ArtistPlaylistOwned(controller);
         Director director = Director.getInstance();

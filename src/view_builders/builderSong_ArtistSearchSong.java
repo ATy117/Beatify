@@ -22,6 +22,8 @@ public class builderSong_ArtistSearchSong extends builderSong<AnchorPane> {
     @Override
     public void build() {
         while(listElements.hasNext()) {
+
+
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(150);

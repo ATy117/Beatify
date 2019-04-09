@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
+import object.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,10 +27,10 @@ public class builderArtist_ArtistFollowedArtists extends builderUser<AnchorPane>
     @Override
     public void build() {
         while(listElements.hasNext()) {
-
+            User user = listElements.next();
             AnchorPane albumIndiv = new AnchorPane();
             Circle userPic = new Circle(45);
-            Label text = new Label(listElements.next().getFirst_name() + " "+listElements.next().getLast_name());
+            Label text = new Label(user.getUsername());
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();

@@ -45,6 +45,14 @@ public class MasterFacade {
 		System.out.println("Cache folder is existing / created");
 	}
 
+	public Album getAlbum(int album_id){
+		return AD.getAlbum(album_id);
+	}
+
+	public Playlist getPlaylist(int playlist_id){
+		return PD.getPlaylist(playlist_id);
+	}
+
 
 	// access the DAO to check if existing user, if wala pa, add a new user to DAO then return true, else return false
 	public boolean register(String username, String password, String firstName, String lastName, boolean isArtist, File profilePic) {
@@ -157,7 +165,7 @@ public class MasterFacade {
 		return UD.unfollowerUser(userid,followersid);
 	}
 	// creates a new album, accesses DAO, returns false if duplicate (?) (album name unique for the same artist or no?)
-	public boolean createAlbum (User user, Album album, File albumPic) {
+	public boolean createAlbum (User user, Album album) {
 		if(AD.checkAlbum(user.getUser_id(), album.getName())==-1) { //if checkAlbum returns -1, means there is no existing album like that
 			AD.addAlbum(album);
 			createNotification(album.getArtist_name() + " has created an album: " + album.getName(), user.getUser_id());
@@ -179,8 +187,8 @@ public class MasterFacade {
 	public boolean createPlaylist (User user, Playlist playlist) {
 		PlaylistDAO playlistDAO = new PlaylistDAODB();
 		if(playlistDAO.checkPlaylist(user.getUser_id(), playlist.getName())==-1){//if checkPlaylist returns -1, means there is no existing playlist like that
-			createNotification(user.getFirst_name() + " " + user.getLast_name() + " has created a playlist: " + playlist.getName(), user.getUser_id());
 			playlistDAO.addPlaylist(playlist);
+			createNotification(user.getFirst_name() + " " + user.getLast_name() + " has created a playlist: " + playlist.getName(), user.getUser_id());
 			return true; //return true if added playlist successfully
 		}else {
 			return false;
@@ -231,7 +239,10 @@ public class MasterFacade {
 	public boolean addSong(Song song){
 		if(SD.checkSong(song.getArtist__id(),song.getSong_name()) == -1) {
 			createNotification(song.getArtist_name() + " has added a new song: " + song.getSong_name(), song.getArtist__id());
-			return SD.addSong(song);
+			SD.addSong(song);
+			int song_id = SD.checkSong(song.getArtist__id(), song.getSong_name());
+			addSongToAlbum(song_id,song.getAlbum_id());
+			return true;
 		}
 		else return false;
 	}
