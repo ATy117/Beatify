@@ -50,6 +50,8 @@ public class view_AddSong extends View {
         artistLbl.setText("By "+ model.getProfileModel().getUser().getFirst_name() + " " + model.getProfileModel().getUser().getLast_name());
         songGenreCombo.getItems().addAll("Acoustic", "Ballad", "Classical", "Country", "Folk", "Jazz", "Pop", "Rap", "Reggae", "Religious", "Rock");
         songURLField.setEditable(false);
+
+
     }
 
     @Override
