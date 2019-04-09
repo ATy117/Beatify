@@ -18,7 +18,7 @@
                   <VBox layoutY="-1.0" prefHeight="570.0" prefWidth="178.0">
                      <children>
                         <Label prefHeight="17.0" prefWidth="84.0" />
-                        <ImageView fitHeight="150.0" fitWidth="177.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="78.0" fitWidth="177.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@/resources/nameLogo.png" />
                            </image>
@@ -60,6 +60,11 @@
                            </font>
                         </JFXButton>
                         <JFXButton fx:id="queueBtn" buttonType="RAISED" onAction="#changePane" prefHeight="48.0" prefWidth="178.0" text="Queue" textFill="#fab2a5">
+                           <font>
+                              <Font name="Comfortaa Bold" size="18.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="notificationsBtn" buttonType="RAISED" onAction="#changePane" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #4097aa" text="Notifications" textFill="#f2cbcb">
                            <font>
                               <Font name="Comfortaa Bold" size="18.0" />
                            </font>

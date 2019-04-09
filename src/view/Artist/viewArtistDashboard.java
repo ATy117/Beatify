@@ -41,6 +41,9 @@ public class viewArtistDashboard extends viewDashboard {
 		else if (actionEvent.getSource() == queueBtn) {
 			currentPaneController = new controllerSong_MyQueue(centerCurrentAnchor, controller);
 		}
+		else if (actionEvent.getSource() == notificationsBtn){
+			currentPaneController = new controllerNotifs_ArtistNotifications(centerCurrentAnchor, controller);
+		}
 
 		controller.setCurrentPane(currentPaneController);
 	}
