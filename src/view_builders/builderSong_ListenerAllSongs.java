@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import object.Playlist;
 import object.Song;
 
 import java.util.ArrayList;
@@ -49,7 +50,15 @@ public class builderSong_ListenerAllSongs extends builderSong<AnchorPane> {
             add_to_playlistButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-
+                    content.getChildren().clear();
+                    content.setPrefWidth(200);
+                    ArrayList <Button> buttons = new ArrayList<>();
+                    while (controller.getModel().getLibraryModel().getMyPlaylists().hasNext()){
+                        Playlist playlist = controller.getModel().getLibraryModel().getMyPlaylists().next();
+                        buttons.add(new Button (playlist.getName()));
+                        content.getChildren().add(new Button (playlist.getName()));
+                    }
+                    popup.setPopupContent(content);
                 }
             });
 
