@@ -16,6 +16,8 @@ import java.util.List;
 
 public class builderAlbum_ArtistSearchAlbum extends builderAlbum<AnchorPane> {
 
+    private controllerSearchables_ArtistAllSearchResults controller;
+
     public builderAlbum_ArtistSearchAlbum(controllerSearchables_ArtistAllSearchResults controller) {
         this.controller = controller;
         this.listElements = controller.getModel().getSearchModel().getAlbumResults();

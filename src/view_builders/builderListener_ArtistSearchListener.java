@@ -16,6 +16,8 @@ import java.util.List;
 
 public class builderListener_ArtistSearchListener extends builderUser<AnchorPane> {
 
+    private controllerSearchables_ArtistAllSearchResults controller;
+
     public builderListener_ArtistSearchListener(controllerSearchables_ArtistAllSearchResults controller) {
         this.controller = controller;
         this.listElements = controller.getModel().getSearchModel().getListenerResults();

@@ -13,6 +13,8 @@ import java.util.List;
 
 public class builderSong_ListenerAllSongs extends builderSong<AnchorPane> {
 
+    private controllerSong_ListenerAllSongs controller;
+
     public builderSong_ListenerAllSongs(controllerSong_ListenerAllSongs controller) {
         this.controller = controller;
         this.listElements = controller.getModel().getLibraryModel().getAllSongs();

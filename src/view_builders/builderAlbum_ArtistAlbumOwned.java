@@ -17,6 +17,8 @@ import java.util.List;
 
 public class builderAlbum_ArtistAlbumOwned extends builderAlbum<AnchorPane> {
 
+    private controllerAlbum_ArtistAllAlbums controller;
+
     public builderAlbum_ArtistAlbumOwned (controllerAlbum_ArtistAllAlbums controller){
         this.controller = controller;
         this.listElements = controller.getModel().getLibraryModel().getMyAlbums();
@@ -48,8 +50,7 @@ public class builderAlbum_ArtistAlbumOwned extends builderAlbum<AnchorPane> {
                         if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY)) {
                             popup.show(albumIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
                         } else {
-                            controllerAlbum_ArtistAllAlbums c = (controllerAlbum_ArtistAllAlbums) controller;
-                            c.goToOwnList(album.getAlbum_id());
+                            controller.goToOwnList(album.getAlbum_id());
                         }
                     }
                 }

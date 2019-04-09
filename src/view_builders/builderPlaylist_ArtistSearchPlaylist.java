@@ -16,6 +16,8 @@ import java.util.List;
 
 public class builderPlaylist_ArtistSearchPlaylist extends builderPlaylist<AnchorPane> {
 
+    private controllerSearchables_ArtistAllSearchResults controller;
+
     public builderPlaylist_ArtistSearchPlaylist(controllerSearchables_ArtistAllSearchResults controller) {
         this.controller = controller;
         this.listElements = controller.getModel().getSearchModel().getPlaylistResults();

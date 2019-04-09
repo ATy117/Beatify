@@ -34,7 +34,7 @@ public class viewRegister extends View{
     public JFXRadioButton artistToggle;
     public JFXButton backBtn;
 
-    private File profilePic;
+    private File profilePic = null;
 
     public viewRegister(Stage primaryStage, controllerRegister controller) {
         this.primaryStage = primaryStage;
@@ -51,6 +51,8 @@ public class viewRegister extends View{
     }
 
     private void init() {
+        Image defpic = new Image("resources/useryellowbluedefaultpic.png");
+        imageCircle.setFill(new ImagePattern(defpic));
         listenerToggle.setSelected(true);
     }
 
@@ -84,7 +86,7 @@ public class viewRegister extends View{
         String passCheckCheck = passwordConfirm.replaceAll("\\s+", "");
 
         if (profilePic == null){
-            //default profile picture muna
+            profilePic = new File("src/resources/useryellowbluedefaultpic.png");
         }
 
         if (firstCheck.equals("") || lastCheck.equals("") || userCheck.equals("") || passCheck.equals("") || passCheckCheck.equals("")){

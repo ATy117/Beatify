@@ -17,7 +17,9 @@ import java.util.List;
 
 public class builderAlbum_ArtistAlbumFollowed extends builderAlbum<AnchorPane> {
 
-public builderAlbum_ArtistAlbumFollowed (controllerAlbum_ArtistAllAlbums controller){
+    private controllerAlbum_ArtistAllAlbums controller;
+
+    public builderAlbum_ArtistAlbumFollowed (controllerAlbum_ArtistAllAlbums controller){
         this.controller = controller;
         this.listElements = controller.getModel().getLibraryModel().getFollowedAlbums();
         this.listProducts = new ArrayList<>();
@@ -46,8 +48,7 @@ public builderAlbum_ArtistAlbumFollowed (controllerAlbum_ArtistAllAlbums control
                             if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY)) {
                                 popup.show(albumIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
                             } else {
-                                controllerAlbum_ArtistAllAlbums c = (controllerAlbum_ArtistAllAlbums) controller;
-                                c.goToFollowedList(album.getAlbum_id());
+                                controller.goToFollowedList(album.getAlbum_id());
                             }
                         }
                     }

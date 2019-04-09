@@ -29,6 +29,7 @@ public class MasterFacade {
 		SD = new SongDAODB();
 		UD = new UserDAODB();
 		ND = new NotificationDAODB();
+		cacheManager = new CacheManager();
 	}
 
 	public static MasterFacade getInstance() {
@@ -40,7 +41,6 @@ public class MasterFacade {
 	}
 
 	public void generateCacheFolder () {
-		cacheManager = new CacheManager();
 		cacheManager.generateCacheFolder();
 		System.out.println("Cache folder is existing / created");
 	}

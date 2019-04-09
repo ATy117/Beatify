@@ -8,6 +8,8 @@ import java.util.List;
 
 public class builderPlaylist_ArtistShowArtistsPlaylist extends builderPlaylist<AnchorPane> {
 
+    private controllerUser_ArtistShowArtistsProfile controller;
+
     public builderPlaylist_ArtistShowArtistsPlaylist(controllerUser_ArtistShowArtistsProfile controller) {
         this.controller = controller;
         this.listElements = controller.getModel().getPeopleModel().getPlaylists();

@@ -16,6 +16,8 @@ import java.util.List;
 
 public class builderSong_ArtistAllSongs extends builderSong<AnchorPane> {
 
+    private controllerSong_ArtistAllSongs controller;
+
     public builderSong_ArtistAllSongs(controllerSong_ArtistAllSongs controller) {
         this.controller = controller;
         this.listElements = controller.getModel().getLibraryModel().getAllSongs();

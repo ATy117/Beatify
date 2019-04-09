@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class builderSong_ArtistAlbumsOwnedSongs extends builderSong<AnchorPane> {
+
+    private controllerSong_ArtistAlbumsOwnedSongs controller;
+
     public builderSong_ArtistAlbumsOwnedSongs(controllerSong_ArtistAlbumsOwnedSongs controller){
         this.controller = controller;
         this.listElements = controller.getModel().getLibraryModel().getSongContents();
@@ -76,9 +79,7 @@ public class builderSong_ArtistAlbumsOwnedSongs extends builderSong<AnchorPane> 
             deleteButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    controllerSong_ArtistAlbumsOwnedSongs c = (controllerSong_ArtistAlbumsOwnedSongs) controller;
-                    popup.hide();
-                    c.deleteSong(song);
+                    controller.deleteSong(song);
                 }
             });
 

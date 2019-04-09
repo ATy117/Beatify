@@ -11,7 +11,7 @@ import java.time.LocalDate;
 
 public class controller_AddAlbum extends PaneController {
     public controller_AddAlbum(AnchorPane mainPane, controllerDashboard dashboardController){
-        super(dashboardController);
+        super(mainPane, dashboardController);
         this.model = dashboardController.getModel();
         view = new view_AddAlbum(mainPane, this, dashboardController);
 

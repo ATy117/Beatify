@@ -23,6 +23,8 @@ import java.util.List;
 
 public class builderPlaylist_ArtistPlaylistOwned extends builderPlaylist<AnchorPane> {
 
+    private controllerPlaylist_ArtistsAllPlaylists controller;
+
     public builderPlaylist_ArtistPlaylistOwned(controllerPlaylist_ArtistsAllPlaylists controller) {
         this.controller = controller;
         this.listElements = controller.getModel().getLibraryModel().getMyPlaylists();
