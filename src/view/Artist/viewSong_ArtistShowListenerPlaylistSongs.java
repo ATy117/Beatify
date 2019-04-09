@@ -65,7 +65,7 @@ public class viewSong_ArtistShowListenerPlaylistSongs extends View {
     private void initHeader () {
         //INITIALIZES THE HEADER//
         String PLAYLISTNAME = selectedPlaylist.getName();
-        String USERNAME = "Playlist by "+ selectedPlaylist.getUser_id();
+        String USERNAME = "Playlist by "+ selectedPlaylist.getOwner_name();
         headerLabel = new Label(PLAYLISTNAME);
         subheaderLabel = new Label(USERNAME);
         sortLabel = new Label("Sort by");

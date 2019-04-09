@@ -35,7 +35,7 @@ public class builderPlaylist_ArtistSearchPlaylist extends builderPlaylist<Anchor
             Circle albumCover = new Circle(45);
             Label text = new Label(playlist.getName());
 
-            Image publicImg = new Image("resoruces/publicCover.png");
+            Image publicImg = new Image("resources/publicCover.png");
             albumCover.setFill(new ImagePattern(publicImg));
 
             JFXPopup popup = new JFXPopup();
@@ -60,7 +60,11 @@ public class builderPlaylist_ArtistSearchPlaylist extends builderPlaylist<Anchor
             followButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-
+                    if (controller.followPlaylist(playlist.getPlaylist_id())) {
+                        popup.hide();
+                    } else {
+                        System.out.println("Already Following Playlist");
+                    }
                 }
             });
 

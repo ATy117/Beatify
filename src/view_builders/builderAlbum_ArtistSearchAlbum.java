@@ -60,8 +60,11 @@ public class builderAlbum_ArtistSearchAlbum extends builderAlbum<AnchorPane> {
             followButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    controller.followAlbum(album.getAlbum_id());
-                    popup.hide();
+                    if (controller.followAlbum(album.getAlbum_id())) {
+                        popup.hide();
+                    } else {
+                        System.out.println("Already Following That Album");
+                    }
                 }
             });
 
