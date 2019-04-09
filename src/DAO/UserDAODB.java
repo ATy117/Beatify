@@ -267,15 +267,14 @@ public class UserDAODB implements UserDAO{
 
     @Override
     public List<User> searchArtists(String keyword, int user_id) {
-        String query = "SELECT * FROM user WHERE user.first_name LIKE ? OR user.last_name LIKE ? AND user.user_id != ? " +
-                "AND user.is_artist = 1";
+        String query = "SELECT * FROM user WHERE user.user_id != ? AND user.is_artist = 1 AND  user.first_name LIKE ? OR user.last_name LIKE ?";
         List<User> userList = new ArrayList<>();
 
         try{
             PreparedStatement statement = this.connection.prepareStatement(query);
-            statement.setString(1, "%"+keyword+"%");
+            statement.setInt(1, user_id);
             statement.setString(2, "%"+keyword+"%");
-            statement.setInt(3, user_id);
+            statement.setString(3, "%"+keyword+"%");
             ResultSet rs = statement.executeQuery();
             while (rs.next()){
                 userList.add(toUser(rs));
@@ -293,15 +292,14 @@ public class UserDAODB implements UserDAO{
 
     @Override
     public List<User> searchListeners(String keyword, int user_id) {
-        String query = "SELECT * FROM user WHERE user.first_name LIKE ? OR user.last_name LIKE ? AND user.user_id != ? " +
-                "AND user.is_artist = 0";
+        String query = "SELECT * FROM user WHERE user.user_id != ? AND user.is_artist = 0 AND  user.first_name LIKE ? OR user.last_name LIKE ?";
         List<User> userList = new ArrayList<>();
 
         try{
             PreparedStatement statement = this.connection.prepareStatement(query);
-            statement.setString(1, "%"+keyword+"%");
+            statement.setInt(1, user_id);
             statement.setString(2, "%"+keyword+"%");
-            statement.setInt(3, user_id);
+            statement.setString(3, "%"+keyword+"%");
             ResultSet rs = statement.executeQuery();
             while (rs.next()){
                 userList.add(toUser(rs));
