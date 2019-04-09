@@ -6,10 +6,12 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
@@ -73,6 +75,8 @@ public class builderArtist_ArtistFollowedArtists extends builderUser<AnchorPane>
             text.setAlignment(Pos.CENTER);
             text.setWrapText(true);
             text.setTextAlignment(TextAlignment.CENTER);
+
+            userPic.setFill(new ImagePattern(new Image(user.getAvatarURL().toString())));
 
             listProducts.add(albumIndiv);
 

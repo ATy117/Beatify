@@ -6,10 +6,12 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.TextAlignment;
 import object.Album;
@@ -48,7 +50,7 @@ public class builderAlbum_ArtistShowArtistsAlbum extends builderAlbum<AnchorPane
             text.setWrapText(true);
             text.setTextAlignment(TextAlignment.CENTER);
 
-            //albumCover.setFill(new ImagePattern(new Image(album.getCover_URL().toString())));
+            albumCover.setFill(new ImagePattern(new Image(album.getCover_URL().toString())));
 
             listProducts.add(albumIndiv);
         }

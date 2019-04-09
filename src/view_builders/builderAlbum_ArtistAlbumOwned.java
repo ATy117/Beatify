@@ -89,7 +89,7 @@ public class builderAlbum_ArtistAlbumOwned extends builderAlbum<AnchorPane> {
             text.setWrapText(true);
             text.setTextAlignment(TextAlignment.CENTER);
 
-            //albumCover.setFill(new ImagePattern(new Image(album.getCover_URL().toString())));
+            albumCover.setFill(new ImagePattern(new Image(album.getCover_URL().toString())));
 
             listProducts.add(albumIndiv);
         }
