@@ -3,6 +3,7 @@ package model;
 import object.Album;
 import object.Playlist;
 import object.Song;
+import object.User;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -14,6 +15,15 @@ public class OtherPeopleModel extends Model {
     private List<Song> songs = new ArrayList<>();
     private Album selectedAlbum;
     private Playlist selectedPlaylist;
+    private User selectedUser;
+
+    public User getSelectedUser() {
+        return selectedUser;
+    }
+
+    public void setSelectedUser(User selectedUser) {
+        this.selectedUser = selectedUser;
+    }
 
     public Album getSelectedAlbum() {
         return selectedAlbum;
