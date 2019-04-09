@@ -211,7 +211,7 @@ public class PlaylistDAODB implements PlaylistDAO {
     @Override
     public List<Playlist> getAllPlaylists(String keyword, int user_id) {
         String query = "SELECT playlist.playlist_id, playlist.name, playlist.is_public, playlist.user_id, user.first_name, user.last_name FROM playlist INNER JOIN user \n" +
-                "ON playlist.user_id = user.user_id WHERE playlist.name LIKE ? AND playlist.user_id != ?";
+                "ON playlist.user_id = user.user_id WHERE playlist.name LIKE ? AND playlist.user_id != ? AND playlist.is_public = 1";
         List<Playlist> playlistList = new ArrayList<>();
         try{
             PreparedStatement statement = this.connection.prepareStatement(query);

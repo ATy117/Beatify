@@ -35,9 +35,11 @@ public class NotificationDAODB implements NotificationDAO {
     @Override
     public int getNotifID(String notification, int user_id) {
         String query = "SELECT notification.notif_id FROM notification " +
-                "WHERE notification.notification = '"+notification+"' AND notification.notif_id =" +user_id;
+                "WHERE notification.notification = ? AND notification.user_id = ?";
         try{
             PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setString(1, notification);
+            statement.setInt(2, user_id);
             ResultSet rs = statement.executeQuery();
             if(rs.next()){
                 int notifID = rs.getInt("notification.notif_id");
