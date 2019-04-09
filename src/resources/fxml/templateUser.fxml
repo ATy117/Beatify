@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXListView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
@@ -9,58 +9,48 @@
 
 <AnchorPane prefHeight="570.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <JFXButton fx:id="logoutBtn" layoutX="327.0" layoutY="441.0" text="Logout">
-         <font>
-            <Font name="Comfortaa Regular" size="14.0" />
-         </font>
-      </JFXButton>
-      <Circle fx:id="userPic" fill="#3b648a" layoutX="123.0" layoutY="267.0" radius="89.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <JFXTextField layoutX="232.0" layoutY="188.0">
-         <font>
-            <Font name="Comfortaa Regular" size="16.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField layoutX="429.0" layoutY="188.0">
-         <font>
-            <Font name="Comfortaa Regular" size="16.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField layoutX="232.0" layoutY="243.0">
-         <font>
-            <Font name="Comfortaa Regular" size="16.0" />
-         </font>
-      </JFXTextField>
-      <JFXButton fx:id="logoutBtn1" layoutX="254.0" layoutY="441.0" text="Edit">
-         <font>
-            <Font name="Comfortaa Regular" size="14.0" />
-         </font>
-      </JFXButton>
-      <Circle fill="#6189ae" layoutX="364.0" layoutY="347.0" radius="46.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fill="#5686b2" layoutX="467.0" layoutY="347.0" radius="46.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Label layoutX="342.0" layoutY="324.0" text="200">
-         <font>
-            <Font name="Comfortaa Bold" size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="447.0" layoutY="323.0" text="200">
-         <font>
-            <Font name="Comfortaa Bold" size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="333.0" layoutY="351.0" text="Followers">
-         <font>
-            <Font name="Poppins Regular" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="436.0" layoutY="350.0" text="Following">
-         <font>
-            <Font name="Poppins Regular" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="270.0" layoutY="73.0" text="My Profile">
-         <font>
-            <Font name="Comfortaa Bold" size="22.0" />
-         </font>
-      </Label>
+      <AnchorPane fx:id="userHeader" prefHeight="143.0" prefWidth="635.0">
+         <children>
+            <Circle fx:id="userPic" fill="#4080bc" layoutX="95.0" layoutY="72.0" radius="58.0" stroke="#00000009" strokeType="INSIDE" />
+            <Label fx:id="userFirstLastName" layoutX="175.0" layoutY="36.0" text="Ed Sheeran">
+               <font>
+                  <Font name="Comfortaa Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="userName" layoutX="177.0" layoutY="68.0" text="edsheeran">
+               <font>
+                  <Font name="Poppins Regular" size="16.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="followBtn" buttonType="RAISED" layoutX="528.0" layoutY="103.0" onAction="#followUser" text="Follow">
+               <font>
+                  <Font name="Comfortaa Regular" size="14.0" />
+               </font>
+            </JFXButton>
+            <Circle fill="#a2b6c9" layoutX="390.0" layoutY="67.0" radius="36.0" stroke="#0000000a" strokeType="INSIDE" />
+            <Circle fill="#a2b6c9" layoutX="470.0" layoutY="67.0" radius="36.0" stroke="#0000000a" strokeType="INSIDE" />
+            <Label fx:id="followerNum" layoutX="368.0" layoutY="48.0" text="200">
+               <font>
+                  <Font name="Comfortaa Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="followingNum" layoutX="448.0" layoutY="47.0" text="200">
+               <font>
+                  <Font name="Comfortaa Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="362.0" layoutY="72.0" text="Followers">
+               <font>
+                  <Font name="Poppins Regular" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="442.0" layoutY="72.0" text="Following">
+               <font>
+                  <Font name="Poppins Regular" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <JFXListView fx:id="profileListView" layoutY="145.0" prefHeight="425.0" prefWidth="635.0" />
    </children>
 </AnchorPane>
