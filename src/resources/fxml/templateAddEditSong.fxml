@@ -60,7 +60,7 @@
             <Font name="Comfortaa Regular" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXButton fx:id="uploadSongBtn" buttonType="RAISED" layoutX="137.0" layoutY="410.0" onAction="#addSongURL" text="+ Upload Song" textFill="#fab2ab">
+      <JFXButton fx:id="uploadSongBtn" buttonType="RAISED" layoutX="137.0" layoutY="410.0" onAction="#addSongURL" text="+ Upload Song" textFill="#fab2ab" style="-fx-background-color: #1c6575">
          <font>
             <Font name="Comfortaa Regular" size="14.0" />
          </font>

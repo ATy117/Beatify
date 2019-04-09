@@ -3,12 +3,15 @@ package view_builders;
 import com.jfoenix.controls.JFXPopup;
 import controller.Artist.controllerSearchables_ArtistAllSearchResults;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import object.Album;
 
 import java.util.ArrayList;
@@ -30,7 +33,7 @@ public class builderAlbum_ArtistSearchAlbum extends builderAlbum<AnchorPane> {
             Album album = listElements.next();
             AnchorPane albumIndiv = new AnchorPane();
             Circle albumCover = new Circle(45);
-            Text text = new Text(album.getName());
+            Label text = new Label(album.getName());
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
@@ -49,11 +52,17 @@ public class builderAlbum_ArtistSearchAlbum extends builderAlbum<AnchorPane> {
 
             albumIndiv.setLeftAnchor(albumCover, 20.0);
             albumIndiv.setTopAnchor(albumCover, 13.0);
-            albumIndiv.setTopAnchor(text, 102.0);
-            albumIndiv.setLeftAnchor(text, 24.0);
+            albumIndiv.setTopAnchor(text, 106.0);
+            albumIndiv.setLeftAnchor(text, 47.0);
 
             albumIndiv.getChildren().add(albumCover);
             albumIndiv.getChildren().add(text);
+
+            text.setMaxWidth(130.0);
+            text.setAlignment(Pos.CENTER);
+            text.setWrapText(true);
+            text.setTextAlignment(TextAlignment.CENTER);
+
             listProducts.add(albumIndiv);
         }
     }
