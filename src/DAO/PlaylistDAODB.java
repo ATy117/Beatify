@@ -105,7 +105,8 @@ public class PlaylistDAODB implements PlaylistDAO {
     @Override
     public Playlist getPlaylist(int playlist_id) {
         Playlist playlist = new Playlist();
-        String query = "SELECT * FROM playlist WHERE playlist.playlist_id = " +playlist_id;
+        String query = "SELECT playlist.playlist_id, playlist.name, playlist.is_public, playlist.user_id, user.first_name, user.last_name FROM playlist INNER JOIN user \n" +
+                "ON playlist.user_id = user.user_id WHERE playlist.playlist_id = " +playlist_id;
 
         try {
             PreparedStatement statement = connection.prepareStatement(query);
@@ -129,7 +130,8 @@ public class PlaylistDAODB implements PlaylistDAO {
     public List<Playlist> getMyPlaylists(int user_id) {
         List<Playlist> playlists = new ArrayList<>();
         Playlist playlist = new Playlist();
-        String query = "SELECT * FROM playlist WHERE playlist.user_id = " +user_id;
+        String query = "SELECT playlist.playlist_id, playlist.name, playlist.is_public, playlist.user_id, user.first_name, user.last_name FROM playlist INNER JOIN user \n" +
+                "ON playlist.user_id = user.user_id WHERE playlist.user_id = " +user_id;
 
         try {
             PreparedStatement statement = connection.prepareStatement(query);
@@ -208,7 +210,8 @@ public class PlaylistDAODB implements PlaylistDAO {
 
     @Override
     public List<Playlist> getAllPlaylists(String keyword, int user_id) {
-        String query = "SELECT * FROM playlist WHERE playlist.name LIKE ? AND playlist.user_id != ?";
+        String query = "SELECT playlist.playlist_id, playlist.name, playlist.is_public, playlist.user_id, user.first_name, user.last_name FROM playlist INNER JOIN user \n" +
+                "ON playlist.user_id = user.user_id WHERE playlist.name LIKE ? AND playlist.user_id != ?";
         List<Playlist> playlistList = new ArrayList<>();
         try{
             PreparedStatement statement = this.connection.prepareStatement(query);
@@ -236,7 +239,7 @@ public class PlaylistDAODB implements PlaylistDAO {
         playlist.setName(rs.getString("playlist.name"));
         playlist.setIs_public(rs.getInt("playlist.is_public")!=0);
         playlist.setUser_id(rs.getInt("playlist.user_id"));
-
+        playlist.setOwner_name(rs.getString("user.first_name" + " " + "user.last_name"));
         return playlist;
     }
 }
