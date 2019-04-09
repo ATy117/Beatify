@@ -1,9 +1,12 @@
 package view_builders;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPopup;
 import controller.Artist.controllerSong_ArtistAlbumsFollowedSongs;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -34,6 +37,13 @@ public class builderSong_ArtistAlbumsFollowedSongs extends builderSong<AnchorPan
             Text albumText = new Text(song.getAlbum_name());
             Text yearText = new Text(song.getDate_uploaded().getYear()+ "");
             Text genreText = new Text(song.getGenre());
+            JFXButton play = new JFXButton();
+            Image playImg = new Image("resources/play2.png");
+            ImageView playView = new ImageView(playImg);
+            play.setGraphic(playView);
+
+            playView.setFitHeight(30.0);
+            playView.setFitWidth(30.0);
 
             songsIndiv.setTopAnchor(titleText, 0.0);
             //  songsIndiv.setTopAnchor(artistText, 18.0);
@@ -41,6 +51,7 @@ public class builderSong_ArtistAlbumsFollowedSongs extends builderSong<AnchorPan
             songsIndiv.setTopAnchor(yearText, 0.0);
             songsIndiv.setTopAnchor(genreText, 18.0);
 
+            songsIndiv.setLeftAnchor(play, 10.0);
             songsIndiv.setLeftAnchor(titleText, 50.0);
             //   songsIndiv.setLeftAnchor(artistText, 50.0);
             songsIndiv.setLeftAnchor(albumText, 300.0);
@@ -52,6 +63,7 @@ public class builderSong_ArtistAlbumsFollowedSongs extends builderSong<AnchorPan
             songsIndiv.getChildren().add(albumText);
             songsIndiv.getChildren().add(yearText);
             songsIndiv.getChildren().add(genreText);
+            songsIndiv.getChildren().add(play);
 
 
             JFXPopup popup = new JFXPopup();
