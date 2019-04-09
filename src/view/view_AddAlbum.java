@@ -39,6 +39,13 @@ public class view_AddAlbum extends View {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        init();
+    }
+
+    private void init() {
+        Image albumcover = new Image("/resources/albumCover.png");
+        albumCoverCircle.setFill(new ImagePattern(albumcover));
     }
 
     @Override
