@@ -60,7 +60,8 @@ public class builderAlbum_ArtistAlbumFollowed extends builderAlbum<AnchorPane> {
                 unfollowButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
-
+                        controller.unfollowAlbum(album.getAlbum_id());
+                        popup.hide();
                     }
                 });
 
