@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class builderSong_ArtistAlbumsFollowedSongs extends builderSong<AnchorPane> {
+
+    private controllerSong_ArtistAlbumsFollowedSongs controller;
+
     public builderSong_ArtistAlbumsFollowedSongs(controllerSong_ArtistAlbumsFollowedSongs controller) {
         this.controller = controller;
         this.listElements = controller.getModel().getLibraryModel().getSongContents();

@@ -8,6 +8,8 @@ import java.util.List;
 
 public class builderSong_MyQueue extends builderSong<AnchorPane> {
 
+    private controllerSong_MyQueue controller;
+
     public builderSong_MyQueue(controllerSong_MyQueue controller) {
         this.controller = controller;
         this.listElements = controller.getModel().getPlayerModel().getCurrentList().iterator();

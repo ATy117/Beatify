@@ -17,7 +17,9 @@ import java.util.List;
 
 public class builderAlbum_ArtistAlbumFollowed extends builderAlbum<AnchorPane> {
 
-public builderAlbum_ArtistAlbumFollowed (controllerAlbum_ArtistAllAlbums controller){
+    private controllerAlbum_ArtistAllAlbums controller;
+
+    public builderAlbum_ArtistAlbumFollowed (controllerAlbum_ArtistAllAlbums controller){
         this.controller = controller;
         this.listElements = controller.getModel().getLibraryModel().getFollowedAlbums();
         this.listProducts = new ArrayList<>();

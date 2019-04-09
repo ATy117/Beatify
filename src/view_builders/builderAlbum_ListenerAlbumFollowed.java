@@ -13,6 +13,8 @@ import java.util.List;
 
 public class builderAlbum_ListenerAlbumFollowed extends builderAlbum<AnchorPane> {
 
+    private controllerAlbum_ListenerFollowedAlbums controller;
+
     public builderAlbum_ListenerAlbumFollowed(controllerAlbum_ListenerFollowedAlbums controller) {
         this.controller = controller;
         this.listElements = controller.getModel().getLibraryModel().getFollowedAlbums();

@@ -13,6 +13,8 @@ import java.util.List;
 
 public class builderSong_ArtistSearchSong extends builderSong<AnchorPane> {
 
+    private controllerSearchables_ArtistAllSearchResults controller;
+
     public builderSong_ArtistSearchSong(controllerSearchables_ArtistAllSearchResults controller) {
         this.controller = controller;
         this.listElements = controller.getModel().getSearchModel().getSongResults();

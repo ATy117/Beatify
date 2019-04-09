@@ -13,6 +13,8 @@ import java.util.List;
 
 public class builderArtist_ListenerFollowedArtists extends builderUser<AnchorPane> {
 
+    private controllerArtists_ListenerFollowedArtists controller;
+
     public builderArtist_ListenerFollowedArtists(controllerArtists_ListenerFollowedArtists controller) {
         this.controller = controller;
         this.listElements = controller.getModel().getProfileModel().getFollowedArtists();
