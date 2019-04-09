@@ -55,5 +55,15 @@
          </font>
       </Label>
       <JFXComboBox fx:id="songGenreCombo" focusColor="#fa9583" layoutX="286.0" layoutY="288.0" prefHeight="42.0" prefWidth="293.0" promptText="Song Genre" unFocusColor="#1c6575" />
+      <JFXTextField fx:id="songURLField" focusColor="#fa9583" layoutX="289.0" layoutY="403.0" prefHeight="29.0" prefWidth="293.0" promptText="Song URL" unFocusColor="#1c6575">
+         <font>
+            <Font name="Comfortaa Regular" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="uploadSongBtn" buttonType="RAISED" layoutX="137.0" layoutY="410.0" onAction="#addSongURL" text="+ Upload Song" textFill="#fab2ab">
+         <font>
+            <Font name="Comfortaa Regular" size="14.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

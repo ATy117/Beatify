@@ -27,6 +27,8 @@ public class view_AddSong extends View {
     @FXML JFXComboBox songGenreCombo;
     @FXML JFXTextField songTitleTextField;
     @FXML Label artistLbl;
+    @FXML JFXButton uploadSongBtn;
+    @FXML JFXTextField songURLField;
 
     public view_AddSong(AnchorPane mainPane, controller_AddSong controller, controllerDashboard dashboardController){
         this.controller = controller;
@@ -46,11 +48,16 @@ public class view_AddSong extends View {
     public void init(){
         artistLbl.setText("By "+ model.getProfileModel().getUser().getFirst_name() + " " + model.getProfileModel().getUser().getLast_name());
         songGenreCombo.getItems().addAll("Acoustic", "Ballad", "Classical", "Country", "Folk", "Jazz", "Pop", "Rap", "Reggae", "Religious", "Rock");
+        songURLField.setEditable(false);
     }
 
     @Override
     public void Update(){
 
+    }
+
+    public void addSongURL(){
+        System.out.println("Add Song Link!");
     }
 
     public void doneButton() {
