@@ -76,7 +76,7 @@ public class builderArtist_ArtistFollowedArtists extends builderUser<AnchorPane>
             text.setWrapText(true);
             text.setTextAlignment(TextAlignment.CENTER);
 
-            userPic.setFill(new ImagePattern(new Image(user.getAvatarURL().toString())));
+            userPic.setFill(new ImagePattern(new Image(user.getAvatarURL().toURI().toString())));
 
             listProducts.add(albumIndiv);
 
