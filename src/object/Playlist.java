@@ -5,6 +5,15 @@ public class Playlist implements Searchable{
     private String name;
     private boolean is_public;
     private int user_id;
+    private String owner_name;
+
+    public void setOwner_name(String owner_name) {
+        this.owner_name = owner_name;
+    }
+
+    public String getOwner_name() {
+        return owner_name;
+    }
 
     public int getPlaylist_id() {
         return playlist_id;
