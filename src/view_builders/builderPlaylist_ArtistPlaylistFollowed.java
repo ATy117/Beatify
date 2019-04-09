@@ -42,7 +42,7 @@ public class builderPlaylist_ArtistPlaylistFollowed  extends builderPlaylist<Anc
             content.getChildren().addAll(unfollowButton);
             popup.setPopupContent(content);
 
-            albumCover.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            albumIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
                     if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {

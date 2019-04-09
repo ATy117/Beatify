@@ -44,6 +44,17 @@ public class builderAlbum_ArtistSearchAlbum extends builderAlbum<AnchorPane> {
             content.getChildren().addAll(followButton);
             popup.setPopupContent(content);
 
+            albumIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
+                        if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY)) {
+                            popup.show(albumIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                        }
+                    }
+                }
+            });
+
             followButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
