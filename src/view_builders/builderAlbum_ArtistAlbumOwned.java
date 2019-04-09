@@ -41,12 +41,16 @@ public class builderAlbum_ArtistAlbumOwned extends builderAlbum<AnchorPane> {
             content.getChildren().addAll(deleteButton, editButton);
             popup.setPopupContent(content);
 
-            albumCover.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            albumIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
                     if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
-                        if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY))
+                        if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY)) {
                             popup.show(albumIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                        } else {
+                            controllerAlbum_ArtistAllAlbums c = (controllerAlbum_ArtistAllAlbums) controller;
+                            c.goToOwnList(album.getAlbum_id());
+                        }
                     }
                 }
             });
@@ -73,13 +77,6 @@ public class builderAlbum_ArtistAlbumOwned extends builderAlbum<AnchorPane> {
             albumIndiv.getChildren().add(albumCover);
             albumIndiv.getChildren().add(text);
 
-            albumIndiv.setOnMousePressed(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    controllerAlbum_ArtistAllAlbums c = (controllerAlbum_ArtistAllAlbums) controller;
-                    c.goToOwnList(album.getAlbum_id());
-                }
-            });
             listProducts.add(albumIndiv);
         }
     }

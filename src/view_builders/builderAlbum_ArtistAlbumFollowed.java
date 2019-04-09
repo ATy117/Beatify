@@ -39,12 +39,16 @@ public builderAlbum_ArtistAlbumFollowed (controllerAlbum_ArtistAllAlbums control
                 content.getChildren().addAll(unfollowButton);
                 popup.setPopupContent(content);
 
-                albumCover.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                albumIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
                         if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
-                            if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY))
+                            if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY)) {
                                 popup.show(albumIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                            } else {
+                                controllerAlbum_ArtistAllAlbums c = (controllerAlbum_ArtistAllAlbums) controller;
+                                c.goToFollowedList(album.getAlbum_id());
+                            }
                         }
                     }
                 });
@@ -63,13 +67,7 @@ public builderAlbum_ArtistAlbumFollowed (controllerAlbum_ArtistAllAlbums control
 
                 albumIndiv.getChildren().add(albumCover);
                 albumIndiv.getChildren().add(text);
-                albumIndiv.setOnMousePressed(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        controllerAlbum_ArtistAllAlbums c = (controllerAlbum_ArtistAllAlbums) controller;
-                        c.goToFollowedList(album.getAlbum_id());
-                    }
-                });
+
                 listProducts.add(albumIndiv);
             }
 
