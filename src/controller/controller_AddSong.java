@@ -1,12 +1,9 @@
 package controller;
 
-import controller.Artist.controllerAlbum_ArtistAllAlbums;
 import controller.Artist.controllerSong_ArtistAlbumsOwnedSongs;
 import javafx.scene.layout.AnchorPane;
-import object.Album;
 import object.Song;
 import object.User;
-import view.view_AddAlbum;
 import view.view_AddSong;
 
 import java.io.File;
@@ -31,7 +28,7 @@ public class controller_AddSong extends PaneController {
         song.setDate_uploaded(LocalDate.now());
         song.setSong_URL(songFile);
         song.setArtist_name(user.getFirst_name()+" "+user.getLast_name());
-        if (facade.addSong(song)){
+        if (facade.uploadSong(song)){
             model.getLibraryModel().setSelectedAlbum(facade.getAlbum(album_id));
             model.getLibraryModel().setSongContents(facade.getAlbumSongs(album_id));
             controllerSong_ArtistAlbumsOwnedSongs c = new controllerSong_ArtistAlbumsOwnedSongs(dashboardController.getPaneFoundation(), dashboardController);
