@@ -210,6 +210,9 @@ public class MasterFacade {
 	}
 
 	public boolean updatePlaylist(Playlist playlist){
+		if(!playlist.isIs_public()){ //if playlist is not public
+			PD.removeAllPlaylistMapping(playlist.getPlaylist_id());
+		}
 		return PD.updatePlaylist(playlist);
 	}
 
