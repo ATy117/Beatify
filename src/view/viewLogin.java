@@ -33,9 +33,6 @@ public class viewLogin extends View {
     public JFXButton registerBtn;
     @FXML AnchorPane loginPane;
 
-    private JFXPopup errorPopUp;
-    private AnchorPane errorPane;
-
     public viewLogin (Stage primaryStage, controllerLogin login) {
         this.primaryStage = primaryStage;
         this.controller = login;
@@ -83,7 +80,7 @@ public class viewLogin extends View {
             String passCheck = password.replaceAll("\\s+", "");
 
             if (userCheck.equals("") || passCheck.equals("")){
-                errorPop("Some Fields Are Missing");
+                viewError e = new viewError("Some Fields Are Missing", loginPane);
                 System.out.println("Some Fields Are Missing");
             } else {
                 User user = controller.userLogin(username, password);
@@ -112,33 +109,5 @@ public class viewLogin extends View {
         }
     }
 
-    public void errorPop(String specifics){
-        errorPopUp = new JFXPopup();
-        errorPane = new AnchorPane();
-        Label errorMessage = new Label("Error!");
-        Label errorSpecifics = new Label(specifics);
 
-        errorSpecifics.setMaxWidth(180.0);
-        errorSpecifics.setWrapText(true);
-        errorSpecifics.setAlignment(Pos.CENTER);
-        errorSpecifics.setTextAlignment(TextAlignment.CENTER);
-
-        errorMessage.setMaxWidth(180.0);
-        errorMessage.setWrapText(true);
-        errorMessage.setAlignment(Pos.CENTER);
-        errorSpecifics.setTextAlignment(TextAlignment.CENTER);
-
-        errorPane.setMinSize(300,300);
-        errorPane.setMaxSize(300, 300);
-
-        errorPane.setTopAnchor(errorSpecifics, 150.0);
-        errorPane.setLeftAnchor(errorSpecifics, 20.0);
-        errorPane.setLeftAnchor(errorMessage, 50.0);
-        errorPane.setTopAnchor(errorMessage, 70.0);
-
-        errorPane.getChildren().add(errorSpecifics);
-        errorPane.getChildren().add(errorMessage);
-        errorPopUp.setPopupContent(errorPane);
-        errorPopUp.show(loginPane, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.LEFT, 95.0, 70.0);
-    }
 }
