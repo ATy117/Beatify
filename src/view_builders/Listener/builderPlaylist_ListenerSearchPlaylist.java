@@ -25,7 +25,20 @@ public class builderPlaylist_ListenerSearchPlaylist extends builderPlaylist<Anch
     @Override
     public void build() {
         while(listElements.hasNext()) {
+            JFXPopup popup = new JFXPopup();
+            VBox content = new VBox();
+            content.setPrefWidth(65);
+            Button followButton = new Button("Follow");
+            followButton.setMinWidth(content.getPrefWidth());
+            content.getChildren().addAll(followButton);
+            popup.setPopupContent(content);
 
+            followButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+
+                }
+            });
         }
     }
 

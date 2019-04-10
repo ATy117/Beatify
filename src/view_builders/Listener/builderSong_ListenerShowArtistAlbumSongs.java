@@ -25,7 +25,38 @@ public class builderSong_ListenerShowArtistAlbumSongs extends builderSong<Anchor
     @Override
     public void build() {
         while(listElements.hasNext()) {
+            JFXPopup popup = new JFXPopup();
+            VBox content = new VBox();
+            content.setPrefWidth(150);
+            Button add_to_queueButton = new Button("Add to queue");
+            Button add_to_playlistButton = new Button ("Add to playlist");
+            Button likeButton = new Button ("Like");
+            add_to_queueButton.setMinWidth(content.getPrefWidth());
+            add_to_playlistButton.setMinWidth(content.getPrefWidth());
+            likeButton.setMinWidth(content.getPrefHeight());
+            content.getChildren().addAll(add_to_queueButton, add_to_playlistButton);
+            popup.setPopupContent(content);
 
+            add_to_queueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+
+                }
+            });
+
+            add_to_playlistButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+
+                }
+            });
+
+            likeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+
+                }
+            });
         }
     }
 
