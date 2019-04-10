@@ -27,20 +27,23 @@ public class viewSong_MyQueue extends View{
         this.model = dashboardController.getModel();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/fxml/templateSong.fxml"));
         loader.setController(this);
-
+        songListView = new JFXListView();
         try {
             mainPane.getChildren().setAll((AnchorPane) loader.load());
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        this.model.getPlayerModel().Attach(this);
         initHeader();
         Update();
     }
 
     @Override
     public void Update(){
+
+
         songListView.getItems().clear();
+
 
         builderSong builder = new builderSong_MyQueue(controller);
         Director director = Director.getInstance();

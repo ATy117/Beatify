@@ -90,7 +90,13 @@ public class builderAlbum_ArtistAlbumOwned extends builderAlbum<AnchorPane> {
             text.setWrapText(true);
             text.setTextAlignment(TextAlignment.CENTER);
 
-            albumCover.setFill(new ImagePattern(new Image(album.getCover_URL().toURI().toString())));
+            String picurl = "/resources/albumCover.png";
+
+            if (album.getCover_URL() != null) {
+                picurl = album.getCover_URL().toURI().toString();
+            }
+
+            albumCover.setFill(new ImagePattern(new Image(picurl)));
 
             listProducts.add(albumIndiv);
         }
