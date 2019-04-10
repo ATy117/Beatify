@@ -85,6 +85,7 @@ public class builderSong_ArtistShowListenerPlaylistSongs extends builderSong<Anc
             play.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    popup.hide();
                     controller.playSong(song);
                 }
             });
@@ -92,6 +93,7 @@ public class builderSong_ArtistShowListenerPlaylistSongs extends builderSong<Anc
             add_to_queueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    popup.hide();
                     controller.addSongToQueue(song);
                 }
             });
