@@ -76,12 +76,10 @@ public class builderSong_ArtistSearchSong extends builderSong<AnchorPane> {
             VBox content = new VBox();
             content.setPrefWidth(150);
             Button add_to_queueButton = new Button("Add to queue");
-            Button add_to_playlistButton = new Button ("Add to playlist");
-            Button likeButton = new Button ("Like");
+            Button add_to_playlistButton = new Button ("Add to playlist");;
             add_to_queueButton.setMinWidth(content.getPrefWidth());
             add_to_playlistButton.setMinWidth(content.getPrefWidth());
-            likeButton.setMinWidth(content.getPrefWidth());
-            content.getChildren().addAll(add_to_queueButton, add_to_playlistButton, likeButton);
+            content.getChildren().addAll(add_to_queueButton, add_to_playlistButton);
             popup.setPopupContent(content);
 
 
@@ -129,13 +127,6 @@ public class builderSong_ArtistSearchSong extends builderSong<AnchorPane> {
 
                     content.getChildren().addAll(buttons);
                     popup.setPopupContent(content);
-                }
-            });
-
-            likeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-
                 }
             });
 
