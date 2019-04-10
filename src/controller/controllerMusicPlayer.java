@@ -19,7 +19,7 @@ public class controllerMusicPlayer extends Controller {
 		this.model = controller.getModel();
 		facade = MasterFacade.getInstance();
 		musicPlayerView = new viewMusicPlayer(playerPane,this, controller);
-		model.AttachToAll(musicPlayerView);
+		model.getPlayerModel().Attach(musicPlayerView);
 	}
 
 	public Image getImageFromAlbum(int album_id) {

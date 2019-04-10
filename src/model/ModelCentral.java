@@ -82,7 +82,6 @@ public class ModelCentral {
     public void AttachToAll(View currentPane) {
         libraryModel.Attach(currentPane);
         profileModel.Attach(currentPane);
-        playerModel.Attach(currentPane);
         peopleModel.Attach(currentPane);
         searchModel.Attach(currentPane);
         notificationModel.Attach(currentPane);
@@ -91,7 +90,6 @@ public class ModelCentral {
     public void DetachToAll(View currentPane) {
         libraryModel.Detach(currentPane);
         profileModel.Detach(currentPane);
-        playerModel.Detach(currentPane);
         peopleModel.Detach(currentPane);
         searchModel.Detach(currentPane);
         notificationModel.Detach(currentPane);

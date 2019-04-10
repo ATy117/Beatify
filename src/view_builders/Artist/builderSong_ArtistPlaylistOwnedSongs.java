@@ -75,13 +75,22 @@ public class builderSong_ArtistPlaylistOwnedSongs extends builderSong<AnchorPane
             Button add_to_queueButton = new Button("Add to queue");
             Button deleteButton = new Button("Delete from Playlist");
             deleteButton.setMinWidth(content.getPrefWidth());
+            add_to_queueButton.setMinWidth(content.getPrefWidth());
             content.getChildren().addAll(deleteButton, add_to_queueButton);
             popup.setPopupContent(content);
+
+            play.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    controller.playSong(song);
+                }
+            });
 
             deleteButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-
+                    controller.deleteSongFromPlaylist(song.getSong_id());
+                    popup.hide();
                 }
             });
 
@@ -102,6 +111,8 @@ public class builderSong_ArtistPlaylistOwnedSongs extends builderSong<AnchorPane
                     }
                 }
             });
+
+            listProducts.add(songsIndiv);
 
         }
     }

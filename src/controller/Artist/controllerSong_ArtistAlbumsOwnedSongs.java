@@ -29,4 +29,16 @@ public class controllerSong_ArtistAlbumsOwnedSongs extends PaneController  {
 		PaneController upload = new controller_AddSong(dashboardController.getPaneFoundation(), dashboardController);
 		dashboardController.setCurrentPane(upload);
 	}
+
+	public void playSong(Song song) {
+		this.model.getPlayerModel().playSingleSong(song);
+	}
+
+	public void addSongToQueue(Song song) {
+		this.model.getPlayerModel().addSongToQueue(song);
+	}
+
+	public boolean addSongToPlaylist(int song_id, int playlist_id) {
+		return facade.addSongToPlaylist(song_id, playlist_id);
+	}
 }
