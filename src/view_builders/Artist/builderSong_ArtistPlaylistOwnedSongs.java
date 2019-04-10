@@ -82,6 +82,7 @@ public class builderSong_ArtistPlaylistOwnedSongs extends builderSong<AnchorPane
             play.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    popup.hide();
                     controller.playSong(song);
                 }
             });
@@ -89,14 +90,15 @@ public class builderSong_ArtistPlaylistOwnedSongs extends builderSong<AnchorPane
             deleteButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    controller.deleteSongFromPlaylist(song.getSong_id());
                     popup.hide();
+                    controller.deleteSongFromPlaylist(song.getSong_id());
                 }
             });
 
             add_to_queueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    popup.hide();
                     controller.addSongToQueue(song);
                 }
             });
