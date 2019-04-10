@@ -30,6 +30,7 @@ public class view_AddSong extends View {
     @FXML Label artistLbl;
     @FXML JFXButton uploadSongBtn;
     @FXML JFXTextField songURLField;
+    @FXML Circle songCoverCircle;
 
     public view_AddSong(AnchorPane mainPane, controller_AddSong controller, controllerDashboard dashboardController){
         this.controller = controller;
@@ -51,6 +52,7 @@ public class view_AddSong extends View {
         songGenreCombo.getItems().addAll("Acoustic", "Ballad", "Classical", "Country", "Folk", "Jazz", "Pop", "Rap", "Reggae", "Religious", "Rock");
         songURLField.setEditable(false);
 
+        songCoverCircle.setFill(new ImagePattern(new Image("/resources/albumCover.png")));
 
     }
 
