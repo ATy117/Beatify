@@ -60,7 +60,7 @@ public class viewUser_ArtistShowArtistProfile extends View {
                                     controller.getModel().getPeopleModel().getSelectedUser().getLast_name());
         userName.setText(controller.getModel().getPeopleModel().getSelectedUser().getUsername());
         if(controller.getModel().getProfileModel().getUser().getAvatarURL()!= null)
-            userPic.setFill(new ImagePattern(new Image(controller.getModel().getProfileModel().getUser().getAvatarURL().toURI().toString())));
+            userPic.setFill(new ImagePattern(new Image(controller.getModel().getPeopleModel().getSelectedUser().getAvatarURL().toURI().toString())));
         else
             userPic.setFill(new ImagePattern(new Image("resources/")));
     }

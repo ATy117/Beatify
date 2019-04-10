@@ -27,6 +27,7 @@ public class view_EditPlaylist extends View {
     @FXML JFXButton doneBtn;
     @FXML JFXTextField playlistNameTextField;
     @FXML Label artistLbl;
+    @FXML Label addEditLbl;
     @FXML JFXRadioButton privateRadio;
     @FXML JFXRadioButton publicRadio;
 
@@ -51,7 +52,7 @@ public class view_EditPlaylist extends View {
     }
 
     public void init(){
-
+        addEditLbl.setText(controller.getModel().getLibraryModel().getSelectedPlaylist().getOwner_name());
     }
 
 
