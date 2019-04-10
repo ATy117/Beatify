@@ -232,6 +232,31 @@ public class PlaylistDAODB implements PlaylistDAO {
         return playlistList;
     }
 
+    @Override
+    public List<Playlist> getPublicPlaylists(int user_id) {
+        List<Playlist> playlists = new ArrayList<>();
+        Playlist playlist = new Playlist();
+        String query = "SELECT playlist.playlist_id, playlist.name, playlist.is_public, playlist.user_id, user.first_name, user.last_name FROM playlist INNER JOIN user \n" +
+                "ON playlist.user_id = user.user_id WHERE playlist.is_public = 1 AND playlist.user_id = " +user_id;
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet rs = statement.executeQuery();
+
+            while(rs.next()) {
+                playlists.add(toPlaylist(rs));
+            }
+            rs.close();
+            statement.close();
+            return playlists;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        return playlists;
+    }
+
     private Playlist toPlaylist(ResultSet rs) throws SQLException, IOException {
         Playlist playlist = new Playlist();
 

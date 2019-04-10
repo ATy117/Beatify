@@ -3,6 +3,7 @@ package controller.Artist;
 import controller.PaneController;
 import controller.controllerDashboard;
 import controller.controller_AddSong;
+import controller.controller_EditSong;
 import javafx.scene.layout.AnchorPane;
 import object.Song;
 import view.Artist.viewSearchables_ArtistAllSearchResults;
@@ -44,5 +45,8 @@ public class controllerSong_ArtistAlbumsOwnedSongs extends PaneController  {
 
 	public void editSong(Song song) {
 		this.model.getLibraryModel().setSelectedSong(song);
+		controller_EditSong edit = new controller_EditSong(mainPane, dashboardController);
+		dashboardController.setCurrentPane(edit);
+
 	}
 }

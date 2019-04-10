@@ -70,7 +70,7 @@ public class viewSong_ArtistShowArtistAlbumSongs extends View {
         Circle albumArt = new Circle();
         albumArt.setRadius(30);
 
-        String url = "resources/albumCover.png";
+        String url = "/resources/albumCover.png";
 
         if (selectedAlbum.getCover_URL() != null) {
             url = selectedAlbum.getCover_URL().toURI().toString();

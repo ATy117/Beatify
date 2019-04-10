@@ -18,7 +18,7 @@ public class builderPlaylist_ListenerPlaylistOwned extends builderPlaylist<Ancho
 
     public builderPlaylist_ListenerPlaylistOwned(controllerPlaylist_ListenerAllPlaylists controller) {
         this.controller = controller;
-        this.listElements = controller.getModel().getLibraryModel().getFollowedPlaylists();
+        this.listElements = controller.getModel().getLibraryModel().getMyPlaylists();
         this.listProducts = new ArrayList<>();
     }
 

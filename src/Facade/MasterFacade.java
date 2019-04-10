@@ -84,13 +84,6 @@ public class MasterFacade {
 		return UD.getUser(username, password);
 	}
 
-	// keyword is entered, search all DAOS for results, then return the list of Searchables
-	public List<Searchable> searchByKeyword (String keyword) {
-
-		return null;
-	}
-
-
 	public List<User> searchListeners(String keyword, int user_id){
 		List<User> userList = new ArrayList<>();
 		//check if list retrived from dao is empty
@@ -204,7 +197,8 @@ public class MasterFacade {
 		PlaylistDAO playlistDAO = new PlaylistDAODB();
 		if(playlistDAO.checkPlaylist(user.getUser_id(), playlist.getName())==-1){//if checkPlaylist returns -1, means there is no existing playlist like that
 			playlistDAO.addPlaylist(playlist);
-			createNotification(user.getFirst_name() + " " + user.getLast_name() + " has created a playlist: " + playlist.getName(), user.getUser_id());
+			if(playlist.isIs_public())
+				createNotification(user.getFirst_name() + " " + user.getLast_name() + " has created a playlist: " + playlist.getName(), user.getUser_id());
 			return true; //return true if added playlist successfully
 		}else {
 			return false;
@@ -233,6 +227,10 @@ public class MasterFacade {
 
 	public List<Playlist> getFollowedPlaylists(int user_id){
 		return PD.getFollowedPlaylists(user_id);
+	}
+
+	public List<Playlist> getPublicPlaylists(int user_id){
+		return PD.getPublicPlaylists(user_id);
 	}
 
 	public List<Song> getMySongs(int user_id){
@@ -318,15 +316,16 @@ public class MasterFacade {
 	}
 
 	public Image getImageOfAlbum(int album_id) {
-		Image pic;
 
-		if (album_id == -1) {
-			pic = new Image("/resources/Logo.png");
+		String url = "/resources/albumCover.png";
+
+		Album selected = AD.getAlbum(album_id);
+
+		if (selected.getCover_URL() != null) {
+			url = selected.getCover_URL().toURI().toString();
 		}
-		else {
-			Album selected = AD.getAlbum(album_id);
-			pic = new Image(selected.getCover_URL().toURI().toString());
-		}
+
+		Image pic = new Image(url);
 
 		return pic;
 	}
