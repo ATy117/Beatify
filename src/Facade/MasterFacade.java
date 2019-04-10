@@ -265,6 +265,14 @@ public class MasterFacade {
 		return SD.checkSong(user_id, song_name);
 	}
 
+	public int checkPlaylist(int user_id, String playlist_name){
+		return PD.checkPlaylist(user_id, playlist_name);
+	}
+
+	public int checkAlbum(int user_id, String album_name){
+		return AD.checkAlbum(user_id, album_name);
+	}
+
 	public boolean deleteSong(int songID){
 		return SD.deleteSong(songID);
 	}
