@@ -13,4 +13,10 @@ public class controllerAlbum_ListenerFollowedAlbums extends PaneController {
         this.model.getLibraryModel().setFollowedAlbums(facade.getFollowedAlbums(this.model.getProfileModel().getUser().getUser_id()));
         view = new viewAlbum_ListenerFollowedAlbums(mainPane, this, dashboardController);
     }
+
+    public void unfollowAlbum(int album_id){
+        facade.unfollowAlbum(model.getProfileModel().getUser().getUser_id(), album_id);
+        model.getLibraryModel().setFollowedAlbums(facade.getFollowedAlbums(this.model.getProfileModel().getUser().getUser_id()));
+    }
+
 }
