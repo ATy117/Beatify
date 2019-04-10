@@ -69,7 +69,14 @@ public class viewSong_ArtistShowArtistAlbumSongs extends View {
         sortLabel = new Label("Sort by");
         Circle albumArt = new Circle();
         albumArt.setRadius(30);
-        Image image = new Image(selectedAlbum.getCover_URL().toURI().toString());
+
+        String url = "resources/albumCover.png";
+
+        if (selectedAlbum.getCover_URL() != null) {
+            url = selectedAlbum.getCover_URL().toURI().toString();
+        }
+
+        Image image = new Image(url);
         albumArt.setFill(new ImagePattern(image));
         headerLabel.setFont(Font.font("Comfortaa", 18));
         subheaderLabel.setFont(Font.font("Comfortaa",12));
