@@ -2,6 +2,7 @@ package view_builders;
 
 import com.jfoenix.controls.JFXPopup;
 import controller.Listener.controllerSong_ListenerAllSongs;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -11,6 +12,7 @@ import object.Playlist;
 import object.Song;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class builderSong_ListenerAllSongs extends builderSong<AnchorPane> {
@@ -53,11 +55,24 @@ public class builderSong_ListenerAllSongs extends builderSong<AnchorPane> {
                     content.getChildren().clear();
                     content.setPrefWidth(200);
                     ArrayList <Button> buttons = new ArrayList<>();
-                    while (controller.getModel().getLibraryModel().getMyPlaylists().hasNext()){
-                        Playlist playlist = controller.getModel().getLibraryModel().getMyPlaylists().next();
+
+                    Iterator<Playlist> listPlaylistElements = controller.getModel().getLibraryModel().getMyPlaylists();
+
+                    while (listPlaylistElements.hasNext()){
+                        Playlist playlist = listPlaylistElements.next();
                         buttons.add(new Button (playlist.getName()));
-                        content.getChildren().add(new Button (playlist.getName()));
+                        buttons.get(buttons.size() - 1).setPrefWidth(200);
+
+                        buttons.get(buttons.size() - 1).setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent event) {
+
+                            }
+                        });
+
                     }
+
+                    content.getChildren().addAll(buttons);
                     popup.setPopupContent(content);
                 }
             });
