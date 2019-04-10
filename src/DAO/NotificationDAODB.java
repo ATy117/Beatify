@@ -175,6 +175,7 @@ public class NotificationDAODB implements NotificationDAO {
 
     private Notification toNotif(ResultSet rs) throws SQLException {
         Notification notification = new Notification();
+        notification.setNotif_id(rs.getInt("notification.notif_id"));
         notification.setFirstName(rs.getString("user.first_name"));
         notification.setLastName(rs.getString("user.last_name"));
         notification.setMessage(rs.getString("notification.notification"));
