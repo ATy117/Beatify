@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXListView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -22,11 +21,6 @@
                   <Font name="Poppins Regular" size="16.0" />
                </font>
             </Label>
-            <JFXButton fx:id="followBtn" buttonType="RAISED" layoutX="528.0" layoutY="103.0" onAction="#followUser" text="Follow">
-               <font>
-                  <Font name="Comfortaa Regular" size="14.0" />
-               </font>
-            </JFXButton>
             <Circle fill="#a2b6c9" layoutX="390.0" layoutY="67.0" radius="36.0" stroke="#0000000a" strokeType="INSIDE" />
             <Circle fill="#a2b6c9" layoutX="470.0" layoutY="67.0" radius="36.0" stroke="#0000000a" strokeType="INSIDE" />
             <Label fx:id="followerNum" layoutX="368.0" layoutY="48.0" text="200">
