@@ -14,4 +14,16 @@ public class controllerNotifs_ArtistNotifications extends PaneController {
         this.model.getNotificationModel().setNotifications(facade.getAllNotifications(this.model.getProfileModel().getUser().getUser_id()));
         view = new viewNotifs_ArtistNotifications(mainPane, this, dashboardController);
     }
+
+    public void removeNotification(int notif_id){
+        int user_id = model.getProfileModel().getUser().getUser_id();
+        facade.removeNotif(user_id, notif_id);
+        this.model.getNotificationModel().setNotifications(facade.getAllNotifications(this.model.getProfileModel().getUser().getUser_id()));
+    }
+
+    public void markAsViewed(int notif_id){
+        int user_id = model.getProfileModel().getUser().getUser_id();
+        facade.setNotificationAsViewed(notif_id, user_id);
+        this.model.getNotificationModel().setNotifications(facade.getAllNotifications(this.model.getProfileModel().getUser().getUser_id()));
+    }
 }

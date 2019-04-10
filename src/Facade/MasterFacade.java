@@ -309,6 +309,10 @@ public class MasterFacade {
 		return ND.getAllNotifications(userID);
 	}
 
+	public boolean removeNotif(int user_id, int notif_id){
+		return ND.deleteNotifMapping(notif_id, user_id);
+	}
+
 	public boolean setNotificationAsViewed(int notif_id, int user_id){
 		return ND.viewNotification(notif_id,user_id);
 	}

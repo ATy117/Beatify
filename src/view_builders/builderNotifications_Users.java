@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
+import object.Notification;
 import object.Playlist;
 
 import java.util.ArrayList;
@@ -31,22 +32,34 @@ public class builderNotifications_Users extends builderNotification<AnchorPane> 
     @Override
     public void build() {
         while(listElements.hasNext()) {
+            Notification notif = listElements.next();
             AnchorPane notifIndiv = new AnchorPane();
             Label notifLabel = new Label();
             JFXButton ex = new JFXButton("X");
+            if (!notif.isViewed())
+                notifLabel.setFont(Font.font("Times New Roman", 18));
+            else
+                notifLabel.setFont(Font.font("Comic Sans", 18));
 
-            notifLabel.setText(listElements.next().getMessage());
+            notifLabel.setText(notif.getMessage());
             ex.setFont(Font.font("Confortaa", 14));
 
             ex.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    System.out.println("Delete Notif!");
+                    controller.removeNotification(notif.getNotif_id());
                 }
             });
 
             notifIndiv.setLeftAnchor(ex, 600.0);
             notifIndiv.setLeftAnchor(notifLabel, 15.0);
+
+            notifIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    controller.markAsViewed(notif.getNotif_id());
+                }
+            });
 
             notifIndiv.getChildren().add(notifLabel);
             notifIndiv.getChildren().add(ex);
