@@ -24,7 +24,7 @@ public class controller_AddPlaylist extends PaneController {
         playlist.setIs_public(isPublic);
         if(facade.createPlaylist(user, playlist)) {
             controllerPlaylist_ArtistsAllPlaylists controllerAllAlbums = new controllerPlaylist_ArtistsAllPlaylists(dashboardController.getPaneFoundation(), dashboardController);
-            dashboardController.setCurrentPane(this);
+            dashboardController.setCurrentPane(controllerAllAlbums);
             return true;
         } else {
             return false;
