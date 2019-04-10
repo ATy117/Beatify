@@ -18,10 +18,12 @@ public class UserDAODB implements UserDAO{
         String lastNameTemp = user.getLast_name();
         int isArtistTemp = (user.isIs_artist()) ? 1:0;
         FileInputStream avatarStream = null;
-        try {
-            avatarStream = new FileInputStream(user.getAvatarURL());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        if(user.getAvatarURL()!=null) {
+            try {
+                avatarStream = new FileInputStream(user.getAvatarURL());
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
         }
 
         String query = "INSERT INTO user VALUES(NULL,?,?,?,?,?,?)";
@@ -68,10 +70,12 @@ public class UserDAODB implements UserDAO{
         String passwordTemp = user.getPassword();
         int isArtistTemp = (user.isIs_artist()) ? 1:0;
         FileInputStream avatarStream = null;
-        try {
-            avatarStream = new FileInputStream(user.getAvatarURL());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        if(user.getAvatarURL()!=null) {
+            try {
+                avatarStream = new FileInputStream(user.getAvatarURL());
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
         }
 
         String query = "UPDATE user SET " +
@@ -349,18 +353,21 @@ public class UserDAODB implements UserDAO{
         user.setLast_name(rs.getString("user.last_name"));
         user.setIs_artist((rs.getInt("user.is_artist")!=0));
         user.setAvatarURL(toFile(rs));
-
         return user;
     }
 
     private File toFile(ResultSet rs) throws SQLException, IOException {
-        File file = new File(System.getProperty("user.home") + "/documents/Beatify/PictureCache/" + rs.getString("user.username")+"_avatar.png");
-        OutputStream outputStream = new FileOutputStream(file);
-        InputStream inputStream = rs.getBinaryStream("user.avatar");
-        byte[] buffer = new byte[4096];
-        while (inputStream.read(buffer) > 0){
-            outputStream.write(buffer);
+        if(rs.getBinaryStream("user.avatar")!=null) {
+            File file = new File(System.getProperty("user.home") + "/documents/Beatify/PictureCache/" + rs.getString("user.username") + "_avatar.png");
+            OutputStream outputStream = new FileOutputStream(file);
+            InputStream inputStream = rs.getBinaryStream("user.avatar");
+            byte[] buffer = new byte[4096];
+            while (inputStream.read(buffer) > 0) {
+                outputStream.write(buffer);
+            }
+            return file;
+        }else{
+            return null;
         }
-        return file;
     }
 }

@@ -143,12 +143,34 @@ public class NotificationDAODB implements NotificationDAO {
 
     @Override
     public boolean deleteNotifMapping(int notif_id, int follower_id) {
-        return false;
+        String query = "DELETE FROM notif_mapping WHERE notif_mapping.notif_id = ? AND notif_mapping.follower_id = ?";
+
+        try{
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, notif_id);
+            statement.setInt(2, follower_id);
+            statement.executeUpdate();
+            statement.close();
+            return true;
+        } catch(SQLException e){
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
     public boolean deleteNotification(int notif_id) {
-        return false;
+        String query = "DELETE FROM notification WHERE notification.notif_id = " + notif_id;
+
+        try{
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.executeUpdate();
+            statement.close();
+            return true;
+        } catch(SQLException e){
+            e.printStackTrace();
+            return false;
+        }
     }
 
     private Notification toNotif(ResultSet rs) throws SQLException {

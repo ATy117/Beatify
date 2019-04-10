@@ -15,6 +15,6 @@ public class controller_EditAlbum extends PaneController {
 
     public void uploadSong() {
         controllerAlbum_ArtistAllAlbums controllerAllAlbums = new controllerAlbum_ArtistAllAlbums(dashboardController.getPaneFoundation(), dashboardController);
-        dashboardController.setCurrentPane(this);
+        dashboardController.setCurrentPane(controllerAllAlbums);
     }
 }
