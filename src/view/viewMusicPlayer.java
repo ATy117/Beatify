@@ -84,7 +84,7 @@ public class viewMusicPlayer extends View {
 		albumText.setText("");
 		genreText.setText("");
 		timestamp.setText("");
-		volume = 0.5;
+		volume = 1;
 
 		Image play = new Image("resources/PlayBtn.png");
 		Image next = new Image("resources/nextBtn.png");
@@ -147,135 +147,6 @@ public class viewMusicPlayer extends View {
 		genreText.setAlignment(Pos.CENTER);
 	}
 
-	@Override
-	public void Update() {
-
-		if (mp3player != null) {
-			mp3player.dispose();
-			mp3player = null;
-		}
-
-		if (model.getPlayerModel().getCurrentSong() != null) {
-			titleText.setText(model.getPlayerModel().getCurrentSong().getSong_name());
-			artistText.setText("by " + model.getPlayerModel().getCurrentSong().getArtist_name());
-			genreText.setText(model.getPlayerModel().getCurrentSong().getGenre());
-
-			Image albpic = controller.getImageFromAlbum(model.getPlayerModel().getCurrentSong().getAlbum_id());
-			songPic.setFill(new ImagePattern(albpic));
-
-			Album album = controller.getAlbumOfSong(model.getPlayerModel().getCurrentSong().getAlbum_id());
-
-			if (album != null) {
-				albumText.setText("Album: " + album.getName());
-			}
-			else {
-				albumText.setText("Album: None");
-			}
-
-			File music = controller.getSongFile(model.getPlayerModel().getCurrentSong());
-			currentSongMedia = new Media(music.toURI().toString());
-			mp3player = new MediaPlayer(currentSongMedia);
-			toggleToPlay();
-			setPlayerFunctionality();
-		}
-	}
-
-	public void playPause(ActionEvent actionEvent) {
-		if (model.getPlayerModel().getCurrentSong() != null ){
-
-
-			MediaPlayer.Status status = mp3player.getStatus();
-
-			if (status == MediaPlayer.Status.UNKNOWN  || status == MediaPlayer.Status.HALTED)
-			{
-				// don't do anything in these states
-				return;
-			}
-
-			if ( status == MediaPlayer.Status.PAUSED
-					|| status == MediaPlayer.Status.READY
-					|| status == MediaPlayer.Status.STOPPED)
-			{
-				// rewind the movie if we're sitting at the end
-				if (atEndOfMedia) {
-					mp3player.seek(mp3player.getStartTime());
-					atEndOfMedia = false;
-				}
-				toggleToPlay();
-			} else {
-				toggleToPause();
-			}
-
-
-		}
-	}
-
-	public void prevSong(ActionEvent actionEvent) {
-		if (model.getPlayerModel().getCurrentSong()!= null) {
-			controller.playPrevSong();
-		}
-	}
-
-	public void nextSong(ActionEvent actionEvent) {
-		if (model.getPlayerModel().getCurrentSong() != null) {
-			controller.playNextSong();
-		}
-	}
-
-	public void shuffle(ActionEvent actionEvent) {
-		if(controller.toggleShuffle()) {
-			shuffleBtn.setGraphic(shuffleClickedView);
-		}
-		else {
-			shuffleBtn.setGraphic(shuffleView);
-		}
-	}
-
-	public void repeat(ActionEvent actionEvent) {
-		if(controller.toggleRepeat()) {
-			repeatBtn.setGraphic(repeatClickedView);
-		}
-		else {
-			repeatBtn.setGraphic(repeatView);
-		}
-	}
-
-	public void turnVolumeUp(ActionEvent actionEvent) {
-
-		if (mp3player!= null) {
-			if (volume < 1) {
-				volume += 0.1;
-				mp3player.setVolume(volume);
-			}
-		}
-	}
-
-	public void turnVolumeDown(ActionEvent actionEvent) {
-
-		if (mp3player!=null) {
-			if (volume > 0) {
-				volume -= 0.1;
-				mp3player.setVolume(volume);
-			}
-		}
-	}
-
-	public void endPlayer() {
-		if (mp3player != null) {
-			mp3player.stop();
-		}
-	}
-
-	private void toggleToPlay() {
-		mp3player.play();
-		playBtn.setGraphic(pauseView);
-	}
-
-	private void toggleToPause() {
-		mp3player.pause();
-		playBtn.setGraphic(playView);
-	}
-
 	protected void updateValues() {
 		if (timestamp != null && slider != null) {
 			Platform.runLater(new Runnable() {
@@ -334,6 +205,107 @@ public class viewMusicPlayer extends View {
 
 	}
 
+
+	@Override
+	public void Update(){
+
+		if (mp3player != null) {
+			mp3player.dispose();
+			mp3player = null;
+		}
+
+		if (this.model.getPlayerModel().getCurrentSong() != null) {
+			titleText.setText(this.model.getPlayerModel().getCurrentSong().getSong_name());
+			artistText.setText("by " + this.model.getPlayerModel().getCurrentSong().getArtist_name());
+			genreText.setText(this.model.getPlayerModel().getCurrentSong().getGenre());
+
+			// Image albpic = controller.getImageFromAlbum(this.model.getPlayerModel().getCurrentSong().getAlbum_id());
+			// songPic.setFill(new ImagePattern(albpic));
+
+			Album album = controller.getAlbumOfSong(this.model.getPlayerModel().getCurrentSong().getAlbum_id());
+
+			if (album != null) {
+				albumText.setText("Album: " + album.getName());
+			}
+			else {
+				albumText.setText("Album: None");
+			}
+
+			currentSongMedia = controller.getSongFile(model.getPlayerModel().getCurrentSong());
+			mp3player = new MediaPlayer(currentSongMedia);
+			toggleToPlay();
+			setPlayerFunctionality();
+		}
+
+	}
+
+	public void nextSong(ActionEvent actionEvent) {
+
+		if (this.model.getPlayerModel().getCurrentSong() != null) {
+			controller.playNextSong();
+		}
+	}
+
+	public void prevSong(ActionEvent actionEvent) {
+		if (this.model.getPlayerModel().getCurrentSong()!= null) {
+			controller.playPrevSong();
+		}
+	}
+
+	public void shuffle(ActionEvent actionEvent) {
+		if(controller.toggleShuffle()) {
+			shuffleBtn.setGraphic(shuffleClickedView);
+		}
+		else {
+			shuffleBtn.setGraphic(shuffleView);
+		}
+	}
+
+	public void repeat(ActionEvent actionEvent) {
+		if(controller.toggleRepeat()) {
+			repeatBtn.setGraphic(repeatClickedView);
+		}
+		else {
+			repeatBtn.setGraphic(repeatView);
+		}
+	}
+
+	public void endPlayer() {
+		if (mp3player != null) {
+			mp3player.stop();
+		}
+	}
+
+	private void toggleToPlay() {
+		mp3player.play();
+		playBtn.setGraphic(pauseView);
+	}
+
+	private void toggleToPause() {
+		mp3player.pause();
+		playBtn.setGraphic(playView);
+	}
+
+	public void turnVolumeUp(ActionEvent actionEvent){
+		if (mp3player!= null) {
+			if (volume < 1) {
+				volume += 0.1;
+				mp3player.setVolume(volume);
+			}
+		}
+
+	}
+
+	public void turnVolumeDown(ActionEvent actionEvent){
+
+		if (mp3player!=null) {
+			if (volume > 0) {
+				volume -= 0.1;
+				mp3player.setVolume(volume);
+			}
+		}
+	}
+
 	private void setPlayerFunctionality() {
 		mp3player.currentTimeProperty().addListener(new InvalidationListener()
 		{
@@ -385,4 +357,30 @@ public class viewMusicPlayer extends View {
 	}
 
 
+	public void playPause(ActionEvent actionEvent) {
+
+		if (this.model.getPlayerModel().getCurrentSong() != null ){
+			MediaPlayer.Status status = mp3player.getStatus();
+
+			if (status == MediaPlayer.Status.UNKNOWN  || status == MediaPlayer.Status.HALTED)
+			{
+				// don't do anything in these states
+				return;
+			}
+
+			if ( status == MediaPlayer.Status.PAUSED
+					|| status == MediaPlayer.Status.READY
+					|| status == MediaPlayer.Status.STOPPED)
+			{
+				// rewind the movie if we're sitting at the end
+				if (atEndOfMedia) {
+					mp3player.seek(mp3player.getStartTime());
+					atEndOfMedia = false;
+				}
+				toggleToPlay();
+			} else {
+				toggleToPause();
+			}
+		}
+	}
 }
