@@ -84,13 +84,6 @@ public class MasterFacade {
 		return UD.getUser(username, password);
 	}
 
-	// keyword is entered, search all DAOS for results, then return the list of Searchables
-	public List<Searchable> searchByKeyword (String keyword) {
-
-		return null;
-	}
-
-
 	public List<User> searchListeners(String keyword, int user_id){
 		List<User> userList = new ArrayList<>();
 		//check if list retrived from dao is empty
