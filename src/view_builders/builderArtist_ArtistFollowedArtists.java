@@ -50,8 +50,11 @@ public class builderArtist_ArtistFollowedArtists extends builderUser<AnchorPane>
                 @Override
                 public void handle(MouseEvent event) {
                     if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
-                        if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY))
+                        if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY)) {
                             popup.show(albumIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                        } else {
+                            controller.checkProfile(user.getUser_id());
+                        }
                     }
                 }
             });
