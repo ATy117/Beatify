@@ -229,6 +229,10 @@ public class MasterFacade {
 		return PD.getFollowedPlaylists(user_id);
 	}
 
+	public List<Playlist> getPublicPlaylists(int user_id){
+		return PD.getPublicPlaylists(user_id);
+	}
+
 	public List<Song> getMySongs(int user_id){
 		return SD.getOwnerSongs(user_id);
 	}
