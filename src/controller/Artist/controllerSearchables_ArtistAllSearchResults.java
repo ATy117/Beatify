@@ -41,4 +41,7 @@ public class controllerSearchables_ArtistAllSearchResults extends PaneController
 	public void addSongToQueue(Song song) {
         this.model.getPlayerModel().addSongToQueue(song);
 	}
+
+	public void playSong(Song song) {
+	}
 }
