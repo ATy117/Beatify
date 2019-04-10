@@ -77,7 +77,6 @@ public class viewSong_ArtistShowArtistAlbumSongs extends View {
         }
 
         Image image = new Image(url);
-
         albumArt.setFill(new ImagePattern(image));
         headerLabel.setFont(Font.font("Comfortaa", 18));
         subheaderLabel.setFont(Font.font("Comfortaa",12));
