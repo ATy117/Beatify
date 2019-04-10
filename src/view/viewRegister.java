@@ -91,10 +91,10 @@ public class viewRegister extends View{
 
         if (firstCheck.equals("") || lastCheck.equals("") || userCheck.equals("") || passCheck.equals("") || passCheckCheck.equals("")){
             System.out.println("Some Fields Are Missing");
-            viewError e = new viewError("Some Fields Are Missing", mainPane);
+            errorPopup = new viewError("Some Fields Are Missing", mainPane);
         } else if ( ! password.equals(passwordConfirm)) {
             System.out.println("Passwords Do Not Match");
-            viewError e = new viewError("Passwords Do Not Match", mainPane);
+            errorPopup = new viewError("Passwords Do Not Match", mainPane);
         } else {
             if (controller.register(username, password, firstName, lastName, isArtist, profilePic)){
                 System.out.println("Successfully Created Account");

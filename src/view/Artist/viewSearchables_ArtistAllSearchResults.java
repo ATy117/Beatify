@@ -141,7 +141,7 @@ public class viewSearchables_ArtistAllSearchResults extends View {
 
         if (check.equals("")){
             System.out.println("No Input");
-            viewError popUp = new viewError("No Input", searchHeader);
+            errorPopup = new viewError("No Input", searchHeader);
         } else {
             controller.search(query);
         }

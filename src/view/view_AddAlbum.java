@@ -74,11 +74,11 @@ public class view_AddAlbum extends View {
 
         if (check.equals("")){
             System.out.println("Enter Album Name");
-            viewError e = new viewError("Enter Album Name", mainPane);
+            errorPopup = new viewError("Enter Album Name", mainPane);
         } else {
             if (!controller.uploadSong(albumName, cover)) {
                 System.out.println("Album Not Created");
-                viewError e = new viewError("Album Not Created", mainPane);
+                errorPopup = new viewError("Album Not Created", mainPane);
             }
         }
     }

@@ -78,9 +78,11 @@ public class view_EditSong extends View {
         String genreCheck = genre.replaceAll("\\s+", "");
         if (genreCheck.equals("") || titleCheck.equals("")){
             System.out.println("Empty Fields Founds");
+            errorPopup = new viewError("Empty Fields Found", mainPane);
         } else {
             if (!controller.editSong(title, genre)){
                 System.out.println("Song Not Edited");
+                errorPopup = new viewError("Song Not Edited", mainPane);
             }
         }
 

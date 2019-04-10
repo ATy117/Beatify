@@ -16,6 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import object.Playlist;
 import object.Song;
+import view.viewError;
 import view_builders.builderSong;
 
 import java.util.ArrayList;
@@ -84,6 +85,7 @@ public class builderSong_ArtistShowListenerPlaylistSongs extends builderSong<Anc
             play.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    popup.hide();
                     controller.playSong(song);
                 }
             });
@@ -91,6 +93,7 @@ public class builderSong_ArtistShowListenerPlaylistSongs extends builderSong<Anc
             add_to_queueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    popup.hide();
                     controller.addSongToQueue(song);
                 }
             });
@@ -117,6 +120,7 @@ public class builderSong_ArtistShowListenerPlaylistSongs extends builderSong<Anc
                                     popup.hide();
                                 } else {
                                     System.out.println("Song Not Added To Playlist");
+                                    errorPopup = new viewError("Song Not Added To Playlist", songsIndiv);
                                 }
                             }
                         });
