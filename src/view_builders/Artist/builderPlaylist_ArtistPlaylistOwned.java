@@ -78,6 +78,7 @@ public class builderPlaylist_ArtistPlaylistOwned extends builderPlaylist<AnchorP
                 @Override
                 public void handle(MouseEvent event) {
                     popup.hide();
+                    controller.deletePlaylist(p.getPlaylist_id());
                 }
             });
 

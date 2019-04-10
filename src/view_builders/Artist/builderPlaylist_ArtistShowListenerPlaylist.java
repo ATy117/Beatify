@@ -16,6 +16,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import object.Playlist;
+import view.viewError;
 import view_builders.builderPlaylist;
 
 import java.util.ArrayList;
@@ -61,6 +62,7 @@ public class builderPlaylist_ArtistShowListenerPlaylist extends builderPlaylist<
                         popup.hide();
                     } else {
                         System.out.println("Already Following That Playlist");
+                        errorPopup = new viewError("Already Following That Playlist", albumIndiv);
                     }
                 }
             });

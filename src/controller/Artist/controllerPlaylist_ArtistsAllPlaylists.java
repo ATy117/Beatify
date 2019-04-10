@@ -39,6 +39,11 @@ public class controllerPlaylist_ArtistsAllPlaylists extends PaneController {
         model.getLibraryModel().setFollowedPlaylists(facade.getFollowedPlaylists(this.model.getProfileModel().getUser().getUser_id()));
     }
 
+    public void deletePlaylist(int playlist_id){
+        facade.deletePlaylist(playlist_id);
+        model.getLibraryModel().setMyPlaylists(facade.getFollowedPlaylists(this.model.getProfileModel().getUser().getUser_id()));
+    }
+
     public void editPlaylist(Playlist p) {
         this.model.getLibraryModel().setSelectedPlaylist(p);
         controller_EditPlaylist edit = new controller_EditPlaylist(mainPane, dashboardController);
