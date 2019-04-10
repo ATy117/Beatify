@@ -79,6 +79,8 @@ public class builderAlbum_ArtistShowArtistsAlbum extends builderAlbum<AnchorPane
                     if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
                         if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY)) {
                             popup.show(albumIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                        } else {
+                            controller.goToAlbumList(album.getAlbum_id());
                         }
                     }
                 }

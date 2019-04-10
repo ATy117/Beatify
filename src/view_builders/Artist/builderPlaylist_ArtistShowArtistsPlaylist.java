@@ -78,6 +78,8 @@ public class builderPlaylist_ArtistShowArtistsPlaylist extends builderPlaylist<A
                     if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
                         if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY)) {
                             popup.show(albumIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                        } else {
+                            controller.goToPlaylistList(p.getPlaylist_id());
                         }
                     }
                 }
