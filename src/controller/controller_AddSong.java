@@ -31,7 +31,7 @@ public class controller_AddSong extends PaneController {
         if (facade.uploadSong(song)){
             model.getLibraryModel().setSelectedAlbum(facade.getAlbum(album_id));
             model.getLibraryModel().setSongContents(facade.getAlbumSongs(album_id));
-            controllerSong_ArtistAlbumsOwnedSongs c = new controllerSong_ArtistAlbumsOwnedSongs(dashboardController.getPaneFoundation(), dashboardController);
+            controllerSong_ArtistAlbumsOwnedSongs c = new controllerSong_ArtistAlbumsOwnedSongs(mainPane, dashboardController);
             dashboardController.setCurrentPane(c);
             return true;
         } else {

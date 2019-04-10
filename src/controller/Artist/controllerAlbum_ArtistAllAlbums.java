@@ -18,14 +18,14 @@ public class controllerAlbum_ArtistAllAlbums extends PaneController {
     public void goToFollowedList(int album_id){
         model.getLibraryModel().setSelectedAlbum(facade.getAlbum(album_id));
         model.getLibraryModel().setSongContents(facade.getAlbumSongs(album_id));
-        controllerSong_ArtistAlbumsFollowedSongs c = new controllerSong_ArtistAlbumsFollowedSongs(dashboardController.getPaneFoundation(), dashboardController);
+        controllerSong_ArtistAlbumsFollowedSongs c = new controllerSong_ArtistAlbumsFollowedSongs(mainPane, dashboardController);
         dashboardController.setCurrentPane(c);
     }
 
     public void goToOwnList(int album_id){
         model.getLibraryModel().setSelectedAlbum(facade.getAlbum(album_id));
         model.getLibraryModel().setSongContents(facade.getAlbumSongs(album_id));
-        controllerSong_ArtistAlbumsOwnedSongs c = new controllerSong_ArtistAlbumsOwnedSongs(dashboardController.getPaneFoundation(), dashboardController);
+        controllerSong_ArtistAlbumsOwnedSongs c = new controllerSong_ArtistAlbumsOwnedSongs(mainPane, dashboardController);
         dashboardController.setCurrentPane(c);
     }
 
@@ -40,7 +40,7 @@ public class controllerAlbum_ArtistAllAlbums extends PaneController {
     }
 
     public void uploadAlbum(){
-        controller_AddAlbum controllerAddAlbums = new controller_AddAlbum(dashboardController.getPaneFoundation(), dashboardController);
+        controller_AddAlbum controllerAddAlbums = new controller_AddAlbum(mainPane, dashboardController);
         dashboardController.setCurrentPane(controllerAddAlbums);
     }
 

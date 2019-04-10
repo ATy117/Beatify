@@ -22,12 +22,12 @@ public class controllerSong_ArtistAlbumsOwnedSongs extends PaneController  {
 		facade.deleteSong(song.getSong_id());
 		model.getLibraryModel().setSelectedAlbum(facade.getAlbum(song.getAlbum_id()));
 		model.getLibraryModel().setSongContents(facade.getAlbumSongs(song.getAlbum_id()));
-		controllerSong_ArtistAlbumsOwnedSongs c = new controllerSong_ArtistAlbumsOwnedSongs(dashboardController.getPaneFoundation(), dashboardController);
+		controllerSong_ArtistAlbumsOwnedSongs c = new controllerSong_ArtistAlbumsOwnedSongs(mainPane, dashboardController);
 		dashboardController.setCurrentPane(c);
 	}
 
 	public void uploadSong() {
-		PaneController upload = new controller_AddSong(dashboardController.getPaneFoundation(), dashboardController);
+		PaneController upload = new controller_AddSong(mainPane, dashboardController);
 		dashboardController.setCurrentPane(upload);
 	}
 

@@ -43,7 +43,6 @@ public class MasterFacade {
 
 	public void generateCacheFolder () {
 		cacheManager.generateCacheFolder();
-		System.out.println("Cache folder is existing / created");
 	}
 
 	public Album getAlbum(int album_id){
@@ -210,6 +209,9 @@ public class MasterFacade {
 	}
 
 	public boolean updatePlaylist(Playlist playlist){
+		if(!playlist.isIs_public()){ //if playlist is not public
+			PD.removeAllPlaylistMapping(playlist.getPlaylist_id());
+		}
 		return PD.updatePlaylist(playlist);
 	}
 
