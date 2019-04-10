@@ -61,9 +61,10 @@ public class SongPlayerModel extends Model {
         if (currentSong == null) {
             currentSong = this.currentList.get(0);
             this.currentList.remove(0);
+            Notify();
         }
 
-        Notify();
+
     }
 
     public void addSongToQueue(Song s) {
@@ -73,9 +74,9 @@ public class SongPlayerModel extends Model {
         if (currentSong == null) {
             currentSong = this.currentList.get(0);
             this.currentList.remove(0);
+            Notify();
         }
 
-        Notify();
     }
 
 
