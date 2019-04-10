@@ -24,7 +24,7 @@ public class controllerArtist_ArtistFollowedArtists extends PaneController {
         model.getPeopleModel().setSelectedUser(facade.viewUser(user_id));
         model.getPeopleModel().setAlbums(facade.getMyAlbums(user_id));
         model.getPeopleModel().setPlaylists(facade.getPublicPlaylists(user_id));
-        controllerUser_ArtistShowArtistsProfile controller = new controllerUser_ArtistShowArtistsProfile(dashboardController.getPaneFoundation(), dashboardController);
+        controllerUser_ArtistShowArtistsProfile controller = new controllerUser_ArtistShowArtistsProfile(mainPane, dashboardController);
         dashboardController.setCurrentPane(controller);
     }
 
