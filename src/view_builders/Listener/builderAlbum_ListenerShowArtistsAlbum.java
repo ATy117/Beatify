@@ -59,7 +59,11 @@ public class builderAlbum_ListenerShowArtistsAlbum extends builderAlbum<AnchorPa
             followButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-
+                    if (controller.followAlbum(album.getAlbum_id())) {
+                        popup.hide();
+                    } else {
+                        System.out.println("Already Following That Album");
+                    }
                 }
             });
 
@@ -83,7 +87,7 @@ public class builderAlbum_ListenerShowArtistsAlbum extends builderAlbum<AnchorPa
                         if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY)) {
                             popup.show(albumIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
                         } else {
-                            //controller.goToAlbumList(album.getAlbum_id());
+                            controller.goToAlbumList(album.getAlbum_id());
                         }
                     }
                 }
