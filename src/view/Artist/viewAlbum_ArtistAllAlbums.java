@@ -4,7 +4,6 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import controller.Artist.controllerAlbum_ArtistAllAlbums;
 import controller.controllerDashboard;
-import controller.controller_AddAlbum;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,8 +15,8 @@ import javafx.scene.text.Font;
 import view.View;
 import view_builders.Director;
 import view_builders.builderAlbum;
-import view_builders.builderAlbum_ArtistAlbumFollowed;
-import view_builders.builderAlbum_ArtistAlbumOwned;
+import view_builders.Artist.builderAlbum_ArtistAlbumFollowed;
+import view_builders.Artist.builderAlbum_ArtistAlbumOwned;
 
 import java.io.IOException;
 

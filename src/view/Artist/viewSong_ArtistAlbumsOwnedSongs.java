@@ -4,8 +4,6 @@ import com.jfoenix.controls.JFXComboBox;
 import controller.Artist.controllerSong_ArtistAlbumsOwnedSongs;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
-import controller.Artist.controllerSong_ArtistAlbumsOwnedSongs;
-import controller.Artist.controllerSong_ArtistAllSongs;
 import controller.controllerDashboard;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -22,7 +20,7 @@ import object.Album;
 import view.View;
 import view_builders.Director;
 import view_builders.builderSong;
-import view_builders.builderSong_ArtistAlbumsOwnedSongs;
+import view_builders.Artist.builderSong_ArtistAlbumsOwnedSongs;
 
 import java.io.IOException;
 import java.util.ArrayList;

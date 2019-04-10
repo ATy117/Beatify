@@ -14,7 +14,7 @@ import object.Playlist;
 import view.View;
 import view_builders.Director;
 import view_builders.builderSong;
-import view_builders.builderSong_ArtistShowArtistPlaylistSongs;
+import view_builders.Artist.builderSong_ArtistShowArtistPlaylistSongs;
 
 import java.io.IOException;
 import java.util.ArrayList;
