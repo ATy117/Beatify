@@ -40,7 +40,7 @@ public class viewNotifs_ArtistNotifications extends View {
 
         notificationsListView.getItems().clear();
 
-        builderNotification builder = new builderNotifications_Users();
+        builderNotification builder = new builderNotifications_Users(controller);
         Director director = Director.getInstance();
         director.setBuilder(builder);
         director.construct();

@@ -35,4 +35,9 @@ public class controllerPlaylist_ArtistsAllPlaylists extends PaneController {
         controller_AddPlaylist controllerAddPlaylist = new controller_AddPlaylist(dashboardController.getPaneFoundation(), dashboardController);
         dashboardController.setCurrentPane(this);
     }
+
+    public void unfollowPlaylist(int playlist_id){
+        facade.unfollowPlaylist(model.getProfileModel().getUser().getUser_id(), playlist_id);
+        model.getLibraryModel().setFollowedPlaylists(facade.getFollowedPlaylists(this.model.getProfileModel().getUser().getUser_id()));
+    }
 }

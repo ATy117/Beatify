@@ -13,4 +13,10 @@ public class controllerListener_ArtistFollowedListeners extends PaneController {
         this.model.getProfileModel().setFollowedListeners(facade.getFollowedListeners(this.model.getProfileModel().getUser().getUser_id()));
         view = new viewListener_ArtistFollowedListeners(mainPane, this, dashboardController);
     }
+
+    public void unfollow(int unfollowed_id){
+        int user_id = model.getProfileModel().getUser().getUser_id();
+        facade.unfollowUser(user_id, unfollowed_id);
+        model.getProfileModel().setFollowedListeners(facade.getFollowedListeners(user_id));
+    }
 }

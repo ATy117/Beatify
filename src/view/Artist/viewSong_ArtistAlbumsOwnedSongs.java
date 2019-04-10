@@ -11,8 +11,11 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import object.Album;
@@ -72,20 +75,28 @@ public class viewSong_ArtistAlbumsOwnedSongs extends View {
         subheaderLabel = new Label(ARTISTNAME);
         sortLabel = new Label("Sort by");
         JFXButton uploadSongBtn = new JFXButton("+ upload song");
+        Circle albumArt = new Circle();
+        albumArt.setRadius(30);
+        Image image = new Image(selectedAlbum.getCover_URL().toURI().toString());
+        albumArt.setFill(new ImagePattern(image));
         headerLabel.setFont(Font.font("Comfortaa", 18));
         subheaderLabel.setFont(Font.font("Comfortaa",12));
         sortLabel.setFont(Font.font("Comfortaa", 18));
-        songsHeader.setLeftAnchor(headerLabel, 50.0);
+        songsHeader.setLeftAnchor(headerLabel, 100.0);
         songsHeader.setTopAnchor(headerLabel, 50.0);
-        songsHeader.setLeftAnchor(subheaderLabel, 50.0);
+        songsHeader.setLeftAnchor(subheaderLabel, 100.0);
         songsHeader.setTopAnchor(subheaderLabel, 70.0);
         songsHeader.setLeftAnchor(sortLabel, 475.0);
         songsHeader.setTopAnchor(sortLabel, 28.0);
+        songsHeader.setLeftAnchor(albumArt, 30.0);
+        songsHeader.setTopAnchor(albumArt,  30.0);
+
 
         songsHeader.getChildren().add(headerLabel);
         songsHeader.getChildren().add(subheaderLabel);
         songsHeader.getChildren().add(sortLabel);
         songsHeader.getChildren().add(uploadSongBtn);
+        songsHeader.getChildren().add(albumArt);
 
         uploadSongBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override

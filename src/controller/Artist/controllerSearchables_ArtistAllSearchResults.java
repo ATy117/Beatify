@@ -28,6 +28,16 @@ public class controllerSearchables_ArtistAllSearchResults extends PaneController
         return facade.followAlbum(user_id, album_id);
     }
 
+    public boolean followPlaylist(int playlist_id){
+        int user_id = model.getProfileModel().getUser().getUser_id();
+        return facade.followPlaylist(user_id, playlist_id);
+    }
+
+    public boolean followUser(int followed_id){
+        int user_id = model.getProfileModel().getUser().getUser_id();
+        return facade.followUser(user_id, followed_id);
+    }
+
 	public void addSongToQueue(Song song) {
         this.model.getPlayerModel().addSongToQueue(song);
 	}

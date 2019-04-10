@@ -37,7 +37,7 @@ public class builderPlaylist_ArtistPlaylistFollowed  extends builderPlaylist<Anc
             Circle albumCover = new Circle(45);
             Label text = new Label(playlist.getName());
 
-            Image publicImg = new Image("resoruces/publicCover.png");
+            Image publicImg = new Image("resources/publicCover.png");
             albumCover.setFill(new ImagePattern(publicImg));
 
             JFXPopup popup = new JFXPopup();
@@ -64,7 +64,8 @@ public class builderPlaylist_ArtistPlaylistFollowed  extends builderPlaylist<Anc
             unfollowButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-
+                    controller.unfollowPlaylist(playlist.getPlaylist_id());
+                    popup.hide();
                 }
             });
 
