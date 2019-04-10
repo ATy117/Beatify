@@ -5,9 +5,14 @@ import controller.Listener.controllerAlbum_ListenerFollowedAlbums;
 import controller.Listener.controllerSearchables_ListenerAllSearchResults;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
+import object.User;
 import view_builders.builderUser;
 
 import java.util.ArrayList;
@@ -26,6 +31,11 @@ public class builderListener_ListenerSearchListener extends builderUser<AnchorPa
     @Override
     public void build() {
         while(listElements.hasNext()) {
+            User user = listElements.next();
+            AnchorPane albumIndiv = new AnchorPane();
+            Circle userPic = new Circle(45);
+            Label text = new Label(user.getFirst_name() + " " + user.getLast_name());
+
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(65);
@@ -40,6 +50,24 @@ public class builderListener_ListenerSearchListener extends builderUser<AnchorPa
 
                 }
             });
+
+            albumIndiv.setLeftAnchor(userPic, 20.0);
+            albumIndiv.setTopAnchor(userPic, 13.0);
+            albumIndiv.setTopAnchor(text, 102.0);
+            albumIndiv.setLeftAnchor(text, 24.0);
+
+            albumIndiv.getChildren().add(userPic);
+            albumIndiv.getChildren().add(text);
+
+            String url = "/resources/useryellowbluedefaultpic.png";
+
+            if (user.getAvatarURL() != null) {
+                url = user.getAvatarURL().toURI().toString();
+            }
+
+            userPic.setFill(new ImagePattern(new Image(url)));
+
+            listProducts.add(albumIndiv);
         }
     }
 

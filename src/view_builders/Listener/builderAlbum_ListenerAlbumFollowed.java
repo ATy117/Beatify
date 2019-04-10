@@ -3,10 +3,17 @@ package view_builders.Listener;
 import com.jfoenix.controls.JFXPopup;
 import controller.Listener.controllerAlbum_ListenerFollowedAlbums;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
+import javafx.scene.text.TextAlignment;
+import object.Album;
 import view_builders.builderAlbum;
 
 import java.util.ArrayList;
@@ -25,6 +32,11 @@ public class builderAlbum_ListenerAlbumFollowed extends builderAlbum<AnchorPane>
     @Override
     public void build() {
         while(listElements.hasNext()) {
+            Album album = listElements.next();
+            AnchorPane albumIndiv = new AnchorPane();
+            Circle albumCover = new Circle(45);
+            Label text = new Label(album.getName());
+
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(65);
@@ -39,6 +51,29 @@ public class builderAlbum_ListenerAlbumFollowed extends builderAlbum<AnchorPane>
 
                 }
             });
+
+            albumIndiv.setLeftAnchor(albumCover, 20.0);
+            albumIndiv.setTopAnchor(albumCover, 13.0);
+            albumIndiv.setTopAnchor(text, 106.0);
+            albumIndiv.setLeftAnchor(text, 26.0);
+
+            albumIndiv.getChildren().add(albumCover);
+            albumIndiv.getChildren().add(text);
+
+            text.setMaxWidth(130.0);
+            text.setAlignment(Pos.CENTER);
+            text.setWrapText(true);
+            text.setTextAlignment(TextAlignment.CENTER);
+
+            String picurl = "/resources/albumCover.png";
+
+            if (album.getCover_URL() != null) {
+                picurl = album.getCover_URL().toURI().toString();
+            }
+
+            albumCover.setFill(new ImagePattern(new Image(picurl)));
+
+            listProducts.add(albumIndiv);
         }
     }
 

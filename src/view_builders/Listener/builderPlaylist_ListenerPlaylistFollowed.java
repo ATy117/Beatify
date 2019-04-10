@@ -4,9 +4,14 @@ import com.jfoenix.controls.JFXPopup;
 import controller.Listener.controllerPlaylist_ListenerAllPlaylists;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
+import object.Playlist;
 import view_builders.builderPlaylist;
 
 import java.util.ArrayList;
@@ -25,6 +30,14 @@ public class builderPlaylist_ListenerPlaylistFollowed extends builderPlaylist<An
     @Override
     public void build() {
         while(listElements.hasNext()) {
+            Playlist playlist = listElements.next();
+            AnchorPane albumIndiv = new AnchorPane();
+            Circle albumCover = new Circle(45);
+            Label text = new Label(playlist.getName());
+
+            Image publicImg = new Image("resources/publicCover.png");
+            albumCover.setFill(new ImagePattern(publicImg));
+
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(65);
@@ -39,6 +52,16 @@ public class builderPlaylist_ListenerPlaylistFollowed extends builderPlaylist<An
 
                 }
             });
+
+            albumIndiv.setLeftAnchor(albumCover, 20.0);
+            albumIndiv.setTopAnchor(albumCover, 13.0);
+            albumIndiv.setTopAnchor(text, 102.0);
+            albumIndiv.setLeftAnchor(text, 24.0);
+
+            albumIndiv.getChildren().add(albumCover);
+            albumIndiv.getChildren().add(text);
+
+            listProducts.add(albumIndiv);
         }
     }
 
