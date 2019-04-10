@@ -85,6 +85,7 @@ public class viewLogin extends View {
             } else {
                 User user = controller.userLogin(username, password);
                 if (user == null){
+                    viewError e = new viewError("User does not exist", loginPane);
                     System.out.println("User does not exist");
                 } else {
                     if (user.isIs_artist()) {
