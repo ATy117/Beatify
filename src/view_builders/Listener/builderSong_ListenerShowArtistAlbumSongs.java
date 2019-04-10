@@ -18,7 +18,7 @@ public class builderSong_ListenerShowArtistAlbumSongs extends builderSong<Anchor
 
     public builderSong_ListenerShowArtistAlbumSongs(controllerSong_ListenerShowArtistAlbumSongs controller) {
         this.controller = controller;
-        this.listElements = controller.getModel().getLibraryModel().getSongContents();
+        this.listElements = controller.getModel().getPeopleModel().getSongs();
         this.listProducts = new ArrayList<>();
     }
 
