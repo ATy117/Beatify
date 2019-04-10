@@ -43,7 +43,6 @@ public class MasterFacade {
 
 	public void generateCacheFolder () {
 		cacheManager.generateCacheFolder();
-		System.out.println("Cache folder is existing / created");
 	}
 
 	public Album getAlbum(int album_id){

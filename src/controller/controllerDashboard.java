@@ -65,9 +65,6 @@ public abstract class controllerDashboard extends Controller{
 		this.loggedIn = loggedIn;
 	}
 
-	public AnchorPane getPaneFoundation() {
-		return paneFoundation;
-	}
 
 	public void setPaneFoundation(AnchorPane paneFoundation) {
 		this.paneFoundation = paneFoundation;
