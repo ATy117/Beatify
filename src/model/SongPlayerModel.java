@@ -52,12 +52,24 @@ public class SongPlayerModel extends Model {
 
     public void addPlaylistToQueue (List<Song> playlist) {
         currentList.addAll(playlist);
+
+        if (currentSong == null) {
+            currentSong = this.currentList.get(0);
+            this.currentList.remove(0);
+        }
+
         Notify();
     }
 
     public void addSongToQueue(Song s) {
         currentList.add(s);
         System.out.println("added " + s.getSong_name() + "to queue");
+
+        if (currentSong == null) {
+            currentSong = this.currentList.get(0);
+            this.currentList.remove(0);
+        }
+
         Notify();
     }
 
