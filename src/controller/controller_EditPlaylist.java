@@ -19,8 +19,26 @@ public class controller_EditPlaylist extends PaneController {
     }
 
 
-    public void editPlaylist() {
-        controllerPlaylist_ArtistsAllPlaylists back = new controllerPlaylist_ArtistsAllPlaylists(mainPane, dashboardController);
-        dashboardController.setCurrentPane(back);
+    public boolean editPlaylist(String title, boolean is_public) {
+        Playlist playlist = model.getLibraryModel().getSelectedPlaylist();
+        if (title.equals(playlist.getName())) {
+            playlist.setIs_public(is_public);
+            controllerPlaylist_ArtistsAllPlaylists back = new controllerPlaylist_ArtistsAllPlaylists(mainPane, dashboardController);
+            dashboardController.setCurrentPane(back);
+            return true;
+        } else {
+            if (facade.checkPlaylist(playlist.getUser_id(), title) != -1) {
+                return false;
+            } else {
+                playlist.setName(title);
+                playlist.setIs_public(is_public);
+                facade.updatePlaylist(playlist);
+                controllerPlaylist_ArtistsAllPlaylists back = new controllerPlaylist_ArtistsAllPlaylists(mainPane, dashboardController);
+                dashboardController.setCurrentPane(back);
+                return true;
+            }
+        }
+
+
     }
 }

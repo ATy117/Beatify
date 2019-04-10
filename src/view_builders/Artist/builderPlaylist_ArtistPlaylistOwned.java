@@ -77,13 +77,14 @@ public class builderPlaylist_ArtistPlaylistOwned extends builderPlaylist<AnchorP
             deleteButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-
+                    popup.hide();
                 }
             });
 
             editButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    popup.hide();
                     controller.editPlaylist(p);
                 }
             });
