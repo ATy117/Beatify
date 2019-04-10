@@ -25,7 +25,29 @@ public class builderSong_ListenerPlaylistOwnedSongs extends builderSong<AnchorPa
     @Override
     public void build() {
         while(listElements.hasNext()) {
+            JFXPopup popup = new JFXPopup();
+            VBox content = new VBox();
+            content.setPrefWidth(150);
+            Button add_to_queueButton = new Button("Add to queue");
+            Button deleteButton = new Button("Delete from Playlist");
+            deleteButton.setMinWidth(content.getPrefWidth());
+            add_to_queueButton.setMinWidth(content.getPrefWidth());
+            content.getChildren().addAll(deleteButton, add_to_queueButton);
+            popup.setPopupContent(content);
 
+            deleteButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+
+                }
+            });
+
+            add_to_queueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+
+                }
+            });
         }
     }
 
