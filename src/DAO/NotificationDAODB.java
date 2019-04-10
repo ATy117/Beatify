@@ -73,12 +73,37 @@ public class NotificationDAODB implements NotificationDAO {
         return false;
     }
 
+
+
     @Override
     public List<Notification> getUnviewedNotifications(int follower_id) {
         String query = "SELECT notification.notif_id, notification.notification, notification.date_created, user.first_name, user.last_name FROM \n" +
                 "notification INNER JOIN user ON notification.user_id = user.user_id\n" +
                 "INNER JOIN notif_mapping ON notif_mapping.notif_id = notification.notif_id\n" +
                 "WHERE notif_mapping.follower_id = ? AND notif_mapping.is_viewed = 0";
+
+        List<Notification> notificationList = new ArrayList<>();
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, follower_id);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()){
+                notificationList.add(toNotif(rs));
+            }
+            statement.close();
+            rs.close();
+            return notificationList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return notificationList;
+    }
+
+    public List<Notification> getAllNotifications(int follower_id) {
+        String query = "SELECT notification.notif_id, notification.notification, notification.date_created, user.first_name, user.last_name FROM \n" +
+                "notification INNER JOIN user ON notification.user_id = user.user_id\n" +
+                "INNER JOIN notif_mapping ON notif_mapping.notif_id = notification.notif_id\n" +
+                "WHERE notif_mapping.follower_id = ?";
 
         List<Notification> notificationList = new ArrayList<>();
         try{

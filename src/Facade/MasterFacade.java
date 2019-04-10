@@ -53,6 +53,10 @@ public class MasterFacade {
 		return PD.getPlaylist(playlist_id);
 	}
 
+	public User viewUser(int user_id){
+		return null;
+	}
+
 
 	// access the DAO to check if existing user, if wala pa, add a new user to DAO then return true, else return false
 	public boolean register(String username, String password, String firstName, String lastName, boolean isArtist, File profilePic) {
@@ -292,8 +296,12 @@ public class MasterFacade {
 		}
 	}
 
-	public List<Notification> getNotifications(int userID){
+	public List<Notification> getUnviewedNotifications(int userID){
 		return ND.getUnviewedNotifications(userID);
+	}
+
+	public List<Notification> getALlNotifications(int userID){
+		return ND.getAllNotifications(userID);
 	}
 
 	public boolean setNotificationAsViewed(int notif_id, int user_id){
