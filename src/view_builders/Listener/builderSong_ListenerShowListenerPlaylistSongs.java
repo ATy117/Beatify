@@ -13,10 +13,10 @@ import view_builders.builderSong;
 import java.util.ArrayList;
 import java.util.List;
 
-public class builderSong_ListenerShowListenerPlaylisySongs extends builderSong<AnchorPane> {
+public class builderSong_ListenerShowListenerPlaylistSongs extends builderSong<AnchorPane> {
     private controllerSong_ListenerShowListenerPlaylistSongs controller;
 
-    public builderSong_ListenerShowListenerPlaylisySongs(controllerSong_ListenerShowListenerPlaylistSongs controller) {
+    public builderSong_ListenerShowListenerPlaylistSongs(controllerSong_ListenerShowListenerPlaylistSongs controller) {
         this.controller = controller;
         this.listElements = controller.getModel().getPeopleModel().getSongs();
         this.listProducts = new ArrayList<>();

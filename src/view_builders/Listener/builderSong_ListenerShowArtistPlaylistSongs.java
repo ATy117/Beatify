@@ -1,8 +1,7 @@
 package view_builders.Listener;
 
 import com.jfoenix.controls.JFXPopup;
-import controller.Listener.controllerAlbum_ListenerFollowedAlbums;
-import controller.Listener.controllerSong_ListenerShowListenerPlaylistSongs;
+import controller.Listener.controllerSong_ListenerShowArtistPlaylistSongs;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -15,9 +14,9 @@ import java.util.List;
 
 public class builderSong_ListenerShowArtistPlaylistSongs extends builderSong<AnchorPane> {
 
-    private controllerSong_ListenerShowListenerPlaylistSongs controller;
+    private controllerSong_ListenerShowArtistPlaylistSongs controller;
 
-    public builderSong_ListenerShowArtistPlaylistSongs(controllerSong_ListenerShowListenerPlaylistSongs controller) {
+    public builderSong_ListenerShowArtistPlaylistSongs(controllerSong_ListenerShowArtistPlaylistSongs controller) {
         this.controller = controller;
         this.listElements = controller.getModel().getPeopleModel().getSongs();
         this.listProducts = new ArrayList<>();
