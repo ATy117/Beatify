@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.TilePane;
 import view.View;
+import view.viewError;
 import view_builders.*;
 import view_builders.Artist.*;
 
@@ -140,6 +141,7 @@ public class viewSearchables_ArtistAllSearchResults extends View {
 
         if (check.equals("")){
             System.out.println("No Input");
+            viewError popUp = new viewError("No Input", searchHeader);
         } else {
             controller.search(query);
         }
