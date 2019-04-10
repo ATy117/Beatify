@@ -210,7 +210,7 @@ public class PlaylistDAODB implements PlaylistDAO {
 
     @Override
     public boolean removeAllPlaylistMapping(int playlist_id) {
-        String query = "DELETE FROM playlist_contents WHERE playlist_contents.playlist_id = " + playlist_id;
+        String query = "DELETE FROM followed_playlist WHERE followed_playlist.playlist_id = " + playlist_id;
 
         try{
             PreparedStatement statement = connection.prepareStatement(query);
