@@ -80,12 +80,12 @@ public class viewLogin extends View {
             String passCheck = password.replaceAll("\\s+", "");
 
             if (userCheck.equals("") || passCheck.equals("")){
-                viewError e = new viewError("Some Fields Are Missing", loginPane);
+                errorPopup = new viewError("Some Fields Are Missing", loginPane);
                 System.out.println("Some Fields Are Missing");
             } else {
                 User user = controller.userLogin(username, password);
                 if (user == null){
-                    viewError e = new viewError("User does not exist", loginPane);
+                    errorPopup = new viewError("User does not exist", loginPane);
                     System.out.println("User does not exist");
                 } else {
                     if (user.isIs_artist()) {

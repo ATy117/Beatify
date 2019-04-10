@@ -29,6 +29,7 @@ public class view_EditAlbum extends View {
     @FXML Label artistLbl;
     @FXML Circle albumCoverCircle;
     @FXML Label addEditLbl;
+    @FXML AnchorPane mainPane;
 
     public view_EditAlbum(AnchorPane mainPane, controller_EditAlbum controller, controllerDashboard dashboardController){
             this.controller = controller;
@@ -69,9 +70,11 @@ public class view_EditAlbum extends View {
 
         if (titleCheck.equals("")){
             System.out.println("Empty Album Name Found");
+            errorPopup = new viewError("Empty Album Name Found", mainPane);
         } else {
             if (!controller.editAlbum(title, cover)){
                 System.out.println("Album Name Already Exists");
+                errorPopup = new viewError("Album Name Already Exists", mainPane);
             }
         }
 
