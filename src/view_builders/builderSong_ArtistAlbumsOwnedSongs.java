@@ -3,6 +3,7 @@ package view_builders;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPopup;
 import controller.Artist.controllerSong_ArtistAlbumsOwnedSongs;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -12,9 +13,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import object.Playlist;
 import object.Song;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class builderSong_ArtistAlbumsOwnedSongs extends builderSong<AnchorPane> {
@@ -68,21 +71,26 @@ public class builderSong_ArtistAlbumsOwnedSongs extends builderSong<AnchorPane> 
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
-            content.setPrefWidth(150);
+
             Button deleteButton = new Button("Delete");
             Button editButton = new Button("Edit");
             Button add_to_playlistButton = new Button ("Add to playlist");
-            deleteButton.setMinWidth(content.getPrefWidth());
-            editButton.setMinWidth(content.getPrefWidth());
-            add_to_playlistButton.setMinWidth(content.getPrefWidth());
-            content.getChildren().addAll(deleteButton, editButton, add_to_playlistButton);
-            popup.setPopupContent(content);
+            Button add_to_queueButton = new Button ("Add to queue");
+
 
             songsIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
                     if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
                         if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY)) {
+                            content.getChildren().clear();
+                            content.setPrefWidth(150);
+                            deleteButton.setMinWidth(content.getPrefWidth());
+                            editButton.setMinWidth(content.getPrefWidth());
+                            add_to_playlistButton.setMinWidth(content.getPrefWidth());
+                            add_to_queueButton.setMinWidth(content.getPrefWidth());
+                            content.getChildren().addAll(deleteButton, editButton, add_to_playlistButton, add_to_queueButton);
+                            popup.setPopupContent(content);
                             popup.show(songsIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
                         }
                     }
@@ -103,6 +111,34 @@ public class builderSong_ArtistAlbumsOwnedSongs extends builderSong<AnchorPane> 
             });
 
             add_to_playlistButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    content.getChildren().clear();
+                    content.setPrefWidth(200);
+                    ArrayList <Button> buttons = new ArrayList<>();
+
+                    Iterator<Playlist> listPlaylistElements = controller.getModel().getLibraryModel().getMyPlaylists();
+
+                    while (listPlaylistElements.hasNext()){
+                        Playlist playlist = listPlaylistElements.next();
+                        buttons.add(new Button (playlist.getName()));
+                        buttons.get(buttons.size() - 1).setPrefWidth(200);
+
+                        buttons.get(buttons.size() - 1).setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent event) {
+
+                            }
+                        });
+
+                    }
+
+                    content.getChildren().addAll(buttons);
+                    popup.setPopupContent(content);
+                }
+            });
+
+            add_to_queueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
 
