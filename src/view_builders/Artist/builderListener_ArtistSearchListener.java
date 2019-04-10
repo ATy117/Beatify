@@ -74,7 +74,13 @@ public class builderListener_ArtistSearchListener extends builderUser<AnchorPane
             albumIndiv.getChildren().add(userPic);
             albumIndiv.getChildren().add(text);
 
-            userPic.setFill(new ImagePattern(new Image(user.getAvatarURL().toURI().toString())));
+            String url = "/resources/useryellowbluedefaultpic.png";
+
+            if (user.getAvatarURL() != null) {
+                url = user.getAvatarURL().toURI().toString();
+            }
+
+            userPic.setFill(new ImagePattern(new Image(url)));
 
             listProducts.add(albumIndiv);
         }
