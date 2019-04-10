@@ -13,4 +13,17 @@ public class controllerUser_ArtistShowListenerProfile extends PaneController {
 		this.model = dashboardController.getModel();
 		view = new viewUser_ArtistShowListenerProfile(   mainPane,this, dashboardController);
 	}
+
+
+	public boolean followPlaylist(int playlist_id){
+		int user_id = model.getProfileModel().getUser().getUser_id();
+		return facade.followPlaylist(user_id, playlist_id);
+	}
+
+	public void goToPlaylistList(int playlist_id) {
+		model.getPeopleModel().setSelectedPlaylist(facade.getPlaylist(playlist_id));
+		model.getPeopleModel().setSongs(facade.getPlaylistSongs(playlist_id));
+		controllerSong_ArtistShowListenerPlaylistSongs c = new controllerSong_ArtistShowListenerPlaylistSongs(dashboardController.getPaneFoundation(), dashboardController);
+		dashboardController.setCurrentPane(c);
+	}
 }

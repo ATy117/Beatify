@@ -46,12 +46,45 @@ public class builderAlbum_ArtistShowArtistsAlbum extends builderAlbum<AnchorPane
             albumIndiv.getChildren().add(albumCover);
             albumIndiv.getChildren().add(text);
 
+            JFXPopup popup = new JFXPopup();
+            VBox content = new VBox();
+            content.setPrefWidth(65);
+            Button followButton = new Button("Follow");
+            followButton.setMinWidth(content.getPrefWidth());
+            content.getChildren().addAll(followButton);
+            popup.setPopupContent(content);
+
+
+            followButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if (controller.followAlbum(album.getAlbum_id())) {
+                        popup.hide();
+                    } else {
+                        System.out.println("Already Following That Album");
+                    }
+                }
+            });
+
             text.setMaxWidth(130.0);
             text.setAlignment(Pos.CENTER);
             text.setWrapText(true);
             text.setTextAlignment(TextAlignment.CENTER);
 
             albumCover.setFill(new ImagePattern(new Image(album.getCover_URL().toURI().toString())));
+
+            albumIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
+                        if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY)) {
+                            popup.show(albumIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                        } else {
+                            controller.goToAlbumList(album.getAlbum_id());
+                        }
+                    }
+                }
+            });
 
             listProducts.add(albumIndiv);
         }
