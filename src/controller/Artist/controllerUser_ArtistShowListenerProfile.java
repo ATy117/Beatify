@@ -13,4 +13,10 @@ public class controllerUser_ArtistShowListenerProfile extends PaneController {
 		this.model = dashboardController.getModel();
 		view = new viewUser_ArtistShowListenerProfile(   mainPane,this, dashboardController);
 	}
+
+
+	public boolean followPlaylist(int playlist_id){
+		int user_id = model.getProfileModel().getUser().getUser_id();
+		return facade.followPlaylist(user_id, playlist_id);
+	}
 }

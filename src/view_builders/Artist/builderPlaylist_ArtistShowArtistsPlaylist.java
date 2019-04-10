@@ -45,6 +45,26 @@ public class builderPlaylist_ArtistShowArtistsPlaylist extends builderPlaylist<A
 
             text.setFont(Font.font("Poppins", 13));
 
+            JFXPopup popup = new JFXPopup();
+            VBox content = new VBox();
+            content.setPrefWidth(65);
+            Button followButton = new Button("Follow");
+            followButton.setMinWidth(content.getPrefWidth());
+            content.getChildren().addAll(followButton);
+            popup.setPopupContent(content);
+
+
+            followButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if (controller.followPlaylist(p.getPlaylist_id())) {
+                        popup.hide();
+                    } else {
+                        System.out.println("Already Following That Playlist");
+                    }
+                }
+            });
+
             albumIndiv.setLeftAnchor(albumCover, 20.0);
             albumIndiv.setTopAnchor(albumCover, 13.0);
             albumIndiv.setTopAnchor(text, 106.0);
@@ -52,6 +72,16 @@ public class builderPlaylist_ArtistShowArtistsPlaylist extends builderPlaylist<A
 
             albumIndiv.getChildren().add(albumCover);
             albumIndiv.getChildren().add(text);
+            albumIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
+                        if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY)) {
+                            popup.show(albumIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                        }
+                    }
+                }
+            });
             listProducts.add(albumIndiv);
 
             text.setMaxWidth(100.0);
