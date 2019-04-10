@@ -13,7 +13,7 @@ import javafx.scene.text.Text;
 import view.View;
 import view_builders.Director;
 import view_builders.builderSong;
-import view_builders.builderSong_ArtistAllSongs;
+import view_builders.Artist.builderSong_ArtistAllSongs;
 
 import java.io.IOException;
 import java.util.ArrayList;

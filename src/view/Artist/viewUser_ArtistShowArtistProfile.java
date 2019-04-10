@@ -2,7 +2,6 @@ package view.Artist;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
-import controller.Artist.controllerSong_ArtistShowListenerPlaylistSongs;
 import controller.Artist.controllerUser_ArtistShowArtistsProfile;
 import controller.controllerDashboard;
 import javafx.fxml.FXML;
@@ -14,6 +13,8 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import view.View;
 import view_builders.*;
+import view_builders.Artist.builderAlbum_ArtistShowArtistsAlbum;
+import view_builders.Artist.builderPlaylist_ArtistShowArtistsPlaylist;
 
 import java.io.IOException;
 

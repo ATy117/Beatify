@@ -2,7 +2,6 @@ package view.Artist;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
-import controller.Artist.controllerSong_ArtistShowArtistPlaylistSongs;
 import controller.Artist.controllerSong_ArtistShowListenerPlaylistSongs;
 import controller.controllerDashboard;
 import javafx.fxml.FXML;
@@ -15,7 +14,7 @@ import object.Playlist;
 import view.View;
 import view_builders.Director;
 import view_builders.builderSong;
-import view_builders.builderSong_ArtistShowListenerPlaylistSongs;
+import view_builders.Artist.builderSong_ArtistShowListenerPlaylistSongs;
 
 import java.io.IOException;
 import java.util.ArrayList;

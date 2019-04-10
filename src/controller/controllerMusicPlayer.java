@@ -3,6 +3,7 @@ package controller;
 import Facade.MasterFacade;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
 import model.ModelCentral;
 import object.Album;
 import object.Song;
@@ -77,7 +78,7 @@ public class controllerMusicPlayer extends Controller {
 		return facade.getImageOfAlbum(album_id);
 	}
 
-	public File getSongFile(Song s) {
+	public Media getSongFile(Song s) {
 		return facade.getSongFile(s.getSong_id());
 	}
 }

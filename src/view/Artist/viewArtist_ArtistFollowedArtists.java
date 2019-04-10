@@ -1,7 +1,5 @@
 package view.Artist;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXListView;
 import controller.Artist.controllerArtist_ArtistFollowedArtists;
 import controller.controllerDashboard;
 import javafx.fxml.FXML;
@@ -12,6 +10,7 @@ import javafx.scene.layout.TilePane;
 import javafx.scene.text.Font;
 import view.View;
 import view_builders.*;
+import view_builders.Artist.builderArtist_ArtistFollowedArtists;
 
 import java.io.IOException;
 
