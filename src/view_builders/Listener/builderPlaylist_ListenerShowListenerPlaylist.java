@@ -91,6 +91,7 @@ public class builderPlaylist_ListenerShowListenerPlaylist extends builderPlaylis
             text.setAlignment(Pos.CENTER);
             text.setWrapText(true);
             text.setTextAlignment(TextAlignment.CENTER);
+
         }
     }
 

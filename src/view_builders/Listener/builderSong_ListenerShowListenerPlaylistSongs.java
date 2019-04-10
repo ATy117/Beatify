@@ -137,6 +137,8 @@ public class builderSong_ListenerShowListenerPlaylistSongs extends builderSong<A
 
                 }
             });
+
+            listProducts.add(songsIndiv);
         }
     }
 

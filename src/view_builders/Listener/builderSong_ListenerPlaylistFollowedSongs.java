@@ -139,6 +139,8 @@ public class builderSong_ListenerPlaylistFollowedSongs extends builderSong<Ancho
                 }
             });
 
+            listProducts.add(songsIndiv);
+
         }
     }
 

@@ -98,6 +98,8 @@ public class builderSong_ListenerPlaylistOwnedSongs extends builderSong<AnchorPa
                     controller.addSongToQueue(song);
                 }
             });
+
+            listProducts.add(songsIndiv);
         }
     }
 
