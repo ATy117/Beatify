@@ -1,0 +1,920 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>App.Main</OriginalElement>
+  <nodes>
+    <node x="1757.0" y="1105.0">DAO.dbConnection</node>
+    <node x="76.0000000000091" y="-1549.9999999999964">controller.Artist.controllerSearchables_ArtistAllSearchResults</node>
+    <node x="6485.75" y="-461.0">view.Artist.viewSong_ArtistShowListenerPlaylistSongs</node>
+    <node x="2775.75" y="-461.0">view.viewLogin</node>
+    <node x="-5666.999999999991" y="-1549.9999999999964">controller.Listener.controllerAlbum_ListenerFollowedAlbums</node>
+    <node x="-2245.9999999999964" y="201.0">view_builders.Listener.builderPlaylist_ListenerPlaylistOwned</node>
+    <node x="6987.75" y="-461.0">view.viewSong_MyQueue</node>
+    <node x="225.75" y="-461.0">view.viewDashboard</node>
+    <node x="-3822.9999999999964" y="201.0">view_builders.builderNotifications_Users</node>
+    <node x="-6793.999999999996" y="201.0">view_builders.Listener.builderListener_ListenerFollowedListeners</node>
+    <node x="740.5" y="1105.0">DAO.NotificationDAO</node>
+    <node x="-2447.499999999991" y="-1837.9999999999964">controller.Controller</node>
+    <node x="-2800.9999999999964" y="201.0">view_builders.Artist.builderPlaylist_ArtistShowListenerPlaylist</node>
+    <node x="-1982.9999999999964" y="201.0">view_builders.Listener.builderPlaylist_ListenerSearchPlaylist</node>
+    <node x="3895.833333333333" y="-870.0">view.View</node>
+    <node x="1995.7499999999998" y="-461.0">view.Listener.viewArtist_ListenerFollowedArtists</node>
+    <node x="2870.0" y="1105.0">App.Main</node>
+    <node x="-7090.249999999996" y="102.0">view_builders.builderUser</node>
+    <node x="-666.9999999999964" y="201.0">view_builders.Listener.builderAlbum_ListenerShowArtistsAlbum</node>
+    <node x="1428.0" y="1184.0">DAO.UserDAODB</node>
+    <node x="200.0" y="1184.0">object.User</node>
+    <node x="-3591.999999999991" y="-1549.9999999999964">controller.controller_EditAlbum</node>
+    <node x="984.75" y="-461.0">view.view_EditPlaylist</node>
+    <node x="-924.9999999999964" y="201.0">view_builders.Listener.builderAlbum_ListenerSearchAlbum</node>
+    <node x="1584.0" y="1105.0">CacheManager.CacheManager</node>
+    <node x="929.0" y="1184.0">DAO.PlaylistDAODB</node>
+    <node x="-1560.999999999991" y="-1549.9999999999964">controller.Artist.controllerNotifs_ArtistNotifications</node>
+    <node x="2582.0" y="1105.0">DAO.SearchDAO</node>
+    <node x="-3781.4999999999964" y="23.0">view_builders.ListBuilder</node>
+    <node x="2735.0" y="1105.0">view_builders.Director</node>
+    <node x="-6298.999999999991" y="-1549.9999999999964">controller.controller_AddAlbum</node>
+    <node x="7853.75" y="-461.0">view.Listener.viewUser_ListenerMyProfile</node>
+    <node x="-6050.999999999996" y="201.0">view_builders.Artist.builderSong_ArtistAlbumsFollowedSongs</node>
+    <node x="4931.75" y="-461.0">view.Artist.viewSong_ArtistAlbumsOwnedSongs</node>
+    <node x="-3794.999999999991" y="-1549.9999999999964">controller.controllerSong_MyQueue</node>
+    <node x="3734.75" y="-461.0">view.Listener.viewPlaylist_ListenerAllPlaylists</node>
+    <node x="2261.0" y="1105.0">model.ModelCentral</node>
+    <node x="-5136.999999999996" y="102.0">view_builders.builderSong</node>
+    <node x="1435.5" y="1105.0">DAO.UserDAO</node>
+    <node x="291.0" y="1184.0">object.Album</node>
+    <node x="3053.75" y="-461.0">view.Artist.viewNotifs_ArtistNotifications</node>
+    <node x="9696.0" y="-1407.0">model.OtherPeopleModel</node>
+    <node x="-4126.999999999996" y="201.0">view_builders.Artist.builderSong_ArtistShowListenerPlaylistSongs</node>
+    <node x="-2130.499999999991" y="-1758.9999999999964">controller.controllerRegister</node>
+    <node x="-2234.999999999991" y="-1549.9999999999964">controller.Listener.controllerPlaylist_ListenerAllPlaylists</node>
+    <node x="-4890.999999999991" y="-1549.9999999999964">controller.Listener.controllerSong_ListenerAllSongs</node>
+    <node x="-236.9999999999909" y="-1549.9999999999964">controller.Listener.controllerSearchables_ListenerAllSearchResults</node>
+    <node x="685.75" y="-461.0">view.view_AddSong</node>
+    <node x="-4334.999999999991" y="-1549.9999999999964">controller.Artist.controllerSong_ArtistAlbumsOwnedSongs</node>
+    <node x="-4707.999999999996" y="201.0">view_builders.Artist.builderSong_ArtistShowArtistAlbumSongs</node>
+    <node x="1926.0" y="1105.0">view.StageManager</node>
+    <node x="529.75" y="-461.0">view.view_AddPlaylist</node>
+    <node x="6207.75" y="-461.0">view.Artist.viewSong_ArtistShowArtistPlaylistSongs</node>
+    <node x="936.5" y="1105.0">DAO.PlaylistDAO</node>
+    <node x="5392.75" y="-461.0">view.Artist.viewSong_ArtistPlaylistsFollowedSongs</node>
+    <node x="-4652.999999999991" y="-1549.9999999999964">controller.Artist.controllerSong_ArtistShowListenerPlaylistSongs</node>
+    <node x="1282.75" y="-461.0">view.Artist.viewAlbum_ArtistAllAlbums</node>
+    <node x="-2460.499999999991" y="-1758.9999999999964">controller.PaneController</node>
+    <node x="-2538.999999999991" y="-1549.9999999999964">controller.Artist.controllerSong_ArtistShowArtistAlbumSongs</node>
+    <node x="-5195.999999999991" y="-1549.9999999999964">controller.Artist.controllerSong_ArtistShowArtistPlaylistSongs</node>
+    <node x="-5837.999999999991" y="-1549.9999999999964">controller.controller_EditSong</node>
+    <node x="2502.75" y="-461.0">view.Listener.viewListener_ListenerFollowedListeners</node>
+    <node x="2242.75" y="-461.0">view.Artist.viewListener_ArtistFollowedListeners</node>
+    <node x="-4349.259677419346" y="-1758.9999999999964">controller.controllerLogin</node>
+    <node x="1498.75" y="-461.0">view.Listener.viewAlbum_ListenerFollowedAlbums</node>
+    <node x="2095.0" y="1105.0">Facade.MasterFacade</node>
+    <node x="-1733.999999999991" y="-1549.9999999999964">controller.controller_AddSong</node>
+    <node x="-7779.999999999996" y="201.0">view_builders.Listener.builderArtist_ListenerFollowedArtists</node>
+    <node x="495.0" y="1105.0">FileUploaderService.FileUploader</node>
+    <node x="-6594.249999999991" y="-1758.9999999999964">controller.controllerDashboard</node>
+    <node x="637.0000000000091" y="-1549.9999999999964">controller.Artist.controllerSong_ArtistAllSongs</node>
+    <node x="10137.0" y="-1407.0">model.SongPlayerModel</node>
+    <node x="-5206.999999999996" y="201.0">view_builders.Artist.builderSong_ArtistPlaylistOwnedSongs</node>
+    <node x="3278.75" y="-461.0">view.Listener.viewNotifs_ListenerNotifications</node>
+    <node x="5194.75" y="-461.0">view.Artist.viewSong_ArtistAllSongs</node>
+    <node x="-2518.9999999999964" y="201.0">view_builders.Listener.builderPlaylist_ListenerPlaylistFollowed</node>
+    <node x="831.75" y="-461.0">view.view_EditAlbum</node>
+    <node x="-3111.999999999991" y="-1549.9999999999964">controller.Artist.controllerListener_ArtistFollowedListeners</node>
+    <node x="95.0" y="1184.0">object.Playlist</node>
+    <node x="9531.0" y="-1407.0">model.NotificationModel</node>
+    <node x="4658.75" y="-461.0">view.Artist.viewSong_ArtistAlbumsFollowedSongs</node>
+    <node x="297.0" y="-382.0">view.Listener.viewListenerDashboard</node>
+    <node x="2897.75" y="-461.0">view.viewMusicPlayer</node>
+    <node x="-2824.999999999991" y="-1549.9999999999964">controller.Artist.controllerSong_ArtistPlaylistOwnedSongs</node>
+    <node x="-1195.9999999999964" y="201.0">view_builders.Listener.builderAlbum_ListenerAlbumFollowed</node>
+    <node x="-3616.9999999999964" y="201.0">view_builders.Listener.builderPlaylist_ListenerShowListenerPlaylist</node>
+    <node x="8065.75" y="-461.0">view.Listener.viewUser_ListenerShowArtistProfile</node>
+    <node x="3965.75" y="-461.0">view.viewRegister</node>
+    <node x="7362.75" y="-461.0">view.Artist.viewUser_ArtistShowArtistProfile</node>
+    <node x="0.0" y="1184.0">object.Song</node>
+    <node x="1138.75" y="-461.0">view.view_EditSong</node>
+    <node x="1099.0" y="1184.0">DAO.AlbumDAODB</node>
+    <node x="-1722.9999999999964" y="201.0">view_builders.Listener.builderPlaylist_ListenerShowArtistPlaylist</node>
+    <node x="2426.0" y="1105.0">object.Notification</node>
+    <node x="420.0" y="1184.0">FileUploaderService.MP3Uploader</node>
+    <node x="9393.0" y="-1407.0">model.LibraryModel</node>
+    <node x="-7264.999999999996" y="201.0">view_builders.Listener.builderArtist_ListenerSearchArtist</node>
+    <node x="-4044.999999999991" y="-1549.9999999999964">controller.Artist.controllerPlaylist_ArtistsAllPlaylists</node>
+    <node x="-4934.999999999996" y="201.0">view_builders.Artist.builderSong_ArtistSearchSong</node>
+    <node x="134.0" y="1105.0">object.Searchable</node>
+    <node x="-7022.999999999996" y="201.0">view_builders.Artist.builderArtist_ArtistSearchArtist</node>
+    <node x="6776.75" y="-461.0">view.Listener.viewSong_ListenerAllSongs</node>
+    <node x="3516.75" y="-461.0">view.Artist.viewPlaylist_ArtistAllPlaylists</node>
+    <node x="-5764.999999999996" y="201.0">view_builders.Artist.builderSong_ArtistAlbumsOwnedSongs</node>
+    <node x="-5376.999999999991" y="-1549.9999999999964">controller.controller_EditPlaylist</node>
+    <node x="-7519.999999999996" y="201.0">view_builders.Artist.builderListener_ArtistSearchListener</node>
+    <node x="10000.0" y="-1407.0">model.SearchModel</node>
+    <node x="7601.75" y="-461.0">view.Artist.viewUser_ArtistShowListenerProfile</node>
+    <node x="5666.75" y="-461.0">view.Artist.viewSong_ArtistPlaylistsOwnedSongs</node>
+    <node x="-2313.499999999991" y="-1758.9999999999964">controller.controllerMusicPlayer</node>
+    <node x="-532.9999999999909" y="-1549.9999999999964">controller.Artist.controllerSong_ArtistPlaylistFollowedSongs</node>
+    <node x="-3074.9999999999964" y="201.0">view_builders.Artist.builderPlaylist_ArtistShowArtistsPlaylist</node>
+    <node x="1761.75" y="-461.0">view.Artist.viewArtist_ArtistFollowedArtists</node>
+    <node x="733.0" y="1184.0">DAO.NotificationDAODB</node>
+    <node x="-6719.999999999991" y="-1549.9999999999964">controller.Listener.controllerListenerDashboard</node>
+    <node x="-3772.4999999999964" y="-56.0">view_builders.Builder</node>
+    <node x="4099.75" y="-461.0">view.Artist.viewSearchables_ArtistAllSearchResults</node>
+    <node x="376.0000000000091" y="-1549.9999999999964">controller.Artist.controllerArtist_ArtistFollowedArtists</node>
+    <node x="-3803.9999999999964" y="102.0">view_builders.builderNotification</node>
+    <node x="-1037.999999999991" y="-1549.9999999999964">controller.Listener.controllerArtists_ListenerFollowedArtists</node>
+    <node x="1268.0" y="1184.0">DAO.SongDAODB</node>
+    <node x="1162.000000000009" y="-1549.9999999999964">controller.Listener.controllerUser_ListenerMyProfile</node>
+    <node x="-971.7821428571397" y="102.0">view_builders.builderAlbum</node>
+    <node x="-1976.999999999991" y="-1549.9999999999964">controller.Artist.controllerAlbum_ArtistAllAlbums</node>
+    <node x="-6239.999999999996" y="201.0">view_builders.builderSong_MyQueue</node>
+    <node x="-6507.999999999996" y="201.0">view_builders.Listener.builderListener_ListenerSearchListener</node>
+    <node x="-1308.999999999991" y="-1549.9999999999964">controller.Artist.controllerUser_ArtistShowArtistsProfile</node>
+    <node x="1106.5" y="1105.0">DAO.AlbumDAO</node>
+    <node x="9805.0" y="-1496.0">model.Model</node>
+    <node x="-4417.999999999996" y="201.0">view_builders.Artist.builderSong_ArtistShowArtistPlaylistSongs</node>
+    <node x="-6502.999999999991" y="-1549.9999999999964">controller.Artist.controllerArtistDashboard</node>
+    <node x="1401.00000000001" y="-1549.9999999999964">controller.controller_AddPlaylist</node>
+    <node x="374.75" y="-461.0">view.view_AddAlbum</node>
+    <node x="-3411.999999999991" y="-1549.9999999999964">controller.Artist.controllerSong_ArtistAlbumsFollowedSongs</node>
+    <node x="5930.75" y="-461.0">view.Artist.viewSong_ArtistShowArtistAlbumSongs</node>
+    <node x="1275.5" y="1105.0">DAO.SongDAO</node>
+    <node x="-3321.9999999999964" y="201.0">view_builders.Artist.builderPlaylist_ArtistSearchPlaylist</node>
+    <node x="4372.75" y="-461.0">view.Listener.viewSearchables_ListenerAllSearchResults</node>
+    <node x="9864.0" y="-1407.0">model.ProfileModel</node>
+    <node x="120.0" y="-382.0">view.Artist.viewArtistDashboard</node>
+    <node x="-2592.2499999999964" y="102.0">view_builders.builderPlaylist</node>
+    <node x="8317.75" y="-461.0">view.Listener.viewUser_ListenerShowListenerProfile</node>
+    <node x="-5488.999999999996" y="201.0">view_builders.Artist.builderSong_ArtistPlaylistFollowedSongs</node>
+    <node x="7163.75" y="-461.0">view.Artist.viewUser_ArtistMyProfile</node>
+    <node x="-6116.999999999991" y="-1549.9999999999964">controller.Artist.controllerUser_ArtistShowListenerProfile</node>
+    <node x="-758.9999999999909" y="-1549.9999999999964">controller.Artist.controllerUser_ArtistMyProfile</node>
+    <node x="862.0000000000091" y="-1549.9999999999964">controller.Listener.controllerListener_ListenerFollowedListeners</node>
+    <node x="560.0" y="1184.0">FileUploaderService.PhotoUploader</node>
+    <node x="-1440.9999999999964" y="201.0">view_builders.Artist.builderAlbum_ArtistSearchAlbum</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="view_builders.Artist.builderSong_ArtistSearchSong" target="view_builders.builderSong">
+      <point x="0.0" y="-14.5" />
+      <point x="-4831.499999999996" y="181.0" />
+      <point x="-5068.555555555552" y="181.0" />
+      <point x="12.444444444444343" y="14.5" />
+    </edge>
+    <edge source="controller.controllerMusicPlayer" target="controller.Controller">
+      <point x="0.0" y="-14.5" />
+      <point x="-2231.999999999991" y="-1778.9999999999964" />
+      <point x="-2376.799999999991" y="-1778.9999999999964" />
+      <point x="20.199999999999818" y="14.5" />
+    </edge>
+    <edge source="controller.Artist.controllerPlaylist_ArtistsAllPlaylists" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-3929.999999999991" y="-1619.9999999999964" />
+      <point x="-2421.5806451612816" y="-1619.9999999999964" />
+      <point x="-24.580645161290704" y="14.5" />
+    </edge>
+    <edge source="view_builders.Listener.builderPlaylist_ListenerPlaylistFollowed" target="view_builders.builderPlaylist">
+      <point x="0.0" y="-14.5" />
+      <point x="-2392.4999999999964" y="181.0" />
+      <point x="-2523.6249999999964" y="181.0" />
+      <point x="7.625" y="14.5" />
+    </edge>
+    <edge source="view_builders.Artist.builderPlaylist_ArtistSearchPlaylist" target="view_builders.builderPlaylist">
+      <point x="0.0" y="-14.5" />
+      <point x="-3208.4999999999964" y="161.0" />
+      <point x="-2569.3749999999964" y="161.0" />
+      <point x="-38.125" y="14.5" />
+    </edge>
+    <edge source="controller.Artist.controllerUser_ArtistMyProfile" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-655.9999999999909" y="-1629.9999999999964" />
+      <point x="-2368.322580645152" y="-1629.9999999999964" />
+      <point x="28.677419354839003" y="14.5" />
+    </edge>
+    <edge source="view_builders.Artist.builderSong_ArtistShowArtistPlaylistSongs" target="view_builders.builderSong">
+      <point x="0.0" y="-14.5" />
+      <point x="-4282.499999999996" y="161.0" />
+      <point x="-5043.666666666663" y="161.0" />
+      <point x="37.33333333333303" y="14.5" />
+    </edge>
+    <edge source="controller.Artist.controllerSearchables_ArtistAllSearchResults" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="216.0000000000091" y="-1659.9999999999964" />
+      <point x="-2356.032258064507" y="-1659.9999999999964" />
+      <point x="40.9677419354839" y="14.5" />
+    </edge>
+    <edge source="view.Listener.viewListenerDashboard" target="view.viewDashboard">
+      <point x="0.0" y="-14.5" />
+      <point x="382.0" y="-407.0" />
+      <point x="322.5" y="-407.0" />
+      <point x="32.25" y="14.5" />
+    </edge>
+    <edge source="controller.controllerRegister" target="controller.Controller">
+      <point x="0.0" y="-14.5" />
+      <point x="-2059.999999999991" y="-1788.9999999999964" />
+      <point x="-2356.5999999999904" y="-1788.9999999999964" />
+      <point x="40.40000000000009" y="14.5" />
+    </edge>
+    <edge source="view_builders.Artist.builderAlbum_ArtistSearchAlbum" target="view_builders.builderAlbum">
+      <point x="0.0" y="-14.5" />
+      <point x="-1328.4999999999964" y="171.0" />
+      <point x="-956.6571428571397" y="171.0" />
+      <point x="-45.375" y="14.5" />
+    </edge>
+    <edge source="view.Artist.viewSong_ArtistPlaylistsOwnedSongs" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="5788.75" y="-561.0" />
+      <point x="3945.9078947368425" y="-561.0" />
+      <point x="14.407894736842536" y="14.5" />
+    </edge>
+    <edge source="DAO.AlbumDAODB" target="DAO.AlbumDAO">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="view.viewSong_MyQueue" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="7065.75" y="-611.0" />
+      <point x="3955.5131578947367" y="-611.0" />
+      <point x="24.01315789473665" y="14.5" />
+    </edge>
+    <edge source="object.Album" target="object.Searchable">
+      <point x="0.0" y="-14.5" />
+      <point x="333.0" y="1154.0" />
+      <point x="225.875" y="1154.0" />
+      <point x="39.375" y="14.5" />
+    </edge>
+    <edge source="controller.Artist.controllerUser_ArtistShowListenerProfile" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-5987.499999999991" y="-1699.9999999999964" />
+      <point x="-2454.354838709668" y="-1699.9999999999964" />
+      <point x="-57.3548387096771" y="14.5" />
+    </edge>
+    <edge source="model.ProfileModel" target="model.Model">
+      <point x="0.0" y="-14.5" />
+      <point x="9922.0" y="-1427.0" />
+      <point x="9852.833333333332" y="-1427.0" />
+      <point x="6.83333333333303" y="14.5" />
+    </edge>
+    <edge source="view.Listener.viewUser_ListenerShowListenerProfile" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="8440.25" y="-671.0" />
+      <point x="3967.039473684211" y="-671.0" />
+      <point x="35.53947368421086" y="14.5" />
+    </edge>
+    <edge source="view.Listener.viewPlaylist_ListenerAllPlaylists" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="3840.25" y="-481.0" />
+      <point x="3930.539473684211" y="-481.0" />
+      <point x="-0.9605263157891386" y="14.5" />
+    </edge>
+    <edge source="view.Listener.viewSong_ListenerAllSongs" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="6872.25" y="-601.0" />
+      <point x="3953.5921052631575" y="-601.0" />
+      <point x="22.092105263157464" y="14.5" />
+    </edge>
+    <edge source="view.Artist.viewUser_ArtistShowListenerProfile" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="7717.75" y="-641.0" />
+      <point x="3961.2763157894733" y="-641.0" />
+      <point x="29.7763157894733" y="14.5" />
+    </edge>
+    <edge source="view_builders.Artist.builderPlaylist_ArtistShowListenerPlaylist" target="view_builders.builderPlaylist">
+      <point x="0.0" y="-14.5" />
+      <point x="-2669.9999999999964" y="181.0" />
+      <point x="-2538.8749999999964" y="181.0" />
+      <point x="-7.625" y="14.5" />
+    </edge>
+    <edge source="view_builders.Listener.builderPlaylist_ListenerPlaylistOwned" target="view_builders.builderPlaylist">
+      <point x="0.0" y="-14.5" />
+      <point x="-2124.4999999999964" y="171.0" />
+      <point x="-2508.3749999999964" y="171.0" />
+      <point x="22.875" y="14.5" />
+    </edge>
+    <edge source="view_builders.Listener.builderAlbum_ListenerShowArtistsAlbum" target="view_builders.builderAlbum">
+      <point x="0.0" y="-14.5" />
+      <point x="-534.4999999999964" y="171.0" />
+      <point x="-865.9071428571397" y="171.0" />
+      <point x="45.375" y="14.5" />
+    </edge>
+    <edge source="DAO.PlaylistDAODB" target="DAO.PlaylistDAO">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="view.Artist.viewPlaylist_ArtistAllPlaylists" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="3615.75" y="-491.0" />
+      <point x="3928.6184210526317" y="-491.0" />
+      <point x="-2.8815789473683253" y="14.5" />
+    </edge>
+    <edge source="view.Artist.viewSong_ArtistShowArtistAlbumSongs" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="6059.25" y="-571.0" />
+      <point x="3947.828947368421" y="-571.0" />
+      <point x="16.328947368420813" y="14.5" />
+    </edge>
+    <edge source="view_builders.Listener.builderArtist_ListenerFollowedArtists" target="view_builders.builderUser">
+      <point x="0.0" y="-14.5" />
+      <point x="-7659.999999999996" y="161.0" />
+      <point x="-7081.249999999996" y="161.0" />
+      <point x="-45.0" y="14.5" />
+    </edge>
+    <edge source="view_builders.builderSong" target="view_builders.ListBuilder">
+      <point x="0.0" y="-14.5" />
+      <point x="-5080.999999999996" y="82.0" />
+      <point x="-3750.5999999999967" y="82.0" />
+      <point x="-20.59999999999991" y="14.5" />
+    </edge>
+    <edge source="view_builders.Listener.builderAlbum_ListenerAlbumFollowed" target="view_builders.builderAlbum">
+      <point x="0.0" y="-14.5" />
+      <point x="-1070.4999999999964" y="181.0" />
+      <point x="-926.4071428571397" y="181.0" />
+      <point x="-15.125" y="14.5" />
+    </edge>
+    <edge source="controller.PaneController" target="controller.Controller">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="DAO.NotificationDAODB" target="DAO.NotificationDAO">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="view_builders.builderNotifications_Users" target="view_builders.builderNotification">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="controller.controller_AddPlaylist" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="1482.500000000009" y="-1709.9999999999964" />
+      <point x="-2335.5483870967655" y="-1709.9999999999964" />
+      <point x="61.451612903225396" y="14.5" />
+    </edge>
+    <edge source="view_builders.Artist.builderSong_ArtistPlaylistFollowedSongs" target="view_builders.builderSong">
+      <point x="0.0" y="-14.5" />
+      <point x="-5357.999999999996" y="181.0" />
+      <point x="-5093.444444444441" y="181.0" />
+      <point x="-12.444444444444343" y="14.5" />
+    </edge>
+    <edge source="view_builders.Listener.builderListener_ListenerSearchListener" target="view_builders.builderUser">
+      <point x="0.0" y="-14.5" />
+      <point x="-6383.999999999996" y="161.0" />
+      <point x="-6991.249999999996" y="161.0" />
+      <point x="45.0" y="14.5" />
+    </edge>
+    <edge source="view.view_AddPlaylist" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="597.75" y="-641.0" />
+      <point x="3899.8026315789475" y="-641.0" />
+      <point x="-31.697368421052488" y="14.5" />
+    </edge>
+    <edge source="view_builders.Listener.builderPlaylist_ListenerShowListenerPlaylist" target="view_builders.builderPlaylist">
+      <point x="0.0" y="-14.5" />
+      <point x="-3479.4999999999964" y="151.0" />
+      <point x="-2584.6249999999964" y="151.0" />
+      <point x="-53.375" y="14.5" />
+    </edge>
+    <edge source="view_builders.builderUser" target="view_builders.ListBuilder">
+      <point x="0.0" y="-14.5" />
+      <point x="-7036.249999999996" y="72.0" />
+      <point x="-3771.199999999996" y="72.0" />
+      <point x="-41.19999999999982" y="14.5" />
+    </edge>
+    <edge source="object.User" target="object.Searchable">
+      <point x="0.0" y="-14.5" />
+      <point x="235.5" y="1164.0" />
+      <point x="199.625" y="1164.0" />
+      <point x="13.125" y="14.5" />
+    </edge>
+    <edge source="FileUploaderService.MP3Uploader" target="FileUploaderService.FileUploader">
+      <point x="0.0" y="-14.5" />
+      <point x="480.0" y="1159.0" />
+      <point x="523.5" y="1159.0" />
+      <point x="-28.5" y="14.5" />
+    </edge>
+    <edge source="object.Song" target="object.Searchable">
+      <point x="0.0" y="-14.5" />
+      <point x="37.5" y="1154.0" />
+      <point x="147.125" y="1154.0" />
+      <point x="-39.375" y="14.5" />
+    </edge>
+    <edge source="controller.Listener.controllerPlaylist_ListenerAllPlaylists" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-2115.999999999991" y="-1569.9999999999964" />
+      <point x="-2392.9032258064426" y="-1569.9999999999964" />
+      <point x="4.096774193548299" y="14.5" />
+    </edge>
+    <edge source="controller.controllerLogin" target="controller.Controller">
+      <point x="0.0" y="-14.5" />
+      <point x="-4284.759677419346" y="-1778.9999999999964" />
+      <point x="-2417.1999999999907" y="-1778.9999999999964" />
+      <point x="-20.199999999999818" y="14.5" />
+    </edge>
+    <edge source="controller.controller_EditAlbum" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-3511.999999999991" y="-1599.9999999999964" />
+      <point x="-2413.387096774184" y="-1599.9999999999964" />
+      <point x="-16.387096774193196" y="14.5" />
+    </edge>
+    <edge source="view.Listener.viewListener_ListenerFollowedListeners" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="2629.25" y="-541.0" />
+      <point x="3919.0131578947367" y="-541.0" />
+      <point x="-12.48684210526335" y="14.5" />
+    </edge>
+    <edge source="view.Listener.viewSearchables_ListenerAllSearchResults" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="4505.75" y="-511.0" />
+      <point x="3936.3026315789475" y="-511.0" />
+      <point x="4.802631578947512" y="14.5" />
+    </edge>
+    <edge source="controller.Artist.controllerNotifs_ArtistNotifications" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-1444.999999999991" y="-1599.9999999999964" />
+      <point x="-2380.6129032257977" y="-1599.9999999999964" />
+      <point x="16.387096774193196" y="14.5" />
+    </edge>
+    <edge source="view.viewLogin" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="2826.75" y="-531.0" />
+      <point x="3920.934210526316" y="-531.0" />
+      <point x="-10.565789473684163" y="14.5" />
+    </edge>
+    <edge source="controller.Artist.controllerListener_ArtistFollowedListeners" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-2978.499999999991" y="-1579.9999999999964" />
+      <point x="-2405.1935483870875" y="-1579.9999999999964" />
+      <point x="-8.193548387096598" y="14.5" />
+    </edge>
+    <edge source="controller.Artist.controllerSong_ArtistAlbumsOwnedSongs" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-4199.999999999991" y="-1629.9999999999964" />
+      <point x="-2425.67741935483" y="-1629.9999999999964" />
+      <point x="-28.677419354839003" y="14.5" />
+    </edge>
+    <edge source="view.Artist.viewUser_ArtistShowArtistProfile" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="7472.25" y="-631.0" />
+      <point x="3959.355263157895" y="-631.0" />
+      <point x="27.855263157895024" y="14.5" />
+    </edge>
+    <edge source="controller.controller_EditPlaylist" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-5296.499999999991" y="-1669.9999999999964" />
+      <point x="-2442.064516129023" y="-1669.9999999999964" />
+      <point x="-45.0645161290322" y="14.5" />
+    </edge>
+    <edge source="view.Artist.viewSong_ArtistShowListenerPlaylistSongs" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="6621.25" y="-591.0" />
+      <point x="3951.671052631579" y="-591.0" />
+      <point x="20.171052631579187" y="14.5" />
+    </edge>
+    <edge source="model.LibraryModel" target="model.Model">
+      <point x="0.0" y="-14.5" />
+      <point x="9452.0" y="-1447.0" />
+      <point x="9811.833333333332" y="-1447.0" />
+      <point x="-34.16666666666697" y="14.5" />
+    </edge>
+    <edge source="view.Artist.viewArtist_ArtistFollowedArtists" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="1868.75" y="-571.0" />
+      <point x="3913.25" y="-571.0" />
+      <point x="-18.25" y="14.5" />
+    </edge>
+    <edge source="view_builders.Artist.builderSong_ArtistAlbumsOwnedSongs" target="view_builders.builderSong">
+      <point x="0.0" y="-14.5" />
+      <point x="-5636.999999999996" y="171.0" />
+      <point x="-5105.888888888885" y="171.0" />
+      <point x="-24.888888888888687" y="14.5" />
+    </edge>
+    <edge source="model.OtherPeopleModel" target="model.Model">
+      <point x="0.0" y="-14.5" />
+      <point x="9770.0" y="-1427.0" />
+      <point x="9839.166666666668" y="-1427.0" />
+      <point x="-6.83333333333303" y="14.5" />
+    </edge>
+    <edge source="view.Artist.viewSearchables_ArtistAllSearchResults" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="4226.25" y="-501.0" />
+      <point x="3934.3815789473683" y="-501.0" />
+      <point x="2.8815789473683253" y="14.5" />
+    </edge>
+    <edge source="controller.Listener.controllerArtists_ListenerFollowedArtists" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-908.4999999999909" y="-1619.9999999999964" />
+      <point x="-2372.4193548387" y="-1619.9999999999964" />
+      <point x="24.580645161290704" y="14.5" />
+    </edge>
+    <edge source="controller.controller_EditSong" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-5762.499999999991" y="-1689.9999999999964" />
+      <point x="-2450.2580645161197" y="-1689.9999999999964" />
+      <point x="-53.2580645161288" y="14.5" />
+    </edge>
+    <edge source="controller.controllerDashboard" target="controller.Controller">
+      <point x="0.0" y="-14.5" />
+      <point x="-6516.249999999991" y="-1788.9999999999964" />
+      <point x="-2437.3999999999905" y="-1788.9999999999964" />
+      <point x="-40.40000000000009" y="14.5" />
+    </edge>
+    <edge source="view_builders.Listener.builderListener_ListenerFollowedListeners" target="view_builders.builderUser">
+      <point x="0.0" y="-14.5" />
+      <point x="-6660.999999999996" y="171.0" />
+      <point x="-7009.249999999996" y="171.0" />
+      <point x="27.0" y="14.5" />
+    </edge>
+    <edge source="view.Listener.viewUser_ListenerMyProfile" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="7949.75" y="-651.0" />
+      <point x="3963.1973684210525" y="-651.0" />
+      <point x="31.697368421052488" y="14.5" />
+    </edge>
+    <edge source="model.NotificationModel" target="model.Model">
+      <point x="0.0" y="-14.5" />
+      <point x="9603.5" y="-1437.0" />
+      <point x="9825.5" y="-1437.0" />
+      <point x="-20.5" y="14.5" />
+    </edge>
+    <edge source="FileUploaderService.PhotoUploader" target="FileUploaderService.FileUploader">
+      <point x="0.0" y="-14.5" />
+      <point x="624.0" y="1159.0" />
+      <point x="580.5" y="1159.0" />
+      <point x="28.5" y="14.5" />
+    </edge>
+    <edge source="controller.Artist.controllerSong_ArtistShowArtistAlbumSongs" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="controller.Listener.controllerListener_ListenerFollowedListeners" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="1002.0000000000091" y="-1689.9999999999964" />
+      <point x="-2343.741935483862" y="-1689.9999999999964" />
+      <point x="53.2580645161288" y="14.5" />
+    </edge>
+    <edge source="view.viewMusicPlayer" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="2965.75" y="-521.0" />
+      <point x="3922.855263157895" y="-521.0" />
+      <point x="-8.644736842104976" y="14.5" />
+    </edge>
+    <edge source="view_builders.Artist.builderSong_ArtistShowListenerPlaylistSongs" target="view_builders.builderSong">
+      <point x="0.0" y="-14.5" />
+      <point x="-3984.9999999999964" y="151.0" />
+      <point x="-5031.222222222219" y="151.0" />
+      <point x="49.777777777777374" y="14.5" />
+    </edge>
+    <edge source="view_builders.Artist.builderSong_ArtistShowArtistAlbumSongs" target="view_builders.builderSong">
+      <point x="0.0" y="-14.5" />
+      <point x="-4572.999999999996" y="171.0" />
+      <point x="-5056.111111111108" y="171.0" />
+      <point x="24.888888888888687" y="14.5" />
+    </edge>
+    <edge source="view.Artist.viewAlbum_ArtistAllAlbums" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="1380.75" y="-591.0" />
+      <point x="3909.4078947368425" y="-591.0" />
+      <point x="-22.092105263157464" y="14.5" />
+    </edge>
+    <edge source="view.viewDashboard" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="290.25" y="-661.0" />
+      <point x="3895.960526315789" y="-661.0" />
+      <point x="-35.53947368421086" y="14.5" />
+    </edge>
+    <edge source="view.Artist.viewArtistDashboard" target="view.viewDashboard">
+      <point x="0.0" y="-14.5" />
+      <point x="198.5" y="-407.0" />
+      <point x="258.0" y="-407.0" />
+      <point x="-32.25" y="14.5" />
+    </edge>
+    <edge source="view.Artist.viewSong_ArtistShowArtistPlaylistSongs" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="6336.75" y="-581.0" />
+      <point x="3949.75" y="-581.0" />
+      <point x="18.25" y="14.5" />
+    </edge>
+    <edge source="view_builders.Listener.builderArtist_ListenerSearchArtist" target="view_builders.builderUser">
+      <point x="0.0" y="-14.5" />
+      <point x="-7153.999999999996" y="181.0" />
+      <point x="-7045.249999999996" y="181.0" />
+      <point x="-9.0" y="14.5" />
+    </edge>
+    <edge source="controller.Artist.controllerArtistDashboard" target="controller.controllerDashboard">
+      <point x="0.0" y="-14.5" />
+      <point x="-6410.999999999991" y="-1569.9999999999964" />
+      <point x="-6477.249999999991" y="-1569.9999999999964" />
+      <point x="39.0" y="14.5" />
+    </edge>
+    <edge source="controller.Listener.controllerListenerDashboard" target="controller.controllerDashboard">
+      <point x="0.0" y="-14.5" />
+      <point x="-6621.499999999991" y="-1569.9999999999964" />
+      <point x="-6555.249999999991" y="-1569.9999999999964" />
+      <point x="-39.0" y="14.5" />
+    </edge>
+    <edge source="view_builders.ListBuilder" target="view_builders.Builder">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="controller.controller_AddAlbum" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-6217.999999999991" y="-1709.9999999999964" />
+      <point x="-2458.4516129032163" y="-1709.9999999999964" />
+      <point x="-61.451612903225396" y="14.5" />
+    </edge>
+    <edge source="view.Artist.viewNotifs_ArtistNotifications" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="3156.25" y="-511.0" />
+      <point x="3924.7763157894733" y="-511.0" />
+      <point x="-6.723684210526699" y="14.5" />
+    </edge>
+    <edge source="controller.Listener.controllerSearchables_ListenerAllSearchResults" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-90.4999999999909" y="-1649.9999999999964" />
+      <point x="-2360.1290322580553" y="-1649.9999999999964" />
+      <point x="36.8709677419356" y="14.5" />
+    </edge>
+    <edge source="view.view_EditSong" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="1200.75" y="-601.0" />
+      <point x="3907.4868421052633" y="-601.0" />
+      <point x="-24.01315789473665" y="14.5" />
+    </edge>
+    <edge source="controller.Artist.controllerSong_ArtistPlaylistFollowedSongs" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-394.9999999999909" y="-1639.9999999999964" />
+      <point x="-2364.2258064516036" y="-1639.9999999999964" />
+      <point x="32.7741935483873" y="14.5" />
+    </edge>
+    <edge source="DAO.SongDAODB" target="DAO.SongDAO">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="DAO.UserDAODB" target="DAO.UserDAO">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="view.Listener.viewUser_ListenerShowArtistProfile" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="8181.75" y="-661.0" />
+      <point x="3965.1184210526317" y="-661.0" />
+      <point x="33.618421052631675" y="14.5" />
+    </edge>
+    <edge source="controller.Artist.controllerUser_ArtistShowArtistsProfile" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-1183.499999999991" y="-1609.9999999999964" />
+      <point x="-2376.5161290322494" y="-1609.9999999999964" />
+      <point x="20.483870967741495" y="14.5" />
+    </edge>
+    <edge source="controller.Artist.controllerArtist_ArtistFollowedArtists" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="496.5000000000091" y="-1669.9999999999964" />
+      <point x="-2351.9354838709587" y="-1669.9999999999964" />
+      <point x="45.0645161290322" y="14.5" />
+    </edge>
+    <edge source="view.Listener.viewArtist_ListenerFollowedArtists" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="2109.25" y="-561.0" />
+      <point x="3915.171052631579" y="-561.0" />
+      <point x="-16.328947368420813" y="14.5" />
+    </edge>
+    <edge source="view_builders.builderSong_MyQueue" target="view_builders.builderSong">
+      <point x="0.0" y="-14.5" />
+      <point x="-6155.499999999996" y="151.0" />
+      <point x="-5130.777777777774" y="151.0" />
+      <point x="-49.777777777777374" y="14.5" />
+    </edge>
+    <edge source="controller.Listener.controllerAlbum_ListenerFollowedAlbums" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-5531.999999999991" y="-1679.9999999999964" />
+      <point x="-2446.1612903225714" y="-1679.9999999999964" />
+      <point x="-49.1612903225805" y="14.5" />
+    </edge>
+    <edge source="view.Artist.viewSong_ArtistPlaylistsFollowedSongs" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="5519.75" y="-551.0" />
+      <point x="3943.9868421052633" y="-551.0" />
+      <point x="12.48684210526335" y="14.5" />
+    </edge>
+    <edge source="controller.controllerSong_MyQueue" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-3703.499999999991" y="-1609.9999999999964" />
+      <point x="-2417.4838709677324" y="-1609.9999999999964" />
+      <point x="-20.483870967741495" y="14.5" />
+    </edge>
+    <edge source="view.view_AddAlbum" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="442.25" y="-651.0" />
+      <point x="3897.8815789473683" y="-651.0" />
+      <point x="-33.618421052631675" y="14.5" />
+    </edge>
+    <edge source="view.view_EditAlbum" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="898.25" y="-621.0" />
+      <point x="3903.644736842105" y="-621.0" />
+      <point x="-27.855263157895024" y="14.5" />
+    </edge>
+    <edge source="controller.Listener.controllerSong_ListenerAllSongs" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-4781.999999999991" y="-1649.9999999999964" />
+      <point x="-2433.8709677419265" y="-1649.9999999999964" />
+      <point x="-36.8709677419356" y="14.5" />
+    </edge>
+    <edge source="view_builders.Artist.builderSong_ArtistPlaylistOwnedSongs" target="view_builders.builderSong">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="view.Artist.viewSong_ArtistAllSongs" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="5283.75" y="-541.0" />
+      <point x="3942.065789473684" y="-541.0" />
+      <point x="10.565789473684163" y="14.5" />
+    </edge>
+    <edge source="view_builders.Listener.builderAlbum_ListenerSearchAlbum" target="view_builders.builderAlbum">
+      <point x="0.0" y="-14.5" />
+      <point x="-805.9999999999964" y="181.0" />
+      <point x="-896.1571428571397" y="181.0" />
+      <point x="15.125" y="14.5" />
+    </edge>
+    <edge source="model.SearchModel" target="model.Model">
+      <point x="0.0" y="-14.5" />
+      <point x="10058.5" y="-1437.0" />
+      <point x="9866.5" y="-1437.0" />
+      <point x="20.5" y="14.5" />
+    </edge>
+    <edge source="view.Artist.viewListener_ArtistFollowedListeners" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="2362.75" y="-551.0" />
+      <point x="3917.0921052631575" y="-551.0" />
+      <point x="-14.407894736842536" y="14.5" />
+    </edge>
+    <edge source="view_builders.Listener.builderPlaylist_ListenerShowArtistPlaylist" target="view_builders.builderPlaylist">
+      <point x="0.0" y="-14.5" />
+      <point x="-1591.9999999999964" y="151.0" />
+      <point x="-2477.8749999999964" y="151.0" />
+      <point x="53.375" y="14.5" />
+    </edge>
+    <edge source="controller.controller_AddSong" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-1657.499999999991" y="-1589.9999999999964" />
+      <point x="-2384.709677419346" y="-1589.9999999999964" />
+      <point x="12.290322580644897" y="14.5" />
+    </edge>
+    <edge source="view.Artist.viewSong_ArtistAlbumsOwnedSongs" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="5053.25" y="-531.0" />
+      <point x="3940.144736842105" y="-531.0" />
+      <point x="8.644736842104976" y="14.5" />
+    </edge>
+    <edge source="view_builders.Artist.builderPlaylist_ArtistShowArtistsPlaylist" target="view_builders.builderPlaylist">
+      <point x="0.0" y="-14.5" />
+      <point x="-2947.9999999999964" y="171.0" />
+      <point x="-2554.1249999999964" y="171.0" />
+      <point x="-22.875" y="14.5" />
+    </edge>
+    <edge source="view_builders.builderNotification" target="view_builders.ListBuilder">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="controller.Listener.controllerUser_ListenerMyProfile" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="1271.500000000009" y="-1699.9999999999964" />
+      <point x="-2339.645161290314" y="-1699.9999999999964" />
+      <point x="57.3548387096771" y="14.5" />
+    </edge>
+    <edge source="view.Artist.viewSong_ArtistAlbumsFollowedSongs" target="view.View">
+      <point x="4.547473508864641E-13" y="-14.5" />
+      <point x="4785.25" y="-521.0" />
+      <point x="3938.2236842105267" y="-521.0" />
+      <point x="6.723684210526699" y="14.5" />
+    </edge>
+    <edge source="view_builders.Artist.builderListener_ArtistSearchListener" target="view_builders.builderUser">
+      <point x="0.0" y="-14.5" />
+      <point x="-7402.499999999996" y="171.0" />
+      <point x="-7063.249999999996" y="171.0" />
+      <point x="-27.0" y="14.5" />
+    </edge>
+    <edge source="view.Listener.viewAlbum_ListenerFollowedAlbums" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="1620.25" y="-581.0" />
+      <point x="3911.328947368421" y="-581.0" />
+      <point x="-20.171052631579187" y="14.5" />
+    </edge>
+    <edge source="view_builders.builderAlbum" target="view_builders.ListBuilder">
+      <point x="0.0" y="-14.5" />
+      <point x="-911.2821428571397" y="72.0" />
+      <point x="-3688.7999999999965" y="72.0" />
+      <point x="41.19999999999982" y="14.5" />
+    </edge>
+    <edge source="model.SongPlayerModel" target="model.Model">
+      <point x="0.0" y="-14.5" />
+      <point x="10207.5" y="-1447.0" />
+      <point x="9880.166666666668" y="-1447.0" />
+      <point x="34.16666666666697" y="14.5" />
+    </edge>
+    <edge source="controller.Artist.controllerSong_ArtistShowArtistPlaylistSongs" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-5053.499999999991" y="-1659.9999999999964" />
+      <point x="-2437.967741935475" y="-1659.9999999999964" />
+      <point x="-40.9677419354839" y="14.5" />
+    </edge>
+    <edge source="view.view_EditPlaylist" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="1051.75" y="-611.0" />
+      <point x="3905.565789473684" y="-611.0" />
+      <point x="-25.934210526315837" y="14.5" />
+    </edge>
+    <edge source="view.view_AddSong" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="748.75" y="-631.0" />
+      <point x="3901.7236842105267" y="-631.0" />
+      <point x="-29.7763157894733" y="14.5" />
+    </edge>
+    <edge source="view.Artist.viewUser_ArtistMyProfile" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="7253.25" y="-621.0" />
+      <point x="3957.434210526316" y="-621.0" />
+      <point x="25.934210526315837" y="14.5" />
+    </edge>
+    <edge source="view_builders.Listener.builderPlaylist_ListenerSearchPlaylist" target="view_builders.builderPlaylist">
+      <point x="0.0" y="-14.5" />
+      <point x="-1862.9999999999964" y="161.0" />
+      <point x="-2493.1249999999964" y="161.0" />
+      <point x="38.125" y="14.5" />
+    </edge>
+    <edge source="controller.Artist.controllerAlbum_ArtistAllAlbums" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-1865.499999999991" y="-1579.9999999999964" />
+      <point x="-2388.8064516128943" y="-1579.9999999999964" />
+      <point x="8.193548387096598" y="14.5" />
+    </edge>
+    <edge source="view_builders.Artist.builderArtist_ArtistSearchArtist" target="view_builders.builderUser">
+      <point x="0.0" y="-14.5" />
+      <point x="-6918.499999999996" y="181.0" />
+      <point x="-7027.249999999996" y="181.0" />
+      <point x="9.0" y="14.5" />
+    </edge>
+    <edge source="object.Playlist" target="object.Searchable">
+      <point x="0.0" y="-14.5" />
+      <point x="137.5" y="1164.0" />
+      <point x="173.375" y="1164.0" />
+      <point x="-13.125" y="14.5" />
+    </edge>
+    <edge source="controller.Artist.controllerSong_ArtistAllSongs" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="739.5000000000091" y="-1679.9999999999964" />
+      <point x="-2347.8387096774104" y="-1679.9999999999964" />
+      <point x="49.1612903225805" y="14.5" />
+    </edge>
+    <edge source="view_builders.builderPlaylist" target="view_builders.ListBuilder">
+      <point x="0.0" y="-14.5" />
+      <point x="-2531.2499999999964" y="82.0" />
+      <point x="-3709.399999999997" y="82.0" />
+      <point x="20.59999999999991" y="14.5" />
+    </edge>
+    <edge source="controller.Artist.controllerSong_ArtistShowListenerPlaylistSongs" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-4503.999999999991" y="-1639.9999999999964" />
+      <point x="-2429.774193548378" y="-1639.9999999999964" />
+      <point x="-32.7741935483873" y="14.5" />
+    </edge>
+    <edge source="controller.Artist.controllerSong_ArtistAlbumsFollowedSongs" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-3271.999999999991" y="-1589.9999999999964" />
+      <point x="-2409.290322580636" y="-1589.9999999999964" />
+      <point x="-12.290322580644897" y="14.5" />
+    </edge>
+    <edge source="controller.Artist.controllerSong_ArtistPlaylistOwnedSongs" target="controller.PaneController">
+      <point x="0.0" y="-14.5" />
+      <point x="-2691.999999999991" y="-1569.9999999999964" />
+      <point x="-2401.096774193539" y="-1569.9999999999964" />
+      <point x="-4.096774193548299" y="14.5" />
+    </edge>
+    <edge source="view_builders.Artist.builderSong_ArtistAlbumsFollowedSongs" target="view_builders.builderSong">
+      <point x="0.0" y="-14.5" />
+      <point x="-5917.999999999996" y="161.0" />
+      <point x="-5118.333333333329" y="161.0" />
+      <point x="-37.33333333333303" y="14.5" />
+    </edge>
+    <edge source="view.viewRegister" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="4022.75" y="-491.0" />
+      <point x="3932.460526315789" y="-491.0" />
+      <point x="0.9605263157891386" y="14.5" />
+    </edge>
+    <edge source="view.Listener.viewNotifs_ListenerNotifications" target="view.View">
+      <point x="0.0" y="-14.5" />
+      <point x="3387.75" y="-501.0" />
+      <point x="3926.6973684210525" y="-501.0" />
+      <point x="-4.802631578947512" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.3000000000000003" x="669.0192307692307" y="-357.6153846153847" />
+  <SelectedNodes>
+    <node>view.Listener.viewListenerDashboard</node>
+    <node>view.Artist.viewArtistDashboard</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
