@@ -296,8 +296,12 @@ public class MasterFacade {
 		}
 	}
 
-	public List<Notification> getNotifications(int userID){
+	public List<Notification> getUnviewedNotifications(int userID){
 		return ND.getUnviewedNotifications(userID);
+	}
+
+	public List<Notification> getALlNotifications(int userID){
+		return ND.getAllNotifications(userID);
 	}
 
 	public boolean setNotificationAsViewed(int notif_id, int user_id){
