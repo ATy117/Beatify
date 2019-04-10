@@ -19,7 +19,7 @@ public class builderAlbum_ListenerShowArtistsAlbum extends builderAlbum<AnchorPa
 
     public builderAlbum_ListenerShowArtistsAlbum(controllerUser_ListenerShowArtistsProfile controller) {
         this.controller = controller;
-        this.listElements = controller.getModel().getLibraryModel().getFollowedAlbums();
+        this.listElements = controller.getModel().getPeopleModel().getAlbums();
         this.listProducts = new ArrayList<>();
     }
 

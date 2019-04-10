@@ -19,7 +19,7 @@ public class builderAlbum_ListenerSearchAlbum extends builderAlbum<AnchorPane> {
 
     public builderAlbum_ListenerSearchAlbum(controllerSearchables_ListenerAllSearchResults controller) {
         this.controller = controller;
-        this.listElements = controller.getModel().getLibraryModel().getFollowedAlbums();
+        this.listElements = controller.getModel().getSearchModel().getAlbumResults();
         this.listProducts = new ArrayList<>();
     }
 
