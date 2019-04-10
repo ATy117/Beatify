@@ -23,10 +23,12 @@ public class AlbumDAODB implements AlbumDAO{
         String date = dateUploadedTemp.toString();
         int artistIdTemp = album.getArtist_id();
         FileInputStream coverStream = null;
-        try {
-            coverStream = new FileInputStream(album.getCover_URL());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        if(album.getCover_URL()!=null) {
+            try {
+                coverStream = new FileInputStream(album.getCover_URL());
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
         }
 
         String query = "INSERT INTO album VALUES(NULL,?,?,?,?)";
@@ -70,10 +72,12 @@ public class AlbumDAODB implements AlbumDAO{
         String date = dateUploadedTemp.toString();
         int artistIdTemp = album.getArtist_id();
         FileInputStream coverStream = null;
-        try {
-            coverStream = new FileInputStream(album.getCover_URL());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        if(album.getCover_URL()!=null) {
+            try {
+                coverStream = new FileInputStream(album.getCover_URL());
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
         }
 
         String query = "UPDATE album SET " +
@@ -264,13 +268,17 @@ public class AlbumDAODB implements AlbumDAO{
     }
 
     private File toFile(ResultSet rs) throws SQLException, IOException {
-        File file = new File(System.getProperty("user.home") + "/documents/Beatify/PictureCache/" + rs.getString("album.name")+"_cover.png");
-        OutputStream outputStream = new FileOutputStream(file);
-        InputStream inputStream = rs.getBinaryStream("album.album_cover");
-        byte[] buffer = new byte[4096];
-        while (inputStream.read(buffer) > 0){
-            outputStream.write(buffer);
+        if(rs.getBinaryStream("album.album_cover")!=null) {
+            File file = new File(System.getProperty("user.home") + "/documents/Beatify/PictureCache/" + rs.getString("album.name") + "_cover.png");
+            OutputStream outputStream = new FileOutputStream(file);
+            InputStream inputStream = rs.getBinaryStream("album.album_cover");
+            byte[] buffer = new byte[4096];
+            while (inputStream.read(buffer) > 0) {
+                outputStream.write(buffer);
+            }
+            return file;
+        }else{
+            return null;
         }
-        return file;
     }
 }
