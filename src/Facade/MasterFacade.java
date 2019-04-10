@@ -3,6 +3,7 @@ package Facade;
 import CacheManager.CacheManager;
 import DAO.*;
 import javafx.scene.image.Image;
+import javafx.scene.media.Media;
 import model.*;
 import object.*;
 
@@ -322,7 +323,9 @@ public class MasterFacade {
 		return pic;
 	}
 
-	public File getSongFile(int song_id) {
-		return SD.getSongFile(song_id);
+	public Media getSongFile(int song_id) {
+
+		File file = SD.getSongFile(song_id);
+		return new Media(file.toURI().toString());
 	}
 }
