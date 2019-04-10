@@ -300,7 +300,7 @@ public class MasterFacade {
 		return ND.getUnviewedNotifications(userID);
 	}
 
-	public List<Notification> getALlNotifications(int userID){
+	public List<Notification> getAllNotifications(int userID){
 		return ND.getAllNotifications(userID);
 	}
 

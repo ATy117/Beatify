@@ -3,7 +3,6 @@ package controller.Artist;
 import controller.PaneController;
 import controller.controllerDashboard;
 import javafx.scene.layout.AnchorPane;
-import view.Artist.viewListener_ArtistFollowedListeners;
 import view.Artist.viewNotifs_ArtistNotifications;
 
 public class controllerNotifs_ArtistNotifications extends PaneController {
@@ -12,6 +11,7 @@ public class controllerNotifs_ArtistNotifications extends PaneController {
         super(mainPane, dashboardController);
         this.model = dashboardController.getModel();
         this.model.getProfileModel().setFollowedListeners(facade.getFollowedListeners(this.model.getProfileModel().getUser().getUser_id()));
+        this.model.getNotificationModel().setNotifications(facade.getAllNotifications(this.model.getProfileModel().getUser().getUser_id()));
         view = new viewNotifs_ArtistNotifications(mainPane, this, dashboardController);
     }
 }
