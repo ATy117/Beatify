@@ -27,6 +27,7 @@ public class view_AddAlbum extends View {
     @FXML JFXTextField albumNameTextField;
     @FXML Label artistLbl;
     @FXML Circle albumCoverCircle;
+    @FXML AnchorPane mainPane;
 
     public view_AddAlbum(AnchorPane mainPane, controller_AddAlbum controller, controllerDashboard dashboardController){
         this.controller = controller;
@@ -73,9 +74,12 @@ public class view_AddAlbum extends View {
 
         if (check.equals("")){
             System.out.println("Enter Album Name");
+            viewError e = new viewError("Enter Album Name", mainPane);
         } else {
-            if (!controller.uploadSong(albumName, cover))
+            if (!controller.uploadSong(albumName, cover)) {
                 System.out.println("Album Not Created");
+                viewError e = new viewError("Album Not Created", mainPane);
+            }
         }
     }
 }
