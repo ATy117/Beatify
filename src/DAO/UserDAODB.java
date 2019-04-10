@@ -295,7 +295,7 @@ public class UserDAODB implements UserDAO{
 
     @Override
     public List<User> searchArtists(String keyword, int user_id) {
-        String query = "SELECT * FROM user WHERE user.user_id != ? AND user.is_artist = 1 AND  user.first_name LIKE ? OR user.last_name LIKE ?";
+        String query = "SELECT * FROM user WHERE user.user_id != ? AND user.is_artist = 1 AND (user.first_name LIKE ? OR user.last_name LIKE ?)";
         List<User> userList = new ArrayList<>();
 
         try{
@@ -320,7 +320,7 @@ public class UserDAODB implements UserDAO{
 
     @Override
     public List<User> searchListeners(String keyword, int user_id) {
-        String query = "SELECT * FROM user WHERE user.user_id != ? AND user.is_artist = 0 AND  user.first_name LIKE ? OR user.last_name LIKE ?";
+        String query = "SELECT * FROM user WHERE user.user_id != ? AND user.is_artist = 0 AND (user.first_name LIKE ? OR user.last_name LIKE ?)";
         List<User> userList = new ArrayList<>();
 
         try{
