@@ -318,15 +318,16 @@ public class MasterFacade {
 	}
 
 	public Image getImageOfAlbum(int album_id) {
-		Image pic;
 
-		if (album_id == -1) {
-			pic = new Image("/resources/Logo.png");
+		String url = "/resources/albumCover.png";
+
+		Album selected = AD.getAlbum(album_id);
+
+		if (selected.getCover_URL() != null) {
+			url = selected.getCover_URL().toURI().toString();
 		}
-		else {
-			Album selected = AD.getAlbum(album_id);
-			pic = new Image(selected.getCover_URL().toURI().toString());
-		}
+
+		Image pic = new Image(url);
 
 		return pic;
 	}

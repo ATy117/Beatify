@@ -23,11 +23,11 @@ public class controllerMusicPlayer extends Controller {
 	}
 
 	public Image getImageFromAlbum(int album_id) {
-		return new Image("");
+		return facade.getImageOfAlbum(album_id);
 	}
 
 	public Album getAlbumOfSong(int album_id) {
-		return new Album();
+		return facade.getAlbum(album_id);
 	}
 
 	public boolean playPrevSong(){

@@ -219,8 +219,8 @@ public class viewMusicPlayer extends View {
 			artistText.setText("by " + this.model.getPlayerModel().getCurrentSong().getArtist_name());
 			genreText.setText(this.model.getPlayerModel().getCurrentSong().getGenre());
 
-			// Image albpic = controller.getImageFromAlbum(this.model.getPlayerModel().getCurrentSong().getAlbum_id());
-			// songPic.setFill(new ImagePattern(albpic));
+			Image albpic = controller.getImageFromAlbum(this.model.getPlayerModel().getCurrentSong().getAlbum_id());
+			songPic.setFill(new ImagePattern(albpic));
 
 			Album album = controller.getAlbumOfSong(this.model.getPlayerModel().getCurrentSong().getAlbum_id());
 
