@@ -111,13 +111,18 @@ public class builderSong_ArtistAllSongs extends builderSong<AnchorPane> {
 
                     while (listPlaylistElements.hasNext()){
                         Playlist playlist = listPlaylistElements.next();
-                        buttons.add(new Button (playlist.getName()));
-                        buttons.get(buttons.size() - 1).setPrefWidth(200);
+                        Button b = new Button (playlist.getName());
+                        buttons.add(b);
+                        b.setPrefWidth(200);
 
-                        buttons.get(buttons.size() - 1).setOnAction(new EventHandler<ActionEvent>() {
+                        b.setOnAction(new EventHandler<ActionEvent>() {
                             @Override
                             public void handle(ActionEvent event) {
-
+                                if (controller.addSongToPlaylist(song.getSong_id(), playlist.getPlaylist_id())) {
+                                    popup.hide();
+                                } else {
+                                    System.out.println("Song Not Added To Playlist");
+                                }
                             }
                         });
 

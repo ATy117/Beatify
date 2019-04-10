@@ -15,6 +15,10 @@ public class controllerSong_ArtistAllSongs extends PaneController {
         view = new viewSong_ArtistAllSongs(mainPane, this, dashboardController);
     }
 
+    public boolean addSongToPlaylist (int song_id, int playlist_id){
+        return facade.addSongToPlaylist(song_id, playlist_id);
+    }
+
 	public void addSongToQueue(Song song) {
 		this.model.getPlayerModel().addSongToQueue(song);
 	}
