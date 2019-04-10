@@ -17,6 +17,17 @@ public class LibraryModel extends Model {
     private List<Song> songContents = new ArrayList<>();
     private Album selectedAlbum;
     private Playlist selectedPlaylist;
+    private Song selectedSong;
+
+    public Song getSelectedSong() {
+        return selectedSong;
+    }
+
+    public void setSelectedSong(Song selectedSong) {
+        this.selectedSong = selectedSong;
+    }
+
+
 
     public Album getSelectedAlbum() {
         return selectedAlbum;

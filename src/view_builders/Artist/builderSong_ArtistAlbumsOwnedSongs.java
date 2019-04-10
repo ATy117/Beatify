@@ -115,6 +115,7 @@ public class builderSong_ArtistAlbumsOwnedSongs extends builderSong<AnchorPane> 
             editButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    controller.editSong(song);
                 }
             });
 

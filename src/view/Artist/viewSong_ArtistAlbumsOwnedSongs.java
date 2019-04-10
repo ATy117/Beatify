@@ -65,6 +65,7 @@ public class viewSong_ArtistAlbumsOwnedSongs extends View {
         setSongs();
         sortSongListView();
     }
+
     private void initHeader () {
         //INITIALIZES THE HEADER//
         String ALBUMNAME = selectedAlbum.getName();
@@ -75,7 +76,14 @@ public class viewSong_ArtistAlbumsOwnedSongs extends View {
         JFXButton uploadSongBtn = new JFXButton("+ upload song");
         Circle albumArt = new Circle();
         albumArt.setRadius(30);
-        Image image = new Image(selectedAlbum.getCover_URL().toURI().toString());
+
+        String url = "/resources/albumCover.png";
+
+        if (selectedAlbum.getCover_URL() != null) {
+            url = selectedAlbum.getCover_URL().toURI().toString();
+        }
+
+        Image image = new Image(url);
         albumArt.setFill(new ImagePattern(image));
         headerLabel.setFont(Font.font("Comfortaa", 18));
         subheaderLabel.setFont(Font.font("Comfortaa",12));

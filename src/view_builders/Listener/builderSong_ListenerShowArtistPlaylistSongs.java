@@ -2,7 +2,7 @@ package view_builders.Listener;
 
 import com.jfoenix.controls.JFXPopup;
 import controller.Listener.controllerAlbum_ListenerFollowedAlbums;
-import controller.Listener.controllerSong_ListenerPlaylistOwnedSongs;
+import controller.Listener.controllerSong_ListenerShowListenerPlaylistSongs;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -13,12 +13,13 @@ import view_builders.builderSong;
 import java.util.ArrayList;
 import java.util.List;
 
-public class builderSong_ListenerPlaylistOwnedSongs extends builderSong<AnchorPane> {
-    private controllerSong_ListenerPlaylistOwnedSongs controller;
+public class builderSong_ListenerShowArtistPlaylistSongs extends builderSong<AnchorPane> {
 
-    public builderSong_ListenerPlaylistOwnedSongs(controllerSong_ListenerPlaylistOwnedSongs controller) {
+    private controllerSong_ListenerShowListenerPlaylistSongs controller;
+
+    public builderSong_ListenerShowArtistPlaylistSongs(controllerSong_ListenerShowListenerPlaylistSongs controller) {
         this.controller = controller;
-        this.listElements = controller.getModel().getLibraryModel().getSongContents();
+        this.listElements = controller.getModel().getPeopleModel().getSongs();
         this.listProducts = new ArrayList<>();
     }
 
@@ -29,20 +30,29 @@ public class builderSong_ListenerPlaylistOwnedSongs extends builderSong<AnchorPa
             VBox content = new VBox();
             content.setPrefWidth(150);
             Button add_to_queueButton = new Button("Add to queue");
-            Button deleteButton = new Button("Delete from Playlist");
-            deleteButton.setMinWidth(content.getPrefWidth());
+            Button add_to_playlistButton = new Button ("Add to playlist");
+            Button likeButton = new Button ("Like");
             add_to_queueButton.setMinWidth(content.getPrefWidth());
-            content.getChildren().addAll(deleteButton, add_to_queueButton);
+            add_to_playlistButton.setMinWidth(content.getPrefWidth());
+            likeButton.setMinWidth(content.getPrefHeight());
+            content.getChildren().addAll(add_to_queueButton, add_to_playlistButton);
             popup.setPopupContent(content);
 
-            deleteButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            add_to_queueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
 
                 }
             });
 
-            add_to_queueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            add_to_playlistButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+
+                }
+            });
+
+            likeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
 

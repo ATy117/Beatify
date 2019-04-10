@@ -5,6 +5,7 @@ import controller.controllerDashboard;
 import controller.controller_AddAlbum;
 import controller.controller_AddPlaylist;
 import javafx.scene.layout.AnchorPane;
+import object.Playlist;
 import view.Artist.viewPlaylist_ArtistAllPlaylists;
 
 public class controllerPlaylist_ArtistsAllPlaylists extends PaneController {
@@ -39,5 +40,9 @@ public class controllerPlaylist_ArtistsAllPlaylists extends PaneController {
     public void unfollowPlaylist(int playlist_id){
         facade.unfollowPlaylist(model.getProfileModel().getUser().getUser_id(), playlist_id);
         model.getLibraryModel().setFollowedPlaylists(facade.getFollowedPlaylists(this.model.getProfileModel().getUser().getUser_id()));
+    }
+
+    public void editPlaylist(Playlist p) {
+        this.model.getLibraryModel().setSelectedPlaylist(p);
     }
 }

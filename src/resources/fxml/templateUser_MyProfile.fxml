@@ -18,8 +18,8 @@
       <Circle fill="#fab4a76b" layoutX="236.0" layoutY="386.0" radius="31.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="#fab4a76b" layoutX="172.0" layoutY="402.0" radius="17.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="#fab4a76b" layoutX="127.0" layoutY="446.0" radius="27.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fill="#fab4a76b" layoutX="393.0" layoutY="398.0" radius="19.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fill="#fab4a76b" layoutX="491.0" layoutY="290.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="362.0" layoutY="377.0" radius="19.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#fab4a76b" layoutX="402.0" layoutY="329.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="#fab4a76b" layoutX="500.0" layoutY="63.0" radius="14.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="#fab4a76b" layoutX="50.0" layoutY="405.0" radius="47.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fx:id="userPic" fill="#4097aa" layoutX="110.0" layoutY="272.0" radius="85.0" stroke="TRANSPARENT" strokeType="INSIDE" />
@@ -53,28 +53,6 @@
             <Font name="Comfortaa Regular" size="14.0" />
          </font>
       </JFXButton>
-      <Circle fill="#fab2a5" layoutX="349.0" layoutY="349.0" radius="41.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fill="#fab2a5" layoutX="447.0" layoutY="349.0" radius="41.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Label fx:id="followersNumber" layoutX="323.0" layoutY="321.0" text="200" textFill="#2f4159">
-         <font>
-            <Font name="Comfortaa Bold" size="30.0" />
-         </font>
-      </Label>
-      <Label fx:id="followingNumber" layoutX="421.0" layoutY="321.0" text="200" textFill="#2f4159">
-         <font>
-            <Font name="Comfortaa Bold" size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="317.0" layoutY="353.0" text="Followers" textFill="#2f4159">
-         <font>
-            <Font name="Poppins Regular" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="415.0" layoutY="353.0" text="Following" textFill="#2f4159">
-         <font>
-            <Font name="Poppins Regular" size="14.0" />
-         </font>
-      </Label>
       <Circle fill="#fab4a76b" layoutX="236.0" layoutY="82.0" radius="16.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="#fab4a76b" layoutX="427.0" layoutY="145.0" radius="16.0" stroke="TRANSPARENT" strokeType="INSIDE" />
    </children>

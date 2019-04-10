@@ -34,7 +34,7 @@ public class builderListener_ArtistSearchListener extends builderUser<AnchorPane
             User user = listElements.next();
             AnchorPane albumIndiv = new AnchorPane();
             Circle userPic = new Circle(45);
-            Label text = new Label(user.getUsername());
+            Label text = new Label(user.getFirst_name() + " " + user.getLast_name());
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
@@ -74,7 +74,13 @@ public class builderListener_ArtistSearchListener extends builderUser<AnchorPane
             albumIndiv.getChildren().add(userPic);
             albumIndiv.getChildren().add(text);
 
-            userPic.setFill(new ImagePattern(new Image(user.getAvatarURL().toURI().toString())));
+            String url = "/resources/useryellowbluedefaultpic.png";
+
+            if (user.getAvatarURL() != null) {
+                url = user.getAvatarURL().toURI().toString();
+            }
+
+            userPic.setFill(new ImagePattern(new Image(url)));
 
             listProducts.add(albumIndiv);
         }

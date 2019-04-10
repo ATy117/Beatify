@@ -28,7 +28,6 @@ public class viewUser_ArtistShowListenerProfile extends View {
     @FXML Label userName;
     @FXML Label followerNum;
     @FXML Label followingNum;
-    @FXML JFXButton followBtn;
     @FXML JFXListView profileListView;
 
     Label userPlaylistLbl;

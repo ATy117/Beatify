@@ -9,9 +9,11 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.TilePane;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import object.User;
@@ -27,6 +29,7 @@ public class viewUser_ArtistMyProfile extends View {
     @FXML JFXTextField lastNameField;
     @FXML JFXTextField usernameField;
     @FXML JFXButton editBtn;
+    @FXML Circle userPic;
     @FXML Label followingNumber;
     @FXML Label followersNumber;
 
@@ -63,6 +66,13 @@ public class viewUser_ArtistMyProfile extends View {
         lastNameField.setText(controller.getModel().getProfileModel().getUser().getLast_name());
         usernameField.setText(controller.getModel().getProfileModel().getUser().getUsername());
 
+        String url = "/resources/useryellowbluedefaultpic.png";
+
+        if (this.model.getProfileModel().getUser().getAvatarURL() != null) {
+            url = this.model.getProfileModel().getUser().getAvatarURL().toURI().toString();
+        }
+
+        userPic.setFill(new ImagePattern(new Image(url)));
     }
 
     public void editDetails(){

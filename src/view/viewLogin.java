@@ -2,6 +2,7 @@ package view;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXPopup;
 import com.jfoenix.controls.JFXTextField;
 import controller.*;
 import controller.Artist.controllerArtistDashboard;
@@ -9,9 +10,14 @@ import controller.Listener.controllerListenerDashboard;
 import javafx.animation.Animation;
 import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import object.User;
@@ -25,6 +31,7 @@ public class viewLogin extends View {
     public JFXPasswordField passwordField;
     public JFXTextField usernameField;
     public JFXButton registerBtn;
+    @FXML AnchorPane loginPane;
 
     public viewLogin (Stage primaryStage, controllerLogin login) {
         this.primaryStage = primaryStage;
@@ -73,6 +80,7 @@ public class viewLogin extends View {
             String passCheck = password.replaceAll("\\s+", "");
 
             if (userCheck.equals("") || passCheck.equals("")){
+                viewError e = new viewError("Some Fields Are Missing", loginPane);
                 System.out.println("Some Fields Are Missing");
             } else {
                 User user = controller.userLogin(username, password);
@@ -100,4 +108,6 @@ public class viewLogin extends View {
             Controller register = new controllerRegister(primaryStage);
         }
     }
+
+
 }

@@ -68,9 +68,6 @@ public class view_AddAlbum extends View {
         String albumName = albumNameTextField.getText();
         String check = albumName.replaceAll("\\s+", "");
 
-        if (cover == null) {
-            cover = new File("src/resources/albumCover.png");
-        }
 
         if (check.equals("")){
             System.out.println("Enter Album Name");
