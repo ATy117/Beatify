@@ -80,11 +80,15 @@ public class view_AddSong extends View {
 
         if (check.equals("") || gCheck.equals("")){
             System.out.println("Some Fields Are Missing");
+            viewError e = new viewError("Some Fields Are Missing", mainPane);
         } else if (songFile == null) {
             System.out.println("No File Uploaded");
+            viewError e = new viewError("No File Uploaded", mainPane);
         } else {
-            if (!controller.addSong(songName, genre, songFile))
+            if (!controller.addSong(songName, genre, songFile)) {
                 System.out.println("Song not added");
+                viewError e = new viewError("Song not added", mainPane);
+            }
         }
 
     }

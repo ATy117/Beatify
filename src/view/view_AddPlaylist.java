@@ -31,6 +31,7 @@ public class view_AddPlaylist extends View {
     @FXML JFXRadioButton publicRadio;
     @FXML Circle playlistCoverCircle;
     @FXML ToggleGroup status;
+    @FXML AnchorPane mainPane;
 
     private Image privateImg, publicImg;
 
@@ -84,9 +85,12 @@ public class view_AddPlaylist extends View {
 
         if (check.equals("")){
             System.out.println("Enter Playlist Name");
+            viewError e = new viewError("Enter Playlist Name", mainPane);
         } else {
-            if (!controller.uploadPlaylist(name, isPublic))
+            if (!controller.uploadPlaylist(name, isPublic)) {
                 System.out.println("Playlist Not Created");
+                viewError e = new viewError("Playlist Not Created", mainPane);
+            }
         }
     }
 }

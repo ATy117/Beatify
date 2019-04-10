@@ -121,26 +121,18 @@ public class SongDAODB implements SongDAO {
         LocalDate dateUploadedTemp = song.getDate_uploaded();
         String dateTemp = dateUploadedTemp.toString();
         int artistIDTemp = song.getArtist__id();
-        FileInputStream songFileStream = null;
-        try {
-            songFileStream = new FileInputStream(song.getSong_URL());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
 
         String query = "UPDATE song SET " +
                         "song.title = ?, " +
                         "song.genre = ?, " +
                         "song.date_uploaded = ?, " +
-                        "song.artist_id = ?, " +
-                        "song.file = ? WHERE song.song_id = " + songID;
+                        "song.artist_id = ? WHERE song.song_id = " + songID;
         try{
             PreparedStatement statement = this.connection.prepareStatement(query);
             statement.setString(1, titleTemp);
             statement.setString(2, genreTemp);
             statement.setString(3, dateTemp);
             statement.setInt(4, artistIDTemp);
-            statement.setBinaryStream(5, songFileStream);
             statement.executeUpdate();
             statement.close();
             return true;
