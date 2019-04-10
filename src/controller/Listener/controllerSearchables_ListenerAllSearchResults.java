@@ -3,6 +3,7 @@ package controller.Listener;
 import controller.PaneController;
 import controller.controllerDashboard;
 import javafx.scene.layout.AnchorPane;
+import object.Song;
 import view.Listener.viewSearchables_ListenerAllSearchResults;
 
 public class controllerSearchables_ListenerAllSearchResults extends PaneController {
@@ -34,5 +35,17 @@ public class controllerSearchables_ListenerAllSearchResults extends PaneControll
     public boolean followUser(int followed_id){
         int user_id = model.getProfileModel().getUser().getUser_id();
         return facade.followUser(user_id, followed_id);
+    }
+
+    public void playSong(Song song) {
+        this.model.getPlayerModel().playSingleSong(song);
+    }
+
+    public boolean addSongToPlaylist (int song_id, int playlist_id){
+        return facade.addSongToPlaylist(song_id, playlist_id);
+    }
+
+    public void addSongToQueue(Song song) {
+        this.model.getPlayerModel().addSongToQueue(song);
     }
 }
