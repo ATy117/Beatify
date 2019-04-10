@@ -17,6 +17,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import object.Song;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,10 +27,7 @@ public class view_EditSong extends View {
     public controller_EditSong controller;
     private File songFile = null;
 
-
-    private File songFile = null;
-    @FXML
-    JFXComboBox songGenreCombo;
+    @FXML JFXComboBox songGenreCombo;
     @FXML JFXTextField songTitleTextField;
     @FXML Label artistLbl;
     @FXML Label addEditLbl;
@@ -38,9 +36,12 @@ public class view_EditSong extends View {
     @FXML Circle songCoverCircle;
     @FXML AnchorPane mainPane;
 
+    private Song currentSong;
+
     public view_EditSong(AnchorPane mainPane, controller_EditSong controller, controllerDashboard dashboardController){
         this.controller = controller;
         this.model = dashboardController.getModel();
+        this.currentSong = model.getLibraryModel().getSelectedSong();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/templateAddEditSong.fxml"));
         loader.setController(this);
 
@@ -57,10 +58,10 @@ public class view_EditSong extends View {
         songGenreCombo.getItems().addAll("Acoustic", "Ballad", "Classical", "Country", "Folk", "Jazz", "Pop", "Rap", "Reggae", "Religious", "Rock");
         addEditLbl.setText("Edit Song");
         mainPane.getChildren().remove(uploadSongBtn);
-        mainPane.getChildren().remove(songTitleTextField);
-        artistLbl.setText(controller.getModel().getLibraryModel().getSelectedSong().getArtist_name());
-        songTitleTextField.setText(controller.getModel().getLibraryModel().getSelectedSong().getSong_name());
-        songGenreCombo.setValue(controller.getModel().getLibraryModel().getSelectedSong().getGenre());
+        mainPane.getChildren().remove(songURLField);
+        artistLbl.setText(currentSong.getArtist_name());
+        songTitleTextField.setText(currentSong.getSong_name());
+        songGenreCombo.setValue(currentSong.getGenre());
 
     }
 
@@ -70,7 +71,23 @@ public class view_EditSong extends View {
     }
 
     public void doneButton() {
-        controller.editSong();
+        String title = songTitleTextField.getText();
+        String titleCheck = title.replaceAll("\\s+", "");
+
+        String genre = (String) songGenreCombo.getValue();
+        String genreCheck = genre.replaceAll("\\s+", "");
+        if (genreCheck.equals("") || titleCheck.equals("")){
+            System.out.println("Empty Fields Founds");
+        } else {
+            if (!controller.editSong(title, genre)){
+
+            }
+        }
+
+
+    }
+
+    public void addSongURL(){
 
     }
 

@@ -261,6 +261,10 @@ public class MasterFacade {
 		else return false;
 	}
 
+	public int checkSong(int user_id, String song_name){
+		return SD.checkSong(user_id, song_name);
+	}
+
 	public boolean deleteSong(int songID){
 		return SD.deleteSong(songID);
 	}
