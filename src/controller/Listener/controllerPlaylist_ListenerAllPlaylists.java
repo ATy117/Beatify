@@ -2,6 +2,7 @@ package controller.Listener;
 
 import controller.PaneController;
 import controller.controllerDashboard;
+import controller.controller_AddPlaylist;
 import javafx.scene.layout.AnchorPane;
 import view.Listener.viewPlaylist_ListenerAllPlaylists;
 
@@ -13,5 +14,10 @@ public class controllerPlaylist_ListenerAllPlaylists extends PaneController {
         this.model.getLibraryModel().setMyPlaylists(facade.getMyPlaylists(this.model.getProfileModel().getUser().getUser_id()));
         this.model.getLibraryModel().setFollowedPlaylists(facade.getFollowedPlaylists(this.model.getProfileModel().getUser().getUser_id()));
         view = new viewPlaylist_ListenerAllPlaylists(mainPane, this, dashboardController);
+    }
+
+    public void addPlaylists(){
+        controller_AddPlaylist controllerAddPlaylist = new controller_AddPlaylist(dashboardController.getPaneFoundation(), dashboardController);
+        dashboardController.setCurrentPane(controllerAddPlaylist);
     }
 }

@@ -1,8 +1,10 @@
 package view.Listener;
 
+import com.jfoenix.controls.JFXListView;
 import controller.Artist.controllerNotifs_ArtistNotifications;
 import controller.Listener.controllerNotifs_ListenerNotifications;
 import controller.controllerDashboard;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import view.View;
@@ -12,6 +14,8 @@ import java.io.IOException;
 public class viewNotifs_ListenerNotifications extends View {
 
     public controllerNotifs_ListenerNotifications controller;
+
+    @FXML JFXListView notificationsListView;
 
     public viewNotifs_ListenerNotifications(AnchorPane mainPane, controllerNotifs_ListenerNotifications controller, controllerDashboard dashboardController){
         this.controller = controller;
