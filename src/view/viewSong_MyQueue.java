@@ -8,6 +8,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
+import view_builders.Director;
+import view_builders.builderSong;
+import view_builders.builderSong_MyQueue;
 
 import java.awt.*;
 import java.io.IOException;
@@ -38,6 +41,16 @@ public class viewSong_MyQueue extends View{
     @Override
     public void Update(){
         songListView.getItems().clear();
+
+        builderSong builder = new builderSong_MyQueue(controller);
+        Director director = Director.getInstance();
+        director.setBuilder(builder);
+        director.construct();
+
+        for (Object object : builder.getProduct()) {
+            AnchorPane anchorPane = (AnchorPane) object;
+            songListView.getItems().add(anchorPane);
+        }
 
     }
 
