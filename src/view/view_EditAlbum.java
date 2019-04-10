@@ -1,5 +1,7 @@
 package view;
 
+import FileUploaderService.FileUploader;
+import FileUploaderService.PhotoUploader;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import controller.controllerDashboard;
@@ -8,14 +10,18 @@ import controller.controller_EditAlbum;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
+import java.io.File;
 import java.io.IOException;
 
 public class view_EditAlbum extends View {
 
     public controller_EditAlbum controller;
+    private File cover = null;
 
     @FXML JFXButton doneBtn;
     @FXML JFXButton uploadAlbumCoverBtn;
@@ -46,6 +52,16 @@ public class view_EditAlbum extends View {
     @Override
     public void Update(){
 
+
+    }
+
+    public void uploadCover () {
+        FileUploader uploader = new PhotoUploader(primaryStage);
+        cover = uploader.getUploadedFile();
+    }
+
+    public void doneButton() {
+        controller.editAlbum();
 
     }
 }

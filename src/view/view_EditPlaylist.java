@@ -54,5 +54,14 @@ public class view_EditPlaylist extends View {
 
     }
 
+    public void toggle(){
+
+    }
+
+    public void doneButton() {
+        controller.editPlaylist();
+
+    }
+
 
 }

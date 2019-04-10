@@ -1,6 +1,7 @@
 package controller;
 
 import controller.Artist.controllerAlbum_ArtistAllAlbums;
+import controller.Artist.controllerSong_ArtistAlbumsOwnedSongs;
 import javafx.scene.layout.AnchorPane;
 import object.Album;
 import object.User;
@@ -18,4 +19,8 @@ public class controller_EditSong extends PaneController {
 
     }
 
+    public void editSong() {
+        controllerSong_ArtistAlbumsOwnedSongs back = new controllerSong_ArtistAlbumsOwnedSongs(mainPane, dashboardController);
+        dashboardController.setCurrentPane(back);
+    }
 }

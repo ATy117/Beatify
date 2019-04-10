@@ -1,6 +1,7 @@
 package view;
 
 import FileUploaderService.FileUploader;
+import FileUploaderService.MP3Uploader;
 import FileUploaderService.PhotoUploader;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -21,6 +22,8 @@ import java.io.IOException;
 public class view_EditSong extends View {
 
     public controller_EditSong controller;
+    private File songFile = null;
+
 
     public view_EditSong(AnchorPane mainPane, controller_EditSong controller, controllerDashboard dashboardController){
         this.controller = controller;
@@ -38,6 +41,15 @@ public class view_EditSong extends View {
     @Override
     public void Update(){
 
+    }
+
+    public void addSongURL(){
+        FileUploader uploader = new MP3Uploader(primaryStage);
+        songFile = uploader.getUploadedFile();
+    }
+
+    public void doneButton() {
+        controller.editSong();
     }
 
 

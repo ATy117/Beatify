@@ -2,6 +2,7 @@ package controller;
 
 import controller.Artist.controllerAlbum_ArtistAllAlbums;
 import controller.Artist.controllerPlaylist_ArtistsAllPlaylists;
+import controller.Artist.controllerSong_ArtistPlaylistOwnedSongs;
 import javafx.scene.layout.AnchorPane;
 import object.Playlist;
 import object.User;
@@ -18,5 +19,8 @@ public class controller_EditPlaylist extends PaneController {
     }
 
 
-
+    public void editPlaylist() {
+        controllerPlaylist_ArtistsAllPlaylists back = new controllerPlaylist_ArtistsAllPlaylists(mainPane, dashboardController);
+        dashboardController.setCurrentPane(back);
+    }
 }

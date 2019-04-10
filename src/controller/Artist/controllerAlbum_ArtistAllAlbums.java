@@ -1,8 +1,6 @@
 package controller.Artist;
 
-import controller.PaneController;
-import controller.controllerDashboard;
-import controller.controller_AddAlbum;
+import controller.*;
 import javafx.scene.layout.AnchorPane;
 import object.Album;
 import view.Artist.viewAlbum_ArtistAllAlbums;
@@ -48,5 +46,7 @@ public class controllerAlbum_ArtistAllAlbums extends PaneController {
 
 	public void editAlbum(Album album) {
         this.model.getLibraryModel().setSelectedAlbum(album);
+        controller_EditAlbum edit = new controller_EditAlbum(mainPane, dashboardController);
+        dashboardController.setCurrentPane(edit);
 	}
 }

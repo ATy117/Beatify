@@ -1,9 +1,6 @@
 package controller.Artist;
 
-import controller.PaneController;
-import controller.controllerDashboard;
-import controller.controller_AddAlbum;
-import controller.controller_AddPlaylist;
+import controller.*;
 import javafx.scene.layout.AnchorPane;
 import object.Playlist;
 import view.Artist.viewPlaylist_ArtistAllPlaylists;
@@ -44,5 +41,7 @@ public class controllerPlaylist_ArtistsAllPlaylists extends PaneController {
 
     public void editPlaylist(Playlist p) {
         this.model.getLibraryModel().setSelectedPlaylist(p);
+        controller_EditPlaylist edit = new controller_EditPlaylist(mainPane, dashboardController);
+        dashboardController.setCurrentPane(edit);
     }
 }
