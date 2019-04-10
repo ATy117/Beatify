@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Model {
-    private List<View> views = new ArrayList<>();
+    protected List<View> views = new ArrayList<>();
 
     public void Attach(View view)
     {

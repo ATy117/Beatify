@@ -1,6 +1,7 @@
 package model;
 
 import object.Song;
+import view.View;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -92,6 +93,13 @@ public class SongPlayerModel extends Model {
 
         return true;
     }
+
+    @Override
+    public void Attach(View view)
+    {
+        this.views.add(view);
+    }
+
 
 
     private void repeatFinishedSongs () {
