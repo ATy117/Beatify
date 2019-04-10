@@ -18,7 +18,7 @@ public class builderSong_ListenerShowListenerPlaylisySongs extends builderSong<A
 
     public builderSong_ListenerShowListenerPlaylisySongs(controllerSong_ListenerShowListenerPlaylistSongs controller) {
         this.controller = controller;
-        this.listElements = controller.getModel().getLibraryModel().getSongContents();
+        this.listElements = controller.getModel().getPeopleModel().getSongs();
         this.listProducts = new ArrayList<>();
     }
 

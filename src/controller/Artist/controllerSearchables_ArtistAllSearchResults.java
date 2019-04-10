@@ -43,6 +43,7 @@ public class controllerSearchables_ArtistAllSearchResults extends PaneController
 	}
 
 	public void playSong(Song song) {
+        this.model.getPlayerModel().playSingleSong(song);
 	}
 
     public boolean addSongToPlaylist (int song_id, int playlist_id){

@@ -44,5 +44,6 @@ public class controllerSong_ArtistAlbumsOwnedSongs extends PaneController  {
 
 	public void editSong(Song song) {
 		this.model.getLibraryModel().setSelectedSong(song);
+
 	}
 }
