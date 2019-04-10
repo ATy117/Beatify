@@ -54,6 +54,20 @@ public class builderArtist_ListenerFollowedArtists extends builderUser<AnchorPan
                 }
             });
 
+            albumIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
+                        if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY)) {
+                            popup.show(albumIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                        } else {
+                            controller.checkProfile(user.getUser_id());
+                        }
+                    }
+                }
+            });
+
+
             albumIndiv.setLeftAnchor(userPic, 20.0);
             albumIndiv.setTopAnchor(userPic, 13.0);
             albumIndiv.setTopAnchor(text, 102.0);
