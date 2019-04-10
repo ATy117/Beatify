@@ -44,4 +44,8 @@ public class controllerSearchables_ArtistAllSearchResults extends PaneController
 
 	public void playSong(Song song) {
 	}
+
+    public boolean addSongToPlaylist (int song_id, int playlist_id){
+        return facade.addSongToPlaylist(song_id, playlist_id);
+    }
 }

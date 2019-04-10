@@ -125,17 +125,22 @@ public class builderSong_ArtistAlbumsOwnedSongs extends builderSong<AnchorPane> 
                     content.setPrefWidth(200);
                     ArrayList <Button> buttons = new ArrayList<>();
 
-                    Iterator<Playlist> listPlaylistElements = controller.getModel().getLibraryModel().getMyPlaylists();
+                    Iterator <Playlist> listPlaylistElements = controller.getModel().getLibraryModel().getMyPlaylists();
 
                     while (listPlaylistElements.hasNext()){
                         Playlist playlist = listPlaylistElements.next();
-                        buttons.add(new Button (playlist.getName()));
-                        buttons.get(buttons.size() - 1).setPrefWidth(200);
+                        Button b = new Button (playlist.getName());
+                        buttons.add(b);
+                        b.setPrefWidth(200);
 
-                        buttons.get(buttons.size() - 1).setOnAction(new EventHandler<ActionEvent>() {
+                        b.setOnAction(new EventHandler<ActionEvent>() {
                             @Override
                             public void handle(ActionEvent event) {
-
+                                if (controller.addSongToPlaylist(song.getSong_id(), playlist.getPlaylist_id())) {
+                                    popup.hide();
+                                } else {
+                                    System.out.println("Song Not Added To Playlist");
+                                }
                             }
                         });
 

@@ -55,12 +55,12 @@
       </JFXButton>
       <Circle fill="#fab2a5" layoutX="349.0" layoutY="349.0" radius="41.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="#fab2a5" layoutX="447.0" layoutY="349.0" radius="41.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Label layoutX="323.0" layoutY="321.0" text="200" textFill="#2f4159">
+      <Label fx:id="followersNumber" layoutX="323.0" layoutY="321.0" text="200" textFill="#2f4159">
          <font>
             <Font name="Comfortaa Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="421.0" layoutY="321.0" text="200" textFill="#2f4159">
+      <Label fx:id="followingNumber" layoutX="421.0" layoutY="321.0" text="200" textFill="#2f4159">
          <font>
             <Font name="Comfortaa Bold" size="30.0" />
          </font>

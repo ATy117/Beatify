@@ -55,7 +55,7 @@ public class MasterFacade {
 	}
 
 	public User viewUser(int user_id){
-		return null;
+		return UD.getProfile(user_id);
 	}
 
 
@@ -273,6 +273,10 @@ public class MasterFacade {
 
 	public boolean addSongToPlaylist(int songid, int playlistid){
 		return SD.addSongToPlaylist(songid,playlistid);
+	}
+
+	public boolean deleteSongFromPlaylist(int song_id, int playlist_id){
+		return SD.deleteSongFromPlaylist(song_id, playlist_id);
 	}
 
 	public boolean addSongToAlbum(int songid, int albumid){

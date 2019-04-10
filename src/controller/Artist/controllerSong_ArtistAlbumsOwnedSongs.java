@@ -37,4 +37,8 @@ public class controllerSong_ArtistAlbumsOwnedSongs extends PaneController  {
 	public void addSongToQueue(Song song) {
 		this.model.getPlayerModel().addSongToQueue(song);
 	}
+
+	public boolean addSongToPlaylist(int song_id, int playlist_id) {
+		return facade.addSongToPlaylist(song_id, playlist_id);
+	}
 }

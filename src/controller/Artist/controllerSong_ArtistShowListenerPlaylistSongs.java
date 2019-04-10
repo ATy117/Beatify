@@ -22,4 +22,8 @@ public class controllerSong_ArtistShowListenerPlaylistSongs extends PaneControll
 	public void playSong(Song song) {
 		this.model.getPlayerModel().playSingleSong(song);
 	}
+
+	public boolean addSongToPlaylist (int song_id, int playlist_id){
+		return facade.addSongToPlaylist(song_id, playlist_id);
+	}
 }

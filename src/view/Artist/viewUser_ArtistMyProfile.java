@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
+import object.User;
 import view.View;
 
 import java.io.IOException;
@@ -26,6 +27,8 @@ public class viewUser_ArtistMyProfile extends View {
     @FXML JFXTextField lastNameField;
     @FXML JFXTextField usernameField;
     @FXML JFXButton editBtn;
+    @FXML Label followingNumber;
+    @FXML Label followersNumber;
 
     public viewUser_ArtistMyProfile(AnchorPane mainPane, controllerUser_ArtistMyProfile controller, controllerDashboard dashboardController){
         this.controller = controller;
@@ -39,12 +42,12 @@ public class viewUser_ArtistMyProfile extends View {
             e.printStackTrace();
         }
 
-        initheader();
+        Update();
     }
 
     @Override
     public void Update(){
-
+        initheader();
     }
 
     public void logout(){
