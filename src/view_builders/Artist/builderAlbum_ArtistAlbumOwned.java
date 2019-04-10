@@ -73,6 +73,7 @@ public class builderAlbum_ArtistAlbumOwned extends builderAlbum<AnchorPane> {
             editButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    popup.hide();
                     controller.editAlbum(album);
                 }
             });

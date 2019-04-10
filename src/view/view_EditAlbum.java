@@ -64,7 +64,17 @@ public class view_EditAlbum extends View {
     }
 
     public void doneButton() {
-        controller.editAlbum();
+        String title = albumNameTextField.getText();
+        String titleCheck = title.replaceAll("\\s+", "");
+
+
+        if (titleCheck.equals("")){
+            System.out.println("Empty Album Name Found");
+        } else {
+            if (!controller.editAlbum(title, cover)){
+                System.out.println("Album Not Edited");
+            }
+        }
 
     }
 }

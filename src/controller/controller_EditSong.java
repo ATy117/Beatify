@@ -29,10 +29,11 @@ public class controller_EditSong extends PaneController {
             dashboardController.setCurrentPane(back);
             return true;
         } else {
-            if (facade.checkSong(song.getArtist__id(), title) == -1){
+            if (facade.checkSong(song.getArtist__id(), title) != -1){
                 return false;
             } else {
                 song.setSong_name(title);
+                song.setGenre(genre);
                 facade.updateSong(song);
                 controllerSong_ArtistAlbumsOwnedSongs back = new controllerSong_ArtistAlbumsOwnedSongs(mainPane, dashboardController);
                 dashboardController.setCurrentPane(back);

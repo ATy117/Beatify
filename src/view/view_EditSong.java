@@ -80,7 +80,7 @@ public class view_EditSong extends View {
             System.out.println("Empty Fields Founds");
         } else {
             if (!controller.editSong(title, genre)){
-
+                System.out.println("Song Not Edited");
             }
         }
 
