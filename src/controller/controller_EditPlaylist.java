@@ -23,6 +23,7 @@ public class controller_EditPlaylist extends PaneController {
         Playlist playlist = model.getLibraryModel().getSelectedPlaylist();
         if (title.equals(playlist.getName())) {
             playlist.setIs_public(is_public);
+            facade.updatePlaylist(playlist);
             controllerPlaylist_ArtistsAllPlaylists back = new controllerPlaylist_ArtistsAllPlaylists(mainPane, dashboardController);
             dashboardController.setCurrentPane(back);
             return true;
