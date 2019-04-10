@@ -29,6 +29,6 @@ public class viewNotifs_ListenerNotifications extends View {
 
     @Override
     public void Update(){
-        
+
     }
 }
