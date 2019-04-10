@@ -3,6 +3,7 @@ package view_builders.Artist;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPopup;
 import controller.Artist.controllerSearchables_ArtistAllSearchResults;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -18,6 +19,7 @@ import view_builders.builderSong;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class builderSong_ArtistSearchSong extends builderSong<AnchorPane> {
@@ -103,11 +105,29 @@ public class builderSong_ArtistSearchSong extends builderSong<AnchorPane> {
                     content.getChildren().clear();
                     content.setPrefWidth(200);
                     ArrayList <Button> buttons = new ArrayList<>();
-                    while (controller.getModel().getLibraryModel().getMyPlaylists().hasNext()){
-                        Playlist playlist = controller.getModel().getLibraryModel().getMyPlaylists().next();
-                        buttons.add(new Button (playlist.getName()));
-                        content.getChildren().add(new Button (playlist.getName()));
+
+                    Iterator<Playlist> listPlaylistElements = controller.getModel().getLibraryModel().getMyPlaylists();
+
+                    while (listPlaylistElements.hasNext()){
+                        Playlist playlist = listPlaylistElements.next();
+                        Button b = new Button (playlist.getName());
+                        buttons.add(b);
+                        b.setPrefWidth(200);
+
+                        b.setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent event) {
+                                if (controller.addSongToPlaylist(song.getSong_id(), playlist.getPlaylist_id())) {
+                                    popup.hide();
+                                } else {
+                                    System.out.println("Song Not Added To Playlist");
+                                }
+                            }
+                        });
+
                     }
+
+                    content.getChildren().addAll(buttons);
                     popup.setPopupContent(content);
                 }
             });
