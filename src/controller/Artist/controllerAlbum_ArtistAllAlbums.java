@@ -42,7 +42,7 @@ public class controllerAlbum_ArtistAllAlbums extends PaneController {
     }
 
     public void uploadAlbum(){
-        controller_AddAlbum controlleAddAlbums = new controller_AddAlbum(dashboardController.getPaneFoundation(), dashboardController);
-        dashboardController.setCurrentPane(this);
+        controller_AddAlbum controllerAddAlbums = new controller_AddAlbum(dashboardController.getPaneFoundation(), dashboardController);
+        dashboardController.setCurrentPane(controllerAddAlbums);
     }
 }

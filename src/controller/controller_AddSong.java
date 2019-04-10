@@ -32,7 +32,7 @@ public class controller_AddSong extends PaneController {
             model.getLibraryModel().setSelectedAlbum(facade.getAlbum(album_id));
             model.getLibraryModel().setSongContents(facade.getAlbumSongs(album_id));
             controllerSong_ArtistAlbumsOwnedSongs c = new controllerSong_ArtistAlbumsOwnedSongs(dashboardController.getPaneFoundation(), dashboardController);
-            dashboardController.setCurrentPane(this);
+            dashboardController.setCurrentPane(c);
             return true;
         } else {
             return false;

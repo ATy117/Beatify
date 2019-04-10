@@ -81,4 +81,8 @@ public class viewUser_ArtistShowListenerProfile extends View {
         profileListView.getItems().add(playlistTile);
 
     }
+
+    public void followUser () {
+
+    }
 }
