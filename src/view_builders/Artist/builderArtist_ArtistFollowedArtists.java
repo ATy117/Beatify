@@ -37,7 +37,7 @@ public class builderArtist_ArtistFollowedArtists extends builderUser<AnchorPane>
             User user = listElements.next();
             AnchorPane albumIndiv = new AnchorPane();
             Circle userPic = new Circle(45);
-            Label text = new Label(user.getUsername());
+            Label text = new Label(user.getFirst_name() + " " + user.getLast_name());
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
@@ -70,8 +70,8 @@ public class builderArtist_ArtistFollowedArtists extends builderUser<AnchorPane>
 
             albumIndiv.setLeftAnchor(userPic, 20.0);
             albumIndiv.setTopAnchor(userPic, 13.0);
-            albumIndiv.setTopAnchor(text, 106.0);
-            albumIndiv.setLeftAnchor(text, 47.0);
+            albumIndiv.setTopAnchor(text, 102.0);
+            albumIndiv.setLeftAnchor(text, 24.0);
 
             albumIndiv.getChildren().add(userPic);
             albumIndiv.getChildren().add(text);
@@ -81,7 +81,10 @@ public class builderArtist_ArtistFollowedArtists extends builderUser<AnchorPane>
             text.setWrapText(true);
             text.setTextAlignment(TextAlignment.CENTER);
 
-            userPic.setFill(new ImagePattern(new Image(user.getAvatarURL().toURI().toString())));
+            if(user.getAvatarURL()!=null)
+                userPic.setFill(new ImagePattern(new Image(user.getAvatarURL().toURI().toString())));
+            else
+                userPic.setFill(new ImagePattern(new Image("resources/useryellowbluedefaultpic.png")));
 
             listProducts.add(albumIndiv);
 
