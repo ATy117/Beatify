@@ -85,10 +85,6 @@ public class viewRegister extends View{
         String passCheck = password.replaceAll("\\s+", "");
         String passCheckCheck = passwordConfirm.replaceAll("\\s+", "");
 
-        if (profilePic == null){
-            profilePic = new File("src/resources/useryellowbluedefaultpic.png");
-        }
-
         if (firstCheck.equals("") || lastCheck.equals("") || userCheck.equals("") || passCheck.equals("") || passCheckCheck.equals("")){
             System.out.println("Some Fields Are Missing");
         } else if ( ! password.equals(passwordConfirm)) {
