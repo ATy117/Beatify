@@ -33,4 +33,8 @@ public class controllerSong_ArtistAlbumsOwnedSongs extends PaneController  {
 	public void playSong(Song song) {
 		this.model.getPlayerModel().playSingleSong(song);
 	}
+
+	public void addSongToQueue(Song song) {
+		this.model.getPlayerModel().addSongToQueue(song);
+	}
 }
