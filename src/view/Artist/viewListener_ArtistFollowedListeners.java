@@ -10,8 +10,7 @@ import javafx.scene.layout.TilePane;
 import javafx.scene.text.Font;
 import view.View;
 import view_builders.Director;
-import view_builders.builderArtist_ArtistFollowedArtists;
-import view_builders.builderListener_ArtistFollowedListeners;
+import view_builders.Artist.builderListener_ArtistFollowedListeners;
 import view_builders.builderUser;
 
 import java.io.IOException;

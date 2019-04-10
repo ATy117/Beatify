@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.TilePane;
 import view.View;
 import view_builders.*;
+import view_builders.Artist.*;
 
 import java.io.IOException;
 

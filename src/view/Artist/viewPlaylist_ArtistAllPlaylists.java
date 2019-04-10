@@ -4,7 +4,6 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import controller.controllerDashboard;
 import controller.Artist.controllerPlaylist_ArtistsAllPlaylists;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,11 +11,11 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.TilePane;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import view.View;
 import view_builders.*;
+import view_builders.Artist.builderPlaylist_ArtistPlaylistFollowed;
+import view_builders.Artist.builderPlaylist_ArtistPlaylistOwned;
 
 import java.io.IOException;
 

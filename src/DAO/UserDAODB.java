@@ -131,6 +131,30 @@ public class UserDAODB implements UserDAO{
     }
 
     @Override
+    public User getProfile(int user_id){
+        User user = new User();
+        String query = "SELECT * FROM user WHERE user.user_id = " +user_id;
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet rs = statement.executeQuery();
+
+            while(rs.next()) {
+                user = toUser(rs);
+                statement.close();
+                rs.close();
+                return user;
+            }
+            return null;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
     public boolean checkUsername(String username) {
         String query = 	"SELECT user.username FROM user";
         try {

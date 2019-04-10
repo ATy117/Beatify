@@ -8,6 +8,7 @@ public class Notification {
     private String firstName;
     private String lastName;
     private LocalDate date_created;
+    private boolean viewed;
 
     public int getNotif_id() {
         return notif_id;
@@ -47,5 +48,13 @@ public class Notification {
 
     public void setDate_created(LocalDate date_created) {
         this.date_created = date_created;
+    }
+
+    public boolean isViewed() {
+        return viewed;
+    }
+
+    public void setViewed(boolean viewed) {
+        this.viewed = viewed;
     }
 }
