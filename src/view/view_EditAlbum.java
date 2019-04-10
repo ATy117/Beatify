@@ -46,7 +46,10 @@ public class view_EditAlbum extends View {
     }
     
     public void init(){
+
         addEditLbl.setText("Edit Album");
+        artistLbl.setText(controller.getModel().getLibraryModel().getSelectedAlbum().getArtist_name());
+        albumNameTextField.setText(controller.getModel().getLibraryModel().getSelectedAlbum().getName());
     }
 
     @Override

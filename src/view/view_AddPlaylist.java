@@ -55,6 +55,9 @@ public class view_AddPlaylist extends View {
 
         privateRadio.setSelected(true);
         playlistCoverCircle.setFill(new ImagePattern(privateImg));
+
+        artistLbl.setText("by " + controller.getModel().getProfileModel().getUser().getFirst_name() + " " +
+                controller.getModel().getProfileModel().getUser().getLast_name());
     }
 
     @Override

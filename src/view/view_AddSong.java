@@ -28,9 +28,11 @@ public class view_AddSong extends View {
     @FXML JFXComboBox songGenreCombo;
     @FXML JFXTextField songTitleTextField;
     @FXML Label artistLbl;
+    @FXML Label addEditLbl;
     @FXML JFXButton uploadSongBtn;
     @FXML JFXTextField songURLField;
     @FXML Circle songCoverCircle;
+    @FXML AnchorPane mainPane;
 
     public view_AddSong(AnchorPane mainPane, controller_AddSong controller, controllerDashboard dashboardController){
         this.controller = controller;
@@ -53,6 +55,9 @@ public class view_AddSong extends View {
         songURLField.setEditable(false);
 
         songCoverCircle.setFill(new ImagePattern(new Image("/resources/albumCover.png")));
+        artistLbl.setText("by " + controller.getModel().getProfileModel().getUser().getFirst_name() + " " +
+                controller.getModel().getProfileModel().getUser().getLast_name());
+
 
     }
 
