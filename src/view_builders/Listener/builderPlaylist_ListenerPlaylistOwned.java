@@ -62,6 +62,7 @@ public class builderPlaylist_ListenerPlaylistOwned extends builderPlaylist<Ancho
                 @Override
                 public void handle(MouseEvent event) {
                     popup.hide();
+                    controller.deletePlaylist(p.getPlaylist_id());
                 }
             });
 
