@@ -91,7 +91,7 @@ public class builderPlaylist_ArtistPlaylistOwned extends builderPlaylist<AnchorP
             albumIndiv.setLeftAnchor(albumCover, 20.0);
             albumIndiv.setTopAnchor(albumCover, 13.0);
             albumIndiv.setTopAnchor(text, 106.0);
-            albumIndiv.setLeftAnchor(text, 45.0);
+            albumIndiv.setLeftAnchor(text, 26.0);
 
             albumIndiv.getChildren().add(albumCover);
             albumIndiv.getChildren().add(text);
