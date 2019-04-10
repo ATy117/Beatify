@@ -110,6 +110,8 @@ public class builderSong_ArtistPlaylistOwnedSongs extends builderSong<AnchorPane
                 }
             });
 
+            listProducts.add(songsIndiv);
+
         }
     }
 
