@@ -2,8 +2,7 @@ package view.Listener;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
-import controller.Artist.controllerNotifs_ArtistNotifications;
-import controller.Listener.controllerSong_ListenerShowArtistPlayistSongs;
+import controller.Listener.controllerSong_ListenerShowArtistPlaylistSongs;
 import controller.controllerDashboard;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,8 +12,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import object.Playlist;
 import view.View;
-import view_builders.Artist.builderSong_ArtistShowListenerPlaylistSongs;
 import view_builders.Director;
+import view_builders.Listener.builderSong_ListenerShowArtistPlaylistSongs;
 import view_builders.builderSong;
 
 import java.io.IOException;
@@ -23,7 +22,7 @@ import java.util.Collections;
 
 public class viewSong_ListenerShowArtistPlaylistSongs extends View {
 
-    public controllerSong_ListenerShowArtistPlayistSongs controller;
+    public controllerSong_ListenerShowArtistPlaylistSongs controller;
     @FXML AnchorPane songsHeader;
     @FXML JFXListView songListView;
     private Label headerLabel;
@@ -34,7 +33,7 @@ public class viewSong_ListenerShowArtistPlaylistSongs extends View {
     private Playlist selectedPlaylist;
     ArrayList<AnchorPane> sortArrayList; //used to tempoarily store the anchorpane for sorting
 
-    public viewSong_ListenerShowArtistPlaylistSongs(AnchorPane mainPane, controllerSong_ListenerShowArtistPlayistSongs controller, controllerDashboard dashboardController){
+    public viewSong_ListenerShowArtistPlaylistSongs(AnchorPane mainPane, controllerSong_ListenerShowArtistPlaylistSongs controller, controllerDashboard dashboardController){
         this.controller = controller;
         this.model = dashboardController.getModel();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/templateSong.fxml"));
@@ -85,7 +84,7 @@ public class viewSong_ListenerShowArtistPlaylistSongs extends View {
     private void setSongs () {
         songListView.getItems().clear();
         sortArrayList = new ArrayList<>();
-        /*
+
         builderSong builder = new builderSong_ListenerShowArtistPlaylistSongs(controller);
         Director director = Director.getInstance();
         director.setBuilder(builder);
@@ -95,7 +94,7 @@ public class viewSong_ListenerShowArtistPlaylistSongs extends View {
             AnchorPane anchorPane = (AnchorPane) object;
             sortArrayList.add(anchorPane);
         }
-        */
+
     }
 
     private void initSortComboBox() {

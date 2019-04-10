@@ -85,8 +85,15 @@ public class viewSong_ListenerPlaylistOwnedSongs extends View {
     private void setSongs () {
         songListView.getItems().clear();
         sortArrayList = new ArrayList<>();
-        //builderSong builder = new builderSong_ListenerPlaylistOwnedSongs(controller);
+        builderSong builder = new builderSong_ListenerPlaylistOwnedSongs(controller);
         Director director = Director.getInstance();
+        director.setBuilder(builder);
+        director.construct();
+
+        for (Object object : builder.getProduct()) {
+            AnchorPane anchorPane = (AnchorPane) object;
+            sortArrayList.add(anchorPane);
+        }
     }
 
     private void initSortComboBox() {

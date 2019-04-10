@@ -2,7 +2,6 @@ package view.Listener;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
-import controller.Artist.controllerNotifs_ArtistNotifications;
 import controller.Listener.controllerSong_ListenerShowListenerPlaylistSongs;
 import controller.controllerDashboard;
 import javafx.fxml.FXML;
@@ -13,9 +12,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import object.Playlist;
 import view.View;
-import view_builders.Artist.builderSong_ArtistShowListenerPlaylistSongs;
 import view_builders.Director;
-import view_builders.Listener.builderSong_ListenerShowListenerPlaylisySongs;
+import view_builders.Listener.builderSong_ListenerShowListenerPlaylistSongs;
 import view_builders.builderSong;
 
 import java.io.IOException;
@@ -87,8 +85,15 @@ public class viewSong_ListenerShowListenerPlaylistSongs extends View {
     private void setSongs () {
         songListView.getItems().clear();
         sortArrayList = new ArrayList<>();
-        //builderSong builder = new builderSong_ListenerShowListenerPlaylisySongs(controller);
+        builderSong builder = new builderSong_ListenerShowListenerPlaylistSongs(controller);
         Director director = Director.getInstance();
+        director.setBuilder(builder);
+        director.construct();
+
+        for (Object object : builder.getProduct()) {
+            AnchorPane anchorPane = (AnchorPane) object;
+            sortArrayList.add(anchorPane);
+        }
 
     }
 
