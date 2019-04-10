@@ -41,4 +41,8 @@ public class controllerSong_ArtistAlbumsOwnedSongs extends PaneController  {
 	public boolean addSongToPlaylist(int song_id, int playlist_id) {
 		return facade.addSongToPlaylist(song_id, playlist_id);
 	}
+
+	public void editSong(Song song) {
+		this.model.getLibraryModel().setSelectedSong(song);
+	}
 }

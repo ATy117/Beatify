@@ -45,4 +45,8 @@ public class controllerAlbum_ArtistAllAlbums extends PaneController {
         controller_AddAlbum controllerAddAlbums = new controller_AddAlbum(dashboardController.getPaneFoundation(), dashboardController);
         dashboardController.setCurrentPane(controllerAddAlbums);
     }
+
+	public void editAlbum(Album album) {
+        this.model.getLibraryModel().setSelectedAlbum(album);
+	}
 }
