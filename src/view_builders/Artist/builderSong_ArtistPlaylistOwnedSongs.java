@@ -78,6 +78,13 @@ public class builderSong_ArtistPlaylistOwnedSongs extends builderSong<AnchorPane
             content.getChildren().addAll(deleteButton, add_to_queueButton);
             popup.setPopupContent(content);
 
+            play.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    controller.playSong(song);
+                }
+            });
+
             deleteButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {

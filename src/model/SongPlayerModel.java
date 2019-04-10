@@ -14,11 +14,16 @@ public class SongPlayerModel extends Model {
     private boolean shuffled = false;
 
 
-    public void playSong(List<Song> currentList) {
+    public void playSongFromList(List<Song> currentList) {
         this.currentList = new ArrayList<>(currentList);
         finishedList = new ArrayList<>();
         currentSong = this.currentList.get(0);
         this.currentList.remove(0);
+        Notify();
+    }
+
+    public void playSingleSong(Song song) {
+        currentSong = song;
         Notify();
     }
 

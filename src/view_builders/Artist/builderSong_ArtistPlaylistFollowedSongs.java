@@ -77,6 +77,13 @@ public class builderSong_ArtistPlaylistFollowedSongs extends builderSong<AnchorP
             content.getChildren().addAll(add_to_queueButton, add_to_playlistButton);
             popup.setPopupContent(content);
 
+            play.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    controller.playSong(song);
+                }
+            });
+
             add_to_queueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {

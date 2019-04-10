@@ -17,4 +17,8 @@ public class controllerSong_ArtistAlbumsFollowedSongs extends PaneController {
 	public void addSongToQueue(Song song) {
 		this.model.getPlayerModel().addSongToQueue(song);
 	}
+
+	public void playSong(Song song) {
+		this.model.getPlayerModel().playSingleSong(song);
+	}
 }

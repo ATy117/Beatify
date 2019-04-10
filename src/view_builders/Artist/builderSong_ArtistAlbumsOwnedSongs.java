@@ -79,6 +79,13 @@ public class builderSong_ArtistAlbumsOwnedSongs extends builderSong<AnchorPane> 
             Button add_to_queueButton = new Button ("Add to queue");
 
 
+            play.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    controller.playSong(song);
+                }
+            });
+
             songsIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {

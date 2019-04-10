@@ -77,7 +77,7 @@ public class NotificationDAODB implements NotificationDAO {
 
     @Override
     public List<Notification> getUnviewedNotifications(int follower_id) {
-        String query = "SELECT notification.notif_id, notification.notification, notification.date_created, user.first_name, user.last_name FROM \n" +
+        String query = "SELECT notification.notif_id, notification.notification, notification.date_created, user.first_name, user.last_name, notif_mapping.is_viewed FROM \n" +
                 "notification INNER JOIN user ON notification.user_id = user.user_id\n" +
                 "INNER JOIN notif_mapping ON notif_mapping.notif_id = notification.notif_id\n" +
                 "WHERE notif_mapping.follower_id = ? AND notif_mapping.is_viewed = 0";
@@ -100,7 +100,7 @@ public class NotificationDAODB implements NotificationDAO {
     }
 
     public List<Notification> getAllNotifications(int follower_id) {
-        String query = "SELECT notification.notif_id, notification.notification, notification.date_created, user.first_name, user.last_name FROM \n" +
+        String query = "SELECT notification.notif_id, notification.notification, notification.date_created, user.first_name, user.last_name, notif_mapping.is_viewed FROM \n" +
                 "notification INNER JOIN user ON notification.user_id = user.user_id\n" +
                 "INNER JOIN notif_mapping ON notif_mapping.notif_id = notification.notif_id\n" +
                 "WHERE notif_mapping.follower_id = ?";
@@ -158,6 +158,7 @@ public class NotificationDAODB implements NotificationDAO {
         notification.setMessage(rs.getString("notification.notification"));
         String date = rs.getString("notification.date_created");
         notification.setDate_created(LocalDate.parse(date));
+        notification.setViewed(rs.getInt("notif_mapping.is_viewed")!=0);
         return notification;
     }
 }
