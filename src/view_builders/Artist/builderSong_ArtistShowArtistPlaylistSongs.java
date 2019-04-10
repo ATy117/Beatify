@@ -16,6 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import object.Playlist;
 import object.Song;
+import view.viewError;
 import view_builders.builderSong;
 
 import java.util.ArrayList;
@@ -117,6 +118,7 @@ public class builderSong_ArtistShowArtistPlaylistSongs extends builderSong<Ancho
                                     popup.hide();
                                 } else {
                                     System.out.println("Song Not Added To Playlist");
+                                    errorPopup = new viewError("Song Not Added To Playlist", songsIndiv);
                                 }
                             }
                         });

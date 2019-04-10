@@ -16,6 +16,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import object.Album;
+import view.viewError;
 import view_builders.builderAlbum;
 
 import java.util.ArrayList;
@@ -55,6 +56,7 @@ public class builderAlbum_ArtistSearchAlbum extends builderAlbum<AnchorPane> {
                         popup.hide();
                     } else {
                         System.out.println("Already Following That Album");
+                        errorPopup = new viewError("Already Following That Album", albumIndiv);
                     }
                 }
             });
