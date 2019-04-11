@@ -90,7 +90,6 @@ public class builderSong_ArtistPlaylistOwnedSongs extends builderSong<AnchorPane
             deleteButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    popup.hide();
                     controller.deleteSongFromPlaylist(song.getSong_id());
                 }
             });

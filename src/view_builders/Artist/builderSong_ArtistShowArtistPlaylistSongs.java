@@ -85,7 +85,6 @@ public class builderSong_ArtistShowArtistPlaylistSongs extends builderSong<Ancho
             play.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    popup.hide();
                     controller.playSong(song);
                 }
             });
