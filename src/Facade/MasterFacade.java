@@ -140,6 +140,9 @@ public class MasterFacade {
 
 	// user likes song
 	public boolean likeSong(int userid, int songid) {
+		if(SD.checkIfLiked(songid, userid)) { //if song has been liked already
+			return false;
+		}
 		return SD.likeSong(songid, userid);
 	}
 
@@ -149,6 +152,9 @@ public class MasterFacade {
 
 	// user follows album
 	public boolean followAlbum(int followersid, int albumid) {
+		if(AD.checkIfFollowed(albumid, followersid)){
+			return false;
+		}
 		return AD.followAlbum(albumid, followersid);
 	}
 
@@ -157,6 +163,9 @@ public class MasterFacade {
 	}
 	// user follows playlist
 	public boolean followPlaylist(int followersid, int playlistid) {
+		if(PD.checkIfFollowed(playlistid, followersid)){
+			return false;
+		}
 		return PD.followPlaylist(playlistid, followersid);
 	}
 
@@ -166,6 +175,9 @@ public class MasterFacade {
 
 	// user follows another user
 	public boolean followUser(int followersid, int userid) {
+		if(UD.checkIfFollowed(userid, followersid)){
+			return false;
+		}
 		return UD.followerUser(userid, followersid);
 	}
 

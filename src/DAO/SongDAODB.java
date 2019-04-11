@@ -360,6 +360,28 @@ public class SongDAODB implements SongDAO {
     }
 
     @Override
+    public boolean checkIfLiked(int song_id, int user_id) {
+        String query = "SELECT * FROM liked_mapping WHERE liked_mapping.song_id = ? AND liked_mapping.user_id = ?";
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, song_id);
+            statement.setInt(2, user_id);
+            ResultSet rs = statement.executeQuery();
+            if(rs.next()){
+                rs.close();
+                statement.close();
+                return true;
+            }
+            rs.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
     public File getSongFile(int song_id) {
         String query = "SELECT song.title, song.file, user.first_name, user.last_name " +
                 "FROM song INNER JOIN user ON song.artist_id = user.user_id " +

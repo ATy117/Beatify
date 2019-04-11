@@ -229,6 +229,28 @@ public class AlbumDAODB implements AlbumDAO{
     }
 
     @Override
+    public boolean checkIfFollowed(int album_id, int follower_id) {
+        String query = "SELECT * FROM followed_album WHERE followed_album.album_id = ? AND followed_album.follower_id = ?";
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, album_id);
+            statement.setInt(2, follower_id);
+            ResultSet rs = statement.executeQuery();
+            if(rs.next()){
+                rs.close();
+                statement.close();
+                return true;
+            }
+            rs.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
     public List<Album> getAllAlbums(String keyword, int artist_id) {
         String query = "SELECT album.album_id, album.name, album.date_created, album.artist_id, album.album_cover, user.first_name, user.last_name FROM album INNER JOIN user\n" +
                 "ON album.artist_id = user.user_id WHERE album.name LIKE ? AND album.artist_id != ?";

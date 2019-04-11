@@ -209,6 +209,28 @@ public class PlaylistDAODB implements PlaylistDAO {
     }
 
     @Override
+    public boolean checkIfFollowed(int playlist_id, int follower_id) {
+        String query = "SELECT * FROM followed_playlist WHERE followed_playlist.playlist_id = ? AND followed_playlist.follower_id = ?";
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, playlist_id);
+            statement.setInt(2, follower_id);
+            ResultSet rs = statement.executeQuery();
+            if(rs.next()){
+                rs.close();
+                statement.close();
+                return true;
+            }
+            rs.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
     public boolean removeAllPlaylistMapping(int playlist_id) {
         String query = "DELETE FROM followed_playlist WHERE followed_playlist.playlist_id = " + playlist_id;
 

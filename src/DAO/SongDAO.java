@@ -26,6 +26,7 @@ public interface SongDAO {
 	public boolean checkSongPlaylist(int song_id, int playlist_id);
 	public boolean likeSong(int song_id, int user_id);
 	public boolean unlikeSong(int song_id, int user_id);
+	public boolean checkIfLiked(int song_id, int user_id);
 
 	public File getSongFile (int song_id);
 
