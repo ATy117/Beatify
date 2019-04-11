@@ -72,3 +72,15 @@
     -fx-font-family: Poppins;
     -fx-font-size: 12;
 }
+
+#rightClickButton{
+    -fx-background-color: #1c6575;
+    -fx-font-family: Comfortaa;
+    -fx-text-fill: #f4dfcc;
+    -jfx-button-type: RAISED;
+    -fx-font-size: 12;
+}
+
+#vboxRight{
+    -fx-background-color: #1c6575;
+}
