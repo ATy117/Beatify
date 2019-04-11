@@ -57,6 +57,8 @@ public class view_EditPlaylist extends View {
     }
 
     public void init(){
+        mainPane.getStylesheets().add("view/theme.css");
+
         addEditLbl.setText(playlist.getOwner_name());
         playlistNameTextField.setText(playlist.getName());
         publicRadio.setSelected(true);

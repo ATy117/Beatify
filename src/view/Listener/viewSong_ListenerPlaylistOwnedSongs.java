@@ -26,7 +26,7 @@ public class viewSong_ListenerPlaylistOwnedSongs extends View {
 
     public controllerSong_ListenerPlaylistOwnedSongs controller;
     @FXML
-    AnchorPane songsHeader;
+    AnchorPane mainPane;
     @FXML
     JFXListView songListView;
     private Label headerLabel;
@@ -71,15 +71,15 @@ public class viewSong_ListenerPlaylistOwnedSongs extends View {
         headerLabel.setFont(Font.font("Comfortaa", 18));
         subheaderLabel.setFont(Font.font("Comfortaa",12));
         sortLabel.setFont(Font.font("Comfortaa", 18));
-        songsHeader.setLeftAnchor(headerLabel, 50.0);
-        songsHeader.setTopAnchor(headerLabel, 50.0);
-        songsHeader.setLeftAnchor(subheaderLabel, 50.0);
-        songsHeader.setTopAnchor(subheaderLabel, 70.0);
-        songsHeader.setLeftAnchor(sortLabel, 475.0);
-        songsHeader.setTopAnchor(sortLabel, 28.0);
-        songsHeader.getChildren().add(headerLabel);
-        songsHeader.getChildren().add(subheaderLabel);
-        songsHeader.getChildren().add(sortLabel);
+        mainPane.setLeftAnchor(headerLabel, 50.0);
+        mainPane.setTopAnchor(headerLabel, 50.0);
+        mainPane.setLeftAnchor(subheaderLabel, 50.0);
+        mainPane.setTopAnchor(subheaderLabel, 70.0);
+        mainPane.setLeftAnchor(sortLabel, 475.0);
+        mainPane.setTopAnchor(sortLabel, 28.0);
+        mainPane.getChildren().add(headerLabel);
+        mainPane.getChildren().add(subheaderLabel);
+        mainPane.getChildren().add(sortLabel);
     }
 
     private void setSongs () {
@@ -109,12 +109,12 @@ public class viewSong_ListenerPlaylistOwnedSongs extends View {
         for (String e : arrangement)
             arrangeCB.getItems().add(e);
 
-        songsHeader.setLeftAnchor(sortingCB, 375.0);
-        songsHeader.setTopAnchor(sortingCB, 50.0);
-        songsHeader.setLeftAnchor(arrangeCB, 500.0);
-        songsHeader.setTopAnchor(arrangeCB, 50.0);
-        songsHeader.getChildren().add(sortingCB);
-        songsHeader.getChildren().add(arrangeCB);
+        mainPane.setLeftAnchor(sortingCB, 375.0);
+        mainPane.setTopAnchor(sortingCB, 50.0);
+        mainPane.setLeftAnchor(arrangeCB, 500.0);
+        mainPane.setTopAnchor(arrangeCB, 50.0);
+        mainPane.getChildren().add(sortingCB);
+        mainPane.getChildren().add(arrangeCB);
 
         sortingCB.setOnAction(event -> {
             sortSongListView();

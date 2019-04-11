@@ -47,6 +47,7 @@ public class view_EditAlbum extends View {
     }
     
     public void init(){
+        mainPane.getStylesheets().add("view/theme.css");
 
         addEditLbl.setText("Edit Album");
         artistLbl.setText(controller.getModel().getLibraryModel().getSelectedAlbum().getArtist_name());

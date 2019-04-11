@@ -17,7 +17,7 @@ public class viewNotifs_ArtistNotifications extends View {
     public controllerNotifs_ArtistNotifications controller;
 
     @FXML JFXListView notificationsListView;
-
+    @FXML AnchorPane mainPane;
 
     public viewNotifs_ArtistNotifications(AnchorPane mainPane, controllerNotifs_ArtistNotifications controller, controllerDashboard dashboardController){
         this.controller = controller;
@@ -31,6 +31,8 @@ public class viewNotifs_ArtistNotifications extends View {
             e.printStackTrace();
         }
 
+        init();
+        Update();
     }
 
     @Override
@@ -48,5 +50,9 @@ public class viewNotifs_ArtistNotifications extends View {
         }
 
         controller.markAllAsViewed();
+    }
+
+    public void init(){
+        mainPane.getStylesheets().add("view/theme.css");
     }
 }

@@ -27,6 +27,7 @@ public class viewSearchables_ArtistAllSearchResults extends View {
     @FXML JFXListView searchContent;
     @FXML JFXTextField searchField;
     @FXML JFXButton searchBtn;
+    @FXML AnchorPane mainPane;
 
     public TilePane artistList;
     public TilePane listenerList;
@@ -51,6 +52,8 @@ public class viewSearchables_ArtistAllSearchResults extends View {
     }
 
     public void init(){
+        mainPane.getStylesheets().add("view/theme.css");
+
         Image search = new Image("resources/searchButton.png");
         ImageView searchView = new ImageView(search);
 

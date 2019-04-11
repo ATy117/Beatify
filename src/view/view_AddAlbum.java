@@ -45,6 +45,8 @@ public class view_AddAlbum extends View {
     }
 
     private void init() {
+        mainPane.getStylesheets().add("view/theme.css");
+
         Image albumcover = new Image("/resources/albumCover.png");
         albumCoverCircle.setFill(new ImagePattern(albumcover));
         artistLbl.setText("by " + controller.getModel().getProfileModel().getUser().getFirst_name() + " "+

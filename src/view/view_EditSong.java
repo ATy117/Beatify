@@ -55,6 +55,8 @@ public class view_EditSong extends View {
     }
 
     public void init(){
+        mainPane.getStylesheets().add("view/theme.css");
+
         songGenreCombo.getItems().addAll("Acoustic", "Ballad", "Classical", "Country", "Folk", "Jazz", "Pop", "Rap", "Reggae", "Religious", "Rock");
         addEditLbl.setText("Edit Song");
         mainPane.getChildren().remove(uploadSongBtn);

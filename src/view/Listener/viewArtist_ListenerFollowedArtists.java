@@ -21,6 +21,7 @@ public class viewArtist_ListenerFollowedArtists extends View {
 
     @FXML AnchorPane artistHeader;
     @FXML AnchorPane artistContent;
+    @FXML AnchorPane mainPane;
 
     private Label headerLabel;
     private TilePane artistList;
@@ -60,6 +61,8 @@ public class viewArtist_ListenerFollowedArtists extends View {
     }
 
     public void initHeader(){
+        mainPane.getStylesheets().add("view/theme.css");
+
         headerLabel = new Label("All Followed Artists");
 
         headerLabel.setFont(Font.font("Comfortaa", 18));

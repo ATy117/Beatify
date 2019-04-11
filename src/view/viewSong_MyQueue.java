@@ -19,7 +19,7 @@ public class viewSong_MyQueue extends View{
 
     public controllerSong_MyQueue controller;
 
-    @FXML AnchorPane songsHeader;
+    @FXML AnchorPane mainPane;
     @FXML JFXListView songListView;
 
     public viewSong_MyQueue(AnchorPane mainPane, controllerSong_MyQueue controller, controllerDashboard dashboardController){
@@ -62,9 +62,9 @@ public class viewSong_MyQueue extends View{
 
         headerLbl.setFont(Font.font("Comfortaa", 22));
 
-        songsHeader.setLeftAnchor(headerLbl, 250.0);
-        songsHeader.setTopAnchor(headerLbl, 40.0);
+        mainPane.setLeftAnchor(headerLbl, 250.0);
+        mainPane.setTopAnchor(headerLbl, 40.0);
 
-        songsHeader.getChildren().add(headerLbl);
+        mainPane.getChildren().add(headerLbl);
     }
 }

@@ -57,7 +57,6 @@ public class viewAlbum_ArtistAllAlbums extends View {
         initHeader();
         Update();
 
-
     }
 
     @Override
@@ -94,6 +93,7 @@ public class viewAlbum_ArtistAllAlbums extends View {
     }
 
     private void initHeader(){
+        mainPane.getStylesheets().add("view/theme.css");
         headerLabel = new Label("All Albums");
         uploadAlbumBtn = new JFXButton("+ upload album");
 

@@ -51,6 +51,8 @@ public class view_AddPlaylist extends View {
     }
 
     public void init(){
+        mainPane.getStylesheets().add("view/theme.css");
+
         publicImg = new Image("resources/publicCover.png");
         privateImg = new Image("resources/privateCover.png");
 

@@ -32,6 +32,7 @@ public class viewUser_ArtistShowArtistProfile extends View {
     @FXML Label followerNum;
     @FXML Label followingNum;
     @FXML JFXListView profileListView;
+    @FXML AnchorPane mainPane;
 
     Label userPlaylistLbl;
     Label userAlbumsLbl;
@@ -56,6 +57,8 @@ public class viewUser_ArtistShowArtistProfile extends View {
     }
 
     public void init(){
+        mainPane.getStylesheets().add("view/theme.css");
+
         userFirstLastName.setText(controller.getModel().getPeopleModel().getSelectedUser().getFirst_name() + " " +
                                     controller.getModel().getPeopleModel().getSelectedUser().getLast_name());
         userName.setText(controller.getModel().getPeopleModel().getSelectedUser().getUsername());

@@ -28,6 +28,7 @@ public class viewUser_ListenerMyProfile extends View {
     @FXML Circle userPic;
     @FXML Label followingNumber;
     @FXML Label followersNumber;
+    @FXML AnchorPane mainPane;
     private User myUser;
 
 
@@ -56,6 +57,8 @@ public class viewUser_ListenerMyProfile extends View {
     }
 
     public void initheader(){
+        mainPane.getStylesheets().add("view/theme.css");
+
         firstNameField.setEditable(false);
         lastNameField.setEditable(false);
         usernameField.setEditable(false);

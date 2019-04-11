@@ -28,7 +28,7 @@ import java.util.Collections;
 
 //Songs inside MY Album
 public class viewSong_ArtistAlbumsOwnedSongs extends View {
-    @FXML AnchorPane songsHeader;
+    @FXML AnchorPane mainPane;
     @FXML JFXListView songListView;
     private Label headerLabel;
     private Label subheaderLabel;
@@ -67,6 +67,8 @@ public class viewSong_ArtistAlbumsOwnedSongs extends View {
     }
 
     private void initHeader () {
+        mainPane.getStylesheets().add("view/theme.css");
+
         //INITIALIZES THE HEADER//
         String ALBUMNAME = selectedAlbum.getName();
         String ARTISTNAME = "Album by You";
@@ -88,21 +90,20 @@ public class viewSong_ArtistAlbumsOwnedSongs extends View {
         headerLabel.setFont(Font.font("Comfortaa", 18));
         subheaderLabel.setFont(Font.font("Comfortaa",12));
         sortLabel.setFont(Font.font("Comfortaa", 18));
-        songsHeader.setLeftAnchor(headerLabel, 100.0);
-        songsHeader.setTopAnchor(headerLabel, 50.0);
-        songsHeader.setLeftAnchor(subheaderLabel, 100.0);
-        songsHeader.setTopAnchor(subheaderLabel, 70.0);
-        songsHeader.setLeftAnchor(sortLabel, 475.0);
-        songsHeader.setTopAnchor(sortLabel, 28.0);
-        songsHeader.setLeftAnchor(albumArt, 30.0);
-        songsHeader.setTopAnchor(albumArt,  30.0);
 
+        mainPane.setLeftAnchor(headerLabel, 100.0);
+        mainPane.setTopAnchor(headerLabel, 50.0);
+        mainPane.setLeftAnchor(subheaderLabel, 100.0);
+        mainPane.setTopAnchor(subheaderLabel, 70.0);
+        mainPane.setLeftAnchor(sortLabel, 475.0);
+        mainPane.setTopAnchor(sortLabel, 28.0);
+        mainPane.setLeftAnchor(albumArt, 30.0);
+        mainPane.setTopAnchor(albumArt,  30.0);
 
-        songsHeader.getChildren().add(headerLabel);
-        songsHeader.getChildren().add(subheaderLabel);
-        songsHeader.getChildren().add(sortLabel);
-        songsHeader.getChildren().add(uploadSongBtn);
-        songsHeader.getChildren().add(albumArt);
+        mainPane.getChildren().add(headerLabel);
+        mainPane.getChildren().add(subheaderLabel);
+        mainPane.getChildren().add(sortLabel);
+        mainPane.getChildren().add(albumArt);
 
         uploadSongBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -138,12 +139,12 @@ public class viewSong_ArtistAlbumsOwnedSongs extends View {
         for (String e : arrangement)
             arrangeCB.getItems().add(e);
 
-        songsHeader.setLeftAnchor(sortingCB, 375.0);
-        songsHeader.setTopAnchor(sortingCB, 50.0);
-        songsHeader.setLeftAnchor(arrangeCB, 500.0);
-        songsHeader.setTopAnchor(arrangeCB, 50.0);
-        songsHeader.getChildren().add(sortingCB);
-        songsHeader.getChildren().add(arrangeCB);
+        mainPane.setLeftAnchor(sortingCB, 375.0);
+        mainPane.setTopAnchor(sortingCB, 50.0);
+        mainPane.setLeftAnchor(arrangeCB, 500.0);
+        mainPane.setTopAnchor(arrangeCB, 50.0);
+        mainPane.getChildren().add(sortingCB);
+        mainPane.getChildren().add(arrangeCB);
 
         sortingCB.setOnAction(event -> {
             sortSongListView();

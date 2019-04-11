@@ -32,6 +32,7 @@ public class viewUser_ArtistMyProfile extends View {
     @FXML Circle userPic;
     @FXML Label followingNumber;
     @FXML Label followersNumber;
+    @FXML AnchorPane mainPane;
     private User myUser;
 
     public viewUser_ArtistMyProfile(AnchorPane mainPane, controllerUser_ArtistMyProfile controller, controllerDashboard dashboardController){
@@ -59,6 +60,8 @@ public class viewUser_ArtistMyProfile extends View {
     }
 
     public void initheader(){
+        mainPane.getStylesheets().add("view/theme.css");
+
         firstNameField.setEditable(false);
         lastNameField.setEditable(false);
         usernameField.setEditable(false);

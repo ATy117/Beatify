@@ -20,6 +20,7 @@ public class viewNotifs_ListenerNotifications extends View {
     public controllerNotifs_ListenerNotifications controller;
 
     @FXML JFXListView notificationsListView;
+    @FXML AnchorPane mainPane;
 
 
     public viewNotifs_ListenerNotifications(AnchorPane mainPane, controllerNotifs_ListenerNotifications controller, controllerDashboard dashboardController){
@@ -33,6 +34,8 @@ public class viewNotifs_ListenerNotifications extends View {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        init();
 
     }
 
@@ -51,5 +54,9 @@ public class viewNotifs_ListenerNotifications extends View {
         }
 
         controller.markAllAsViewed();
+    }
+
+    public void init(){
+        mainPane.getStylesheets().add("view/theme.css");
     }
 }

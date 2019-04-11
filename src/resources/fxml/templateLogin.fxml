@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="loginPane" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #f4dfcc" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="mainPane" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Circle fill="#fab4a76c" layoutX="415.0" layoutY="413.0" radius="64.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="#fab4a76c" layoutX="308.0" layoutY="370.0" radius="38.0" stroke="TRANSPARENT" strokeType="INSIDE" />

@@ -55,6 +55,8 @@ public class viewRegister extends View{
     }
 
     private void init() {
+        mainPane.getStylesheets().add("view/theme.css");
+
         Image defpic = new Image("resources/useryellowbluedefaultpic.png");
         imageCircle.setFill(new ImagePattern(defpic));
         listenerToggle.setSelected(true);

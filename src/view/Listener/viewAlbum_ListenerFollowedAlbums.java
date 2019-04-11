@@ -25,9 +25,9 @@ public class viewAlbum_ListenerFollowedAlbums extends View {
 
     public controllerAlbum_ListenerFollowedAlbums controller;
 
-
     @FXML AnchorPane albumsHeader;
     @FXML JFXListView albumListView;
+    @FXML AnchorPane mainPane;
 
     private Label headerLabel;
     private TilePane artistList;
@@ -68,6 +68,7 @@ public class viewAlbum_ListenerFollowedAlbums extends View {
     }
 
     public void initHeader(){
+        mainPane.getStylesheets().add("view/theme.css");
         headerLabel = new Label("All Followed Albums");
 
         headerLabel.setFont(Font.font("Comfortaa", 18));

@@ -25,10 +25,9 @@ import java.io.IOException;
 public class viewPlaylist_ListenerAllPlaylists extends View {
     public controllerPlaylist_ListenerAllPlaylists controller;
 
-    @FXML
-    AnchorPane playlistHeader;
-    @FXML
-    JFXListView playlistContent;
+    @FXML AnchorPane playlistHeader;
+    @FXML JFXListView playlistContent;
+    @FXML AnchorPane mainPane;
 
     private Label headerLabel;
     private Label myPlaylistLbl;
@@ -92,6 +91,8 @@ public class viewPlaylist_ListenerAllPlaylists extends View {
     }
 
     public void initHeader(){
+        mainPane.getStylesheets().add("view/theme.css");
+
         headerLabel = new Label("All Playlists");
         addPlaylistBtn = new JFXButton("+ Add Playlist");
 

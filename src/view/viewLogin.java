@@ -31,7 +31,7 @@ public class viewLogin extends View {
     public JFXPasswordField passwordField;
     public JFXTextField usernameField;
     public JFXButton registerBtn;
-    @FXML AnchorPane loginPane;
+    @FXML AnchorPane mainPane;
 
     public viewLogin (Stage primaryStage, controllerLogin login) {
         this.primaryStage = primaryStage;
@@ -49,6 +49,8 @@ public class viewLogin extends View {
     }
 
     private void init(){
+        mainPane.getStylesheets().add("view/theme.css");
+
         RotateTransition rt = new RotateTransition(Duration.seconds(8), logo);
         rt.setByAngle(360);
         rt.setCycleCount(Animation.INDEFINITE);
@@ -80,12 +82,12 @@ public class viewLogin extends View {
             String passCheck = password.replaceAll("\\s+", "");
 
             if (userCheck.equals("") || passCheck.equals("")){
-                errorPopup = new viewError("Some Fields Are Missing", loginPane);
+                errorPopup = new viewError("Some Fields Are Missing", mainPane);
                 System.out.println("Some Fields Are Missing");
             } else {
                 User user = controller.userLogin(username, password);
                 if (user == null){
-                    errorPopup = new viewError("User does not exist", loginPane);
+                    errorPopup = new viewError("User does not exist", mainPane);
                     System.out.println("User does not exist");
                 } else {
                     if (user.isIs_artist()) {

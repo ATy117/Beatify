@@ -25,6 +25,7 @@ public class viewPlaylist_ArtistAllPlaylists extends View {
 
     @FXML AnchorPane playlistHeader;
     @FXML JFXListView playlistContent;
+    @FXML AnchorPane mainPane;
 
     private Label headerLabel;
     private Label myPlaylistLbl;
@@ -90,6 +91,8 @@ public class viewPlaylist_ArtistAllPlaylists extends View {
     }
 
     public void initHeader(){
+        mainPane.getStylesheets().add("view/theme.css");
+
         headerLabel = new Label("All Playlists");
         addPlaylistBtn = new JFXButton("+ Add Playlist");
 
