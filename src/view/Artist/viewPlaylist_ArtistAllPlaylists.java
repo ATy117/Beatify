@@ -27,7 +27,7 @@ public class viewPlaylist_ArtistAllPlaylists extends View {
     @FXML JFXListView contentListView;
     @FXML AnchorPane mainPane;
 
-    private Label headerLabel;
+    private Label headerLbl;
     private Label myPlaylistLbl;
     private Label followedPlaylistLbl;
     private TilePane myPlaylistList;
@@ -55,11 +55,6 @@ public class viewPlaylist_ArtistAllPlaylists extends View {
     @Override
     public void Update(){
         contentListView.getItems().clear();
-
-        myPlaylistLbl = new Label("My Playlists");
-        followedPlaylistLbl = new Label("Followed Playlists");
-        myPlaylistLbl.setFont(Font.font("Poppins", 14));
-        followedPlaylistLbl.setFont(Font.font("Poppins", 14));
 
         /*List of My Playlists*/
         myPlaylistList = new TilePane();
@@ -93,17 +88,17 @@ public class viewPlaylist_ArtistAllPlaylists extends View {
     public void initHeader(){
         mainPane.getStylesheets().add("view/theme.css");
 
-        headerLabel = new Label("All Playlists");
+        headerLbl = new Label("All Playlists");
         addPlaylistBtn = new JFXButton("+ Add Playlist");
 
-        headerLabel.setFont(Font.font("Comfortaa", 18));
+        headerLbl.setFont(Font.font("Comfortaa", 18));
 
-        playlistHeader.setLeftAnchor(headerLabel, 252.0);
-        playlistHeader.setTopAnchor(headerLabel, 23.0);
+        playlistHeader.setLeftAnchor(headerLbl, 252.0);
+        playlistHeader.setTopAnchor(headerLbl, 23.0);
         playlistHeader.setLeftAnchor(addPlaylistBtn, 260.0);
         playlistHeader.setTopAnchor(addPlaylistBtn, 50.0);
 
-        playlistHeader.getChildren().add(headerLabel);
+        playlistHeader.getChildren().add(headerLbl);
         playlistHeader.getChildren().add(addPlaylistBtn);
 
         addPlaylistBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -112,6 +107,12 @@ public class viewPlaylist_ArtistAllPlaylists extends View {
                 changePane();
             }
         });
+
+        myPlaylistLbl = new Label("My Playlists");
+        followedPlaylistLbl = new Label("Followed Playlists");
+        myPlaylistLbl.setId("headerLabel");
+        followedPlaylistLbl.setId("headerLabel");
+
     }
 
     public void changePane(){

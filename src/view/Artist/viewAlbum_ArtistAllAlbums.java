@@ -64,10 +64,6 @@ public class viewAlbum_ArtistAllAlbums extends View {
         contentListView.getItems().clear();
 
         myAlbumTilePane = new TilePane();
-        myAlbumsLbl = new Label("My Albums");
-        followedAlbumsLbl = new Label("Followed Albums");
-        myAlbumsLbl.setFont(Font.font("Poppins", 14));
-        followedAlbumsLbl.setFont(Font.font("Poppins", 14));
 
         contentListView.getItems().add(myAlbumsLbl);
         builderAlbum builder = new builderAlbum_ArtistAlbumOwned(controller);
@@ -114,6 +110,12 @@ public class viewAlbum_ArtistAllAlbums extends View {
                 uploadAlbum();
             }
         });
+
+        myAlbumsLbl = new Label("My Albums");
+        followedAlbumsLbl = new Label("Followed Albums");
+        myAlbumsLbl.setId("headerLabel");
+        followedAlbumsLbl.setId("headerLabel");
+
 
     }
 

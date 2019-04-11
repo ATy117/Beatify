@@ -58,6 +58,8 @@ public class viewSong_MyQueue extends View{
     }
 
     public void initHeader(){
+        mainPane.getStylesheets().add("view/theme.css");
+
         Label headerLbl = new Label("Queue List");
 
         headerLbl.setFont(Font.font("Comfortaa", 22));

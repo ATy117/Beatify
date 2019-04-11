@@ -17,3 +17,10 @@
 #contentListView .jfx-list-cell:even{
     -fx-background-color: #fab2a5;
 }
+
+#headerLabel{
+    -fx-font-family: Comfortaa;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+    -fx-text-fill: #2f4159;
+}

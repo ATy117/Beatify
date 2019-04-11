@@ -61,17 +61,24 @@ public class viewSearchables_ArtistAllSearchResults extends View {
         searchView.setFitHeight(37);
 
         searchBtn.setGraphic(searchView);
-    }
-
-    @Override
-    public void Update(){
-        contentListView.getItems().clear();
 
         songLbl = new Label("Songs:");
         albumLbl = new Label( "Albums:");
         playlistLbl = new Label("Playlists:");
         artistLbl = new Label("Artists:");
         listenerLbl = new Label("Listeners:");
+
+        artistLbl.setId("headerLabel");
+        listenerLbl.setId("headerLabel");
+        playlistLbl.setId("headerLabel");
+        albumLbl.setId("headerLabel");
+        songLbl.setId("headerLabel");
+
+    }
+
+    @Override
+    public void Update(){
+        contentListView.getItems().clear();
 
         /*Search Songs*/
         contentListView.getItems().add(songLbl);

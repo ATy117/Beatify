@@ -56,11 +56,6 @@ public class viewPlaylist_ListenerAllPlaylists extends View {
     public void Update(){
         contentListView.getItems().clear();
 
-        myPlaylistLbl = new Label("My Playlists");
-        followedPlaylistLbl = new Label("Followed Playlists");
-        myPlaylistLbl.setFont(Font.font("Poppins", 14));
-        followedPlaylistLbl.setFont(Font.font("Poppins", 14));
-
         /*List of My Playlists*/
         myPlaylistList = new TilePane();
         myPlaylistList.setMaxWidth(634.0);
@@ -112,6 +107,11 @@ public class viewPlaylist_ListenerAllPlaylists extends View {
                 changePane();
             }
         });
+
+        myPlaylistLbl = new Label("My Playlists");
+        followedPlaylistLbl = new Label("Followed Playlists");
+        myPlaylistLbl.setId("headerLabel");
+        followedPlaylistLbl.setId("headerLabel");
     }
 
     public void changePane(){
