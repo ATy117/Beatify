@@ -65,7 +65,7 @@ public class viewUser_ArtistShowArtistProfile extends View {
         if(controller.getModel().getProfileModel().getUser().getAvatarURL()!= null)
             userPic.setFill(new ImagePattern(new Image(controller.getModel().getPeopleModel().getSelectedUser().getAvatarURL().toURI().toString())));
         else
-            userPic.setFill(new ImagePattern(new Image("resources/")));
+            userPic.setFill(new ImagePattern(new Image("resources/useryellowbluedefaultpic.png")));
     }
 
     public void followUser(){
