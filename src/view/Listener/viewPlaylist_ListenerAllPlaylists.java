@@ -92,6 +92,7 @@ public class viewPlaylist_ListenerAllPlaylists extends View {
         addPlaylistBtn = new JFXButton("+ Add Playlist");
 
         headerLabel.setId("songHeader");
+        addPlaylistBtn.setId("buttonStyle");
 
         playlistHeader.setLeftAnchor(headerLabel, 252.0);
         playlistHeader.setTopAnchor(headerLabel, 23.0);
