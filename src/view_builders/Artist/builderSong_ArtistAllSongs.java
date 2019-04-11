@@ -130,9 +130,9 @@ public class builderSong_ArtistAllSongs extends builderSong<AnchorPane> {
                                 if (controller.addSongToPlaylist(song.getSong_id(), playlist.getPlaylist_id())) {
                                     popup.hide();
                                 } else {
-                                    System.out.println("Song Already In Playlist");
+                                    System.out.println("Song Not Added to Playlist Anymore");
                                     popup.hide();
-                                    errorPopup = new viewError("Song Already in Playlist", songsIndiv);
+                                    errorPopup = new viewError("Song Not Added to Playlist Anymore", songsIndiv);
                                 }
                             }
                         });
