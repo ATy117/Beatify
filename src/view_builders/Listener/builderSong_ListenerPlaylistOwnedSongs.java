@@ -8,11 +8,13 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import object.Song;
+import view.viewError;
 import view_builders.builderSong;
 
 import java.util.ArrayList;
@@ -70,11 +72,13 @@ public class builderSong_ListenerPlaylistOwnedSongs extends builderSong<AnchorPa
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(150);
+            Button likeButton = new Button("Like");
             Button add_to_queueButton = new Button("Add to queue");
             Button deleteButton = new Button("Delete from Playlist");
+            likeButton.setMinWidth(content.getPrefWidth());
             deleteButton.setMinWidth(content.getPrefWidth());
             add_to_queueButton.setMinWidth(content.getPrefWidth());
-            content.getChildren().addAll(deleteButton, add_to_queueButton);
+            content.getChildren().addAll(likeButton, deleteButton, add_to_queueButton);
             popup.setPopupContent(content);
 
             play.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -84,6 +88,18 @@ public class builderSong_ListenerPlaylistOwnedSongs extends builderSong<AnchorPa
                 }
             });
 
+            likeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if (controller.likeSong(song.getSong_id())){
+                        popup.hide();
+                    } else {
+                        System.out.println("Song Already Liked");
+                        popup.hide();
+                        errorPopup = new viewError("Song Already Liked", songsIndiv);
+                    }
+                }
+            });
             deleteButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
@@ -96,6 +112,16 @@ public class builderSong_ListenerPlaylistOwnedSongs extends builderSong<AnchorPa
                 @Override
                 public void handle(MouseEvent event) {
                     controller.addSongToQueue(song);
+                }
+            });
+
+            songsIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
+                        if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY))
+                            popup.show(songsIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                    }
                 }
             });
 
