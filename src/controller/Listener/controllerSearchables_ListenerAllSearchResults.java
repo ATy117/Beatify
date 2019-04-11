@@ -48,4 +48,9 @@ public class controllerSearchables_ListenerAllSearchResults extends PaneControll
     public void addSongToQueue(Song song) {
         this.model.getPlayerModel().addSongToQueue(song);
     }
+
+    public boolean likeSong(int song_id){
+        int user_id = model.getProfileModel().getUser().getUser_id();
+        return facade.likeSong(user_id, song_id);
+    }
 }

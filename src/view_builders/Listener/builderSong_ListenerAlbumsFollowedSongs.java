@@ -78,8 +78,8 @@ public class builderSong_ListenerAlbumsFollowedSongs extends builderSong<AnchorP
             Button likeButton = new Button ("Like");
             add_to_queueButton.setMinWidth(content.getPrefWidth());
             add_to_playlistButton.setMinWidth(content.getPrefWidth());
-            likeButton.setMinWidth(content.getPrefHeight());
-            content.getChildren().addAll(add_to_queueButton, add_to_playlistButton);
+            likeButton.setMinWidth(content.getPrefWidth());
+            content.getChildren().addAll(likeButton, add_to_queueButton, add_to_playlistButton);
             popup.setPopupContent(content);
 
             play.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -117,8 +117,9 @@ public class builderSong_ListenerAlbumsFollowedSongs extends builderSong<AnchorP
                                 if (controller.addSongToPlaylist(song.getSong_id(), playlist.getPlaylist_id())) {
                                     popup.hide();
                                 } else {
-                                    System.out.println("Song Not Added To Playlist");
-                                    errorPopup = new viewError("Song Not Added To Playlist", songsIndiv);
+                                    System.out.println("Song Not Added To Playlist Anymore");
+                                    popup.hide();
+                                    errorPopup = new viewError("Song Not Added To Playlist Anymore", songsIndiv);
                                 }
                             }
                         });
@@ -134,7 +135,13 @@ public class builderSong_ListenerAlbumsFollowedSongs extends builderSong<AnchorP
             likeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-
+                    if (controller.likeSong(song.getSong_id())){
+                        popup.hide();
+                    } else {
+                        System.out.println("Song Already Liked");
+                        popup.hide();
+                        errorPopup = new viewError("Song Already Liked", songsIndiv);
+                    }
                 }
             });
 

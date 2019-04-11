@@ -1,16 +1,14 @@
 package view.Artist;
 
 import com.jfoenix.controls.JFXListView;
-import controller.Artist.controllerListener_ArtistFollowedListeners;
 import controller.Artist.controllerNotifs_ArtistNotifications;
 import controller.controllerDashboard;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.TilePane;
 import view.View;
 import view_builders.*;
+import view_builders.Artist.builderNotifications_ArtistNotification;
 
 import java.io.IOException;
 
@@ -40,7 +38,7 @@ public class viewNotifs_ArtistNotifications extends View {
 
         notificationsListView.getItems().clear();
 
-        builderNotification builder = new builderNotifications_Users(controller);
+        builderNotification builder = new builderNotifications_ArtistNotification(controller);
         Director director = Director.getInstance();
         director.setBuilder(builder);
         director.construct();

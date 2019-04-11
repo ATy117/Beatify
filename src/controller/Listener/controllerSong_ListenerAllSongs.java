@@ -18,6 +18,12 @@ public class controllerSong_ListenerAllSongs extends PaneController {
         return facade.addSongToPlaylist(song_id, playlist_id);
     }
 
+    public void unlikeSong (int song_id){
+        int user_id = model.getProfileModel().getUser().getUser_id();
+        facade.unlikeSong(user_id, song_id);
+        model.getLibraryModel().setAllSongs(facade.getLikedSongs(user_id));
+    }
+
     public void addSongToQueue(Song song) {
         this.model.getPlayerModel().addSongToQueue(song);
     }

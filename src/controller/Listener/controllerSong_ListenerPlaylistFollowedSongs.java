@@ -21,6 +21,11 @@ public class controllerSong_ListenerPlaylistFollowedSongs extends PaneController
         this.model.getPlayerModel().playSingleSong(song);
     }
 
+    public boolean likeSong(int song_id){
+        int user_id = model.getProfileModel().getUser().getUser_id();
+        return facade.likeSong(user_id, song_id);
+    }
+
     public boolean addSongToPlaylist (int song_id, int playlist_id){
         return facade.addSongToPlaylist(song_id, playlist_id);
     }
