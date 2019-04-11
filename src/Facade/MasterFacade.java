@@ -284,6 +284,8 @@ public class MasterFacade {
 	}
 
 	public boolean addSongToPlaylist(int songid, int playlistid){
+		if (SD.checkSongPlaylist(songid, playlistid))
+			return false;
 		return SD.addSongToPlaylist(songid,playlistid);
 	}
 
