@@ -3,7 +3,10 @@ package controller.Artist;
 import controller.PaneController;
 import controller.controllerDashboard;
 import javafx.scene.layout.AnchorPane;
+import object.Notification;
 import view.Artist.viewNotifs_ArtistNotifications;
+
+import java.util.Iterator;
 
 public class controllerNotifs_ArtistNotifications extends PaneController {
 
@@ -25,5 +28,16 @@ public class controllerNotifs_ArtistNotifications extends PaneController {
         int user_id = model.getProfileModel().getUser().getUser_id();
         facade.setNotificationAsViewed(notif_id, user_id);
         this.model.getNotificationModel().setNotifications(facade.getAllNotifications(this.model.getProfileModel().getUser().getUser_id()));
+    }
+
+    public void markAllAsViewed() {
+
+        Iterator<Notification> listElements = this.model.getNotificationModel().getNotifications();
+
+        while (listElements.hasNext()) {
+            Notification notif = listElements.next();
+            markAsViewed(notif.getNotif_id());
+        }
+
     }
 }

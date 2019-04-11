@@ -15,6 +15,5 @@ public class NotificationModel extends Model {
 
     public void setNotifications(List<Notification> notifications) {
         this.notifications = notifications;
-        Notify();
     }
 }
