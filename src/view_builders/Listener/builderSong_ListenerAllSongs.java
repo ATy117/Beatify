@@ -8,12 +8,14 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import object.Playlist;
 import object.Song;
+import view.viewError;
 import view_builders.builderSong;
 
 import java.util.ArrayList;
@@ -107,13 +109,20 @@ public class builderSong_ListenerAllSongs extends builderSong<AnchorPane> {
 
                     while (listPlaylistElements.hasNext()){
                         Playlist playlist = listPlaylistElements.next();
-                        buttons.add(new Button (playlist.getName()));
-                        buttons.get(buttons.size() - 1).setPrefWidth(200);
+                        Button b = new Button (playlist.getName());
+                        buttons.add(b);
+                        b.setPrefWidth(200);
 
-                        buttons.get(buttons.size() - 1).setOnAction(new EventHandler<ActionEvent>() {
+                        b.setOnAction(new EventHandler<ActionEvent>() {
                             @Override
                             public void handle(ActionEvent event) {
-
+                                if (controller.addSongToPlaylist(song.getSong_id(), playlist.getPlaylist_id())) {
+                                    popup.hide();
+                                } else {
+                                    System.out.println("Song Not Added To Playlist Anymore");
+                                    popup.hide();
+                                    errorPopup = new viewError("Song Not Added To Playlist Anymore", songsIndiv);
+                                }
                             }
                         });
 
@@ -121,13 +130,25 @@ public class builderSong_ListenerAllSongs extends builderSong<AnchorPane> {
 
                     content.getChildren().addAll(buttons);
                     popup.setPopupContent(content);
+
                 }
             });
 
             unlikeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    popup.hide();
+                    controller.unlikeSong(song.getSong_id());
+                }
+            });
 
+            songsIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
+                        if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY))
+                            popup.show(songsIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                    }
                 }
             });
             listProducts.add(songsIndiv);
