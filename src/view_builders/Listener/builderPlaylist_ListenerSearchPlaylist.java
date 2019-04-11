@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import object.Playlist;
+import view.viewError;
 import view_builders.builderPlaylist;
 
 import java.util.ArrayList;
@@ -58,7 +59,7 @@ public class builderPlaylist_ListenerSearchPlaylist extends builderPlaylist<Anch
                         popup.hide();
                     } else {
                         popup.hide();
-                        System.out.println("Already Following Playlist");
+                        errorPopup = new viewError("Already Following Playlist", albumIndiv);
                     }
                 }
             });

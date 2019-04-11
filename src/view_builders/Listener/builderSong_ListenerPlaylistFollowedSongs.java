@@ -125,7 +125,6 @@ public class builderSong_ListenerPlaylistFollowedSongs extends builderSong<Ancho
                                 if (controller.addSongToPlaylist(song.getSong_id(), playlist.getPlaylist_id())) {
                                     popup.hide();
                                 } else {
-                                    System.out.println("Song Not Added To Playlist Anymore");
                                     popup.hide();
                                     errorPopup = new viewError("Song Not Added To Playlist Anymore", songsIndiv);
                                 }
@@ -145,7 +144,6 @@ public class builderSong_ListenerPlaylistFollowedSongs extends builderSong<Ancho
                     if (controller.likeSong(song.getSong_id())){
                         popup.hide();
                     } else {
-                        System.out.println("Song Already Liked");
                         popup.hide();
                         errorPopup = new viewError("Song Already Liked", songsIndiv);
                     }

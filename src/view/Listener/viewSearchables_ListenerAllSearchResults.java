@@ -150,8 +150,7 @@ public class viewSearchables_ListenerAllSearchResults extends View {
         String check = query.replaceAll("\\s+", "");
 
         if (check.equals("")){
-            System.out.println("No Input");
-            viewError popUp = new viewError("No Input", searchHeader);
+            errorPopup = new viewError("No Input", searchHeader);
         } else {
             controller.search(query);
         }
