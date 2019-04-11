@@ -13,6 +13,9 @@ public class viewArtistDashboard extends viewDashboard {
 	public viewArtistDashboard (Stage primaryStage, controllerDashboard controller) {
 		super(primaryStage, controller);
 		sm.setWindowName("Beatify for Artist");
+
+		currentPaneController = new controllerSong_ArtistAllSongs(centerCurrentAnchor, controller);
+		controller.setCurrentPane(currentPaneController);
 	}
 
 	public void changePane(ActionEvent actionEvent) {
