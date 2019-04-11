@@ -61,6 +61,8 @@ public class viewSong_ListenerShowListenerPlaylistSongs extends View {
     }
 
     private void initHeader () {
+        mainPane.getStylesheets().add("view/theme.css");
+
         //INITIALIZES THE HEADER//
         String PLAYLISTNAME = selectedPlaylist.getName();
         String USERNAME = "Playlist by "+ selectedPlaylist.getOwner_name();

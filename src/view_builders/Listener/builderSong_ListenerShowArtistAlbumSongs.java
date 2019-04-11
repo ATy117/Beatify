@@ -43,6 +43,11 @@ public class builderSong_ListenerShowArtistAlbumSongs extends builderSong<Anchor
             Text yearText = new Text(song.getDate_uploaded().getYear() + "");
             Text genreText = new Text(song.getGenre());
 
+            titleText.setId("songText");
+            artistText.setId("songText");
+            albumText.setId("songText");
+            yearText.setId("songText");
+            genreText.setId("songText");
 
             JFXButton play = new JFXButton();
             Image playImg = new Image("resources/play2.png");

@@ -24,3 +24,8 @@
     -fx-font-size: 14;
     -fx-text-fill: #2f4159;
 }
+
+#songText{
+    -fx-font-family: Poppins;
+    -fx-font-size: 13;
+}

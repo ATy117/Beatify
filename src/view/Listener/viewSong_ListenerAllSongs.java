@@ -57,6 +57,8 @@ public class viewSong_ListenerAllSongs extends View {
         }
 
     private void initHeader() {
+            mainPane.getStylesheets().add("view/theme.css");
+
         //INITIALIZES THE HEADER//
         headerLabel = new Label("All songs");
         sortLabel = new Label("Sort by");

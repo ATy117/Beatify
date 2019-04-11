@@ -38,10 +38,16 @@ public class builderSong_ListenerAllSongs extends builderSong<AnchorPane> {
             Song song = listElements.next();
             AnchorPane songsIndiv = new AnchorPane();
             Text titleText = new Text(song.getSong_name());
-            //     Text artistText = new Text("Dr Jekyl");
+            Text artistText = new Text("Dr Jekyl");
             Text albumText = new Text(song.getAlbum_name());
             Text yearText = new Text(song.getDate_uploaded().getYear() + "");
             Text genreText = new Text(song.getGenre());
+
+            titleText.setId("songText");
+            artistText.setId("songText");
+            albumText.setId("songText");
+            yearText.setId("songText");
+            genreText.setId("songText");
 
             JFXButton play = new JFXButton();
             Image playImg = new Image("resources/play2.png");
@@ -52,20 +58,20 @@ public class builderSong_ListenerAllSongs extends builderSong<AnchorPane> {
             playView.setFitWidth(30.0);
 
             songsIndiv.setTopAnchor(titleText, 0.0);
-            //  songsIndiv.setTopAnchor(artistText, 18.0);
+            songsIndiv.setTopAnchor(artistText, 18.0);
             songsIndiv.setTopAnchor(albumText, 0.0);
             songsIndiv.setTopAnchor(yearText, 0.0);
             songsIndiv.setTopAnchor(genreText, 18.0);
 
             songsIndiv.setLeftAnchor(titleText, 50.0);
-            //  songsIndiv.setLeftAnchor(artistText, 50.0);
+            songsIndiv.setLeftAnchor(artistText, 50.0);
             songsIndiv.setLeftAnchor(albumText, 300.0);
             songsIndiv.setLeftAnchor(yearText, 500.0);
             songsIndiv.setLeftAnchor(genreText, 500.0);
             songsIndiv.setLeftAnchor(play, 2.0);
 
             songsIndiv.getChildren().add(titleText);
-            //  songsIndiv.getChildren().add(artistText);
+            songsIndiv.getChildren().add(artistText);
             songsIndiv.getChildren().add(albumText);
             songsIndiv.getChildren().add(yearText);
             songsIndiv.getChildren().add(genreText);

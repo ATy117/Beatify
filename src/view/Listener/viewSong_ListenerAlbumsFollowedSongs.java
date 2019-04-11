@@ -65,6 +65,8 @@ public class viewSong_ListenerAlbumsFollowedSongs extends View {
     }
 
     private void initHeader () {
+        mainPane.getStylesheets().add("view/theme.css");
+        
         //INITIALIZES THE HEADER//
         String ALBUMNAME = selectedAlbum.getName();
         String ARTISTNAME = "Album by "+ selectedAlbum.getArtist_name();
