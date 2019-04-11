@@ -54,4 +54,8 @@ public class controllerPlaylist_ListenerAllPlaylists extends PaneController {
         facade.deletePlaylist(playlist_id);
         model.getLibraryModel().setMyPlaylists(facade.getFollowedPlaylists(this.model.getProfileModel().getUser().getUser_id()));
     }
+
+    public void addPlaylistToQueue(int playlist_id) {
+        model.getPlayerModel().addPlaylistToQueue(facade.getPlaylistSongs(playlist_id));
+    }
 }

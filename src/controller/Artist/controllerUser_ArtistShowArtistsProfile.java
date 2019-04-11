@@ -38,4 +38,8 @@ public class controllerUser_ArtistShowArtistsProfile extends PaneController {
 		dashboardController.setCurrentPane(c);
 	}
 
+	public void addPlaylistToQueue(int playlist_id){
+		model.getPlayerModel().addPlaylistToQueue(facade.getPlaylistSongs(playlist_id));
+	}
+
 }
