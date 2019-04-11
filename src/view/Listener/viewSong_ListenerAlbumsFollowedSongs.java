@@ -77,9 +77,11 @@ public class viewSong_ListenerAlbumsFollowedSongs extends View {
         albumArt.setRadius(30);
         Image image = new Image(selectedAlbum.getCover_URL().toURI().toString());
         albumArt.setFill(new ImagePattern(image));
-        headerLabel.setFont(Font.font("Comfortaa", 18));
-        subheaderLabel.setFont(Font.font("Comfortaa",12));
-        sortLabel.setFont(Font.font("Comfortaa", 18));
+
+        headerLabel.setId("songHeader");
+        subheaderLabel.setId("songHeaderDetails");
+        sortLabel.setId("songHeaderDetails");
+
         mainPane.setLeftAnchor(headerLabel, 100.0);
         mainPane.setTopAnchor(headerLabel, 50.0);
         mainPane.setLeftAnchor(subheaderLabel, 100.0);

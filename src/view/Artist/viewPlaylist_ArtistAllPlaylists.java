@@ -91,7 +91,7 @@ public class viewPlaylist_ArtistAllPlaylists extends View {
         headerLbl = new Label("All Playlists");
         addPlaylistBtn = new JFXButton("+ Add Playlist");
 
-        headerLbl.setFont(Font.font("Comfortaa", 18));
+        headerLbl.setId("songHeader");
 
         playlistHeader.setLeftAnchor(headerLbl, 252.0);
         playlistHeader.setTopAnchor(headerLbl, 23.0);

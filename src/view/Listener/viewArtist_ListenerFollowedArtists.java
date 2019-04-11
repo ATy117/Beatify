@@ -65,7 +65,7 @@ public class viewArtist_ListenerFollowedArtists extends View {
 
         headerLabel = new Label("All Followed Artists");
 
-        headerLabel.setFont(Font.font("Comfortaa", 18));
+        headerLabel.setId("songHeader");
 
         artistHeader.setLeftAnchor(headerLabel, 252.0);
         artistHeader.setTopAnchor(headerLabel, 23.0);

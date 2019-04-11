@@ -71,7 +71,7 @@ public class viewAlbum_ListenerFollowedAlbums extends View {
         mainPane.getStylesheets().add("view/theme.css");
         headerLabel = new Label("All Followed Albums");
 
-        headerLabel.setFont(Font.font("Comfortaa", 18));
+        headerLabel.setId("songHeader");
 
         albumsHeader.setLeftAnchor(headerLabel, 252.0);
         albumsHeader.setTopAnchor(headerLabel, 23.0);

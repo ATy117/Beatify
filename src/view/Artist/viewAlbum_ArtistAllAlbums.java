@@ -94,7 +94,7 @@ public class viewAlbum_ArtistAllAlbums extends View {
         uploadAlbumBtn = new JFXButton("+ upload album");
 
         uploadAlbumBtn.setFont(Font.font("Comfortaa", 12));
-        headerLabel.setFont(Font.font("Comfortaa", 18));
+        headerLabel.setId("songHeader");
 
         albumsHeader.setLeftAnchor(headerLabel, 252.0);
         albumsHeader.setTopAnchor(headerLabel, 23.0);
