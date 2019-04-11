@@ -26,7 +26,7 @@ public class viewAlbum_ListenerFollowedAlbums extends View {
     public controllerAlbum_ListenerFollowedAlbums controller;
 
     @FXML AnchorPane albumsHeader;
-    @FXML JFXListView albumListView;
+    @FXML JFXListView contentListView;
     @FXML AnchorPane mainPane;
 
     private Label headerLabel;
@@ -51,7 +51,7 @@ public class viewAlbum_ListenerFollowedAlbums extends View {
 
     @Override
     public void Update(){
-        albumListView.getItems().clear();
+        contentListView.getItems().clear();
 
         artistList = new TilePane();
 
@@ -64,7 +64,7 @@ public class viewAlbum_ListenerFollowedAlbums extends View {
             artistList.getChildren().add(anchorPane);
         }
 
-        albumListView.getItems().add(artistList);
+        contentListView.getItems().add(artistList);
     }
 
     public void initHeader(){

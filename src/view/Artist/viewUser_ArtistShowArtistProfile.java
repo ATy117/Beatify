@@ -31,7 +31,7 @@ public class viewUser_ArtistShowArtistProfile extends View {
     @FXML Label userName;
     @FXML Label followerNum;
     @FXML Label followingNum;
-    @FXML JFXListView profileListView;
+    @FXML JFXListView contentListView;
     @FXML AnchorPane mainPane;
 
     Label userPlaylistLbl;
@@ -75,7 +75,7 @@ public class viewUser_ArtistShowArtistProfile extends View {
     @Override
     public void Update(){
 
-        profileListView.getItems().clear();
+        contentListView.getItems().clear();
 
         userPlaylistLbl = new Label("User's Playlist/s");
         userAlbumsLbl = new Label("User's Album/s");
@@ -83,7 +83,7 @@ public class viewUser_ArtistShowArtistProfile extends View {
         userPlaylistLbl.setFont(Font.font("Poppins", 14));
         userAlbumsLbl.setFont(Font.font("Poppins", 14));
 
-        profileListView.getItems().add(userPlaylistLbl);
+        contentListView.getItems().add(userPlaylistLbl);
 
         playlistTile = new TilePane();
         playlistTile.setMaxWidth(634.0);
@@ -95,9 +95,9 @@ public class viewUser_ArtistShowArtistProfile extends View {
             AnchorPane anchorPane = (AnchorPane)object;
             playlistTile.getChildren().add(anchorPane);
         }
-        profileListView.getItems().add(playlistTile);
+        contentListView.getItems().add(playlistTile);
 
-        profileListView.getItems().add(userAlbumsLbl);
+        contentListView.getItems().add(userAlbumsLbl);
 
         albumsTile = new TilePane();
         albumsTile.setMaxWidth(634.0);
@@ -109,7 +109,7 @@ public class viewUser_ArtistShowArtistProfile extends View {
             AnchorPane anchorPane = (AnchorPane)object;
             albumsTile.getChildren().add(anchorPane);
         }
-        profileListView.getItems().add(albumsTile);
+        contentListView.getItems().add(albumsTile);
 
 
 

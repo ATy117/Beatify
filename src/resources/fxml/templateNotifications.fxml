@@ -12,6 +12,6 @@
             <Font name="Comfortaa Bold" size="18.0" />
          </font>
       </Label>
-      <JFXListView fx:id="notificationsListView" layoutY="56.0" prefHeight="514.0" prefWidth="635.0" />
+      <JFXListView fx:id="contentListView" layoutY="56.0" prefHeight="514.0" prefWidth="634.0" />
    </children>
 </AnchorPane>

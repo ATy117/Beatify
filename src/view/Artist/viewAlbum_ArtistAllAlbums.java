@@ -31,7 +31,7 @@ public class viewAlbum_ArtistAllAlbums extends View {
 
 
     @FXML AnchorPane albumsHeader;
-    @FXML JFXListView albumListView;
+    @FXML JFXListView contentListView;
 
     private Label headerLabel;
     private JFXButton uploadAlbumBtn;
@@ -61,7 +61,7 @@ public class viewAlbum_ArtistAllAlbums extends View {
 
     @Override
     public void Update(){
-        albumListView.getItems().clear();
+        contentListView.getItems().clear();
 
         myAlbumTilePane = new TilePane();
         myAlbumsLbl = new Label("My Albums");
@@ -69,7 +69,7 @@ public class viewAlbum_ArtistAllAlbums extends View {
         myAlbumsLbl.setFont(Font.font("Poppins", 14));
         followedAlbumsLbl.setFont(Font.font("Poppins", 14));
 
-        albumListView.getItems().add(myAlbumsLbl);
+        contentListView.getItems().add(myAlbumsLbl);
         builderAlbum builder = new builderAlbum_ArtistAlbumOwned(controller);
         Director director = Director.getInstance();
         director.setBuilder(builder);
@@ -78,10 +78,10 @@ public class viewAlbum_ArtistAllAlbums extends View {
             AnchorPane anchorPane = (AnchorPane)object;
             myAlbumTilePane.getChildren().add(anchorPane);
         }
-        albumListView.getItems().add(myAlbumTilePane);
+        contentListView.getItems().add(myAlbumTilePane);
 
         followedAlbumTilePane = new TilePane();
-        albumListView.getItems().add(followedAlbumsLbl);
+        contentListView.getItems().add(followedAlbumsLbl);
         builder = new builderAlbum_ArtistAlbumFollowed(controller);
         director.setBuilder(builder);
         director.construct();
@@ -89,7 +89,7 @@ public class viewAlbum_ArtistAllAlbums extends View {
             AnchorPane anchorPane = (AnchorPane)object;
             followedAlbumTilePane.getChildren().add(anchorPane);
         }
-        albumListView.getItems().add(followedAlbumTilePane);
+        contentListView.getItems().add(followedAlbumTilePane);
     }
 
     private void initHeader(){

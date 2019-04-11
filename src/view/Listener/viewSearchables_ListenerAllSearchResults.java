@@ -25,7 +25,7 @@ public class viewSearchables_ListenerAllSearchResults extends View {
     public controllerSearchables_ListenerAllSearchResults controller;
 
     @FXML AnchorPane searchHeader;
-    @FXML JFXListView searchContent;
+    @FXML JFXListView contentListView;
     @FXML JFXTextField searchField;
     @FXML JFXButton searchBtn;
     @FXML AnchorPane mainPane;
@@ -66,7 +66,7 @@ public class viewSearchables_ListenerAllSearchResults extends View {
 
     @Override
     public void Update(){
-        searchContent.getItems().clear();
+        contentListView.getItems().clear();
 
         songLbl = new Label("Songs:");
         albumLbl = new Label( "Albums:");
@@ -75,18 +75,18 @@ public class viewSearchables_ListenerAllSearchResults extends View {
         listenerLbl = new Label("Listeners:");
 
         /*Search Songs*/
-        searchContent.getItems().add(songLbl);
+        contentListView.getItems().add(songLbl);
         builderSong builder = new builderSong_ListenerSearchSong(controller);
         Director director = Director.getInstance();
         director.setBuilder(builder);
         director.construct();
         for (Object object: builder.getProduct()){
             AnchorPane anchorPane = (AnchorPane)object;
-            searchContent.getItems().add(anchorPane);
+            contentListView.getItems().add(anchorPane);
         }
 
         /*Search Albums*/
-        searchContent.getItems().add(albumLbl);
+        contentListView.getItems().add(albumLbl);
         albumsList = new TilePane();
         builderAlbum builderAlbum = new builderAlbum_ListenerSearchAlbum(controller);
         Director directorAlbum = Director.getInstance();
@@ -96,10 +96,10 @@ public class viewSearchables_ListenerAllSearchResults extends View {
             AnchorPane anchorPane = (AnchorPane)object;
             albumsList.getChildren().add(anchorPane);
         }
-        searchContent.getItems().add(albumsList);
+        contentListView.getItems().add(albumsList);
 
         /*Search Playlists*/
-        searchContent.getItems().add(playlistLbl);
+        contentListView.getItems().add(playlistLbl);
         playlistList = new TilePane();
         builderPlaylist builderPlaylist = new builderPlaylist_ListenerSearchPlaylist(controller);
         Director directorPlaylist = Director.getInstance();
@@ -109,10 +109,10 @@ public class viewSearchables_ListenerAllSearchResults extends View {
             AnchorPane anchorPane = (AnchorPane)object;
             playlistList.getChildren().add(anchorPane);
         }
-        searchContent.getItems().add(playlistList);
+        contentListView.getItems().add(playlistList);
 
         /*Search Artists*/
-        searchContent.getItems().add(artistLbl);
+        contentListView.getItems().add(artistLbl);
         artistList = new TilePane();
         builderUser builderArtist = new builderArtist_ListenerSearchArtist(controller);
         Director directorArtist = Director.getInstance();
@@ -122,10 +122,10 @@ public class viewSearchables_ListenerAllSearchResults extends View {
             AnchorPane anchorPane = (AnchorPane)object;
             artistList.getChildren().add(anchorPane);
         }
-        searchContent.getItems().add(artistList);
+        contentListView.getItems().add(artistList);
 
         /*Search Listeners*/
-        searchContent.getItems().add(listenerLbl);
+        contentListView.getItems().add(listenerLbl);
         listenerList = new TilePane();
         builderArtist = new builderListener_ListenerSearchListener(controller);
         directorArtist = Director.getInstance();
@@ -135,7 +135,7 @@ public class viewSearchables_ListenerAllSearchResults extends View {
             AnchorPane anchorPane = (AnchorPane)object;
             listenerList.getChildren().add(anchorPane);
         }
-        searchContent.getItems().add(listenerList);
+        contentListView.getItems().add(listenerList);
 
     }
 

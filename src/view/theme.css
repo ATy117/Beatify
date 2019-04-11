@@ -1,3 +1,15 @@
 #mainPane{
     -fx-background-color: #f4dfcc;
 }
+
+#contentListView{
+    -fx-background-color: #f4dfcc;
+}
+
+#contentListView .jfx-list-cell{
+    -fx-background-color: #f4dfcc ;
+}
+
+#contentListView .jfx-list-cell .jfx-rippler{
+    -jfx-rippler-fill: #fa9583;
+}

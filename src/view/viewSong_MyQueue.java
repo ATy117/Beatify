@@ -20,14 +20,14 @@ public class viewSong_MyQueue extends View{
     public controllerSong_MyQueue controller;
 
     @FXML AnchorPane mainPane;
-    @FXML JFXListView songListView;
+    @FXML JFXListView contentListView;
 
     public viewSong_MyQueue(AnchorPane mainPane, controllerSong_MyQueue controller, controllerDashboard dashboardController){
         this.controller = controller;
         this.model = dashboardController.getModel();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/fxml/templateSong.fxml"));
         loader.setController(this);
-        songListView = new JFXListView();
+        contentListView = new JFXListView();
         try {
             mainPane.getChildren().setAll((AnchorPane) loader.load());
         } catch (IOException e) {
@@ -42,7 +42,7 @@ public class viewSong_MyQueue extends View{
     public void Update(){
 
 
-        songListView.getItems().clear();
+        contentListView.getItems().clear();
 
 
         builderSong builder = new builderSong_MyQueue(controller);
@@ -52,7 +52,7 @@ public class viewSong_MyQueue extends View{
 
         for (Object object : builder.getProduct()) {
             AnchorPane anchorPane = (AnchorPane) object;
-            songListView.getItems().add(anchorPane);
+            contentListView.getItems().add(anchorPane);
         }
 
     }

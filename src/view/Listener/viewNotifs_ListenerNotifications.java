@@ -19,7 +19,7 @@ public class viewNotifs_ListenerNotifications extends View {
 
     public controllerNotifs_ListenerNotifications controller;
 
-    @FXML JFXListView notificationsListView;
+    @FXML JFXListView contentListView;
     @FXML AnchorPane mainPane;
 
 
@@ -42,7 +42,7 @@ public class viewNotifs_ListenerNotifications extends View {
     @Override
     public void Update() {
 
-        notificationsListView.getItems().clear();
+        contentListView.getItems().clear();
 
         builderNotification builder = new builderNotification_ListenerNotification(controller);
         Director director = Director.getInstance();
@@ -50,7 +50,7 @@ public class viewNotifs_ListenerNotifications extends View {
         director.construct();
         for (Object object: builder.getProduct()){
             AnchorPane anchorPane = (AnchorPane)object;
-            notificationsListView.getItems().add(anchorPane);
+            contentListView.getItems().add(anchorPane);
         }
 
         controller.markAllAsViewed();

@@ -26,7 +26,7 @@ public class viewPlaylist_ListenerAllPlaylists extends View {
     public controllerPlaylist_ListenerAllPlaylists controller;
 
     @FXML AnchorPane playlistHeader;
-    @FXML JFXListView playlistContent;
+    @FXML JFXListView contentListView;
     @FXML AnchorPane mainPane;
 
     private Label headerLabel;
@@ -54,7 +54,7 @@ public class viewPlaylist_ListenerAllPlaylists extends View {
 
     @Override
     public void Update(){
-        playlistContent.getItems().clear();
+        contentListView.getItems().clear();
 
         myPlaylistLbl = new Label("My Playlists");
         followedPlaylistLbl = new Label("Followed Playlists");
@@ -64,7 +64,7 @@ public class viewPlaylist_ListenerAllPlaylists extends View {
         /*List of My Playlists*/
         myPlaylistList = new TilePane();
         myPlaylistList.setMaxWidth(634.0);
-        playlistContent.getItems().add(myPlaylistLbl);
+        contentListView.getItems().add(myPlaylistLbl);
         builderPlaylist builder = new builderPlaylist_ListenerPlaylistOwned(controller);
         Director director = Director.getInstance();
         director.setBuilder(builder);
@@ -73,11 +73,11 @@ public class viewPlaylist_ListenerAllPlaylists extends View {
             AnchorPane anchorPane = (AnchorPane)object;
             myPlaylistList.getChildren().add(anchorPane);
         }
-        playlistContent.getItems().add(myPlaylistList);
+        contentListView.getItems().add(myPlaylistList);
 
         /*List of Followed Playlists*/
         followedPlaylistList = new TilePane();
-        playlistContent.getItems().add(followedPlaylistLbl);
+        contentListView.getItems().add(followedPlaylistLbl);
         builder = new builderPlaylist_ListenerPlaylistFollowed(controller);
         director = Director.getInstance();
         director.setBuilder(builder);
@@ -86,7 +86,7 @@ public class viewPlaylist_ListenerAllPlaylists extends View {
             AnchorPane anchorPane = (AnchorPane)object;
             followedPlaylistList.getChildren().add(anchorPane);
         }
-        playlistContent.getItems().add(followedPlaylistList);
+        contentListView.getItems().add(followedPlaylistList);
 
     }
 

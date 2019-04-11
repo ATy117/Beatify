@@ -27,6 +27,6 @@
                </font>
             </JFXButton>
          </children></AnchorPane>
-      <JFXListView fx:id="searchContent" layoutY="106.0" prefHeight="464.0" prefWidth="634.0" />
+      <JFXListView fx:id="contentListView" layoutY="106.0" prefHeight="464.0" prefWidth="634.0" />
    </children>
 </AnchorPane>

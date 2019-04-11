@@ -23,6 +23,6 @@
             </Label>
          </children>
       </AnchorPane>
-      <JFXListView fx:id="profileListView" layoutY="145.0" prefHeight="425.0" prefWidth="635.0" />
+      <JFXListView fx:id="contentListView" layoutY="145.0" prefHeight="425.0" prefWidth="634.0" />
    </children>
 </AnchorPane>

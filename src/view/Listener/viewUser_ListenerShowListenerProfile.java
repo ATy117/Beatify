@@ -28,7 +28,7 @@ public class viewUser_ListenerShowListenerProfile extends View {
     @FXML Label userName;
     @FXML Label followerNum;
     @FXML Label followingNum;
-    @FXML JFXListView profileListView;
+    @FXML JFXListView contentListView;
     @FXML AnchorPane mainPane;
 
     Label userPlaylistLbl;
@@ -62,13 +62,13 @@ public class viewUser_ListenerShowListenerProfile extends View {
     @Override
     public void Update(){
 
-        profileListView.getItems().clear();
+        contentListView.getItems().clear();
 
         userPlaylistLbl = new Label("User's Playlist/s");
 
         userPlaylistLbl.setFont(Font.font("Poppins", 14));
 
-        profileListView.getItems().add(userPlaylistLbl);
+        contentListView.getItems().add(userPlaylistLbl);
 
         playlistTile = new TilePane();
         playlistTile.setMaxWidth(634.0);
@@ -80,7 +80,7 @@ public class viewUser_ListenerShowListenerProfile extends View {
             AnchorPane anchorPane = (AnchorPane)object;
             playlistTile.getChildren().add(anchorPane);
         }
-        profileListView.getItems().add(playlistTile);
+        contentListView.getItems().add(playlistTile);
 
     }
 
