@@ -78,17 +78,25 @@ public class builderSong_ListenerPlaylistFollowedSongs extends builderSong<Ancho
             songsIndiv.getChildren().add(genreText);
             songsIndiv.getChildren().add(play);
 
+
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(150);
-            Button add_to_queueButton = new Button("Add to queue");
-            Button add_to_playlistButton = new Button ("Add to playlist");
-            Button likeButton = new Button ("Like");
+            Button add_to_queueButton = new JFXButton("Add to queue");
+            Button add_to_playlistButton = new JFXButton ("Add to playlist");
+            Button likeButton = new JFXButton ("Like");
             add_to_queueButton.setMinWidth(content.getPrefWidth());
             add_to_playlistButton.setMinWidth(content.getPrefWidth());
             likeButton.setMinWidth(content.getPrefWidth());
             content.getChildren().addAll(likeButton, add_to_queueButton, add_to_playlistButton);
             popup.setPopupContent(content);
+
+            content.getStylesheets().add("view/theme.css");
+            content.setId("vboxRight");
+            add_to_playlistButton.setId("rightClickButton");
+            add_to_queueButton.setId("rightClickButton");
+            likeButton.setId("rightClickButton");
+
 
             play.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override

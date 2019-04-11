@@ -1,5 +1,6 @@
 package view_builders.Artist;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPopup;
 import controller.Artist.controllerPlaylist_ArtistsAllPlaylists;
 import javafx.event.EventHandler;
@@ -46,12 +47,17 @@ public class builderPlaylist_ArtistPlaylistFollowed  extends builderPlaylist<Anc
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(65);
-            Button unfollowButton = new Button("Unfollow");
-            Button addQueue = new Button("Add Playlist to Queue");
+            JFXButton unfollowButton = new JFXButton("Unfollow");
+            JFXButton addQueue = new JFXButton("Add Playlist to Queue");
             addQueue.setMinWidth(content.getPrefWidth());
             unfollowButton.setMinWidth(content.getPrefWidth());
             content.getChildren().addAll(addQueue, unfollowButton);
             popup.setPopupContent(content);
+
+            content.getStylesheets().add("view/theme.css");
+            content.setId("vboxRight");
+            unfollowButton.setId("rightClickButton");
+            addQueue.setId("rightClickButton");
 
             albumIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override

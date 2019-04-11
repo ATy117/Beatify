@@ -1,5 +1,6 @@
 package view_builders.Listener;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPopup;
 import controller.Listener.controllerAlbum_ListenerFollowedAlbums;
 import controller.Listener.controllerSearchables_ListenerAllSearchResults;
@@ -44,10 +45,14 @@ public class builderArtist_ListenerSearchArtist extends builderUser<AnchorPane> 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(65);
-            Button followButton = new Button("Follow");
+            Button followButton = new JFXButton("Follow");
             followButton.setMinWidth(content.getPrefWidth());
             content.getChildren().addAll(followButton);
             popup.setPopupContent(content);
+
+            content.getStylesheets().add("view/theme.css");
+            content.setId("vboxRight");
+            followButton.setId("rightClickButton");
 
             followButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override

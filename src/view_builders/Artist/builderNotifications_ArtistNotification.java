@@ -52,7 +52,7 @@ public class builderNotifications_ArtistNotification extends builderNotification
                 }
             });
 
-            notifIndiv.setLeftAnchor(ex, 600.0);
+            notifIndiv.setLeftAnchor(ex, 550.0);
             notifIndiv.setLeftAnchor(notifLabel, 15.0);
 
             notifIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {

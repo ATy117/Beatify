@@ -80,8 +80,13 @@ public class builderSong_ArtistAllSongs extends builderSong<AnchorPane> {
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
 
-            Button add_to_queueButton = new Button("Add to queue");
-            Button add_to_playlistButton = new Button ("Add to playlist");
+            JFXButton add_to_queueButton = new JFXButton("Add to queue");
+            JFXButton add_to_playlistButton = new JFXButton ("Add to playlist");
+
+            content.getStylesheets().add("view/theme.css");
+            content.setId("vboxRight");
+            add_to_playlistButton.setId("rightClickButton");
+            add_to_queueButton.setId("rightClickButton");
 
             play.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override

@@ -89,6 +89,13 @@ public class builderSong_ListenerAlbumsFollowedSongs extends builderSong<AnchorP
             content.getChildren().addAll(likeButton, add_to_queueButton, add_to_playlistButton);
             popup.setPopupContent(content);
 
+            content.getStylesheets().add("view/theme.css");
+            content.setId("vboxRight");
+            add_to_playlistButton.setId("rightClickButton");
+            add_to_queueButton.setId("rightClickButton");
+            likeButton.setId("rightClickButton");
+
+
             play.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {

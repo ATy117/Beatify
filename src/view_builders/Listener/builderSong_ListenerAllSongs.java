@@ -80,14 +80,22 @@ public class builderSong_ListenerAllSongs extends builderSong<AnchorPane> {
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(150);
-            Button add_to_queueButton = new Button("Add to queue");
-            Button add_to_playlistButton = new Button ("Add to playlist");
-            Button unlikeButton = new Button ("Unlike");
+            Button add_to_queueButton = new JFXButton("Add to queue");
+            Button add_to_playlistButton = new JFXButton ("Add to playlist");
+            Button unlikeButton = new JFXButton ("Unlike");
             add_to_queueButton.setMinWidth(content.getPrefWidth());
             add_to_playlistButton.setMinWidth(content.getPrefWidth());
             unlikeButton.setMinWidth(content.getPrefWidth());
             content.getChildren().addAll(add_to_queueButton, add_to_playlistButton, unlikeButton);
             popup.setPopupContent(content);
+
+
+            content.getStylesheets().add("view/theme.css");
+            content.setId("vboxRight");
+            add_to_playlistButton.setId("rightClickButton");
+            add_to_queueButton.setId("rightClickButton");
+            unlikeButton.setId("rightClickButton");
+
 
 
             play.setOnMouseClicked(new EventHandler<MouseEvent>() {

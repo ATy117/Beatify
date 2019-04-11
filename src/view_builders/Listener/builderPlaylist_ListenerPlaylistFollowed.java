@@ -1,5 +1,6 @@
 package view_builders.Listener;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPopup;
 import controller.Listener.controllerPlaylist_ListenerAllPlaylists;
 import javafx.event.EventHandler;
@@ -44,12 +45,17 @@ public class builderPlaylist_ListenerPlaylistFollowed extends builderPlaylist<An
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(65);
-            Button unfollowButton = new Button("Unfollow");
-            Button addQueue = new Button("Add Playlist to Queue");
+            Button unfollowButton = new JFXButton("Unfollow");
+            Button addQueue = new JFXButton("Add Playlist to Queue");
             addQueue.setMinWidth(content.getPrefWidth());
             unfollowButton.setMinWidth(content.getPrefWidth());
             content.getChildren().addAll(addQueue, unfollowButton);
             popup.setPopupContent(content);
+
+            content.getStylesheets().add("view/theme.css");
+            content.setId("vboxRight");
+            addQueue.setId("rightClickButton");
+            unfollowButton.setId("rightClickButton");
 
             unfollowButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override

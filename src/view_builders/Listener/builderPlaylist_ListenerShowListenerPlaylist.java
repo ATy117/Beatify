@@ -1,5 +1,6 @@
 package view_builders.Listener;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPopup;
 import controller.Listener.controllerAlbum_ListenerFollowedAlbums;
 import controller.Listener.controllerUser_ListenerShowListenerProfile;
@@ -51,13 +52,19 @@ public class builderPlaylist_ListenerShowListenerPlaylist extends builderPlaylis
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(150);
-            Button followButton = new Button("Follow");
+            JFXButton followButton = new JFXButton("Follow");
             followButton.setMinWidth(content.getPrefWidth());
 
-            Button addQueue = new Button("Add Playlist to Queue");
+            Button addQueue = new JFXButton("Add Playlist to Queue");
             addQueue.setMinWidth(content.getPrefWidth());
             content.getChildren().addAll(addQueue, followButton);
             popup.setPopupContent(content);
+
+            content.getStylesheets().add("view/theme.css");
+            content.setId("vboxRight");
+            addQueue.setId("rightClickButton");
+            followButton.setId("rightClickButton");
+
 
             followButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override

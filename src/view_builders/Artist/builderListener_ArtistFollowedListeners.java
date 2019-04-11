@@ -1,5 +1,6 @@
 package view_builders.Artist;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPopup;
 import controller.Artist.controllerListener_ArtistFollowedListeners;
 import javafx.event.EventHandler;
@@ -41,10 +42,14 @@ public class builderListener_ArtistFollowedListeners extends builderUser<AnchorP
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(65);
-            Button unfollowButton = new Button("Unfollow");
+            JFXButton unfollowButton = new JFXButton("Unfollow");
             unfollowButton.setMinWidth(content.getPrefWidth());
             content.getChildren().addAll(unfollowButton);
             popup.setPopupContent(content);
+
+            content.getStylesheets().add("view/theme.css");
+            content.setId("vboxRight");
+            unfollowButton.setId("rightClickButton");
 
             albumIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
