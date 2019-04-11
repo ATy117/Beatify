@@ -86,11 +86,9 @@ public class view_AddPlaylist extends View {
             isPublic = true;
 
         if (check.equals("")){
-            System.out.println("Enter Playlist Name");
             errorPopup = new viewError("Enter Playlist Name", mainPane);
         } else {
             if (!controller.uploadPlaylist(name, isPublic)) {
-                System.out.println("Playlist Not Created");
                 errorPopup = new viewError("Playlist Not Created", mainPane);
             }
         }

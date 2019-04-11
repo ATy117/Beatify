@@ -92,16 +92,12 @@ public class viewRegister extends View{
         String passCheckCheck = passwordConfirm.replaceAll("\\s+", "");
 
         if (firstCheck.equals("") || lastCheck.equals("") || userCheck.equals("") || passCheck.equals("") || passCheckCheck.equals("")){
-            System.out.println("Some Fields Are Missing");
             errorPopup = new viewError("Some Fields Are Missing", mainPane);
         } else if ( ! password.equals(passwordConfirm)) {
-            System.out.println("Passwords Do Not Match");
             errorPopup = new viewError("Passwords Do Not Match", mainPane);
         } else {
-            if (controller.register(username, password, firstName, lastName, isArtist, profilePic)){
-                System.out.println("Successfully Created Account");
-            } else {
-                System.out.println("This Account Exists Already");
+            if (!controller.register(username, password, firstName, lastName, isArtist, profilePic)){
+                errorPopup = new viewError("This Account Exists Already", mainPane);
             }
         }
 

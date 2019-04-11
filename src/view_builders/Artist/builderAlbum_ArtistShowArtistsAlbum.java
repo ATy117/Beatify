@@ -64,7 +64,6 @@ public class builderAlbum_ArtistShowArtistsAlbum extends builderAlbum<AnchorPane
                     if (controller.followAlbum(album.getAlbum_id())) {
                         popup.hide();
                     } else {
-                        System.out.println("Already Following That Album");
                         popup.hide();
                         errorPopup = new viewError("Already Following That Album", albumIndiv);
                     }

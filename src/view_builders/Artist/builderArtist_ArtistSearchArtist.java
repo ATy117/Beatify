@@ -64,7 +64,6 @@ public class builderArtist_ArtistSearchArtist extends builderUser<AnchorPane> {
                     if (controller.followUser(user.getUser_id())) {
                         popup.hide();
                     } else {
-                        System.out.println("Already Following That Artist");
                         popup.hide();
                         errorPopup = new viewError("Already Following That Artist", albumIndiv);
                     }

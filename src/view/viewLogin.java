@@ -83,12 +83,10 @@ public class viewLogin extends View {
 
             if (userCheck.equals("") || passCheck.equals("")){
                 errorPopup = new viewError("Some Fields Are Missing", mainPane);
-                System.out.println("Some Fields Are Missing");
             } else {
                 User user = controller.userLogin(username, password);
                 if (user == null){
                     errorPopup = new viewError("User does not exist", mainPane);
-                    System.out.println("User does not exist");
                 } else {
                     if (user.isIs_artist()) {
                         controllerDashboard dashboard = new controllerArtistDashboard(primaryStage, user);

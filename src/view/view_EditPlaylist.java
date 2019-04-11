@@ -78,11 +78,9 @@ public class view_EditPlaylist extends View {
             is_public = false;
 
         if (titleCheck.equals("")){
-            System.out.println("Empty Playlist Name Found");
             errorPopup = new viewError("Empty Playlist Name Found", mainPane);
         } else {
             if (!controller.editPlaylist(title, is_public)){
-                System.out.println("Playlist Name Already Exists");
                 errorPopup = new viewError("Playlist Name Already Exists", mainPane);
             }
         }

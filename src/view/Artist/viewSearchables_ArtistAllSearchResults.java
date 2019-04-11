@@ -150,7 +150,6 @@ public class viewSearchables_ArtistAllSearchResults extends View {
         String check = query.replaceAll("\\s+", "");
 
         if (check.equals("")){
-            System.out.println("No Input");
             errorPopup = new viewError("No Input", searchHeader);
         } else {
             controller.search(query);

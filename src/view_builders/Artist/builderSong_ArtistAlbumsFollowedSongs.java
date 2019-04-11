@@ -117,7 +117,6 @@ public class builderSong_ArtistAlbumsFollowedSongs extends builderSong<AnchorPan
                                 if (controller.addSongToPlaylist(song.getSong_id(), playlist.getPlaylist_id())) {
                                     popup.hide();
                                 } else {
-                                    System.out.println("Song Not Added to Playlist Anymore");
                                     popup.hide();
                                     errorPopup = new viewError("Song Not Added To Playlist Anymore", songsIndiv);
                                 }
