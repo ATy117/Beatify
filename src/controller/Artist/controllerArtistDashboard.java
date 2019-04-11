@@ -11,7 +11,11 @@ public class controllerArtistDashboard extends controllerDashboard {
 		super(primaryStage, user);
 		model.getProfileModel().setUser(user);
 		model.getLibraryModel().setMyPlaylists(facade.getMyPlaylists(user.getUser_id()));
+		model.getProfileModel().setFollowedListeners(facade.getFollowedListeners(this.model.getProfileModel().getUser().getUser_id()));
 		view = new viewArtistDashboard(primaryStage, this);
 		model.AttachToAll(view);
+
+		initThread();
+		checkNotifs();
 	}
 }

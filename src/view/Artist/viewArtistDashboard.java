@@ -46,6 +46,7 @@ public class viewArtistDashboard extends viewDashboard {
 		}
 		else if (actionEvent.getSource() == notificationsBtn){
 			currentPaneController = new controllerNotifs_ArtistNotifications(centerCurrentAnchor, controller);
+			unshowNotifCue();
 		}
 
 		controller.setCurrentPane(currentPaneController);

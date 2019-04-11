@@ -49,5 +49,6 @@ public class viewNotifs_ArtistNotifications extends View {
             notificationsListView.getItems().add(anchorPane);
         }
 
+        controller.markAllAsViewed();
     }
 }
