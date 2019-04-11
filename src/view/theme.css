@@ -67,3 +67,8 @@
     -fx-font-size: 12;
     -jfx-button-type: RAISED;
 }
+
+#nameText{
+    -fx-font-family: Poppins;
+    -fx-font-size: 12;
+}

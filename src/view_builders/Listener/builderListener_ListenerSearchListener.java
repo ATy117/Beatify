@@ -37,6 +37,8 @@ public class builderListener_ListenerSearchListener extends builderUser<AnchorPa
             Circle userPic = new Circle(45);
             Label text = new Label(user.getFirst_name() + " " + user.getLast_name());
 
+            text.setId("nameText");
+
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(65);

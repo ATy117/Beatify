@@ -39,6 +39,8 @@ public class builderAlbum_ArtistShowArtistsAlbum extends builderAlbum<AnchorPane
             Circle albumCover = new Circle(45);
             Label text = new Label(album.getName());
 
+            text.setId("nameText");
+
             albumIndiv.setLeftAnchor(albumCover, 20.0);
             albumIndiv.setTopAnchor(albumCover, 13.0);
             albumIndiv.setTopAnchor(text, 106.0);

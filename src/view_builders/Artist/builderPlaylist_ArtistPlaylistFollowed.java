@@ -41,6 +41,8 @@ public class builderPlaylist_ArtistPlaylistFollowed  extends builderPlaylist<Anc
             Image publicImg = new Image("resources/publicCover.png");
             albumCover.setFill(new ImagePattern(publicImg));
 
+            text.setId("nameText");
+
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(65);

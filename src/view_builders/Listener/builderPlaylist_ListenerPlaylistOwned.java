@@ -38,6 +38,9 @@ public class builderPlaylist_ListenerPlaylistOwned extends builderPlaylist<Ancho
             AnchorPane albumIndiv = new AnchorPane();
             Circle albumCover = new Circle(45);
             Label text = new Label(p.getName());
+
+            text.setId("nameText");
+
             Image privateImg = new Image("resources/privateCover.png");
             Image publicImg = new Image("resources/publicCover.png");
 

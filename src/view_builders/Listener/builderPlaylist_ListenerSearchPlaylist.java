@@ -36,6 +36,8 @@ public class builderPlaylist_ListenerSearchPlaylist extends builderPlaylist<Anch
             Circle albumCover = new Circle(45);
             Label text = new Label(playlist.getName());
 
+            text.setId("nameText");
+
             Image publicImg = new Image("resources/publicCover.png");
             albumCover.setFill(new ImagePattern(publicImg));
 

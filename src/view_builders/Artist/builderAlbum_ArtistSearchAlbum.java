@@ -40,6 +40,8 @@ public class builderAlbum_ArtistSearchAlbum extends builderAlbum<AnchorPane> {
             Circle albumCover = new Circle(45);
             Label text = new Label(album.getName());
 
+            text.setId("nameText");
+
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(65);
