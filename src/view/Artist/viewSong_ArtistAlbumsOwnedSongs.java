@@ -104,6 +104,7 @@ public class viewSong_ArtistAlbumsOwnedSongs extends View {
         mainPane.getChildren().add(subheaderLabel);
         mainPane.getChildren().add(sortLabel);
         mainPane.getChildren().add(albumArt);
+        mainPane.getChildren().add(uploadSongBtn);
 
         uploadSongBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override

@@ -6,10 +6,14 @@
     -fx-background-color: #f4dfcc;
 }
 
-#contentListView .jfx-list-cell{
-    -fx-background-color: #f4dfcc ;
+#contentListView .jfx-list-cell .jfx-rippler{
+    -jfx-rippler-fill: #4097aa;
 }
 
-#contentListView .jfx-list-cell .jfx-rippler{
-    -jfx-rippler-fill: #fa9583;
+#contentListView .jfx-list-cell:odd{
+    -fx-background-color: #f4dfcc;
+}
+
+#contentListView .jfx-list-cell:even{
+    -fx-background-color: #fab2a5;
 }
