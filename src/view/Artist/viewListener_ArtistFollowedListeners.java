@@ -69,7 +69,7 @@ public class viewListener_ArtistFollowedListeners extends View {
 
         headerLabel.setId("songHeader");
 
-        listenerHeader.setLeftAnchor(headerLabel, 252.0);
+        listenerHeader.setLeftAnchor(headerLabel, 212.0);
         listenerHeader.setTopAnchor(headerLabel, 23.0);
 
         listenerHeader.getChildren().add(headerLabel);
