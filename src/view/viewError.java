@@ -29,13 +29,19 @@ public class viewError extends JFXPopup {
         errorPane.setMaxSize(300, 300);
 
         errorPane.setTopAnchor(errorSpecifics, 150.0);
-        errorPane.setLeftAnchor(errorSpecifics, 20.0);
-        errorPane.setLeftAnchor(errorMessage, 50.0);
-        errorPane.setTopAnchor(errorMessage, 70.0);
+        errorPane.setLeftAnchor(errorSpecifics, 60.0);
+        errorPane.setLeftAnchor(errorMessage, 110.0);
+        errorPane.setTopAnchor(errorMessage, 90.0);
+
+        errorPane.getStylesheets().add("view/theme.css");
+        errorPane.setId("errorPane");
+        errorMessage.setId("errorMessage");
+        errorSpecifics.setId("errorSpecifics");
 
         errorPane.getChildren().add(errorSpecifics);
         errorPane.getChildren().add(errorMessage);
         this.setPopupContent(errorPane);
         this.show(mainPane, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.LEFT, 95.0, 70.0);
+
     }
 }

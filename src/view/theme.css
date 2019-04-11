@@ -29,3 +29,20 @@
     -fx-font-family: Poppins;
     -fx-font-size: 13;
 }
+
+#errorPane{
+    -fx-background-color: #1c6575;
+}
+
+#errorMessage{
+    -fx-font-family: Comfortaa;
+    -fx-font-weight: bold;
+    -fx-font-size: 24;
+    -fx-text-fill: #fa9583;
+}
+
+#errorSpecifics{
+    -fx-font-family: Poppins;
+    -fx-font-size: 20;
+    -fx-text-fill: fab2a5;
+}
