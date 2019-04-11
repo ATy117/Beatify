@@ -22,7 +22,7 @@ public class controllerAlbum_ListenerFollowedAlbums extends PaneController {
     public void goToFollowedList(int album_id){
         model.getLibraryModel().setSelectedAlbum(facade.getAlbum(album_id));
         model.getLibraryModel().setSongContents(facade.getAlbumSongs(album_id));
-        controllerSong_ArtistAlbumsFollowedSongs c = new controllerSong_ArtistAlbumsFollowedSongs(mainPane, dashboardController);
+        controllerSong_ListenerAlbumsFollowedSongs c = new controllerSong_ListenerAlbumsFollowedSongs(mainPane, dashboardController);
         dashboardController.setCurrentPane(c);
     }
 

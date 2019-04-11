@@ -28,14 +28,14 @@ public class controllerUser_ListenerShowArtistsProfile extends PaneController {
     public void goToAlbumList(int album_id){
         model.getPeopleModel().setSelectedAlbum(facade.getAlbum(album_id));
         model.getPeopleModel().setSongs(facade.getAlbumSongs(album_id));
-        controllerSong_ArtistShowArtistAlbumSongs c = new controllerSong_ArtistShowArtistAlbumSongs(mainPane, dashboardController);
+        controllerSong_ListenerShowArtistAlbumSongs c = new controllerSong_ListenerShowArtistAlbumSongs(mainPane, dashboardController);
         dashboardController.setCurrentPane(c);
     }
 
     public void goToPlaylistList(int playlist_id){
         model.getPeopleModel().setSelectedPlaylist(facade.getPlaylist(playlist_id));
         model.getPeopleModel().setSongs(facade.getPlaylistSongs(playlist_id));
-        controllerSong_ArtistShowArtistPlaylistSongs c = new controllerSong_ArtistShowArtistPlaylistSongs(mainPane, dashboardController);
+        controllerSong_ListenerShowArtistPlaylistSongs c = new controllerSong_ListenerShowArtistPlaylistSongs(mainPane, dashboardController);
         dashboardController.setCurrentPane(c);
     }
 }

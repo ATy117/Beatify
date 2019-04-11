@@ -23,7 +23,7 @@ public class controllerUser_ListenerShowListenerProfile extends PaneController {
     public void goToPlaylistList(int playlist_id) {
         model.getPeopleModel().setSelectedPlaylist(facade.getPlaylist(playlist_id));
         model.getPeopleModel().setSongs(facade.getPlaylistSongs(playlist_id));
-        controllerSong_ArtistShowListenerPlaylistSongs c = new controllerSong_ArtistShowListenerPlaylistSongs(mainPane, dashboardController);
+        controllerSong_ListenerShowListenerPlaylistSongs c = new controllerSong_ListenerShowListenerPlaylistSongs(mainPane, dashboardController);
         dashboardController.setCurrentPane(c);
     }
 }
