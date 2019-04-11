@@ -29,9 +29,14 @@ public class controllerAlbum_ArtistAllAlbums extends PaneController {
         dashboardController.setCurrentPane(c);
     }
 
-    public void deleteAlbum(int album_id){
-        facade.deleteAlbum(album_id);
-        model.getLibraryModel().setMyAlbums(facade.getMyAlbums(this.model.getProfileModel().getUser().getUser_id()));
+    public boolean deleteAlbum(int album_id){
+        if (facade.getAlbumSongs(album_id).size() != 0){
+            return false;
+        } else {
+            facade.deleteAlbum(album_id);
+            model.getLibraryModel().setMyAlbums(facade.getMyAlbums(this.model.getProfileModel().getUser().getUser_id()));
+            return true;
+        }
     }
 
     public void unfollowAlbum(int album_id){

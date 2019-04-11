@@ -51,10 +51,12 @@ public class builderPlaylist_ArtistShowArtistsPlaylist extends builderPlaylist<A
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
-            content.setPrefWidth(65);
+            content.setPrefWidth(150);
             Button followButton = new Button("Follow");
             followButton.setMinWidth(content.getPrefWidth());
-            content.getChildren().addAll(followButton);
+            Button addQueue = new Button("Add Playlist to Queue");
+            addQueue.setMinWidth(content.getPrefWidth());
+            content.getChildren().addAll(addQueue, followButton);
             popup.setPopupContent(content);
 
 
@@ -68,6 +70,13 @@ public class builderPlaylist_ArtistShowArtistsPlaylist extends builderPlaylist<A
                         popup.hide();
                         errorPopup = new viewError("Already Following That Playlist", albumIndiv);
                     }
+                }
+            });
+
+            addQueue.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    controller.addPlaylistToQueue(p.getPlaylist_id());
                 }
             });
 

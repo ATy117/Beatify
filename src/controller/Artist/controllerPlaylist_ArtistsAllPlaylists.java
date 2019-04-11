@@ -49,4 +49,8 @@ public class controllerPlaylist_ArtistsAllPlaylists extends PaneController {
         controller_EditPlaylist edit = new controller_EditPlaylist(mainPane, dashboardController);
         dashboardController.setCurrentPane(edit);
     }
+
+    public void addPlaylistToQueue(int playlist_id){
+        model.getPlayerModel().addPlaylistToQueue(facade.getPlaylistSongs(playlist_id));
+    }
 }

@@ -56,9 +56,11 @@ public class builderPlaylist_ListenerPlaylistOwned extends builderPlaylist<Ancho
             content.setPrefWidth(65);
             Button deleteButton = new Button("Delete");
             Button editButton = new Button("Edit");
+            Button addQueue = new Button("Add Playlist to Queue");
+            addQueue.setMinWidth(content.getPrefWidth());
             deleteButton.setMinWidth(content.getPrefWidth());
             editButton.setMinWidth(content.getPrefWidth());
-            content.getChildren().addAll(deleteButton, editButton);
+            content.getChildren().addAll(addQueue, deleteButton, editButton);
             popup.setPopupContent(content);
 
             deleteButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -74,6 +76,13 @@ public class builderPlaylist_ListenerPlaylistOwned extends builderPlaylist<Ancho
                 public void handle(MouseEvent event) {
                     popup.hide();
                     controller.editPlaylist(p);
+                }
+            });
+
+            addQueue.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    controller.addPlaylistToQueue(p.getPlaylist_id());
                 }
             });
 

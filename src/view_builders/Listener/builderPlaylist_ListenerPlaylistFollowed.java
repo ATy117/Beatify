@@ -45,8 +45,10 @@ public class builderPlaylist_ListenerPlaylistFollowed extends builderPlaylist<An
             VBox content = new VBox();
             content.setPrefWidth(65);
             Button unfollowButton = new Button("Unfollow");
+            Button addQueue = new Button("Add Playlist to Queue");
+            addQueue.setMinWidth(content.getPrefWidth());
             unfollowButton.setMinWidth(content.getPrefWidth());
-            content.getChildren().addAll(unfollowButton);
+            content.getChildren().addAll(addQueue, unfollowButton);
             popup.setPopupContent(content);
 
             unfollowButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -54,6 +56,13 @@ public class builderPlaylist_ListenerPlaylistFollowed extends builderPlaylist<An
                 public void handle(MouseEvent event) {
                     controller.unfollowPlaylist(playlist.getPlaylist_id());
                     popup.hide();
+                }
+            });
+
+            addQueue.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    controller.addPlaylistToQueue(playlist.getPlaylist_id());
                 }
             });
 

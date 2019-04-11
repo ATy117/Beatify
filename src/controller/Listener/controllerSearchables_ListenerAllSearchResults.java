@@ -53,4 +53,8 @@ public class controllerSearchables_ListenerAllSearchResults extends PaneControll
         int user_id = model.getProfileModel().getUser().getUser_id();
         return facade.likeSong(user_id, song_id);
     }
+
+    public void addPlaylistToQueue(int playlist_id){
+        model.getPlayerModel().addPlaylistToQueue(facade.getPlaylistSongs(playlist_id));
+    }
 }
