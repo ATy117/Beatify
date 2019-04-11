@@ -137,7 +137,8 @@ public class builderSong_ListenerAllSongs extends builderSong<AnchorPane> {
             unlikeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-
+                    popup.hide();
+                    controller.unlikeSong(song.getSong_id());
                 }
             });
 
