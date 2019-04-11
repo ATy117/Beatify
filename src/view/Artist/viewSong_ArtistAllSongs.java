@@ -62,8 +62,10 @@ public class viewSong_ArtistAllSongs extends View {
         //INITIALIZES THE HEADER//
         headerLabel = new Label("All songs");
         sortLabel = new Label("Sort by");
-        sortLabel.setFont(Font.font("Comfortaa", 18));
-        headerLabel.setFont(Font.font("Comfortaa", 18));
+
+        headerLabel.setId("songHeader");
+        sortLabel.setId("songHeaderDetails");
+
         mainPane.setLeftAnchor(headerLabel, 50.0);
         mainPane.setTopAnchor(headerLabel, 50.0);
         mainPane.setLeftAnchor(sortLabel, 475.0);

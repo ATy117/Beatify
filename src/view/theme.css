@@ -46,3 +46,16 @@
     -fx-font-size: 20;
     -fx-text-fill: #fab2a5;
 }
+
+#songHeader{
+    -fx-font-family: Comfortaa;
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+}
+
+#songHeaderDetails{
+    -fx-font-family: Poppins;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+    -fx-text-fill: #2f4159;
+}
