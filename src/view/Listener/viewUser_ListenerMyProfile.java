@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
+import object.User;
 import view.View;
 
 import java.io.IOException;
@@ -27,6 +28,7 @@ public class viewUser_ListenerMyProfile extends View {
     @FXML Circle userPic;
     @FXML Label followingNumber;
     @FXML Label followersNumber;
+    private User myUser;
 
 
     public viewUser_ListenerMyProfile(AnchorPane mainPane, controllerUser_ListenerMyProfile controller, controllerDashboard dashboardController){
@@ -34,7 +36,7 @@ public class viewUser_ListenerMyProfile extends View {
         this.model = dashboardController.getModel();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/templateUser_MyProfile.fxml"));
         loader.setController(this);
-
+        myUser = controller.getModel().getProfileModel().getUser();
         try {
             mainPane.getChildren().setAll((AnchorPane) loader.load());
         } catch (IOException e) {
@@ -58,14 +60,14 @@ public class viewUser_ListenerMyProfile extends View {
         lastNameField.setEditable(false);
         usernameField.setEditable(false);
 
-        firstNameField.setText(controller.getModel().getProfileModel().getUser().getFirst_name());
-        lastNameField.setText(controller.getModel().getProfileModel().getUser().getLast_name());
-        usernameField.setText(controller.getModel().getProfileModel().getUser().getUsername());
+        firstNameField.setText(myUser.getFirst_name());
+        lastNameField.setText(myUser.getLast_name());
+        usernameField.setText(myUser.getUsername());
 
         String url = "/resources/useryellowbluedefaultpic.png";
 
-        if (this.model.getProfileModel().getUser().getAvatarURL() != null) {
-            url = this.model.getProfileModel().getUser().getAvatarURL().toURI().toString();
+        if (myUser.getAvatarURL() != null) {
+            url = myUser.getAvatarURL().toURI().toString();
         }
 
         userPic.setFill(new ImagePattern(new Image(url)));
@@ -76,13 +78,16 @@ public class viewUser_ListenerMyProfile extends View {
             editBtn.setText("Done");
             firstNameField.setEditable(true);
             lastNameField.setEditable(true);
-            usernameField.setEditable(true);
         }
         else{
             editBtn.setText("Edit");
             firstNameField.setEditable(false);
             lastNameField.setEditable(false);
             usernameField.setEditable(false);
+
+            myUser.setFirst_name(firstNameField.getText());
+            myUser.setLast_name(lastNameField.getText());
+            controller.editUser(myUser);
         }
     }
 }

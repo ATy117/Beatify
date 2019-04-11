@@ -6,6 +6,7 @@ import controller.controllerDashboard;
 import controller.controllerLogin;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import object.User;
 import view.Listener.viewUser_ListenerMyProfile;
 
 public class controllerUser_ListenerMyProfile extends PaneController {
@@ -21,5 +22,10 @@ public class controllerUser_ListenerMyProfile extends PaneController {
     	model.clearViews();
     	dashboardController.setLoggedIn(false);
 		Controller login = new controllerLogin(primaryStage);
+	}
+
+	public void editUser(User user){
+		facade.updateUser(user);
+		model.getProfileModel().setUser(facade.loginUser(user.getUsername(), user.getPassword()));
 	}
 }
