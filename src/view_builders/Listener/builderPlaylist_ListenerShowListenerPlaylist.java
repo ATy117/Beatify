@@ -58,6 +58,7 @@ public class builderPlaylist_ListenerShowListenerPlaylist extends builderPlaylis
                     if (controller.followPlaylist(p.getPlaylist_id())) {
                         popup.hide();
                     } else {
+                        popup.hide();
                         System.out.println("Already Following That Playlist");
                     }
 

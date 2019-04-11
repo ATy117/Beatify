@@ -53,6 +53,7 @@ public class builderPlaylist_ListenerSearchPlaylist extends builderPlaylist<Anch
                     if (controller.followPlaylist(playlist.getPlaylist_id())) {
                         popup.hide();
                     } else {
+                        popup.hide();
                         System.out.println("Already Following Playlist");
                     }
                 }
