@@ -62,6 +62,7 @@ public class builderPlaylist_ArtistShowArtistsPlaylist extends builderPlaylist<A
                         popup.hide();
                     } else {
                         System.out.println("Already Following That Playlist");
+                        popup.hide();
                         errorPopup = new viewError("Already Following That Playlist", albumIndiv);
                     }
                 }

@@ -66,6 +66,7 @@ public class builderPlaylist_ArtistSearchPlaylist extends builderPlaylist<Anchor
                         popup.hide();
                     } else {
                         System.out.println("Already Following Playlist");
+                        popup.hide();
                         errorPopup = new viewError("Already Following That Playlist", albumIndiv);
                     }
                 }

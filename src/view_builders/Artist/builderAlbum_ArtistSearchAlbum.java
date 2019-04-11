@@ -56,6 +56,7 @@ public class builderAlbum_ArtistSearchAlbum extends builderAlbum<AnchorPane> {
                         popup.hide();
                     } else {
                         System.out.println("Already Following That Album");
+                        popup.hide();
                         errorPopup = new viewError("Already Following That Album", albumIndiv);
                     }
                 }

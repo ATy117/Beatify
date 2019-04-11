@@ -63,6 +63,7 @@ public class builderArtist_ArtistSearchArtist extends builderUser<AnchorPane> {
                         popup.hide();
                     } else {
                         System.out.println("Already Following That Artist");
+                        popup.hide();
                         errorPopup = new viewError("Already Following That Artist", albumIndiv);
                     }
                 }
