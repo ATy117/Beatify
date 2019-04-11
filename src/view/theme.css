@@ -59,3 +59,11 @@
     -fx-font-size: 14;
     -fx-text-fill: #2f4159;
 }
+
+#buttonStyle{
+    -fx-background-color: #4097aa;
+    -fx-font-family: Comfortaa;
+    -fx-text-fill: #fab2a5;
+    -fx-font-size: 12;
+    -jfx-button-type: RAISED;
+}

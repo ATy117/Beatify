@@ -93,13 +93,13 @@ public class viewAlbum_ArtistAllAlbums extends View {
         headerLabel = new Label("All Albums");
         uploadAlbumBtn = new JFXButton("+ upload album");
 
-        uploadAlbumBtn.setFont(Font.font("Comfortaa", 12));
+        uploadAlbumBtn.setId("buttonStyle");
         headerLabel.setId("songHeader");
 
         albumsHeader.setLeftAnchor(headerLabel, 252.0);
         albumsHeader.setTopAnchor(headerLabel, 23.0);
-        albumsHeader.setLeftAnchor(uploadAlbumBtn, 246.0);
-        albumsHeader.setTopAnchor(uploadAlbumBtn, 53.0);
+        albumsHeader.setLeftAnchor(uploadAlbumBtn, 252.0);
+        albumsHeader.setTopAnchor(uploadAlbumBtn, 63.0);
 
         albumsHeader.getChildren().add(headerLabel);
         albumsHeader.getChildren().add(uploadAlbumBtn);

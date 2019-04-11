@@ -91,6 +91,8 @@ public class viewSong_ArtistAlbumsOwnedSongs extends View {
         subheaderLabel.setId("songHeaderDetails");
         sortLabel.setId("songHeaderDetails");
 
+        uploadSongBtn.setId("buttonStyle");
+
         mainPane.setLeftAnchor(headerLabel, 100.0);
         mainPane.setTopAnchor(headerLabel, 20.0);
         mainPane.setLeftAnchor(subheaderLabel, 100.0);
@@ -100,7 +102,7 @@ public class viewSong_ArtistAlbumsOwnedSongs extends View {
         mainPane.setLeftAnchor(albumArt, 30.0);
         mainPane.setTopAnchor(albumArt,  20.0);
         mainPane.setLeftAnchor(uploadSongBtn, 100.0);
-        mainPane.setTopAnchor(uploadSongBtn, 66.0);
+        mainPane.setTopAnchor(uploadSongBtn, 70.0);
 
         mainPane.getChildren().add(headerLabel);
         mainPane.getChildren().add(subheaderLabel);

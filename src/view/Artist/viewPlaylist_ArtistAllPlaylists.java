@@ -92,11 +92,12 @@ public class viewPlaylist_ArtistAllPlaylists extends View {
         addPlaylistBtn = new JFXButton("+ Add Playlist");
 
         headerLbl.setId("songHeader");
+        addPlaylistBtn.setId("buttonStyle");
 
         playlistHeader.setLeftAnchor(headerLbl, 252.0);
         playlistHeader.setTopAnchor(headerLbl, 23.0);
         playlistHeader.setLeftAnchor(addPlaylistBtn, 260.0);
-        playlistHeader.setTopAnchor(addPlaylistBtn, 50.0);
+        playlistHeader.setTopAnchor(addPlaylistBtn, 60.0);
 
         playlistHeader.getChildren().add(headerLbl);
         playlistHeader.getChildren().add(addPlaylistBtn);
