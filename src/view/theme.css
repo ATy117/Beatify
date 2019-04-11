@@ -35,7 +35,7 @@
 }
 
 #errorMessage{
-    -fx-font-family: Comfortaa;
+    -fx-font-family: Poppins;
     -fx-font-weight: bold;
     -fx-font-size: 24;
     -fx-text-fill: #fa9583;
@@ -44,5 +44,5 @@
 #errorSpecifics{
     -fx-font-family: Poppins;
     -fx-font-size: 20;
-    -fx-text-fill: fab2a5;
+    -fx-text-fill: #fab2a5;
 }
