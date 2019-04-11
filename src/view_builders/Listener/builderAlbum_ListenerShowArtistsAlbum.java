@@ -62,6 +62,7 @@ public class builderAlbum_ListenerShowArtistsAlbum extends builderAlbum<AnchorPa
                     if (controller.followAlbum(album.getAlbum_id())) {
                         popup.hide();
                     } else {
+                        popup.hide();
                         System.out.println("Already Following That Album");
                     }
                 }

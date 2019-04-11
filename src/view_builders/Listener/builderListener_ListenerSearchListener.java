@@ -51,6 +51,7 @@ public class builderListener_ListenerSearchListener extends builderUser<AnchorPa
                     if (controller.followUser(user.getUser_id())) {
                         popup.hide();
                     } else {
+                        popup.hide();
                         System.out.println("Already Following That Listener");
                     }
                 }

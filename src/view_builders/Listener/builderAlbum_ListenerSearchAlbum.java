@@ -53,6 +53,7 @@ public class builderAlbum_ListenerSearchAlbum extends builderAlbum<AnchorPane> {
                     if (controller.followAlbum(album.getAlbum_id())) {
                         popup.hide();
                     } else {
+                        popup.hide();
                         System.out.println("Already Following That Album");
                     }
                 }
