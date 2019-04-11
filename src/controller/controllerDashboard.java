@@ -29,14 +29,7 @@ public abstract class controllerDashboard extends Controller{
 		model = ModelCentral.getInstance();
 		facade = MasterFacade.getInstance();
 		model.resetModels();
-
-		model.setProfileModel(new ProfileModel());
-		model.setPlayerModel(new SongPlayerModel());
-		model.setLibraryModel(new LibraryModel());
-		model.setPeopleModel(new OtherPeopleModel());
-		model.setSearchModel(new SearchModel());
-		model.setNotificationModel(new NotificationModel());
-
+		model.instantiateModels();
 	}
 
 	public void setCurrentPane(PaneController currentController) {
@@ -54,8 +47,6 @@ public abstract class controllerDashboard extends Controller{
 
 					System.out.println("Checking notifs");
 					checkNotifs();
-
-
 
 					try {
 						Thread.sleep(5000);
