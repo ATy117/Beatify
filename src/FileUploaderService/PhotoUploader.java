@@ -27,7 +27,9 @@ public class PhotoUploader extends FileUploader{
 
 		this.file = fileChooser.showOpenDialog(stage);
 
-		storeScaledImage();
+		if (this.file != null) {
+			storeScaledImage();
+		}
 	}
 
 	private void storeScaledImage() {

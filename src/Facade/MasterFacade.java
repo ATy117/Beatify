@@ -361,6 +361,8 @@ public class MasterFacade {
 	public Media getSongFile(int song_id) {
 
 		File file = SD.getSongFile(song_id);
+		if(file == null)
+			return null;
 		return new Media(file.toURI().toString());
 	}
 }
