@@ -1,5 +1,6 @@
 package view_builders.Artist;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPopup;
 import controller.Artist.controllerUser_ArtistShowArtistsProfile;
 import javafx.event.EventHandler;
@@ -52,12 +53,17 @@ public class builderPlaylist_ArtistShowArtistsPlaylist extends builderPlaylist<A
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(150);
-            Button followButton = new Button("Follow");
+            JFXButton followButton = new JFXButton("Follow");
             followButton.setMinWidth(content.getPrefWidth());
-            Button addQueue = new Button("Add Playlist to Queue");
+            JFXButton addQueue = new JFXButton("Add Playlist to Queue");
             addQueue.setMinWidth(content.getPrefWidth());
             content.getChildren().addAll(addQueue, followButton);
             popup.setPopupContent(content);
+
+            content.getStylesheets().add("view/theme.css");
+            content.setId("vboxRight");
+            followButton.setId("rightClickButton");
+            addQueue.setId("rightClickButton");
 
 
             followButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -66,7 +72,6 @@ public class builderPlaylist_ArtistShowArtistsPlaylist extends builderPlaylist<A
                     if (controller.followPlaylist(p.getPlaylist_id())) {
                         popup.hide();
                     } else {
-                        System.out.println("Already Following That Playlist");
                         popup.hide();
                         errorPopup = new viewError("Already Following That Playlist", albumIndiv);
                     }

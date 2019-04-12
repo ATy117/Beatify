@@ -33,6 +33,7 @@ public class viewUser_ArtistMyProfile extends View {
     @FXML Label followingNumber;
     @FXML Label followersNumber;
     @FXML AnchorPane mainPane;
+    @FXML JFXButton uploadPhotoBtn;
     private User myUser;
 
     public viewUser_ArtistMyProfile(AnchorPane mainPane, controllerUser_ArtistMyProfile controller, controllerDashboard dashboardController){
@@ -77,6 +78,7 @@ public class viewUser_ArtistMyProfile extends View {
         }
 
         userPic.setFill(new ImagePattern(new Image(url)));
+        mainPane.getChildren().remove(uploadPhotoBtn);
     }
 
     public void editDetails(){
@@ -84,6 +86,7 @@ public class viewUser_ArtistMyProfile extends View {
             editBtn.setText("Done");
             firstNameField.setEditable(true);
             lastNameField.setEditable(true);
+            mainPane.getChildren().add(uploadPhotoBtn);
         }
         else{
             editBtn.setText("Edit");
@@ -94,7 +97,12 @@ public class viewUser_ArtistMyProfile extends View {
             myUser.setFirst_name(firstNameField.getText());
             myUser.setLast_name(lastNameField.getText());
             controller.editUser(myUser);
+            mainPane.getChildren().remove(uploadPhotoBtn);
 
         }
+    }
+
+    public void uploadPhoto(){
+
     }
 }

@@ -70,11 +70,9 @@ public class view_EditAlbum extends View {
         String titleCheck = title.replaceAll("\\s+", "");
 
         if (titleCheck.equals("")){
-            System.out.println("Empty Album Name Found");
             errorPopup = new viewError("Empty Album Name Found", mainPane);
         } else {
             if (!controller.editAlbum(title, cover)){
-                System.out.println("Album Name Already Exists");
                 errorPopup = new viewError("Album Name Already Exists", mainPane);
             }
         }

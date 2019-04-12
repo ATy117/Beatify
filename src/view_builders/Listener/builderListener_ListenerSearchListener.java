@@ -1,5 +1,6 @@
 package view_builders.Listener;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPopup;
 import controller.Listener.controllerAlbum_ListenerFollowedAlbums;
 import controller.Listener.controllerSearchables_ListenerAllSearchResults;
@@ -14,6 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import object.User;
+import view.viewError;
 import view_builders.builderUser;
 
 import java.util.ArrayList;
@@ -42,10 +44,14 @@ public class builderListener_ListenerSearchListener extends builderUser<AnchorPa
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(65);
-            Button followButton = new Button("Follow");
+            Button followButton = new JFXButton("Follow");
             followButton.setMinWidth(content.getPrefWidth());
             content.getChildren().addAll(followButton);
             popup.setPopupContent(content);
+
+            content.getStylesheets().add("view/theme.css");
+            content.setId("vboxRight");
+            followButton.setId("rightClickButton");
 
             followButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
@@ -54,7 +60,7 @@ public class builderListener_ListenerSearchListener extends builderUser<AnchorPa
                         popup.hide();
                     } else {
                         popup.hide();
-                        System.out.println("Already Following That Listener");
+                        errorPopup = new viewError("Already Following That Listener", albumIndiv);
                     }
                 }
             });

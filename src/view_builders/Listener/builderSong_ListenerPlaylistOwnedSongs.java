@@ -77,14 +77,23 @@ public class builderSong_ListenerPlaylistOwnedSongs extends builderSong<AnchorPa
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(150);
-            Button likeButton = new Button("Like");
-            Button add_to_queueButton = new Button("Add to queue");
-            Button deleteButton = new Button("Delete from Playlist");
+            Button likeButton = new JFXButton("Like");
+            Button add_to_queueButton = new JFXButton("Add to queue");
+            Button deleteButton = new JFXButton("Delete from Playlist");
             likeButton.setMinWidth(content.getPrefWidth());
             deleteButton.setMinWidth(content.getPrefWidth());
             add_to_queueButton.setMinWidth(content.getPrefWidth());
             content.getChildren().addAll(likeButton, deleteButton, add_to_queueButton);
             popup.setPopupContent(content);
+
+            content.getStylesheets().add("view/theme.css");
+            content.setId("vboxRight");
+            deleteButton.setId("rightClickButton");
+            add_to_queueButton.setId("rightClickButton");
+            likeButton.setId("rightClickButton");
+
+
+
 
             play.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
@@ -99,7 +108,6 @@ public class builderSong_ListenerPlaylistOwnedSongs extends builderSong<AnchorPa
                     if (controller.likeSong(song.getSong_id())){
                         popup.hide();
                     } else {
-                        System.out.println("Song Already Liked");
                         popup.hide();
                         errorPopup = new viewError("Song Already Liked", songsIndiv);
                     }

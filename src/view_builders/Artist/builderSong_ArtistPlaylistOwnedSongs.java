@@ -77,12 +77,17 @@ public class builderSong_ArtistPlaylistOwnedSongs extends builderSong<AnchorPane
             VBox content = new VBox();
             content.setPrefWidth(150);
 
-            Button add_to_queueButton = new Button("Add to queue");
-            Button deleteButton = new Button("Delete from Playlist");
+            JFXButton add_to_queueButton = new JFXButton("Add to queue");
+            JFXButton deleteButton = new JFXButton("Delete from Playlist");
             deleteButton.setMinWidth(content.getPrefWidth());
             add_to_queueButton.setMinWidth(content.getPrefWidth());
             content.getChildren().addAll(deleteButton, add_to_queueButton);
             popup.setPopupContent(content);
+
+            content.getStylesheets().add("view/theme.css");
+            content.setId("vboxRight");
+            deleteButton.setId("rightClickButton");
+            add_to_queueButton.setId("rightClickButton");
 
             play.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override

@@ -1,5 +1,6 @@
 package view_builders.Listener;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPopup;
 import controller.Listener.controllerPlaylist_ListenerAllPlaylists;
 import javafx.event.EventHandler;
@@ -54,14 +55,20 @@ public class builderPlaylist_ListenerPlaylistOwned extends builderPlaylist<Ancho
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(65);
-            Button deleteButton = new Button("Delete");
-            Button editButton = new Button("Edit");
-            Button addQueue = new Button("Add Playlist to Queue");
+            Button deleteButton = new JFXButton("Delete");
+            Button editButton = new JFXButton("Edit");
+            Button addQueue = new JFXButton("Add Playlist to Queue");
             addQueue.setMinWidth(content.getPrefWidth());
             deleteButton.setMinWidth(content.getPrefWidth());
             editButton.setMinWidth(content.getPrefWidth());
             content.getChildren().addAll(addQueue, deleteButton, editButton);
             popup.setPopupContent(content);
+
+            content.getStylesheets().add("view/theme.css");
+            content.setId("vboxRight");
+            addQueue.setId("rightClickButton");
+            deleteButton.setId("rightClickButton");
+            editButton.setId("rightClickButton");
 
             deleteButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override

@@ -1,5 +1,6 @@
 package view_builders.Listener;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPopup;
 import controller.Listener.controllerListener_ListenerFollowedListeners;
 import javafx.event.EventHandler;
@@ -41,10 +42,14 @@ public class builderListener_ListenerFollowedListeners extends builderUser<Ancho
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(65);
-            Button unfollowButton = new Button("Unfollow");
+            Button unfollowButton = new JFXButton("Unfollow");
             unfollowButton.setMinWidth(content.getPrefWidth());
             content.getChildren().addAll(unfollowButton);
             popup.setPopupContent(content);
+
+            content.getStylesheets().add("view/theme.css");
+            content.setId("vboxRight");
+            unfollowButton.setId("rightClickButton");
 
             unfollowButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override

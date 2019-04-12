@@ -89,6 +89,13 @@ public class builderSong_ListenerAlbumsFollowedSongs extends builderSong<AnchorP
             content.getChildren().addAll(likeButton, add_to_queueButton, add_to_playlistButton);
             popup.setPopupContent(content);
 
+            content.getStylesheets().add("view/theme.css");
+            content.setId("vboxRight");
+            add_to_playlistButton.setId("rightClickButton");
+            add_to_queueButton.setId("rightClickButton");
+            likeButton.setId("rightClickButton");
+
+
             play.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
@@ -124,7 +131,6 @@ public class builderSong_ListenerAlbumsFollowedSongs extends builderSong<AnchorP
                                 if (controller.addSongToPlaylist(song.getSong_id(), playlist.getPlaylist_id())) {
                                     popup.hide();
                                 } else {
-                                    System.out.println("Song Not Added To Playlist Anymore");
                                     popup.hide();
                                     errorPopup = new viewError("Song Not Added To Playlist Anymore", songsIndiv);
                                 }
@@ -145,7 +151,6 @@ public class builderSong_ListenerAlbumsFollowedSongs extends builderSong<AnchorP
                     if (controller.likeSong(song.getSong_id())){
                         popup.hide();
                     } else {
-                        System.out.println("Song Already Liked");
                         popup.hide();
                         errorPopup = new viewError("Song Already Liked", songsIndiv);
                     }

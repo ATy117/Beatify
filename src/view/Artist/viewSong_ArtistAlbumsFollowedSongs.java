@@ -120,6 +120,9 @@ public class viewSong_ArtistAlbumsFollowedSongs extends View {
         String[] categories = new String[]{"Title", "Artist", "Album", "Year", "Genre", "Date Added"};
         String[] arrangement = new String[]{"Ascending", "Descending"};
 
+        sortingCB.setId("comboStyle");
+        arrangeCB.setId("comboStyle");
+
         for (String e : categories)
             sortingCB.getItems().add(e);
 

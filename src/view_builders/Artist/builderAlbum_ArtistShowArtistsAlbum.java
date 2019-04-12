@@ -1,5 +1,6 @@
 package view_builders.Artist;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPopup;
 import controller.Artist.controllerUser_ArtistShowArtistsProfile;
 import javafx.event.EventHandler;
@@ -52,10 +53,14 @@ public class builderAlbum_ArtistShowArtistsAlbum extends builderAlbum<AnchorPane
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(65);
-            Button followButton = new Button("Follow");
+            JFXButton followButton = new JFXButton("Follow");
             followButton.setMinWidth(content.getPrefWidth());
             content.getChildren().addAll(followButton);
             popup.setPopupContent(content);
+
+            content.getStylesheets().add("view/theme.css");
+            content.setId("vboxRight");
+            followButton.setId("rightClickButton");
 
 
             followButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -64,7 +69,6 @@ public class builderAlbum_ArtistShowArtistsAlbum extends builderAlbum<AnchorPane
                     if (controller.followAlbum(album.getAlbum_id())) {
                         popup.hide();
                     } else {
-                        System.out.println("Already Following That Album");
                         popup.hide();
                         errorPopup = new viewError("Already Following That Album", albumIndiv);
                     }

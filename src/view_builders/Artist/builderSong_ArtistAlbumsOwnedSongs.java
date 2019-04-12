@@ -74,10 +74,17 @@ public class builderSong_ArtistAlbumsOwnedSongs extends builderSong<AnchorPane> 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
 
-            Button deleteButton = new Button("Delete");
-            Button editButton = new Button("Edit");
-            Button add_to_playlistButton = new Button ("Add to playlist");
-            Button add_to_queueButton = new Button ("Add to queue");
+            JFXButton deleteButton = new JFXButton("Delete");
+            JFXButton editButton = new JFXButton("Edit");
+            JFXButton add_to_playlistButton = new JFXButton ("Add to playlist");
+            JFXButton add_to_queueButton = new JFXButton ("Add to queue");
+
+            content.getStylesheets().add("view/theme.css");
+            content.setId("vboxRight");
+            add_to_playlistButton.setId("rightClickButton");
+            add_to_queueButton.setId("rightClickButton");
+            deleteButton.setId("rightClickButton");
+            editButton.setId("rightClickButton");
 
 
             play.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -143,7 +150,6 @@ public class builderSong_ArtistAlbumsOwnedSongs extends builderSong<AnchorPane> 
                                 if (controller.addSongToPlaylist(song.getSong_id(), playlist.getPlaylist_id())) {
                                     popup.hide();
                                 } else {
-                                    System.out.println("Song Not Added to Playlist Anymore");
                                     popup.hide();
                                     errorPopup = new viewError("Song Not Added to Playlist Anymore", songsIndiv);
                                 }

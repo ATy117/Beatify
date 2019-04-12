@@ -1,5 +1,6 @@
 package view_builders.Artist;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPopup;
 import controller.Artist.controllerAlbum_ArtistAllAlbums;
 import javafx.event.EventHandler;
@@ -45,12 +46,18 @@ public class builderAlbum_ArtistAlbumOwned extends builderAlbum<AnchorPane> {
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(65);
-            Button deleteButton = new Button("Delete");
-            Button editButton = new Button ("Edit");
+            JFXButton deleteButton = new JFXButton("Delete");
+            JFXButton editButton = new JFXButton ("Edit");
+
             deleteButton.setMinWidth(content.getPrefWidth());
             editButton.setMinWidth(content.getPrefWidth());
             content.getChildren().addAll(deleteButton, editButton);
             popup.setPopupContent(content);
+
+            content.getStylesheets().add("view/theme.css");
+            content.setId("vboxRight");
+            deleteButton.setId("rightClickButton");
+            editButton.setId("rightClickButton");
 
             albumIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override

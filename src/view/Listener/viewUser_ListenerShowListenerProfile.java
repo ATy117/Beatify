@@ -7,8 +7,10 @@ import controller.controllerDashboard;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.TilePane;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import view.View;
@@ -57,6 +59,12 @@ public class viewUser_ListenerShowListenerProfile extends View {
         userFirstLastName.setText(controller.getModel().getPeopleModel().getSelectedUser().getFirst_name() + " " +
                 controller.getModel().getPeopleModel().getSelectedUser().getLast_name());
         userName.setText(controller.getModel().getPeopleModel().getSelectedUser().getUsername());
+        if(controller.getModel().getPeopleModel().getSelectedUser().getAvatarURL() != null)
+            userPic.setFill(new ImagePattern(new Image(
+                    controller.getModel().getPeopleModel().getSelectedUser().getAvatarURL().toURI().toString()
+            )));
+        else
+            userPic.setFill(new ImagePattern(new Image("resources/useryellowbluedefaultpic.png")));
     }
 
     @Override
