@@ -34,8 +34,9 @@ public class NotificationDAODB implements NotificationDAO {
 
     @Override
     public int getNotifID(String notification, int user_id) {
-        String query = "SELECT notification.notif_id FROM notification " +
-                "WHERE notification.notification = ? AND notification.user_id = ?";
+        String query = "SELECT MAX(notification.notif_id) as 'notification.notif_id' FROM notification " +
+                "WHERE notification.notification = ? " +
+                "AND notification.user_id = ?";
         try{
             PreparedStatement statement = this.connection.prepareStatement(query);
             statement.setString(1, notification);
