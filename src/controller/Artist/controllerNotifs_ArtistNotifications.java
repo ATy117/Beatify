@@ -14,7 +14,7 @@ public class controllerNotifs_ArtistNotifications extends PaneController {
         super(mainPane, dashboardController);
         this.model = dashboardController.getModel();
         this.model.getProfileModel().setFollowedListeners(facade.getFollowedListeners(this.model.getProfileModel().getUser().getUser_id()));
-        this.model.getNotificationModel().setNotifications(facade.getUnviewedNotifications(this.model.getProfileModel().getUser().getUser_id()));
+        this.model.getNotificationModel().setNotifications(facade.getAllNotifications(this.model.getProfileModel().getUser().getUser_id()));
         view = new viewNotifs_ArtistNotifications(mainPane, this, dashboardController);
     }
 

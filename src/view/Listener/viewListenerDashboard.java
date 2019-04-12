@@ -1,6 +1,7 @@
 package view.Listener;
 
 import controller.*;
+import controller.Artist.controllerNotifs_ArtistNotifications;
 import controller.Listener.*;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
@@ -41,6 +42,10 @@ public class viewListenerDashboard extends viewDashboard {
 		}
 		else if (actionEvent.getSource() == queueBtn) {
 			currentPaneController = new controllerSong_MyQueue(centerCurrentAnchor, controller);
+		}
+		else if (actionEvent.getSource() == notificationsBtn){
+			currentPaneController = new controllerNotifs_ListenerNotifications(centerCurrentAnchor, controller);
+			unshowNotifCue();
 		}
 
 		controller.setCurrentPane(currentPaneController);
