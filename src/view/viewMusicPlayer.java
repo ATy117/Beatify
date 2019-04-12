@@ -218,34 +218,37 @@ public class viewMusicPlayer extends View {
 			mp3player = null;
 		}
 
-		if (this.model.getPlayerModel().getCurrentSong() != null) {
-			titleText.setText(this.model.getPlayerModel().getCurrentSong().getSong_name());
-			artistText.setText("by " + this.model.getPlayerModel().getCurrentSong().getArtist_name());
-			genreText.setText(this.model.getPlayerModel().getCurrentSong().getGenre());
+		currentSongMedia = controller.getSongFile(model.getPlayerModel().getCurrentSong());
 
-			Image albpic = controller.getImageFromAlbum(this.model.getPlayerModel().getCurrentSong().getAlbum_id());
-			songPic.setFill(new ImagePattern(albpic));
+		if (currentSongMedia != null) {
+			if (this.model.getPlayerModel().getCurrentSong() != null) {
+				titleText.setText(this.model.getPlayerModel().getCurrentSong().getSong_name());
+				artistText.setText("by " + this.model.getPlayerModel().getCurrentSong().getArtist_name());
+				genreText.setText(this.model.getPlayerModel().getCurrentSong().getGenre());
 
-			Album album = controller.getAlbumOfSong(this.model.getPlayerModel().getCurrentSong().getAlbum_id());
+				Image albpic = controller.getImageFromAlbum(this.model.getPlayerModel().getCurrentSong().getAlbum_id());
+				songPic.setFill(new ImagePattern(albpic));
 
-			if (album != null) {
-				albumText.setText("Album: " + album.getName());
-			}
-			else {
-				albumText.setText("Album: None");
-			}
+				Album album = controller.getAlbumOfSong(this.model.getPlayerModel().getCurrentSong().getAlbum_id());
 
-			currentSongMedia = controller.getSongFile(model.getPlayerModel().getCurrentSong());
+				if (album != null) {
+					albumText.setText("Album: " + album.getName());
+				}
+				else {
+					albumText.setText("Album: None");
+				}
 
-			if (currentSongMedia != null) {
+
 				mp3player = new MediaPlayer(currentSongMedia);
 				toggleToPlay();
 				setPlayerFunctionality();
-			}
-			else {
-				this.model.getPlayerModel().playNextSong();
+
 			}
 		}
+		else {
+			this.model.getPlayerModel().playNextSong();
+		}
+
 
 	}
 
