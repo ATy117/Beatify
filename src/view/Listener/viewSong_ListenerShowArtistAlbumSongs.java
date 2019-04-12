@@ -74,7 +74,15 @@ public class viewSong_ListenerShowArtistAlbumSongs extends View {
         sortLabel = new Label("Sort by");
         Circle albumArt = new Circle();
         albumArt.setRadius(30);
-        Image image = new Image(selectedAlbum.getCover_URL().toURI().toString());
+
+        String url = "/resources/albumCover.png";
+
+        if (selectedAlbum.getCover_URL() != null) {
+            url = selectedAlbum.getCover_URL().toURI().toString();
+        }
+
+        Image image = new Image(url);
+
         albumArt.setFill(new ImagePattern(image));
         headerLabel.setId("songHeader");
         subheaderLabel.setId("songHeaderDetails");

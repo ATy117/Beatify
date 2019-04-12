@@ -53,7 +53,7 @@ public class viewNotifs_ArtistNotifications extends View {
 
             controller.markAllAsViewed();
         });
-        
+
     }
 
     public void init(){
