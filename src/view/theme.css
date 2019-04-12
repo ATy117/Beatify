@@ -100,3 +100,19 @@
     -fx-background-color: #1c6575;
 }
 
+#comboStyle .jfx-list-cell{
+    -fx-font-family: Poppins;
+    -fx-background-color: #fab2a5;
+    -fx-text-fill: #1c6575;
+    -fx-font-size: 12;
+}
+
+#comboStyle{
+    -fx-font-family: Poppins;
+    -fx-font-size: 12;
+}
+
+#comboStyle .jfx-rippler{
+    -jfx-rippler-fill: #fab2a5;
+}
+
