@@ -91,6 +91,9 @@ public abstract class controllerDashboard extends Controller{
 				break;
 			}
 		}
+	}
 
+	public viewDashboard getBase () {
+		return this.view;
 	}
 }
