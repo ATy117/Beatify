@@ -232,9 +232,15 @@ public class viewMusicPlayer extends View {
 			}
 
 			currentSongMedia = controller.getSongFile(model.getPlayerModel().getCurrentSong());
-			mp3player = new MediaPlayer(currentSongMedia);
-			toggleToPlay();
-			setPlayerFunctionality();
+
+			if (currentSongMedia != null) {
+				mp3player = new MediaPlayer(currentSongMedia);
+				toggleToPlay();
+				setPlayerFunctionality();
+			}
+			else {
+				this.model.getPlayerModel().playNextSong();
+			}
 		}
 
 	}
