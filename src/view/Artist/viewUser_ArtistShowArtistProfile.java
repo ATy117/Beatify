@@ -31,7 +31,8 @@ public class viewUser_ArtistShowArtistProfile extends View {
     @FXML Label userName;
     @FXML Label followerNum;
     @FXML Label followingNum;
-    @FXML JFXListView profileListView;
+    @FXML JFXListView contentListView;
+    @FXML AnchorPane mainPane;
 
     Label userPlaylistLbl;
     Label userAlbumsLbl;
@@ -56,11 +57,13 @@ public class viewUser_ArtistShowArtistProfile extends View {
     }
 
     public void init(){
+        mainPane.getStylesheets().add("view/theme.css");
+
         userFirstLastName.setText(controller.getModel().getPeopleModel().getSelectedUser().getFirst_name() + " " +
                                     controller.getModel().getPeopleModel().getSelectedUser().getLast_name());
         userName.setText(controller.getModel().getPeopleModel().getSelectedUser().getUsername());
         if(controller.getModel().getProfileModel().getUser().getAvatarURL()!= null)
-            userPic.setFill(new ImagePattern(new Image(controller.getModel().getProfileModel().getUser().getAvatarURL().toURI().toString())));
+            userPic.setFill(new ImagePattern(new Image(controller.getModel().getPeopleModel().getSelectedUser().getAvatarURL().toURI().toString())));
         else
             userPic.setFill(new ImagePattern(new Image("resources/")));
     }
@@ -72,7 +75,7 @@ public class viewUser_ArtistShowArtistProfile extends View {
     @Override
     public void Update(){
 
-        profileListView.getItems().clear();
+        contentListView.getItems().clear();
 
         userPlaylistLbl = new Label("User's Playlist/s");
         userAlbumsLbl = new Label("User's Album/s");
@@ -80,7 +83,7 @@ public class viewUser_ArtistShowArtistProfile extends View {
         userPlaylistLbl.setFont(Font.font("Poppins", 14));
         userAlbumsLbl.setFont(Font.font("Poppins", 14));
 
-        profileListView.getItems().add(userPlaylistLbl);
+        contentListView.getItems().add(userPlaylistLbl);
 
         playlistTile = new TilePane();
         playlistTile.setMaxWidth(634.0);
@@ -92,9 +95,9 @@ public class viewUser_ArtistShowArtistProfile extends View {
             AnchorPane anchorPane = (AnchorPane)object;
             playlistTile.getChildren().add(anchorPane);
         }
-        profileListView.getItems().add(playlistTile);
+        contentListView.getItems().add(playlistTile);
 
-        profileListView.getItems().add(userAlbumsLbl);
+        contentListView.getItems().add(userAlbumsLbl);
 
         albumsTile = new TilePane();
         albumsTile.setMaxWidth(634.0);
@@ -106,7 +109,7 @@ public class viewUser_ArtistShowArtistProfile extends View {
             AnchorPane anchorPane = (AnchorPane)object;
             albumsTile.getChildren().add(anchorPane);
         }
-        profileListView.getItems().add(albumsTile);
+        contentListView.getItems().add(albumsTile);
 
 
 

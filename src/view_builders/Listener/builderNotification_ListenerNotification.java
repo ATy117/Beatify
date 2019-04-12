@@ -1,29 +1,23 @@
-package view_builders;
+package view_builders.Listener;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXPopup;
 import controller.Artist.controllerNotifs_ArtistNotifications;
-import javafx.event.ActionEvent;
+import controller.Listener.controllerNotifs_ListenerNotifications;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import object.Notification;
-import object.Playlist;
+import view_builders.builderNotification;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class builderNotifications_Users extends builderNotification<AnchorPane> {
+public class builderNotification_ListenerNotification extends builderNotification<AnchorPane> {
+    private controllerNotifs_ListenerNotifications controller;
 
-    private controllerNotifs_ArtistNotifications controller;
-
-    public builderNotifications_Users(controllerNotifs_ArtistNotifications controller){
+    public builderNotification_ListenerNotification(controllerNotifs_ListenerNotifications controller){
         this.controller = controller;
         this.listElements = controller.getModel().getNotificationModel().getNotifications();
         this.listProducts = new ArrayList<>();

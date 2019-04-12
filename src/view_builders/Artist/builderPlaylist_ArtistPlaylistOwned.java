@@ -40,6 +40,9 @@ public class builderPlaylist_ArtistPlaylistOwned extends builderPlaylist<AnchorP
             AnchorPane albumIndiv = new AnchorPane();
             Circle albumCover = new Circle(45);
             Label text = new Label(p.getName());
+
+            text.setId("nameText");
+
             Image privateImg = new Image("resources/privateCover.png");
             Image publicImg = new Image("resources/publicCover.png");
 
@@ -56,9 +59,11 @@ public class builderPlaylist_ArtistPlaylistOwned extends builderPlaylist<AnchorP
             content.setPrefWidth(65);
             Button deleteButton = new Button("Delete");
             Button editButton = new Button ("Edit");
+            Button addQueue = new Button("Add Playlist to Queue");
+            addQueue.setMinWidth(content.getPrefWidth());
             deleteButton.setMinWidth(content.getPrefWidth());
             editButton.setMinWidth(content.getPrefWidth());
-            content.getChildren().addAll(deleteButton, editButton);
+            content.getChildren().addAll(addQueue, deleteButton, editButton);
             popup.setPopupContent(content);
 
             albumIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -77,14 +82,23 @@ public class builderPlaylist_ArtistPlaylistOwned extends builderPlaylist<AnchorP
             deleteButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-
+                    popup.hide();
+                    controller.deletePlaylist(p.getPlaylist_id());
                 }
             });
 
             editButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    popup.hide();
                     controller.editPlaylist(p);
+                }
+            });
+
+            addQueue.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    controller.addPlaylistToQueue(p.getPlaylist_id());
                 }
             });
 

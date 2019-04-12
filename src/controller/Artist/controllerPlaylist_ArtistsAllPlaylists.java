@@ -1,9 +1,6 @@
 package controller.Artist;
 
-import controller.PaneController;
-import controller.controllerDashboard;
-import controller.controller_AddAlbum;
-import controller.controller_AddPlaylist;
+import controller.*;
 import javafx.scene.layout.AnchorPane;
 import object.Playlist;
 import view.Artist.viewPlaylist_ArtistAllPlaylists;
@@ -21,19 +18,19 @@ public class controllerPlaylist_ArtistsAllPlaylists extends PaneController {
     public void goToFollowedList(int playlist_id){
         model.getLibraryModel().setSelectedPlaylist(facade.getPlaylist(playlist_id));
         model.getLibraryModel().setSongContents(facade.getPlaylistSongs(playlist_id));
-        controllerSong_ArtistPlaylistFollowedSongs c = new controllerSong_ArtistPlaylistFollowedSongs(dashboardController.getPaneFoundation(), dashboardController);
+        controllerSong_ArtistPlaylistFollowedSongs c = new controllerSong_ArtistPlaylistFollowedSongs(mainPane, dashboardController);
         dashboardController.setCurrentPane(c);
     }
 
     public void goToOwnList(int playlist_id){
         model.getLibraryModel().setSelectedPlaylist(facade.getPlaylist(playlist_id));
         model.getLibraryModel().setSongContents(facade.getPlaylistSongs(playlist_id));
-        controllerSong_ArtistPlaylistOwnedSongs c = new controllerSong_ArtistPlaylistOwnedSongs(dashboardController.getPaneFoundation(), dashboardController);
+        controllerSong_ArtistPlaylistOwnedSongs c = new controllerSong_ArtistPlaylistOwnedSongs(mainPane, dashboardController);
         dashboardController.setCurrentPane(c);
     }
 
     public void addPlaylists(){
-        controller_AddPlaylist controllerAddPlaylist = new controller_AddPlaylist(dashboardController.getPaneFoundation(), dashboardController);
+        controller_AddPlaylist controllerAddPlaylist = new controller_AddPlaylist(mainPane, dashboardController);
         dashboardController.setCurrentPane(controllerAddPlaylist);
     }
 
@@ -42,7 +39,18 @@ public class controllerPlaylist_ArtistsAllPlaylists extends PaneController {
         model.getLibraryModel().setFollowedPlaylists(facade.getFollowedPlaylists(this.model.getProfileModel().getUser().getUser_id()));
     }
 
+    public void deletePlaylist(int playlist_id){
+        facade.deletePlaylist(playlist_id);
+        model.getLibraryModel().setMyPlaylists(facade.getFollowedPlaylists(this.model.getProfileModel().getUser().getUser_id()));
+    }
+
     public void editPlaylist(Playlist p) {
         this.model.getLibraryModel().setSelectedPlaylist(p);
+        controller_EditPlaylist edit = new controller_EditPlaylist(mainPane, dashboardController);
+        dashboardController.setCurrentPane(edit);
+    }
+
+    public void addPlaylistToQueue(int playlist_id){
+        model.getPlayerModel().addPlaylistToQueue(facade.getPlaylistSongs(playlist_id));
     }
 }

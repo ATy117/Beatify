@@ -19,15 +19,15 @@ public class viewSong_MyQueue extends View{
 
     public controllerSong_MyQueue controller;
 
-    @FXML AnchorPane songsHeader;
-    @FXML JFXListView songListView;
+    @FXML AnchorPane mainPane;
+    @FXML JFXListView contentListView;
 
     public viewSong_MyQueue(AnchorPane mainPane, controllerSong_MyQueue controller, controllerDashboard dashboardController){
         this.controller = controller;
         this.model = dashboardController.getModel();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/fxml/templateSong.fxml"));
         loader.setController(this);
-        songListView = new JFXListView();
+        contentListView = new JFXListView();
         try {
             mainPane.getChildren().setAll((AnchorPane) loader.load());
         } catch (IOException e) {
@@ -42,7 +42,7 @@ public class viewSong_MyQueue extends View{
     public void Update(){
 
 
-        songListView.getItems().clear();
+        contentListView.getItems().clear();
 
 
         builderSong builder = new builderSong_MyQueue(controller);
@@ -52,19 +52,21 @@ public class viewSong_MyQueue extends View{
 
         for (Object object : builder.getProduct()) {
             AnchorPane anchorPane = (AnchorPane) object;
-            songListView.getItems().add(anchorPane);
+            contentListView.getItems().add(anchorPane);
         }
 
     }
 
     public void initHeader(){
+        mainPane.getStylesheets().add("view/theme.css");
+
         Label headerLbl = new Label("Queue List");
 
         headerLbl.setFont(Font.font("Comfortaa", 22));
 
-        songsHeader.setLeftAnchor(headerLbl, 250.0);
-        songsHeader.setTopAnchor(headerLbl, 40.0);
+        mainPane.setLeftAnchor(headerLbl, 250.0);
+        mainPane.setTopAnchor(headerLbl, 40.0);
 
-        songsHeader.getChildren().add(headerLbl);
+        mainPane.getChildren().add(headerLbl);
     }
 }

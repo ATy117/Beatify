@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="570.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="mainPane" prefHeight="570.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane fx:id="searchHeader" prefHeight="101.0" prefWidth="634.0">
          <children>
@@ -27,6 +27,6 @@
                </font>
             </JFXButton>
          </children></AnchorPane>
-      <JFXListView fx:id="searchContent" layoutY="106.0" prefHeight="464.0" prefWidth="634.0" />
+      <JFXListView fx:id="contentListView" layoutY="106.0" prefHeight="464.0" prefWidth="634.0" />
    </children>
 </AnchorPane>

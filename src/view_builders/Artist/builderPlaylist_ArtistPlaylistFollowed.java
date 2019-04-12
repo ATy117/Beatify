@@ -41,12 +41,16 @@ public class builderPlaylist_ArtistPlaylistFollowed  extends builderPlaylist<Anc
             Image publicImg = new Image("resources/publicCover.png");
             albumCover.setFill(new ImagePattern(publicImg));
 
+            text.setId("nameText");
+
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
             content.setPrefWidth(65);
             Button unfollowButton = new Button("Unfollow");
+            Button addQueue = new Button("Add Playlist to Queue");
+            addQueue.setMinWidth(content.getPrefWidth());
             unfollowButton.setMinWidth(content.getPrefWidth());
-            content.getChildren().addAll(unfollowButton);
+            content.getChildren().addAll(addQueue, unfollowButton);
             popup.setPopupContent(content);
 
             albumIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -67,6 +71,13 @@ public class builderPlaylist_ArtistPlaylistFollowed  extends builderPlaylist<Anc
                 public void handle(MouseEvent event) {
                     controller.unfollowPlaylist(playlist.getPlaylist_id());
                     popup.hide();
+                }
+            });
+
+            addQueue.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    controller.addPlaylistToQueue(playlist.getPlaylist_id());
                 }
             });
 

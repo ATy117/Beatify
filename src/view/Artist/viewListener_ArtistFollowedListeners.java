@@ -21,6 +21,7 @@ public class viewListener_ArtistFollowedListeners extends View {
 
     @FXML AnchorPane listenerHeader;
     @FXML AnchorPane listenerContent;
+    @FXML AnchorPane mainPane;
 
     private Label headerLabel;
     private TilePane listenerList;
@@ -62,11 +63,13 @@ public class viewListener_ArtistFollowedListeners extends View {
     }
 
     public void initHeader(){
+        mainPane.getStylesheets().add("view/theme.css");
+
         headerLabel = new Label("All Followed Listeners");
 
-        headerLabel.setFont(Font.font("Comfortaa", 18));
+        headerLabel.setId("songHeader");
 
-        listenerHeader.setLeftAnchor(headerLabel, 252.0);
+        listenerHeader.setLeftAnchor(headerLabel, 212.0);
         listenerHeader.setTopAnchor(headerLabel, 23.0);
 
         listenerHeader.getChildren().add(headerLabel);

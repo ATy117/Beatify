@@ -10,8 +10,10 @@ import controller.Controller;
 import controller.controllerLogin;
 import controller.controllerRegister;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
@@ -34,6 +36,8 @@ public class viewRegister extends View{
     public JFXRadioButton artistToggle;
     public JFXButton backBtn;
 
+    @FXML AnchorPane mainPane;
+
     private File profilePic = null;
 
     public viewRegister(Stage primaryStage, controllerRegister controller) {
@@ -51,6 +55,8 @@ public class viewRegister extends View{
     }
 
     private void init() {
+        mainPane.getStylesheets().add("view/theme.css");
+
         Image defpic = new Image("resources/useryellowbluedefaultpic.png");
         imageCircle.setFill(new ImagePattern(defpic));
         listenerToggle.setSelected(true);
@@ -87,8 +93,10 @@ public class viewRegister extends View{
 
         if (firstCheck.equals("") || lastCheck.equals("") || userCheck.equals("") || passCheck.equals("") || passCheckCheck.equals("")){
             System.out.println("Some Fields Are Missing");
+            errorPopup = new viewError("Some Fields Are Missing", mainPane);
         } else if ( ! password.equals(passwordConfirm)) {
             System.out.println("Passwords Do Not Match");
+            errorPopup = new viewError("Passwords Do Not Match", mainPane);
         } else {
             if (controller.register(username, password, firstName, lastName, isArtist, profilePic)){
                 System.out.println("Successfully Created Account");

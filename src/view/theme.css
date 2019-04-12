@@ -1,0 +1,74 @@
+#mainPane{
+    -fx-background-color: #f4dfcc;
+}
+
+#contentListView{
+    -fx-background-color: #f4dfcc;
+}
+
+#contentListView .jfx-list-cell .jfx-rippler{
+    -jfx-rippler-fill: #4097aa;
+}
+
+#contentListView .jfx-list-cell:odd{
+    -fx-background-color: #f4dfcc;
+}
+
+#contentListView .jfx-list-cell:even{
+    -fx-background-color: #fab2a5;
+}
+
+#headerLabel{
+    -fx-font-family: Comfortaa;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+    -fx-text-fill: #2f4159;
+}
+
+#songText{
+    -fx-font-family: Poppins;
+    -fx-font-size: 13;
+}
+
+#errorPane{
+    -fx-background-color: #1c6575;
+}
+
+#errorMessage{
+    -fx-font-family: Poppins;
+    -fx-font-weight: bold;
+    -fx-font-size: 24;
+    -fx-text-fill: #fa9583;
+}
+
+#errorSpecifics{
+    -fx-font-family: Poppins;
+    -fx-font-size: 20;
+    -fx-text-fill: #fab2a5;
+}
+
+#songHeader{
+    -fx-font-family: Comfortaa;
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+}
+
+#songHeaderDetails{
+    -fx-font-family: Poppins;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+    -fx-text-fill: #2f4159;
+}
+
+#buttonStyle{
+    -fx-background-color: #4097aa;
+    -fx-font-family: Comfortaa;
+    -fx-text-fill: #fab2a5;
+    -fx-font-size: 12;
+    -jfx-button-type: RAISED;
+}
+
+#nameText{
+    -fx-font-family: Poppins;
+    -fx-font-size: 12;
+}

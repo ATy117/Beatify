@@ -19,6 +19,7 @@ public class viewArtist_ArtistFollowedArtists extends View {
 
     @FXML AnchorPane artistHeader;
     @FXML AnchorPane artistContent;
+    @FXML AnchorPane mainPane;
 
     private Label headerLabel;
     private TilePane artistList;
@@ -59,11 +60,12 @@ public class viewArtist_ArtistFollowedArtists extends View {
     }
 
     public void initHeader(){
+        mainPane.getStylesheets().add("view/theme.css");
         headerLabel = new Label("All Followed Artists");
 
-        headerLabel.setFont(Font.font("Comfortaa", 18));
+        headerLabel.setId("songHeader");
 
-        artistHeader.setLeftAnchor(headerLabel, 252.0);
+        artistHeader.setLeftAnchor(headerLabel, 222.0);
         artistHeader.setTopAnchor(headerLabel, 23.0);
 
         artistHeader.getChildren().add(headerLabel);

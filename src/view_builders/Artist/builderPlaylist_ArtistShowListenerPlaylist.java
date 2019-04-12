@@ -16,6 +16,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import object.Playlist;
+import view.viewError;
 import view_builders.builderPlaylist;
 
 import java.util.ArrayList;
@@ -39,6 +40,9 @@ public class builderPlaylist_ArtistShowListenerPlaylist extends builderPlaylist<
             AnchorPane albumIndiv = new AnchorPane();
             Circle albumCover = new Circle(45);
             Label text = new Label(p.getName());
+
+            text.setId("nameText");
+
             Image publicImg = new Image("resources/publicCover.png");
 
             albumCover.setFill(new ImagePattern(publicImg));
@@ -47,10 +51,12 @@ public class builderPlaylist_ArtistShowListenerPlaylist extends builderPlaylist<
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
-            content.setPrefWidth(65);
+            content.setPrefWidth(150);
             Button followButton = new Button("Follow");
             followButton.setMinWidth(content.getPrefWidth());
-            content.getChildren().addAll(followButton);
+            Button addQueue = new Button("Add Playlist to Queue");
+            addQueue.setMinWidth(content.getPrefWidth());
+            content.getChildren().addAll(addQueue, followButton);
             popup.setPopupContent(content);
 
 
@@ -61,7 +67,16 @@ public class builderPlaylist_ArtistShowListenerPlaylist extends builderPlaylist<
                         popup.hide();
                     } else {
                         System.out.println("Already Following That Playlist");
+                        popup.hide();
+                        errorPopup = new viewError("Already Following That Playlist", albumIndiv);
                     }
+                }
+            });
+
+            addQueue.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    controller.addPlaylistToQueue(p.getPlaylist_id());
                 }
             });
 

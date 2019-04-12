@@ -16,6 +16,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import object.Album;
+import view.viewError;
 import view_builders.builderAlbum;
 
 import java.util.ArrayList;
@@ -38,6 +39,8 @@ public class builderAlbum_ArtistAlbumOwned extends builderAlbum<AnchorPane> {
             AnchorPane albumIndiv = new AnchorPane();
             Circle albumCover = new Circle(45);
             Label text = new Label(album.getName());
+
+            text.setId("nameText");
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
@@ -65,14 +68,19 @@ public class builderAlbum_ArtistAlbumOwned extends builderAlbum<AnchorPane> {
             deleteButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    controller.deleteAlbum(album.getAlbum_id());
-                    popup.hide();
+                    if(controller.deleteAlbum(album.getAlbum_id())) {
+                        popup.hide();
+                    } else {
+                        popup.hide();
+                        errorPopup = new viewError("Album is not Empty", albumIndiv);
+                    }
                 }
             });
 
             editButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    popup.hide();
                     controller.editAlbum(album);
                 }
             });

@@ -16,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import object.Playlist;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,8 +28,12 @@ public class view_EditPlaylist extends View {
     @FXML JFXButton doneBtn;
     @FXML JFXTextField playlistNameTextField;
     @FXML Label artistLbl;
+    @FXML Label addEditLbl;
     @FXML JFXRadioButton privateRadio;
     @FXML JFXRadioButton publicRadio;
+    @FXML AnchorPane mainPane;
+
+    private Playlist playlist;
 
     public view_EditPlaylist(AnchorPane mainPane, controller_EditPlaylist controller, controllerDashboard dashboardController){
         this.controller = controller;
@@ -36,6 +41,7 @@ public class view_EditPlaylist extends View {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/templateAddEditPlaylist.fxml"));
         loader.setController(this);
 
+        playlist = model.getLibraryModel().getSelectedPlaylist();
         try {
             mainPane.getChildren().setAll((AnchorPane) loader.load());
         } catch (IOException e) {
@@ -51,6 +57,35 @@ public class view_EditPlaylist extends View {
     }
 
     public void init(){
+        mainPane.getStylesheets().add("view/theme.css");
+
+        addEditLbl.setText(playlist.getOwner_name());
+        playlistNameTextField.setText(playlist.getName());
+        publicRadio.setSelected(true);
+    }
+
+    public void toggle(){
+
+    }
+
+    public void doneButton() {
+        String title = playlistNameTextField.getText();
+        String titleCheck = title.replaceAll("\\s+", "");
+
+        boolean is_public = true;
+
+        if (privateRadio.isSelected())
+            is_public = false;
+
+        if (titleCheck.equals("")){
+            System.out.println("Empty Playlist Name Found");
+            errorPopup = new viewError("Empty Playlist Name Found", mainPane);
+        } else {
+            if (!controller.editPlaylist(title, is_public)){
+                System.out.println("Playlist Name Already Exists");
+                errorPopup = new viewError("Playlist Name Already Exists", mainPane);
+            }
+        }
 
     }
 

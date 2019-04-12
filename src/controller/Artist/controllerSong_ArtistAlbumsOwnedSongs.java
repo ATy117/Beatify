@@ -3,6 +3,7 @@ package controller.Artist;
 import controller.PaneController;
 import controller.controllerDashboard;
 import controller.controller_AddSong;
+import controller.controller_EditSong;
 import javafx.scene.layout.AnchorPane;
 import object.Song;
 import view.Artist.viewSearchables_ArtistAllSearchResults;
@@ -21,12 +22,12 @@ public class controllerSong_ArtistAlbumsOwnedSongs extends PaneController  {
 		facade.deleteSong(song.getSong_id());
 		model.getLibraryModel().setSelectedAlbum(facade.getAlbum(song.getAlbum_id()));
 		model.getLibraryModel().setSongContents(facade.getAlbumSongs(song.getAlbum_id()));
-		controllerSong_ArtistAlbumsOwnedSongs c = new controllerSong_ArtistAlbumsOwnedSongs(dashboardController.getPaneFoundation(), dashboardController);
+		controllerSong_ArtistAlbumsOwnedSongs c = new controllerSong_ArtistAlbumsOwnedSongs(mainPane, dashboardController);
 		dashboardController.setCurrentPane(c);
 	}
 
 	public void uploadSong() {
-		PaneController upload = new controller_AddSong(dashboardController.getPaneFoundation(), dashboardController);
+		PaneController upload = new controller_AddSong(mainPane, dashboardController);
 		dashboardController.setCurrentPane(upload);
 	}
 
@@ -44,5 +45,8 @@ public class controllerSong_ArtistAlbumsOwnedSongs extends PaneController  {
 
 	public void editSong(Song song) {
 		this.model.getLibraryModel().setSelectedSong(song);
+		controller_EditSong edit = new controller_EditSong(mainPane, dashboardController);
+		dashboardController.setCurrentPane(edit);
+
 	}
 }

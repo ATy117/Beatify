@@ -5,14 +5,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="570.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="mainPane" prefHeight="570.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="256.0" layoutY="26.0" text="Notifications">
          <font>
             <Font name="Comfortaa Bold" size="18.0" />
          </font>
       </Label>
-      <JFXListView fx:id="notificationsListView" layoutY="56.0" prefHeight="514.0" prefWidth="635.0" />
+      <JFXListView fx:id="contentListView" layoutY="56.0" prefHeight="514.0" prefWidth="634.0" />
    </children>
 </AnchorPane>

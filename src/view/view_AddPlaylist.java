@@ -31,6 +31,7 @@ public class view_AddPlaylist extends View {
     @FXML JFXRadioButton publicRadio;
     @FXML Circle playlistCoverCircle;
     @FXML ToggleGroup status;
+    @FXML AnchorPane mainPane;
 
     private Image privateImg, publicImg;
 
@@ -50,11 +51,16 @@ public class view_AddPlaylist extends View {
     }
 
     public void init(){
+        mainPane.getStylesheets().add("view/theme.css");
+
         publicImg = new Image("resources/publicCover.png");
         privateImg = new Image("resources/privateCover.png");
 
         privateRadio.setSelected(true);
         playlistCoverCircle.setFill(new ImagePattern(privateImg));
+
+        artistLbl.setText("by " + controller.getModel().getProfileModel().getUser().getFirst_name() + " " +
+                controller.getModel().getProfileModel().getUser().getLast_name());
     }
 
     @Override
@@ -81,9 +87,12 @@ public class view_AddPlaylist extends View {
 
         if (check.equals("")){
             System.out.println("Enter Playlist Name");
+            errorPopup = new viewError("Enter Playlist Name", mainPane);
         } else {
-            if (!controller.uploadPlaylist(name, isPublic))
+            if (!controller.uploadPlaylist(name, isPublic)) {
                 System.out.println("Playlist Not Created");
+                errorPopup = new viewError("Playlist Not Created", mainPane);
+            }
         }
     }
 }

@@ -1,12 +1,18 @@
 package view.Listener;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import controller.controllerDashboard;
 import controller.Listener.controllerUser_ListenerMyProfile;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
+import object.User;
 import view.View;
 
 import java.io.IOException;
@@ -15,51 +21,76 @@ public class viewUser_ListenerMyProfile extends View {
 
     public controllerUser_ListenerMyProfile controller;
 
-    @FXML AnchorPane userContent;
-    @FXML AnchorPane userHeader;
+    @FXML JFXTextField firstNameField;
+    @FXML JFXTextField lastNameField;
+    @FXML JFXTextField usernameField;
+    @FXML JFXButton editBtn;
+    @FXML Circle userPic;
+    @FXML Label followingNumber;
+    @FXML Label followersNumber;
+    @FXML AnchorPane mainPane;
+    private User myUser;
 
-    private JFXButton logoutBtn;
 
     public viewUser_ListenerMyProfile(AnchorPane mainPane, controllerUser_ListenerMyProfile controller, controllerDashboard dashboardController){
         this.controller = controller;
         this.model = dashboardController.getModel();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/templateUser_MyProfile.fxml"));
         loader.setController(this);
-
+        myUser = controller.getModel().getProfileModel().getUser();
         try {
             mainPane.getChildren().setAll((AnchorPane) loader.load());
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        initheader();
+        Update();
     }
 
     @Override
     public void Update(){
+        initheader();
+    }
 
+    public void logout(){
+        controller.logout();
     }
 
     public void initheader(){
-        logoutBtn = new JFXButton("Logout");
+        mainPane.getStylesheets().add("view/theme.css");
 
-        logoutBtn.setFont(Font.font("Comfortaa", 12));
+        firstNameField.setEditable(false);
+        lastNameField.setEditable(false);
+        usernameField.setEditable(false);
 
-        userHeader.setLeftAnchor(logoutBtn, 300.0);
-        userHeader.setTopAnchor(logoutBtn, 20.0);
+        firstNameField.setText(myUser.getFirst_name());
+        lastNameField.setText(myUser.getLast_name());
+        usernameField.setText(myUser.getUsername());
 
-        userHeader.getChildren().add(logoutBtn);
+        String url = "/resources/useryellowbluedefaultpic.png";
 
-        logoutBtn.setOnMouseClicked(e -> {
-            controller.logout();
-        });
+        if (myUser.getAvatarURL() != null) {
+            url = myUser.getAvatarURL().toURI().toString();
+        }
+
+        userPic.setFill(new ImagePattern(new Image(url)));
     }
 
     public void editDetails(){
+        if(editBtn.getText().equals("Edit") ){
+            editBtn.setText("Done");
+            firstNameField.setEditable(true);
+            lastNameField.setEditable(true);
+        }
+        else{
+            editBtn.setText("Edit");
+            firstNameField.setEditable(false);
+            lastNameField.setEditable(false);
+            usernameField.setEditable(false);
 
-    }
-
-    public void logout() {
-        
+            myUser.setFirst_name(firstNameField.getText());
+            myUser.setLast_name(lastNameField.getText());
+            controller.editUser(myUser);
+        }
     }
 }

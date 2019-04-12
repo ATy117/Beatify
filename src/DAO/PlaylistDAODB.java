@@ -209,6 +209,43 @@ public class PlaylistDAODB implements PlaylistDAO {
     }
 
     @Override
+    public boolean checkIfFollowed(int playlist_id, int follower_id) {
+        String query = "SELECT * FROM followed_playlist WHERE followed_playlist.playlist_id = ? AND followed_playlist.follower_id = ?";
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, playlist_id);
+            statement.setInt(2, follower_id);
+            ResultSet rs = statement.executeQuery();
+            if(rs.next()){
+                rs.close();
+                statement.close();
+                return true;
+            }
+            rs.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean removeAllPlaylistMapping(int playlist_id) {
+        String query = "DELETE FROM followed_playlist WHERE followed_playlist.playlist_id = " + playlist_id;
+
+        try{
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.executeUpdate();
+            statement.close();
+            return true;
+        } catch(SQLException e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
     public List<Playlist> getAllPlaylists(String keyword, int user_id) {
         String query = "SELECT playlist.playlist_id, playlist.name, playlist.is_public, playlist.user_id, user.first_name, user.last_name FROM playlist INNER JOIN user \n" +
                 "ON playlist.user_id = user.user_id WHERE playlist.name LIKE ? AND playlist.user_id != ? AND playlist.is_public = 1";
@@ -230,6 +267,31 @@ public class PlaylistDAODB implements PlaylistDAO {
             e.printStackTrace();
         }
         return playlistList;
+    }
+
+    @Override
+    public List<Playlist> getPublicPlaylists(int user_id) {
+        List<Playlist> playlists = new ArrayList<>();
+        Playlist playlist = new Playlist();
+        String query = "SELECT playlist.playlist_id, playlist.name, playlist.is_public, playlist.user_id, user.first_name, user.last_name FROM playlist INNER JOIN user \n" +
+                "ON playlist.user_id = user.user_id WHERE playlist.is_public = 1 AND playlist.user_id = " +user_id;
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet rs = statement.executeQuery();
+
+            while(rs.next()) {
+                playlists.add(toPlaylist(rs));
+            }
+            rs.close();
+            statement.close();
+            return playlists;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        return playlists;
     }
 
     private Playlist toPlaylist(ResultSet rs) throws SQLException, IOException {

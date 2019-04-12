@@ -24,9 +24,10 @@ public class viewPlaylist_ArtistAllPlaylists extends View {
     public controllerPlaylist_ArtistsAllPlaylists controller;
 
     @FXML AnchorPane playlistHeader;
-    @FXML JFXListView playlistContent;
+    @FXML JFXListView contentListView;
+    @FXML AnchorPane mainPane;
 
-    private Label headerLabel;
+    private Label headerLbl;
     private Label myPlaylistLbl;
     private Label followedPlaylistLbl;
     private TilePane myPlaylistList;
@@ -53,17 +54,12 @@ public class viewPlaylist_ArtistAllPlaylists extends View {
 
     @Override
     public void Update(){
-        playlistContent.getItems().clear();
-
-        myPlaylistLbl = new Label("My Playlists");
-        followedPlaylistLbl = new Label("Followed Playlists");
-        myPlaylistLbl.setFont(Font.font("Poppins", 14));
-        followedPlaylistLbl.setFont(Font.font("Poppins", 14));
+        contentListView.getItems().clear();
 
         /*List of My Playlists*/
         myPlaylistList = new TilePane();
         myPlaylistList.setMaxWidth(634.0);
-        playlistContent.getItems().add(myPlaylistLbl);
+        contentListView.getItems().add(myPlaylistLbl);
         builderPlaylist builder = new builderPlaylist_ArtistPlaylistOwned(controller);
         Director director = Director.getInstance();
         director.setBuilder(builder);
@@ -72,11 +68,11 @@ public class viewPlaylist_ArtistAllPlaylists extends View {
             AnchorPane anchorPane = (AnchorPane)object;
             myPlaylistList.getChildren().add(anchorPane);
         }
-        playlistContent.getItems().add(myPlaylistList);
+        contentListView.getItems().add(myPlaylistList);
 
         /*List of Followed Playlists*/
         followedPlaylistList = new TilePane();
-        playlistContent.getItems().add(followedPlaylistLbl);
+        contentListView.getItems().add(followedPlaylistLbl);
         builder = new builderPlaylist_ArtistPlaylistFollowed(controller);
         director = Director.getInstance();
         director.setBuilder(builder);
@@ -85,22 +81,25 @@ public class viewPlaylist_ArtistAllPlaylists extends View {
             AnchorPane anchorPane = (AnchorPane)object;
             followedPlaylistList.getChildren().add(anchorPane);
         }
-        playlistContent.getItems().add(followedPlaylistList);
+        contentListView.getItems().add(followedPlaylistList);
 
     }
 
     public void initHeader(){
-        headerLabel = new Label("All Playlists");
+        mainPane.getStylesheets().add("view/theme.css");
+
+        headerLbl = new Label("All Playlists");
         addPlaylistBtn = new JFXButton("+ Add Playlist");
 
-        headerLabel.setFont(Font.font("Comfortaa", 18));
+        headerLbl.setId("songHeader");
+        addPlaylistBtn.setId("buttonStyle");
 
-        playlistHeader.setLeftAnchor(headerLabel, 252.0);
-        playlistHeader.setTopAnchor(headerLabel, 23.0);
+        playlistHeader.setLeftAnchor(headerLbl, 252.0);
+        playlistHeader.setTopAnchor(headerLbl, 23.0);
         playlistHeader.setLeftAnchor(addPlaylistBtn, 260.0);
-        playlistHeader.setTopAnchor(addPlaylistBtn, 50.0);
+        playlistHeader.setTopAnchor(addPlaylistBtn, 60.0);
 
-        playlistHeader.getChildren().add(headerLabel);
+        playlistHeader.getChildren().add(headerLbl);
         playlistHeader.getChildren().add(addPlaylistBtn);
 
         addPlaylistBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -109,6 +108,12 @@ public class viewPlaylist_ArtistAllPlaylists extends View {
                 changePane();
             }
         });
+
+        myPlaylistLbl = new Label("My Playlists");
+        followedPlaylistLbl = new Label("Followed Playlists");
+        myPlaylistLbl.setId("headerLabel");
+        followedPlaylistLbl.setId("headerLabel");
+
     }
 
     public void changePane(){

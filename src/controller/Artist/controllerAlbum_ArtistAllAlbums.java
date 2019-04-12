@@ -1,8 +1,6 @@
 package controller.Artist;
 
-import controller.PaneController;
-import controller.controllerDashboard;
-import controller.controller_AddAlbum;
+import controller.*;
 import javafx.scene.layout.AnchorPane;
 import object.Album;
 import view.Artist.viewAlbum_ArtistAllAlbums;
@@ -20,20 +18,25 @@ public class controllerAlbum_ArtistAllAlbums extends PaneController {
     public void goToFollowedList(int album_id){
         model.getLibraryModel().setSelectedAlbum(facade.getAlbum(album_id));
         model.getLibraryModel().setSongContents(facade.getAlbumSongs(album_id));
-        controllerSong_ArtistAlbumsFollowedSongs c = new controllerSong_ArtistAlbumsFollowedSongs(dashboardController.getPaneFoundation(), dashboardController);
+        controllerSong_ArtistAlbumsFollowedSongs c = new controllerSong_ArtistAlbumsFollowedSongs(mainPane, dashboardController);
         dashboardController.setCurrentPane(c);
     }
 
     public void goToOwnList(int album_id){
         model.getLibraryModel().setSelectedAlbum(facade.getAlbum(album_id));
         model.getLibraryModel().setSongContents(facade.getAlbumSongs(album_id));
-        controllerSong_ArtistAlbumsOwnedSongs c = new controllerSong_ArtistAlbumsOwnedSongs(dashboardController.getPaneFoundation(), dashboardController);
+        controllerSong_ArtistAlbumsOwnedSongs c = new controllerSong_ArtistAlbumsOwnedSongs(mainPane, dashboardController);
         dashboardController.setCurrentPane(c);
     }
 
-    public void deleteAlbum(int album_id){
-        facade.deleteAlbum(album_id);
-        model.getLibraryModel().setMyAlbums(facade.getMyAlbums(this.model.getProfileModel().getUser().getUser_id()));
+    public boolean deleteAlbum(int album_id){
+        if (facade.getAlbumSongs(album_id).size() != 0){
+            return false;
+        } else {
+            facade.deleteAlbum(album_id);
+            model.getLibraryModel().setMyAlbums(facade.getMyAlbums(this.model.getProfileModel().getUser().getUser_id()));
+            return true;
+        }
     }
 
     public void unfollowAlbum(int album_id){
@@ -42,11 +45,13 @@ public class controllerAlbum_ArtistAllAlbums extends PaneController {
     }
 
     public void uploadAlbum(){
-        controller_AddAlbum controllerAddAlbums = new controller_AddAlbum(dashboardController.getPaneFoundation(), dashboardController);
+        controller_AddAlbum controllerAddAlbums = new controller_AddAlbum(mainPane, dashboardController);
         dashboardController.setCurrentPane(controllerAddAlbums);
     }
 
 	public void editAlbum(Album album) {
         this.model.getLibraryModel().setSelectedAlbum(album);
+        controller_EditAlbum edit = new controller_EditAlbum(mainPane, dashboardController);
+        dashboardController.setCurrentPane(edit);
 	}
 }

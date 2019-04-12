@@ -17,6 +17,7 @@ public interface UserDAO {
 	public List<User> getFollowedArtists(int user_id);
 	public boolean followerUser(int user_id, int follower_id);
 	public boolean unfollowerUser(int user_id, int follower_id);
+	public boolean checkIfFollowed(int user_id, int follower_id);
 	public List<User> searchListeners(String keyword, int user_id);
 	public List<User> searchArtists(String keyword, int user_id);
 }

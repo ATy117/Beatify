@@ -294,15 +294,36 @@ public class UserDAODB implements UserDAO{
     }
 
     @Override
+    public boolean checkIfFollowed(int user_id, int follower_id) {
+        String query = "SELECT * FROM follower_mapping WHERE follower_mapping.user_id = ? AND follower_mapping.follower_id = ?";
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, user_id);
+            statement.setInt(2, follower_id);
+            ResultSet rs = statement.executeQuery();
+            if(rs.next()){
+                rs.close();
+                statement.close();
+                return true;
+            }
+            rs.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
     public List<User> searchArtists(String keyword, int user_id) {
-        String query = "SELECT * FROM user WHERE user.user_id != ? AND user.is_artist = 1 AND (user.first_name LIKE ? OR user.last_name LIKE ?)";
+        String query = "SELECT * FROM user WHERE user.user_id != ? AND user.is_artist = 1 AND CONCAT(user.first_name, ' ', user.last_name) LIKE ?";
         List<User> userList = new ArrayList<>();
 
         try{
             PreparedStatement statement = this.connection.prepareStatement(query);
             statement.setInt(1, user_id);
             statement.setString(2, "%"+keyword+"%");
-            statement.setString(3, "%"+keyword+"%");
             ResultSet rs = statement.executeQuery();
             while (rs.next()){
                 userList.add(toUser(rs));
@@ -320,14 +341,13 @@ public class UserDAODB implements UserDAO{
 
     @Override
     public List<User> searchListeners(String keyword, int user_id) {
-        String query = "SELECT * FROM user WHERE user.user_id != ? AND user.is_artist = 0 AND (user.first_name LIKE ? OR user.last_name LIKE ?)";
+        String query = "SELECT * FROM user WHERE user.user_id != ? AND user.is_artist = 0 AND CONCAT(user.first_name, ' ', user.last_name) LIKE ?";
         List<User> userList = new ArrayList<>();
 
         try{
             PreparedStatement statement = this.connection.prepareStatement(query);
             statement.setInt(1, user_id);
             statement.setString(2, "%"+keyword+"%");
-            statement.setString(3, "%"+keyword+"%");
             ResultSet rs = statement.executeQuery();
             while (rs.next()){
                 userList.add(toUser(rs));

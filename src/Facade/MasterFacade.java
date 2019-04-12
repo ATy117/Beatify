@@ -43,7 +43,6 @@ public class MasterFacade {
 
 	public void generateCacheFolder () {
 		cacheManager.generateCacheFolder();
-		System.out.println("Cache folder is existing / created");
 	}
 
 	public Album getAlbum(int album_id){
@@ -141,6 +140,9 @@ public class MasterFacade {
 
 	// user likes song
 	public boolean likeSong(int userid, int songid) {
+		if(SD.checkIfLiked(songid, userid)) { //if song has been liked already
+			return false;
+		}
 		return SD.likeSong(songid, userid);
 	}
 
@@ -150,6 +152,9 @@ public class MasterFacade {
 
 	// user follows album
 	public boolean followAlbum(int followersid, int albumid) {
+		if(AD.checkIfFollowed(albumid, followersid)){
+			return false;
+		}
 		return AD.followAlbum(albumid, followersid);
 	}
 
@@ -158,6 +163,9 @@ public class MasterFacade {
 	}
 	// user follows playlist
 	public boolean followPlaylist(int followersid, int playlistid) {
+		if(PD.checkIfFollowed(playlistid, followersid)){
+			return false;
+		}
 		return PD.followPlaylist(playlistid, followersid);
 	}
 
@@ -167,6 +175,9 @@ public class MasterFacade {
 
 	// user follows another user
 	public boolean followUser(int followersid, int userid) {
+		if(UD.checkIfFollowed(userid, followersid)){
+			return false;
+		}
 		return UD.followerUser(userid, followersid);
 	}
 
@@ -210,6 +221,9 @@ public class MasterFacade {
 	}
 
 	public boolean updatePlaylist(Playlist playlist){
+		if(!playlist.isIs_public()){ //if playlist is not public
+			PD.removeAllPlaylistMapping(playlist.getPlaylist_id());
+		}
 		return PD.updatePlaylist(playlist);
 	}
 
@@ -227,6 +241,10 @@ public class MasterFacade {
 
 	public List<Playlist> getFollowedPlaylists(int user_id){
 		return PD.getFollowedPlaylists(user_id);
+	}
+
+	public List<Playlist> getPublicPlaylists(int user_id){
+		return PD.getPublicPlaylists(user_id);
 	}
 
 	public List<Song> getMySongs(int user_id){
@@ -257,6 +275,18 @@ public class MasterFacade {
 		else return false;
 	}
 
+	public int checkSong(int user_id, String song_name){
+		return SD.checkSong(user_id, song_name);
+	}
+
+	public int checkPlaylist(int user_id, String playlist_name){
+		return PD.checkPlaylist(user_id, playlist_name);
+	}
+
+	public int checkAlbum(int user_id, String album_name){
+		return AD.checkAlbum(user_id, album_name);
+	}
+
 	public boolean deleteSong(int songID){
 		return SD.deleteSong(songID);
 	}
@@ -266,6 +296,8 @@ public class MasterFacade {
 	}
 
 	public boolean addSongToPlaylist(int songid, int playlistid){
+		if (SD.checkSongPlaylist(songid, playlistid))
+			return false;
 		return SD.addSongToPlaylist(songid,playlistid);
 	}
 

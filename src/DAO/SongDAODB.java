@@ -121,26 +121,18 @@ public class SongDAODB implements SongDAO {
         LocalDate dateUploadedTemp = song.getDate_uploaded();
         String dateTemp = dateUploadedTemp.toString();
         int artistIDTemp = song.getArtist__id();
-        FileInputStream songFileStream = null;
-        try {
-            songFileStream = new FileInputStream(song.getSong_URL());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
 
         String query = "UPDATE song SET " +
                         "song.title = ?, " +
                         "song.genre = ?, " +
                         "song.date_uploaded = ?, " +
-                        "song.artist_id = ?, " +
-                        "song.file = ? WHERE song.song_id = " + songID;
+                        "song.artist_id = ? WHERE song.song_id = " + songID;
         try{
             PreparedStatement statement = this.connection.prepareStatement(query);
             statement.setString(1, titleTemp);
             statement.setString(2, genreTemp);
             statement.setString(3, dateTemp);
             statement.setInt(4, artistIDTemp);
-            statement.setBinaryStream(5, songFileStream);
             statement.executeUpdate();
             statement.close();
             return true;
@@ -361,6 +353,28 @@ public class SongDAODB implements SongDAO {
             statement.executeUpdate();
             statement.close();
             return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean checkIfLiked(int song_id, int user_id) {
+        String query = "SELECT * FROM liked_mapping WHERE liked_mapping.song_id = ? AND liked_mapping.user_id = ?";
+
+        try{
+            PreparedStatement statement = this.connection.prepareStatement(query);
+            statement.setInt(1, song_id);
+            statement.setInt(2, user_id);
+            ResultSet rs = statement.executeQuery();
+            if(rs.next()){
+                rs.close();
+                statement.close();
+                return true;
+            }
+            rs.close();
+            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

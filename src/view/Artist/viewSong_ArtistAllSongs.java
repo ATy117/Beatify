@@ -21,8 +21,8 @@ import java.util.Collections;
 
 public class viewSong_ArtistAllSongs extends View {
 
-    @FXML AnchorPane songsHeader;
-    @FXML JFXListView songListView;
+    @FXML AnchorPane mainPane;
+    @FXML JFXListView contentListView;
     private Label headerLabel;
     private Label sortLabel;
     JFXComboBox sortingCB;
@@ -53,22 +53,26 @@ public class viewSong_ArtistAllSongs extends View {
     @Override
     public void Update() {
         setSongs();
-        sortSongListView();
+        sortcontentListView();
     }
 
     private void initHeader() {
+        mainPane.getStylesheets().add("view/theme.css");
+
         //INITIALIZES THE HEADER//
         headerLabel = new Label("All songs");
         sortLabel = new Label("Sort by");
-        sortLabel.setFont(Font.font("Comfortaa", 18));
-        headerLabel.setFont(Font.font("Comfortaa", 18));
-        songsHeader.setLeftAnchor(headerLabel, 50.0);
-        songsHeader.setTopAnchor(headerLabel, 50.0);
-        songsHeader.setLeftAnchor(sortLabel, 475.0);
-        songsHeader.setTopAnchor(sortLabel, 28.0);
 
-        songsHeader.getChildren().add(headerLabel);
-        songsHeader.getChildren().add(sortLabel);
+        headerLabel.setId("songHeader");
+        sortLabel.setId("songHeaderDetails");
+
+        mainPane.setLeftAnchor(headerLabel, 50.0);
+        mainPane.setTopAnchor(headerLabel, 50.0);
+        mainPane.setLeftAnchor(sortLabel, 475.0);
+        mainPane.setTopAnchor(sortLabel, 28.0);
+
+        mainPane.getChildren().add(headerLabel);
+        mainPane.getChildren().add(sortLabel);
 
 
 
@@ -103,19 +107,19 @@ public class viewSong_ArtistAllSongs extends View {
         for (String e : arrangement)
             arrangeCB.getItems().add(e);
 
-        songsHeader.setLeftAnchor(sortingCB, 375.0);
-        songsHeader.setTopAnchor(sortingCB, 50.0);
-        songsHeader.setLeftAnchor(arrangeCB, 500.0);
-        songsHeader.setTopAnchor(arrangeCB, 50.0);
-        songsHeader.getChildren().add(sortingCB);
-        songsHeader.getChildren().add(arrangeCB);
+        mainPane.setLeftAnchor(sortingCB, 375.0);
+        mainPane.setTopAnchor(sortingCB, 50.0);
+        mainPane.setLeftAnchor(arrangeCB, 500.0);
+        mainPane.setTopAnchor(arrangeCB, 50.0);
+        mainPane.getChildren().add(sortingCB);
+        mainPane.getChildren().add(arrangeCB);
 
         sortingCB.setOnAction(event -> {
-            sortSongListView();
+            sortcontentListView();
         });
 
         arrangeCB.setOnAction(event -> {
-            sortSongListView();
+            sortcontentListView();
         });
 
         sortingCB.setValue("Date Added");
@@ -123,7 +127,7 @@ public class viewSong_ArtistAllSongs extends View {
         sortByDateAdded();
 
     }
-    private void sortSongListView (){
+    private void sortcontentListView (){
         String choice = (String) sortingCB.getValue();
         switch (choice){
             case "Title":
@@ -150,7 +154,7 @@ public class viewSong_ArtistAllSongs extends View {
 
 
     private void sortByTitle() {
-        songListView.getItems().clear();
+        contentListView.getItems().clear();
         String arrange = (String) arrangeCB.getValue();
          {
 
@@ -177,14 +181,14 @@ public class viewSong_ArtistAllSongs extends View {
             }
             for (AnchorPane e : sortArrayList) {
                 System.out.println("Title Added Ascending");
-                songListView.getItems().add(e);
+                contentListView.getItems().add(e);
 
             }
         }
 
     }
     private void sortByAlbum(){
-        songListView.getItems().clear();
+        contentListView.getItems().clear();
         String arrange = (String) arrangeCB.getValue();
         {
 
@@ -209,13 +213,13 @@ public class viewSong_ArtistAllSongs extends View {
             }
             for (AnchorPane e : sortArrayList) {
                 System.out.println("Title Added Ascending");
-                songListView.getItems().add(e);
+                contentListView.getItems().add(e);
 
             }
         }
     }
     private void sortByYear () {
-        songListView.getItems().clear();
+        contentListView.getItems().clear();
         String arrange = (String) arrangeCB.getValue();
 
 
@@ -239,12 +243,12 @@ public class viewSong_ArtistAllSongs extends View {
             }
         for (AnchorPane e : sortArrayList) {
             System.out.println("Title Added Ascending");
-            songListView.getItems().add(e);
+            contentListView.getItems().add(e);
 
         }
     }
     private void sortByGenre(){
-        songListView.getItems().clear();
+        contentListView.getItems().clear();
         String arrange = (String) arrangeCB.getValue();
 
 
@@ -268,12 +272,12 @@ public class viewSong_ArtistAllSongs extends View {
             }
         for (AnchorPane e : sortArrayList) {
             System.out.println("Title Added Ascending");
-            songListView.getItems().add(e);
+            contentListView.getItems().add(e);
         }
 
     }
     private void sortByDateAdded() {
-        songListView.getItems().clear();
+        contentListView.getItems().clear();
         String arrange = (String) arrangeCB.getValue();
         if (arrange.compareTo("Ascending") == 0) {
             for (int i = 0; i < sortArrayList.size() - 1; i++){
@@ -287,7 +291,7 @@ public class viewSong_ArtistAllSongs extends View {
         }
         for (AnchorPane e : sortArrayList) {
             System.out.println("Date Added Descending");
-            songListView.getItems().add(e);
+            contentListView.getItems().add(e);
         }
     }
 }

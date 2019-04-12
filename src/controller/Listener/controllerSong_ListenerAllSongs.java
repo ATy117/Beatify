@@ -14,7 +14,21 @@ public class controllerSong_ListenerAllSongs extends PaneController {
         view = new viewSong_ListenerAllSongs(mainPane,this, dashboardController);
     }
 
-	public void addSongToQueue(Song song) {
-    	this.model.getPlayerModel().addSongToQueue(song);
-	}
+    public boolean addSongToPlaylist (int song_id, int playlist_id){
+        return facade.addSongToPlaylist(song_id, playlist_id);
+    }
+
+    public void unlikeSong (int song_id){
+        int user_id = model.getProfileModel().getUser().getUser_id();
+        facade.unlikeSong(user_id, song_id);
+        model.getLibraryModel().setAllSongs(facade.getLikedSongs(user_id));
+    }
+
+    public void addSongToQueue(Song song) {
+        this.model.getPlayerModel().addSongToQueue(song);
+    }
+
+    public void playSong(Song song) {
+        this.model.getPlayerModel().playSingleSong(song);
+    }
 }

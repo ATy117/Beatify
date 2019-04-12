@@ -28,9 +28,11 @@ public class view_AddSong extends View {
     @FXML JFXComboBox songGenreCombo;
     @FXML JFXTextField songTitleTextField;
     @FXML Label artistLbl;
+    @FXML Label addEditLbl;
     @FXML JFXButton uploadSongBtn;
     @FXML JFXTextField songURLField;
     @FXML Circle songCoverCircle;
+    @FXML AnchorPane mainPane;
 
     public view_AddSong(AnchorPane mainPane, controller_AddSong controller, controllerDashboard dashboardController){
         this.controller = controller;
@@ -48,11 +50,16 @@ public class view_AddSong extends View {
     }
 
     public void init(){
+        mainPane.getStylesheets().add("view/theme.css");
+
         artistLbl.setText("By "+ model.getProfileModel().getUser().getFirst_name() + " " + model.getProfileModel().getUser().getLast_name());
         songGenreCombo.getItems().addAll("Acoustic", "Ballad", "Classical", "Country", "Folk", "Jazz", "Pop", "Rap", "Reggae", "Religious", "Rock");
         songURLField.setEditable(false);
 
         songCoverCircle.setFill(new ImagePattern(new Image("/resources/albumCover.png")));
+        artistLbl.setText("by " + controller.getModel().getProfileModel().getUser().getFirst_name() + " " +
+                controller.getModel().getProfileModel().getUser().getLast_name());
+
 
     }
 
@@ -75,11 +82,15 @@ public class view_AddSong extends View {
 
         if (check.equals("") || gCheck.equals("")){
             System.out.println("Some Fields Are Missing");
+            errorPopup = new viewError("Some Fields Are Missing", mainPane);
         } else if (songFile == null) {
             System.out.println("No File Uploaded");
+            errorPopup = new viewError("No File Uploaded", mainPane);
         } else {
-            if (!controller.addSong(songName, genre, songFile))
+            if (!controller.addSong(songName, genre, songFile)) {
                 System.out.println("Song not added");
+                errorPopup = new viewError("Song not added", mainPane);
+            }
         }
 
     }

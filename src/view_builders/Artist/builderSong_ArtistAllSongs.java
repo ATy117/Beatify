@@ -15,6 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import object.Playlist;
 import object.Song;
+import view.viewError;
 import view_builders.builderSong;
 
 import java.util.ArrayList;
@@ -41,6 +42,12 @@ public class builderSong_ArtistAllSongs extends builderSong<AnchorPane> {
             Text albumText = new Text(song.getAlbum_name());
             Text yearText = new Text(song.getDate_uploaded().getYear() + "");
             Text genreText = new Text(song.getGenre());
+
+            titleText.setId("songText");
+            //artistText.setId("songText");
+            albumText.setId("songText");
+            yearText.setId("songText");
+            genreText.setId("songText");
 
             JFXButton play = new JFXButton();
             Image playImg = new Image("resources/play2.png");
@@ -103,6 +110,7 @@ public class builderSong_ArtistAllSongs extends builderSong<AnchorPane> {
             add_to_queueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    popup.hide();
                     controller.addSongToQueue(song);
                 }
             });
@@ -128,7 +136,9 @@ public class builderSong_ArtistAllSongs extends builderSong<AnchorPane> {
                                 if (controller.addSongToPlaylist(song.getSong_id(), playlist.getPlaylist_id())) {
                                     popup.hide();
                                 } else {
-                                    System.out.println("Song Not Added To Playlist");
+                                    System.out.println("Song Not Added to Playlist Anymore");
+                                    popup.hide();
+                                    errorPopup = new viewError("Song Not Added to Playlist Anymore", songsIndiv);
                                 }
                             }
                         });

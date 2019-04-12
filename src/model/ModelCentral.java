@@ -70,6 +70,15 @@ public class ModelCentral {
         this.notificationModel = notificationModel;
     }
 
+    public void instantiateModels() {
+        libraryModel = new LibraryModel();
+        profileModel = new ProfileModel();
+        playerModel = new SongPlayerModel();
+        peopleModel = new OtherPeopleModel();
+        searchModel = new SearchModel();
+        notificationModel = new NotificationModel();
+    }
+
     public void resetModels(){
         libraryModel = null;
         profileModel = null;

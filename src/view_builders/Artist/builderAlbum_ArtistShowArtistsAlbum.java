@@ -15,6 +15,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.TextAlignment;
 import object.Album;
+import view.viewError;
 import view_builders.builderAlbum;
 
 import java.util.ArrayList;
@@ -37,6 +38,8 @@ public class builderAlbum_ArtistShowArtistsAlbum extends builderAlbum<AnchorPane
             AnchorPane albumIndiv = new AnchorPane();
             Circle albumCover = new Circle(45);
             Label text = new Label(album.getName());
+
+            text.setId("nameText");
 
             albumIndiv.setLeftAnchor(albumCover, 20.0);
             albumIndiv.setTopAnchor(albumCover, 13.0);
@@ -62,6 +65,8 @@ public class builderAlbum_ArtistShowArtistsAlbum extends builderAlbum<AnchorPane
                         popup.hide();
                     } else {
                         System.out.println("Already Following That Album");
+                        popup.hide();
+                        errorPopup = new viewError("Already Following That Album", albumIndiv);
                     }
                 }
             });

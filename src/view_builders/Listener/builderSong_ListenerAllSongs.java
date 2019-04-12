@@ -1,15 +1,21 @@
 package view_builders.Listener;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPopup;
 import controller.Listener.controllerSong_ListenerAllSongs;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import object.Playlist;
 import object.Song;
+import view.viewError;
 import view_builders.builderSong;
 
 import java.util.ArrayList;
@@ -29,7 +35,47 @@ public class builderSong_ListenerAllSongs extends builderSong<AnchorPane> {
     @Override
     public void build() {
         while(listElements.hasNext()) {
-            Song song  = listElements.next();
+            Song song = listElements.next();
+            AnchorPane songsIndiv = new AnchorPane();
+            Text titleText = new Text(song.getSong_name());
+            Text artistText = new Text("Dr Jekyl");
+            Text albumText = new Text(song.getAlbum_name());
+            Text yearText = new Text(song.getDate_uploaded().getYear() + "");
+            Text genreText = new Text(song.getGenre());
+
+            titleText.setId("songText");
+            artistText.setId("songText");
+            albumText.setId("songText");
+            yearText.setId("songText");
+            genreText.setId("songText");
+
+            JFXButton play = new JFXButton();
+            Image playImg = new Image("resources/play2.png");
+            ImageView playView = new ImageView(playImg);
+            play.setGraphic(playView);
+
+            playView.setFitHeight(30.0);
+            playView.setFitWidth(30.0);
+
+            songsIndiv.setTopAnchor(titleText, 0.0);
+            songsIndiv.setTopAnchor(artistText, 18.0);
+            songsIndiv.setTopAnchor(albumText, 0.0);
+            songsIndiv.setTopAnchor(yearText, 0.0);
+            songsIndiv.setTopAnchor(genreText, 18.0);
+
+            songsIndiv.setLeftAnchor(titleText, 50.0);
+            songsIndiv.setLeftAnchor(artistText, 50.0);
+            songsIndiv.setLeftAnchor(albumText, 300.0);
+            songsIndiv.setLeftAnchor(yearText, 500.0);
+            songsIndiv.setLeftAnchor(genreText, 500.0);
+            songsIndiv.setLeftAnchor(play, 2.0);
+
+            songsIndiv.getChildren().add(titleText);
+            songsIndiv.getChildren().add(artistText);
+            songsIndiv.getChildren().add(albumText);
+            songsIndiv.getChildren().add(yearText);
+            songsIndiv.getChildren().add(genreText);
+            songsIndiv.getChildren().add(play);
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
@@ -42,6 +88,14 @@ public class builderSong_ListenerAllSongs extends builderSong<AnchorPane> {
             unlikeButton.setMinWidth(content.getPrefWidth());
             content.getChildren().addAll(add_to_queueButton, add_to_playlistButton, unlikeButton);
             popup.setPopupContent(content);
+
+
+            play.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    controller.playSong(song);
+                }
+            });
 
             add_to_queueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
@@ -61,13 +115,20 @@ public class builderSong_ListenerAllSongs extends builderSong<AnchorPane> {
 
                     while (listPlaylistElements.hasNext()){
                         Playlist playlist = listPlaylistElements.next();
-                        buttons.add(new Button (playlist.getName()));
-                        buttons.get(buttons.size() - 1).setPrefWidth(200);
+                        Button b = new Button (playlist.getName());
+                        buttons.add(b);
+                        b.setPrefWidth(200);
 
-                        buttons.get(buttons.size() - 1).setOnAction(new EventHandler<ActionEvent>() {
+                        b.setOnAction(new EventHandler<ActionEvent>() {
                             @Override
                             public void handle(ActionEvent event) {
-
+                                if (controller.addSongToPlaylist(song.getSong_id(), playlist.getPlaylist_id())) {
+                                    popup.hide();
+                                } else {
+                                    System.out.println("Song Not Added To Playlist Anymore");
+                                    popup.hide();
+                                    errorPopup = new viewError("Song Not Added To Playlist Anymore", songsIndiv);
+                                }
                             }
                         });
 
@@ -75,15 +136,28 @@ public class builderSong_ListenerAllSongs extends builderSong<AnchorPane> {
 
                     content.getChildren().addAll(buttons);
                     popup.setPopupContent(content);
+
                 }
             });
 
             unlikeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-
+                    popup.hide();
+                    controller.unlikeSong(song.getSong_id());
                 }
             });
+
+            songsIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if (event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
+                        if (((MouseEvent) event).getButton().equals(MouseButton.SECONDARY))
+                            popup.show(songsIndiv, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+                    }
+                }
+            });
+            listProducts.add(songsIndiv);
         }
     }
 

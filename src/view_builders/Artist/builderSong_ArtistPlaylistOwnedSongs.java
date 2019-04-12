@@ -39,6 +39,11 @@ public class builderSong_ArtistPlaylistOwnedSongs extends builderSong<AnchorPane
             Text yearText = new Text(song.getDate_uploaded().getYear() + "");
             Text genreText = new Text(song.getGenre());
 
+            titleText.setId("songText");
+            artistText.setId("songText");
+            albumText.setId("songText");
+            yearText.setId("songText");
+            genreText.setId("songText");
 
             JFXButton play = new JFXButton();
             Image playImg = new Image("resources/play2.png");
@@ -82,6 +87,7 @@ public class builderSong_ArtistPlaylistOwnedSongs extends builderSong<AnchorPane
             play.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    popup.hide();
                     controller.playSong(song);
                 }
             });
@@ -90,13 +96,13 @@ public class builderSong_ArtistPlaylistOwnedSongs extends builderSong<AnchorPane
                 @Override
                 public void handle(MouseEvent event) {
                     controller.deleteSongFromPlaylist(song.getSong_id());
-                    popup.hide();
                 }
             });
 
             add_to_queueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    popup.hide();
                     controller.addSongToQueue(song);
                 }
             });

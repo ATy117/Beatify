@@ -28,7 +28,8 @@ public class viewUser_ArtistShowListenerProfile extends View {
     @FXML Label userName;
     @FXML Label followerNum;
     @FXML Label followingNum;
-    @FXML JFXListView profileListView;
+    @FXML JFXListView contentListView;
+    @FXML AnchorPane mainPane;
 
     Label userPlaylistLbl;
     TilePane playlistTile;
@@ -51,6 +52,8 @@ public class viewUser_ArtistShowListenerProfile extends View {
     }
 
     public void init(){
+        mainPane.getStylesheets().add("view/theme.css");
+
         userFirstLastName.setText(controller.getModel().getPeopleModel().getSelectedUser().getFirst_name() + " " +
                 controller.getModel().getPeopleModel().getSelectedUser().getLast_name());
         userName.setText(controller.getModel().getPeopleModel().getSelectedUser().getUsername());
@@ -59,13 +62,13 @@ public class viewUser_ArtistShowListenerProfile extends View {
     @Override
     public void Update(){
 
-        profileListView.getItems().clear();
+        contentListView.getItems().clear();
 
         userPlaylistLbl = new Label("User's Playlist/s");
 
         userPlaylistLbl.setFont(Font.font("Poppins", 14));
 
-        profileListView.getItems().add(userPlaylistLbl);
+        contentListView.getItems().add(userPlaylistLbl);
 
         playlistTile = new TilePane();
         playlistTile.setMaxWidth(634.0);
@@ -77,7 +80,7 @@ public class viewUser_ArtistShowListenerProfile extends View {
             AnchorPane anchorPane = (AnchorPane)object;
             playlistTile.getChildren().add(anchorPane);
         }
-        profileListView.getItems().add(playlistTile);
+        contentListView.getItems().add(playlistTile);
 
     }
 

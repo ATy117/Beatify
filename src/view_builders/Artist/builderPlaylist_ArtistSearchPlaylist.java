@@ -13,6 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import object.Playlist;
+import view.viewError;
 import view_builders.builderPlaylist;
 
 import java.util.ArrayList;
@@ -36,15 +37,19 @@ public class builderPlaylist_ArtistSearchPlaylist extends builderPlaylist<Anchor
             Circle albumCover = new Circle(45);
             Label text = new Label(playlist.getName());
 
+            text.setId("nameText");
+
             Image publicImg = new Image("resources/publicCover.png");
             albumCover.setFill(new ImagePattern(publicImg));
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
-            content.setPrefWidth(65);
+            content.setPrefWidth(150);
             Button followButton = new Button("Follow");
+            Button addQueue = new Button("Add Playlist to Queue");
+            addQueue.setMinWidth(content.getPrefWidth());
             followButton.setMinWidth(content.getPrefWidth());
-            content.getChildren().addAll(followButton);
+            content.getChildren().addAll(addQueue, followButton);
             popup.setPopupContent(content);
 
             albumIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -65,7 +70,16 @@ public class builderPlaylist_ArtistSearchPlaylist extends builderPlaylist<Anchor
                         popup.hide();
                     } else {
                         System.out.println("Already Following Playlist");
+                        popup.hide();
+                        errorPopup = new viewError("Already Following That Playlist", albumIndiv);
                     }
+                }
+            });
+
+            addQueue.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    controller.addPlaylistToQueue(playlist.getPlaylist_id());
                 }
             });
 

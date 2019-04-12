@@ -5,7 +5,7 @@ import java.sql.*;
 public class dbConnection {
 	private final static String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
 	private final static String URL = "jdbc:mysql://localhost:3306/beatifydb";
-	private final static String USERNAME = "toto";
+	private final static String USERNAME = "root";
 	private final static String PASSWORD = "password";
 
 	private static Connection connection = null;

@@ -13,6 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import object.User;
+import view.viewError;
 import view_builders.builderUser;
 
 import java.util.ArrayList;
@@ -35,6 +36,8 @@ public class builderArtist_ArtistSearchArtist extends builderUser<AnchorPane> {
             AnchorPane albumIndiv = new AnchorPane();
             Circle userPic = new Circle(45);
             Label text = new Label(user.getFirst_name() + " " + user.getLast_name());
+
+            text.setId("nameText");
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
@@ -62,6 +65,8 @@ public class builderArtist_ArtistSearchArtist extends builderUser<AnchorPane> {
                         popup.hide();
                     } else {
                         System.out.println("Already Following That Artist");
+                        popup.hide();
+                        errorPopup = new viewError("Already Following That Artist", albumIndiv);
                     }
                 }
             });

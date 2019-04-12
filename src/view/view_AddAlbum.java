@@ -27,6 +27,7 @@ public class view_AddAlbum extends View {
     @FXML JFXTextField albumNameTextField;
     @FXML Label artistLbl;
     @FXML Circle albumCoverCircle;
+    @FXML AnchorPane mainPane;
 
     public view_AddAlbum(AnchorPane mainPane, controller_AddAlbum controller, controllerDashboard dashboardController){
         this.controller = controller;
@@ -44,8 +45,12 @@ public class view_AddAlbum extends View {
     }
 
     private void init() {
+        mainPane.getStylesheets().add("view/theme.css");
+
         Image albumcover = new Image("/resources/albumCover.png");
         albumCoverCircle.setFill(new ImagePattern(albumcover));
+        artistLbl.setText("by " + controller.getModel().getProfileModel().getUser().getFirst_name() + " "+
+                controller.getModel().getProfileModel().getUser().getLast_name());
     }
 
     @Override
@@ -71,9 +76,12 @@ public class view_AddAlbum extends View {
 
         if (check.equals("")){
             System.out.println("Enter Album Name");
+            errorPopup = new viewError("Enter Album Name", mainPane);
         } else {
-            if (!controller.uploadSong(albumName, cover))
+            if (!controller.uploadSong(albumName, cover)) {
                 System.out.println("Album Not Created");
+                errorPopup = new viewError("Album Not Created", mainPane);
+            }
         }
     }
 }
