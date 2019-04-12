@@ -26,6 +26,8 @@ import object.Song;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class viewMusicPlayer extends View {
 
@@ -237,8 +239,14 @@ public class viewMusicPlayer extends View {
 					albumText.setText("Album: None");
 				}
 
-				
-				currentSongMedia = controller.getSongFile(model.getPlayerModel().getCurrentSong());
+				File check = new File(System.getProperty("user.home") + "/documents/Beatify/SongCache/" + this.model.getPlayerModel().getCurrentSong().getSong_id() +".mp3");
+				if (check.exists()){
+					System.out.println("FILE ALREADY EXISTS, PLAY THAT INSTEAD");
+					currentSongMedia = new Media(check.toURI().toString());
+				}
+				else {
+					currentSongMedia = controller.getSongFile(model.getPlayerModel().getCurrentSong());
+				}
 				mp3player = new MediaPlayer(currentSongMedia);
 				toggleToPlay();
 				setPlayerFunctionality();
