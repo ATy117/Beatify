@@ -23,6 +23,7 @@ public abstract class controllerDashboard extends Controller{
 	protected Thread notifications;
 	protected Iterator<Notification> listElements;
 	protected boolean loggedIn = true;
+	protected controllerMusicPlayer musicPlayer;
 
 	public controllerDashboard (Stage primaryStage, User user) {
 		this.primaryStage = primaryStage;
@@ -93,7 +94,15 @@ public abstract class controllerDashboard extends Controller{
 		}
 	}
 
+	public void setMusicPlayer (controllerMusicPlayer musicPlayer) {
+		this.musicPlayer = musicPlayer;
+	}
+
 	public viewDashboard getBase () {
 		return this.view;
+	}
+
+	public void endMusicPlayer() {
+		this.musicPlayer.endPlayer();
 	}
 }

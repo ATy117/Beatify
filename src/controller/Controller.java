@@ -14,4 +14,5 @@ public abstract class Controller{
 	public ModelCentral getModel () {
 		return model;
 	}
+
 }

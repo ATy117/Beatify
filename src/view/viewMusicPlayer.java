@@ -8,6 +8,7 @@ import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -18,6 +19,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 import object.Album;
 
@@ -79,6 +81,8 @@ public class viewMusicPlayer extends View {
 	}
 
 	private void init() {
+
+
 		titleText.setText("No Song Playing");
 		artistText.setText("");
 		albumText.setText("");

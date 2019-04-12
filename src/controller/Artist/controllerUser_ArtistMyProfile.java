@@ -20,6 +20,7 @@ public class controllerUser_ArtistMyProfile extends PaneController {
 
     public void logout() {
         model.clearViews();
+        dashboardController.endMusicPlayer();
         dashboardController.setLoggedIn(false);
         Controller login = new controllerLogin(primaryStage);
     }
