@@ -68,6 +68,7 @@ public class builderPlaylist_ListenerPlaylistFollowed extends builderPlaylist<An
             addQueue.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    popup.hide();
                     controller.addPlaylistToQueue(playlist.getPlaylist_id());
                 }
             });

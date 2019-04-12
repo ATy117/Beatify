@@ -89,6 +89,7 @@ public class builderPlaylist_ListenerPlaylistOwned extends builderPlaylist<Ancho
             addQueue.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    popup.hide();
                     controller.addPlaylistToQueue(p.getPlaylist_id());
                 }
             });

@@ -107,6 +107,7 @@ public class builderSong_ListenerSearchSong extends builderSong<AnchorPane> {
             add_to_queueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    popup.hide();
                     controller.addSongToQueue(song);
                 }
             });

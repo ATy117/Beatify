@@ -107,6 +107,7 @@ public class builderSong_ListenerShowArtistAlbumSongs extends builderSong<Anchor
             add_to_queueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    popup.hide();
                     controller.addSongToQueue(song);
                 }
             });
