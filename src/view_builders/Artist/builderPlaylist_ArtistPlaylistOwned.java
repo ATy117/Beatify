@@ -57,7 +57,7 @@ public class builderPlaylist_ArtistPlaylistOwned extends builderPlaylist<AnchorP
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
-            content.setPrefWidth(65);
+            content.setPrefWidth(150);
             JFXButton deleteButton = new JFXButton("Delete");
             JFXButton editButton = new JFXButton ("Edit");
             JFXButton addQueue = new JFXButton("Add Playlist to Queue");

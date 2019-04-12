@@ -46,7 +46,7 @@ public class builderPlaylist_ArtistPlaylistFollowed  extends builderPlaylist<Anc
 
             JFXPopup popup = new JFXPopup();
             VBox content = new VBox();
-            content.setPrefWidth(65);
+            content.setPrefWidth(150);
             JFXButton unfollowButton = new JFXButton("Unfollow");
             JFXButton addQueue = new JFXButton("Add Playlist to Queue");
             addQueue.setMinWidth(content.getPrefWidth());
