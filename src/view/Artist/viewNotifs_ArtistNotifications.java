@@ -3,6 +3,7 @@ package view.Artist;
 import com.jfoenix.controls.JFXListView;
 import controller.Artist.controllerNotifs_ArtistNotifications;
 import controller.controllerDashboard;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -38,18 +39,21 @@ public class viewNotifs_ArtistNotifications extends View {
     @Override
     public void Update() {
 
-        contentListView.getItems().clear();
+        Platform.runLater( () -> {
+            contentListView.getItems().clear();
 
-        builderNotification builder = new builderNotifications_ArtistNotification(controller);
-        Director director = Director.getInstance();
-        director.setBuilder(builder);
-        director.construct();
-        for (Object object: builder.getProduct()){
-            AnchorPane anchorPane = (AnchorPane)object;
-            contentListView.getItems().add(anchorPane);
-        }
+            builderNotification builder = new builderNotifications_ArtistNotification(controller);
+            Director director = Director.getInstance();
+            director.setBuilder(builder);
+            director.construct();
+            for (Object object: builder.getProduct()){
+                AnchorPane anchorPane = (AnchorPane)object;
+                contentListView.getItems().add(anchorPane);
+            }
 
-        controller.markAllAsViewed();
+            controller.markAllAsViewed();
+        });
+        
     }
 
     public void init(){
