@@ -29,23 +29,16 @@ public class builderNotification_ListenerNotification extends builderNotificatio
             Notification notif = listElements.next();
             AnchorPane notifIndiv = new AnchorPane();
             Label notifLabel = new Label();
-            JFXButton ex = new JFXButton("X");
+
+            notifIndiv.getStylesheets().add("view/theme.css");
+
             if (!notif.isViewed())
-                notifLabel.setFont(Font.font("Times New Roman", 18));
+                notifLabel.getStyleClass().add("label_Notif_Unviewed");
             else
-                notifLabel.setFont(Font.font("Comic Sans", 18));
+                notifLabel.getStyleClass().add("label_Notif_Viewed");
 
             notifLabel.setText(notif.getMessage());
-            ex.setFont(Font.font("Confortaa", 14));
 
-            ex.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    controller.removeNotification(notif.getNotif_id());
-                }
-            });
-
-            notifIndiv.setLeftAnchor(ex, 550.0);
             notifIndiv.setLeftAnchor(notifLabel, 15.0);
 
             notifIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -56,7 +49,6 @@ public class builderNotification_ListenerNotification extends builderNotificatio
             });
 
             notifIndiv.getChildren().add(notifLabel);
-            notifIndiv.getChildren().add(ex);
 
             listProducts.add(notifIndiv);
         }

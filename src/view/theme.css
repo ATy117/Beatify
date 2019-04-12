@@ -84,3 +84,35 @@
 #vboxRight{
     -fx-background-color: #1c6575;
 }
+
+.label_Notif_Viewed{
+    -fx-font-family: Poppins;
+    -fx-text-fill: black;
+    -fx-font-size: 18;
+    -fx-background-color: none;
+}
+
+.label_Notif_Unviewed{
+    -fx-font-family: Comfortaa;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f4dfcc;
+    -fx-font-size: 18;
+    -fx-background-color: #1c6575;
+}
+
+#comboStyle .jfx-list-cell{
+    -fx-font-family: Poppins;
+    -fx-background-color: #fab2a5;
+    -fx-text-fill: #1c6575;
+    -fx-font-size: 12;
+}
+
+#comboStyle{
+    -fx-font-family: Poppins;
+    -fx-font-size: 12;
+}
+
+#comboStyle .jfx-rippler{
+    -jfx-rippler-fill: #fab2a5;
+}
+
