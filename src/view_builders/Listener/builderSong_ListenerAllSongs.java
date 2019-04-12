@@ -38,7 +38,7 @@ public class builderSong_ListenerAllSongs extends builderSong<AnchorPane> {
             Song song = listElements.next();
             AnchorPane songsIndiv = new AnchorPane();
             Text titleText = new Text(song.getSong_name());
-            Text artistText = new Text("Dr Jekyl");
+            Text artistText = new Text(song.getArtist_name());
             Text albumText = new Text(song.getAlbum_name());
             Text yearText = new Text(song.getDate_uploaded().getYear() + "");
             Text genreText = new Text(song.getGenre());
