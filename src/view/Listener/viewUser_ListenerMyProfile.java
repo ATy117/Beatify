@@ -1,5 +1,7 @@
 package view.Listener;
 
+import FileUploaderService.FileUploader;
+import FileUploaderService.PhotoUploader;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import controller.controllerDashboard;
@@ -15,12 +17,13 @@ import javafx.scene.text.Font;
 import object.User;
 import view.View;
 
+import java.io.File;
 import java.io.IOException;
 
 public class viewUser_ListenerMyProfile extends View {
 
     public controllerUser_ListenerMyProfile controller;
-
+    private File cover;
     @FXML JFXTextField firstNameField;
     @FXML JFXTextField lastNameField;
     @FXML JFXTextField usernameField;
@@ -94,12 +97,21 @@ public class viewUser_ListenerMyProfile extends View {
 
             myUser.setFirst_name(firstNameField.getText());
             myUser.setLast_name(lastNameField.getText());
+            if (cover != null){
+                myUser.setAvatarURL(cover);
+            }
             controller.editUser(myUser);
             mainPane.getChildren().remove(uploadPhotoBtn);
         }
     }
 
     public void uploadPhoto(){
+        FileUploader uploader = new PhotoUploader(primaryStage);
+        cover = uploader.getUploadedFile();
 
+        if (cover!=null) {
+            Image uploaded = new Image(cover.toURI().toString());
+            userPic.setFill(new ImagePattern(uploaded));
+        }
     }
 }

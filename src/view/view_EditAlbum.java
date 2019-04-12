@@ -80,6 +80,9 @@ public class view_EditAlbum extends View {
         if (titleCheck.equals("")){
             errorPopup = new viewError("Empty Album Name Found", mainPane);
         } else {
+            if (cover == null){
+                cover = model.getLibraryModel().getSelectedAlbum().getCover_URL();
+            }
             if (!controller.editAlbum(title, cover)){
                 errorPopup = new viewError("Album Name Already Exists", mainPane);
             }
