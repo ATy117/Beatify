@@ -12,6 +12,7 @@ import controller.controller_EditPlaylist;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
@@ -32,8 +33,11 @@ public class view_EditPlaylist extends View {
     @FXML JFXRadioButton privateRadio;
     @FXML JFXRadioButton publicRadio;
     @FXML AnchorPane mainPane;
+    @FXML ToggleGroup status;
+    @FXML Circle playlistCoverCircle;
 
     private Playlist playlist;
+    private Image privateImg, publicImg;
 
     public view_EditPlaylist(AnchorPane mainPane, controller_EditPlaylist controller, controllerDashboard dashboardController){
         this.controller = controller;
@@ -62,10 +66,27 @@ public class view_EditPlaylist extends View {
         addEditLbl.setText(playlist.getOwner_name());
         playlistNameTextField.setText(playlist.getName());
         publicRadio.setSelected(true);
+
+        publicImg = new Image("resources/publicCover.png");
+        privateImg = new Image("resources/privateCover.png");
+
+        if (!playlist.isIs_public()) {
+            privateRadio.setSelected(true);
+            playlistCoverCircle.setFill(new ImagePattern(privateImg));
+        }
+        else {
+            publicRadio.setSelected(true);
+            playlistCoverCircle.setFill(new ImagePattern(publicImg));
+        }
+
     }
 
     public void toggle(){
-
+        if(status.getSelectedToggle() == privateRadio){
+            playlistCoverCircle.setFill(new ImagePattern(privateImg));
+        }
+        else
+            playlistCoverCircle.setFill(new ImagePattern(publicImg));
     }
 
     public void doneButton() {

@@ -77,18 +77,26 @@ public class view_AddSong extends View {
         String genre = (String) songGenreCombo.getValue();
         String songName = songTitleTextField.getText();
 
-        String gCheck = genre.replaceAll("\\s+", "");
-        String check = songName.replaceAll("\\s+", "");
+        String gCheck;
+        String check;
 
-        if (check.equals("") || gCheck.equals("")){
+        if (genre == null || songName == null){
             errorPopup = new viewError("Some Fields Are Missing", mainPane);
-        } else if (songFile == null) {
-            errorPopup = new viewError("No File Uploaded", mainPane);
         } else {
-            if (!controller.addSong(songName, genre, songFile)) {
-                errorPopup = new viewError("Song not added", mainPane);
+            gCheck = genre.replaceAll("\\s+", "");
+            check = songName.replaceAll("\\s+", "");
+
+            if (check.equals("") || gCheck.equals("")){
+                errorPopup = new viewError("Some Fields Are Missing", mainPane);
+            } else if (songFile == null) {
+                errorPopup = new viewError("No File Uploaded", mainPane);
+            } else {
+                if (!controller.addSong(songName, genre, songFile)) {
+                    errorPopup = new viewError("Song not added", mainPane);
+                }
             }
         }
+
 
     }
 

@@ -65,6 +65,8 @@ public class view_EditSong extends View {
         songTitleTextField.setText(currentSong.getSong_name());
         songGenreCombo.setValue(currentSong.getGenre());
 
+        songCoverCircle.setFill(new ImagePattern(new Image("/resources/albumCover.png")));
+
     }
 
     @Override

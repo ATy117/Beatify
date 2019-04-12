@@ -49,6 +49,9 @@ public class view_EditAlbum extends View {
     public void init(){
         mainPane.getStylesheets().add("view/theme.css");
 
+        Image albumcover = new Image("/resources/albumCover.png");
+        albumCoverCircle.setFill(new ImagePattern(albumcover));
+
         addEditLbl.setText("Edit Album");
         artistLbl.setText(controller.getModel().getLibraryModel().getSelectedAlbum().getArtist_name());
         albumNameTextField.setText(controller.getModel().getLibraryModel().getSelectedAlbum().getName());
@@ -63,6 +66,11 @@ public class view_EditAlbum extends View {
     public void uploadCover () {
         FileUploader uploader = new PhotoUploader(primaryStage);
         cover = uploader.getUploadedFile();
+
+        if (cover!=null) {
+            Image uploaded = new Image(cover.toURI().toString());
+            albumCoverCircle.setFill(new ImagePattern(uploaded));
+        }
     }
 
     public void doneButton() {
