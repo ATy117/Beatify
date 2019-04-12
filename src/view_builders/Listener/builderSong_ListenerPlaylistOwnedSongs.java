@@ -124,6 +124,7 @@ public class builderSong_ListenerPlaylistOwnedSongs extends builderSong<AnchorPa
             add_to_queueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    popup.hide();
                     controller.addSongToQueue(song);
                 }
             });

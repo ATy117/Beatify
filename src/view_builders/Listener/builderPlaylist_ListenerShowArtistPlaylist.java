@@ -80,6 +80,7 @@ public class builderPlaylist_ListenerShowArtistPlaylist extends builderPlaylist<
             addQueue.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    popup.hide();
                     controller.addPlaylistToQueue(p.getPlaylist_id());
                 }
             });
