@@ -75,7 +75,15 @@ public class viewSong_ArtistAlbumsFollowedSongs extends View {
 
         Circle albumArt = new Circle();
         albumArt.setRadius(30);
-        Image image = new Image(selectedAlbum.getCover_URL().toURI().toString());
+
+        String url = "/resources/albumCover.png";
+
+        if (selectedAlbum.getCover_URL() != null) {
+            url = selectedAlbum.getCover_URL().toURI().toString();
+        }
+
+        Image image = new Image(url);
+
         albumArt.setFill(new ImagePattern(image));
 
         headerLabel.setId("songHeader");
