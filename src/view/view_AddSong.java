@@ -71,6 +71,10 @@ public class view_AddSong extends View {
     public void addSongURL(){
         FileUploader uploader = new MP3Uploader(primaryStage);
         songFile = uploader.getUploadedFile();
+        if (songFile != null)
+            songURLField.setText(songFile.getPath());
+        else
+            songURLField.setText("No File Selected");
     }
 
     public void doneButton() {
