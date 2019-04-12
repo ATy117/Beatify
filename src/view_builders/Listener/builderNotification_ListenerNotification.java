@@ -41,13 +41,6 @@ public class builderNotification_ListenerNotification extends builderNotificatio
 
             notifIndiv.setLeftAnchor(notifLabel, 15.0);
 
-            notifIndiv.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    controller.markAsViewed(notif.getNotif_id());
-                }
-            });
-
             notifIndiv.getChildren().add(notifLabel);
 
             listProducts.add(notifIndiv);
