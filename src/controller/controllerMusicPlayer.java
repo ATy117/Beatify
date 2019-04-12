@@ -74,6 +74,10 @@ public class controllerMusicPlayer extends Controller {
 		}
 	}
 
+	public boolean checkSongExist(int song_id) {
+		return facade.checkSongExist(song_id);
+	}
+
 	public Image getImageOfAlbum (int album_id) {
 		return facade.getImageOfAlbum(album_id);
 	}

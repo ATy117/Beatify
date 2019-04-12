@@ -378,7 +378,7 @@ public class UserDAODB implements UserDAO{
 
     private File toFile(ResultSet rs) throws SQLException, IOException {
         if(rs.getBinaryStream("user.avatar")!=null) {
-            File file = new File(System.getProperty("user.home") + "/documents/Beatify/PictureCache/" + rs.getString("user.username") + "_avatar.png");
+            File file = new File(System.getProperty("user.home") + "/documents/Beatify/PictureCache/" + rs.getString("user.user_id") + "_avatar.png");
             OutputStream outputStream = new FileOutputStream(file);
             InputStream inputStream = rs.getBinaryStream("user.avatar");
             byte[] buffer = new byte[4096];

@@ -383,7 +383,7 @@ public class SongDAODB implements SongDAO {
 
     @Override
     public File getSongFile(int song_id) {
-        String query = "SELECT song.title, song.file, user.first_name, user.last_name " +
+        String query = "SELECT song.song_id, song.title, song.file, user.first_name, user.last_name " +
                 "FROM song INNER JOIN user ON song.artist_id = user.user_id " +
                 "WHERE song.song_id = " + song_id;
         File songFile = null;
@@ -449,7 +449,7 @@ public class SongDAODB implements SongDAO {
     }
 
     private File toFile(ResultSet rs) throws SQLException, IOException {
-        File file = new File(System.getProperty("user.home") + "/documents/Beatify/SongCache/" + rs.getString("song.title")+"-"+rs.getString("user.first_name") + " " + rs.getString("user.last_name")+".mp3");
+        File file = new File(System.getProperty("user.home") + "/documents/Beatify/SongCache/" + rs.getString("song.song_id")+".mp3");
         OutputStream outputStream = new FileOutputStream(file);
         InputStream inputStream = rs.getBinaryStream("song.file");
         byte[] buffer = new byte[4096];

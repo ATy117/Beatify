@@ -263,6 +263,15 @@ public class MasterFacade {
 		return UD.getFollowedListeners(user_id);
 	}
 
+	public boolean checkSongExist(int song_id) {
+		if (SD.getSong(song_id) != null) {
+			return true;
+		}
+
+		return false;
+
+	}
+
 
 	public boolean uploadSong(Song song){
 		if(SD.checkSong(song.getArtist__id(),song.getSong_name()) == -1) {

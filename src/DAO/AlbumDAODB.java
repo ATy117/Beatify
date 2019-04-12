@@ -291,7 +291,7 @@ public class AlbumDAODB implements AlbumDAO{
 
     private File toFile(ResultSet rs) throws SQLException, IOException {
         if(rs.getBinaryStream("album.album_cover")!=null) {
-            File file = new File(System.getProperty("user.home") + "/documents/Beatify/PictureCache/" + rs.getString("album.name") + "_cover.png");
+            File file = new File(System.getProperty("user.home") + "/documents/Beatify/PictureCache/" + rs.getString("album.album_id") + "_cover.png");
             OutputStream outputStream = new FileOutputStream(file);
             InputStream inputStream = rs.getBinaryStream("album.album_cover");
             byte[] buffer = new byte[4096];

@@ -22,6 +22,7 @@ import javafx.scene.shape.Circle;
 import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 import object.Album;
+import object.Song;
 
 import java.io.File;
 import java.io.IOException;
@@ -218,9 +219,7 @@ public class viewMusicPlayer extends View {
 			mp3player = null;
 		}
 
-		currentSongMedia = controller.getSongFile(model.getPlayerModel().getCurrentSong());
-
-		if (currentSongMedia != null) {
+		if (controller.checkSongExist(this.model.getPlayerModel().getCurrentSong().getSong_id())) {
 			if (this.model.getPlayerModel().getCurrentSong() != null) {
 				titleText.setText(this.model.getPlayerModel().getCurrentSong().getSong_name());
 				artistText.setText("by " + this.model.getPlayerModel().getCurrentSong().getArtist_name());
@@ -238,7 +237,8 @@ public class viewMusicPlayer extends View {
 					albumText.setText("Album: None");
 				}
 
-
+				
+				currentSongMedia = controller.getSongFile(model.getPlayerModel().getCurrentSong());
 				mp3player = new MediaPlayer(currentSongMedia);
 				toggleToPlay();
 				setPlayerFunctionality();
