@@ -3,10 +3,12 @@ package view;
 import com.jfoenix.controls.JFXButton;
 import controller.*;
 import javafx.application.Platform;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public abstract class viewDashboard extends View {
@@ -24,6 +26,8 @@ public abstract class viewDashboard extends View {
 	public JFXButton searchBtn;
 	public JFXButton queueBtn;
 	public JFXButton notificationsBtn;
+	@FXML public VBox buttonVbox;
+	@FXML AnchorPane mainPane;
 	protected controllerMusicPlayer musicPlayer;
 	protected PaneController currentPaneController;
 
@@ -47,15 +51,13 @@ public abstract class viewDashboard extends View {
 
 	public void showNotifCue() {
 		Platform.runLater( () -> {
-			ImageView test = new ImageView(new Image("resources/nameLogo.png"));
-			test.setFitHeight(20);
-			test.setFitWidth(100);
-			notificationsBtn.setGraphic(test);
+			notificationsBtn.setStyle("-fx-background-color: #7c0a02");
+			System.out.println("Red!");
 		});
 	}
 
 	public void unshowNotifCue() {
-		notificationsBtn.setGraphic(null);
+		notificationsBtn.setStyle("-fx-background-color: #1c6575");
 	}
 
 }

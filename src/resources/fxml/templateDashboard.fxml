@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="570.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="mainPane" prefHeight="570.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane fx:id="mainBorderPane" prefHeight="570.0" prefWidth="1100.0">
          <left>
             <AnchorPane prefHeight="570.0" prefWidth="178.0" style="-fx-background-color: #1c6575" BorderPane.alignment="CENTER">
                <children>
-                  <VBox layoutY="-1.0" prefHeight="570.0" prefWidth="178.0">
+                  <VBox fx:id="buttonVbox" layoutY="-1.0" prefHeight="570.0" prefWidth="178.0">
                      <children>
                         <Label prefHeight="17.0" prefWidth="84.0" />
                         <ImageView fitHeight="78.0" fitWidth="177.0" pickOnBounds="true" preserveRatio="true">

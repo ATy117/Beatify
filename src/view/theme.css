@@ -116,3 +116,15 @@
     -jfx-rippler-fill: #fab2a5;
 }
 
+.jfx_button_Red{
+    -fx-background-color: red;
+}
+
+.jfx_button_Blue{
+    -fx-background-color: #1c6575;
+}
+
+#notificationsBtn{
+    -fx-background-color: red;
+}
+
