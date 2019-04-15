@@ -26,8 +26,6 @@ public abstract class viewDashboard extends View {
 	public JFXButton searchBtn;
 	public JFXButton queueBtn;
 	public JFXButton notificationsBtn;
-	@FXML public VBox buttonVbox;
-	@FXML AnchorPane mainPane;
 	protected controllerMusicPlayer musicPlayer;
 	protected PaneController currentPaneController;
 
