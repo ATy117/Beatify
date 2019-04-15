@@ -255,6 +255,7 @@ public class viewMusicPlayer extends View {
 		}
 		else {
 			this.model.getPlayerModel().playNextSong();
+			this.model.getPlayerModel().removeDeletedSong();
 		}
 
 

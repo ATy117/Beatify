@@ -34,6 +34,11 @@ public class SongPlayerModel extends Model {
             repeatFinishedSongs();
         }
 
+        if (currentList.isEmpty() && finishedList.isEmpty() && repeating) {
+            Notify();
+            return true;
+        }
+
         if (!currentList.isEmpty()) {
             finishedList.add(currentSong);
             if(!shuffled) {
@@ -160,5 +165,9 @@ public class SongPlayerModel extends Model {
 
     public void setShuffled(boolean shuffled) {
         this.shuffled = shuffled;
+    }
+
+    public void removeDeletedSong() {
+        finishedList.remove(finishedList.get(finishedList.size()-1));
     }
 }
