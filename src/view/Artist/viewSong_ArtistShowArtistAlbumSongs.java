@@ -218,8 +218,8 @@ public class viewSong_ArtistShowArtistAlbumSongs extends View {
             for (int i = 0; i < sortArrayList.size() - 1; i++) {
                 for (int j = 0; j < sortArrayList.size() - i - 1; j++) {
 
-                    Text t1 = (Text) sortArrayList.get(j).getChildren().get(1);
-                    Text t2 = (Text) sortArrayList.get(j + 1).getChildren().get(1);
+                    Text t1 = (Text) sortArrayList.get(j).getChildren().get(2);
+                    Text t2 = (Text) sortArrayList.get(j + 1).getChildren().get(2);
                     String s1 = t1.getText().toLowerCase();
                     String s2 = t2.getText().toLowerCase();
                     if (arrange.compareTo("Ascending") == 0){
@@ -249,8 +249,8 @@ public class viewSong_ArtistShowArtistAlbumSongs extends View {
         for (int i = 0; i < sortArrayList.size() - 1; i++) {
             for (int j = 0; j < sortArrayList.size() - i - 1; j++) {
 
-                Text t1 = (Text) sortArrayList.get(j).getChildren().get(1);
-                Text t2 = (Text) sortArrayList.get(j + 1).getChildren().get(1);
+                Text t1 = (Text) sortArrayList.get(j).getChildren().get(3);
+                Text t2 = (Text) sortArrayList.get(j + 1).getChildren().get(3);
                 int s1 = Integer.parseInt(t1.getText());
                 int s2 = Integer.parseInt(t2.getText());
                 if (arrange.compareTo("Ascending") == 0) {
@@ -278,8 +278,8 @@ public class viewSong_ArtistShowArtistAlbumSongs extends View {
         for (int i = 0; i < sortArrayList.size() - 1; i++) {
             for (int j = 0; j < sortArrayList.size() - i - 1; j++) {
 
-                Text t1 = (Text) sortArrayList.get(j).getChildren().get(2);
-                Text t2 = (Text) sortArrayList.get(j + 1).getChildren().get(2);
+                Text t1 = (Text) sortArrayList.get(j).getChildren().get(4);
+                Text t2 = (Text) sortArrayList.get(j + 1).getChildren().get(4);
                 String s1 = t1.getText().toLowerCase();
                 String s2 = t2.getText().toLowerCase();
                 if (arrange.compareTo("Ascending") == 0) {
