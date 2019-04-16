@@ -94,7 +94,7 @@ public class viewSong_ListenerAllSongs extends View {
         //CREATES SORTING AND ARRANGEMENT //
         sortingCB = new JFXComboBox();
         arrangeCB = new JFXComboBox();
-        String[] categories = new String[]{"Title", "Album", "Year", "Genre", "Date Added"};
+        String[] categories = new String[]{"Title", "Artist","Album", "Year", "Genre", "Date Added"};
         String[] arrangement = new String[]{"Ascending", "Descending"};
 
         sortingCB.setId("comboStyle");
